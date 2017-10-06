@@ -1,0 +1,15 @@
+//
+//  AXB.pch
+//  AiXiangBan
+//
+//  Created by 周春仕 on 2017/10/4.
+//  Copyright © 2017年 周春仕. All rights reserved.
+//
+
+#ifndef AXB_pch
+#define AXB_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* AXB_pch */
