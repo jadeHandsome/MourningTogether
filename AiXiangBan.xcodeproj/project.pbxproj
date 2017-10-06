@@ -7,9 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */; };
+		11937D731F86807500C809C9 /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D721F86807500C809C9 /* UIView+EX.m */; };
+		11937D771F86879200C809C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D751F86879200C809C9 /* RegisterViewController.m */; };
+		11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11937D761F86879200C809C9 /* RegisterViewController.xib */; };
+		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
+		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
+		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
+		11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3EA1F85159D005B3577 /* AppDelegate.m */; };
+		11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D3F21F85159D005B3577 /* Assets.xcassets */; };
+		11C9D3F91F85159D005B3577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3F81F85159D005B3577 /* main.m */; };
 		11C9D4031F85159D005B3577 /* AiXiangBanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4021F85159D005B3577 /* AiXiangBanTests.m */; };
 		11C9D40E1F85159D005B3577 /* AiXiangBanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D40D1F85159D005B3577 /* AiXiangBanUITests.m */; };
-		695B0FFE4DAEBF017F04DCE0 /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4510E2392FE05C464F35E1E7 /* libPods-AiXiangBan.a */; };
+		11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4211F851E24005B3577 /* NetWorkManager.m */; };
+		11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4331F8525CA005B3577 /* BaseViewController.m */; };
+		11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D44D1F852E1F005B3577 /* HomeViewController.m */; };
+		11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D44E1F852E1F005B3577 /* HomeViewController.xib */; };
+		11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4691F853139005B3577 /* BaseNaviViewController.m */; };
+		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,44 +45,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11937D6E1F86800900C809C9 /* CALayer+CircleBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+CircleBoard.h"; sourceTree = "<group>"; };
+		11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
+		11937D711F86807500C809C9 /* UIView+EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
+		11937D721F86807500C809C9 /* UIView+EX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EX.m"; sourceTree = "<group>"; };
+		11937D741F86879200C809C9 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		11937D751F86879200C809C9 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		11937D761F86879200C809C9 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		11AF41FF1F87143400903A85 /* HYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTimerButton.h; sourceTree = "<group>"; };
+		11AF42001F87143400903A85 /* HYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTimerButton.m; sourceTree = "<group>"; };
+		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		11B2532A1F8668D100994575 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		11B2532B1F8668D100994575 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		11C9D3E61F85159D005B3577 /* AiXiangBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiXiangBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11C9D3E91F85159D005B3577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		11C9D3EA1F85159D005B3577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		11C9D3F21F85159D005B3577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11C9D3F71F85159D005B3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11C9D3F81F85159D005B3577 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		11C9D3FE1F85159D005B3577 /* AiXiangBanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiXiangBanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C9D4021F85159D005B3577 /* AiXiangBanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiXiangBanTests.m; sourceTree = "<group>"; };
 		11C9D4041F85159D005B3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11C9D4091F85159D005B3577 /* AiXiangBanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiXiangBanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C9D40D1F85159D005B3577 /* AiXiangBanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiXiangBanUITests.m; sourceTree = "<group>"; };
 		11C9D40F1F85159D005B3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A9A846A1F87859C0003B9E1 /* BaseNaviViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNaviViewController.h; sourceTree = "<group>"; };
-		1A9A846B1F87859C0003B9E1 /* BaseNaviViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNaviViewController.m; sourceTree = "<group>"; };
-		1A9A846C1F87859C0003B9E1 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		1A9A846D1F87859C0003B9E1 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		1A9A846F1F87859C0003B9E1 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		1A9A84701F87859C0003B9E1 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		1A9A84711F87859C0003B9E1 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		1A9A84731F87859C0003B9E1 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		1A9A84741F87859C0003B9E1 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		1A9A84751F87859C0003B9E1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		1A9A84761F87859C0003B9E1 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		1A9A84771F87859C0003B9E1 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		1A9A84781F87859C0003B9E1 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		1A9A847B1F87859C0003B9E1 /* NetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
-		1A9A847C1F87859C0003B9E1 /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
-		1A9A847F1F87859C0003B9E1 /* CALayer+CircleBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+CircleBoard.h"; sourceTree = "<group>"; };
-		1A9A84801F87859C0003B9E1 /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
-		1A9A84811F87859C0003B9E1 /* UIView+EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
-		1A9A84821F87859C0003B9E1 /* UIView+EX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EX.m"; sourceTree = "<group>"; };
-		1A9A84841F87859C0003B9E1 /* HYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTimerButton.h; sourceTree = "<group>"; };
-		1A9A84851F87859C0003B9E1 /* HYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTimerButton.m; sourceTree = "<group>"; };
-		1A9A84871F87859C0003B9E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1A9A84881F87859C0003B9E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1A9A84891F87859C0003B9E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1A9A848A1F87859C0003B9E1 /* AXB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AXB.pch; sourceTree = "<group>"; };
-		1A9A848B1F87859C0003B9E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A9A848C1F87859C0003B9E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1A9A848D1F87859C0003B9E1 /* Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
-		27FBE6F3E6B66A6367AB08DE /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
-		4510E2392FE05C464F35E1E7 /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		636DAAA2A4CE5D9F9EC4FDE9 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
+		11C9D4201F851E24005B3577 /* NetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
+		11C9D4211F851E24005B3577 /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
+		11C9D4231F851F5A005B3577 /* AXB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AXB.pch; sourceTree = "<group>"; };
+		11C9D4241F85232D005B3577 /* Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
+		11C9D4321F8525CA005B3577 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		11C9D4331F8525CA005B3577 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		11C9D44C1F852E1F005B3577 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		11C9D44D1F852E1F005B3577 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		11C9D44E1F852E1F005B3577 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		11C9D4681F853139005B3577 /* BaseNaviViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNaviViewController.h; sourceTree = "<group>"; };
+		11C9D4691F853139005B3577 /* BaseNaviViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNaviViewController.m; sourceTree = "<group>"; };
+		17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
+		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695B0FFE4DAEBF017F04DCE0 /* libPods-AiXiangBan.a in Frameworks */,
+				B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +111,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11AF41FE1F87143400903A85 /* TimerButton */ = {
+			isa = PBXGroup;
+			children = (
+				11AF41FF1F87143400903A85 /* HYTimerButton.h */,
+				11AF42001F87143400903A85 /* HYTimerButton.m */,
+			);
+			path = TimerButton;
+			sourceTree = "<group>";
+		};
+		11B2532E1F867C2700994575 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				11937D6E1F86800900C809C9 /* CALayer+CircleBoard.h */,
+				11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */,
+				11937D711F86807500C809C9 /* UIView+EX.h */,
+				11937D721F86807500C809C9 /* UIView+EX.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		11C9D3DD1F85159D005B3577 = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +138,8 @@
 				11C9D4011F85159D005B3577 /* AiXiangBanTests */,
 				11C9D40C1F85159D005B3577 /* AiXiangBanUITests */,
 				11C9D3E71F85159D005B3577 /* Products */,
-				4A983A104C5F7DEED1FA390E /* Pods */,
-				A0C3F982FDB0B559863ABF61 /* Frameworks */,
+				36B504FA783D063403AF5057 /* Pods */,
+				DFC82970BC5F0D5944C90933 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,11 +156,10 @@
 		11C9D3E81F85159D005B3577 /* AiXiangBan */ = {
 			isa = PBXGroup;
 			children = (
-				1A9A848B1F87859C0003B9E1 /* Info.plist */,
-				1A9A84681F87859C0003B9E1 /* Classes */,
-				1A9A847D1F87859C0003B9E1 /* Resources */,
-				1A9A84861F87859C0003B9E1 /* SupportFiles */,
-				1A9A84791F87859C0003B9E1 /* Tools */,
+				11C9D41E1F851D98005B3577 /* Tools */,
+				11C9D41D1F851D57005B3577 /* Resources */,
+				11C9D41C1F851D27005B3577 /* Classes */,
+				11C9D41B1F851D04005B3577 /* SupportFiles */,
 			);
 			path = AiXiangBan;
 			sourceTree = "<group>";
@@ -148,122 +182,175 @@
 			path = AiXiangBanUITests;
 			sourceTree = "<group>";
 		};
-		1A9A84681F87859C0003B9E1 /* Classes */ = {
+		11C9D41B1F851D04005B3577 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				1A9A84691F87859C0003B9E1 /* BaseViewController */,
-				1A9A846E1F87859C0003B9E1 /* Home */,
-				1A9A84721F87859C0003B9E1 /* Login&&Register */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		1A9A84691F87859C0003B9E1 /* BaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A846A1F87859C0003B9E1 /* BaseNaviViewController.h */,
-				1A9A846B1F87859C0003B9E1 /* BaseNaviViewController.m */,
-				1A9A846C1F87859C0003B9E1 /* BaseViewController.h */,
-				1A9A846D1F87859C0003B9E1 /* BaseViewController.m */,
-			);
-			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		1A9A846E1F87859C0003B9E1 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A846F1F87859C0003B9E1 /* HomeViewController.h */,
-				1A9A84701F87859C0003B9E1 /* HomeViewController.m */,
-				1A9A84711F87859C0003B9E1 /* HomeViewController.xib */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		1A9A84721F87859C0003B9E1 /* Login&&Register */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A84731F87859C0003B9E1 /* LoginViewController.h */,
-				1A9A84741F87859C0003B9E1 /* LoginViewController.m */,
-				1A9A84751F87859C0003B9E1 /* LoginViewController.xib */,
-				1A9A84761F87859C0003B9E1 /* RegisterViewController.h */,
-				1A9A84771F87859C0003B9E1 /* RegisterViewController.m */,
-				1A9A84781F87859C0003B9E1 /* RegisterViewController.xib */,
-			);
-			path = "Login&&Register";
-			sourceTree = "<group>";
-		};
-		1A9A84791F87859C0003B9E1 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A847A1F87859C0003B9E1 /* NetWorkManager */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		1A9A847A1F87859C0003B9E1 /* NetWorkManager */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A847B1F87859C0003B9E1 /* NetWorkManager.h */,
-				1A9A847C1F87859C0003B9E1 /* NetWorkManager.m */,
-			);
-			path = NetWorkManager;
-			sourceTree = "<group>";
-		};
-		1A9A847D1F87859C0003B9E1 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A847E1F87859C0003B9E1 /* Category */,
-				1A9A84831F87859C0003B9E1 /* TimerButton */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		1A9A847E1F87859C0003B9E1 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A847F1F87859C0003B9E1 /* CALayer+CircleBoard.h */,
-				1A9A84801F87859C0003B9E1 /* CALayer+CircleBoard.m */,
-				1A9A84811F87859C0003B9E1 /* UIView+EX.h */,
-				1A9A84821F87859C0003B9E1 /* UIView+EX.m */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		1A9A84831F87859C0003B9E1 /* TimerButton */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A84841F87859C0003B9E1 /* HYTimerButton.h */,
-				1A9A84851F87859C0003B9E1 /* HYTimerButton.m */,
-			);
-			path = TimerButton;
-			sourceTree = "<group>";
-		};
-		1A9A84861F87859C0003B9E1 /* SupportFiles */ = {
-			isa = PBXGroup;
-			children = (
-				1A9A84871F87859C0003B9E1 /* AppDelegate.h */,
-				1A9A84881F87859C0003B9E1 /* AppDelegate.m */,
-				1A9A84891F87859C0003B9E1 /* Assets.xcassets */,
-				1A9A848A1F87859C0003B9E1 /* AXB.pch */,
-				1A9A848C1F87859C0003B9E1 /* main.m */,
-				1A9A848D1F87859C0003B9E1 /* Url.h */,
+				11C9D3E91F85159D005B3577 /* AppDelegate.h */,
+				11C9D3EA1F85159D005B3577 /* AppDelegate.m */,
+				11C9D3F21F85159D005B3577 /* Assets.xcassets */,
+				11C9D3F71F85159D005B3577 /* Info.plist */,
+				11C9D3F81F85159D005B3577 /* main.m */,
+				11C9D4231F851F5A005B3577 /* AXB.pch */,
+				11C9D4241F85232D005B3577 /* Url.h */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
-		4A983A104C5F7DEED1FA390E /* Pods */ = {
+		11C9D41C1F851D27005B3577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				27FBE6F3E6B66A6367AB08DE /* Pods-AiXiangBan.debug.xcconfig */,
-				636DAAA2A4CE5D9F9EC4FDE9 /* Pods-AiXiangBan.release.xcconfig */,
+				11C9D4311F85257E005B3577 /* Robot */,
+				11C9D4301F852574005B3577 /* Location */,
+				11C9D42F1F852538005B3577 /* Help */,
+				11C9D42E1F852524005B3577 /* Call */,
+				11C9D42C1F8524FC005B3577 /* Look */,
+				11C9D42B1F8524E6005B3577 /* TendGroup */,
+				11C9D42A1F8524B5005B3577 /* Alarm */,
+				11C9D4291F852490005B3577 /* AddressBook */,
+				11C9D4281F85247A005B3577 /* My */,
+				11C9D4271F85246B005B3577 /* Home */,
+				11C9D4261F8523BD005B3577 /* Login&&Register */,
+				11C9D4251F8523AA005B3577 /* BaseViewController */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		11C9D41D1F851D57005B3577 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				11AF41FE1F87143400903A85 /* TimerButton */,
+				11B2532E1F867C2700994575 /* Category */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		11C9D41E1F851D98005B3577 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				11C9D41F1F851DE7005B3577 /* NetWorkManager */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		11C9D41F1F851DE7005B3577 /* NetWorkManager */ = {
+			isa = PBXGroup;
+			children = (
+				11C9D4201F851E24005B3577 /* NetWorkManager.h */,
+				11C9D4211F851E24005B3577 /* NetWorkManager.m */,
+			);
+			path = NetWorkManager;
+			sourceTree = "<group>";
+		};
+		11C9D4251F8523AA005B3577 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11C9D4321F8525CA005B3577 /* BaseViewController.h */,
+				11C9D4331F8525CA005B3577 /* BaseViewController.m */,
+				11C9D4681F853139005B3577 /* BaseNaviViewController.h */,
+				11C9D4691F853139005B3577 /* BaseNaviViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		11C9D4261F8523BD005B3577 /* Login&&Register */ = {
+			isa = PBXGroup;
+			children = (
+				11B253291F8668D100994575 /* LoginViewController.h */,
+				11B2532A1F8668D100994575 /* LoginViewController.m */,
+				11B2532B1F8668D100994575 /* LoginViewController.xib */,
+				11937D741F86879200C809C9 /* RegisterViewController.h */,
+				11937D751F86879200C809C9 /* RegisterViewController.m */,
+				11937D761F86879200C809C9 /* RegisterViewController.xib */,
+			);
+			path = "Login&&Register";
+			sourceTree = "<group>";
+		};
+		11C9D4271F85246B005B3577 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				11C9D44C1F852E1F005B3577 /* HomeViewController.h */,
+				11C9D44D1F852E1F005B3577 /* HomeViewController.m */,
+				11C9D44E1F852E1F005B3577 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		11C9D4281F85247A005B3577 /* My */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		11C9D4291F852490005B3577 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		11C9D42A1F8524B5005B3577 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		11C9D42B1F8524E6005B3577 /* TendGroup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TendGroup;
+			sourceTree = "<group>";
+		};
+		11C9D42C1F8524FC005B3577 /* Look */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Look;
+			sourceTree = "<group>";
+		};
+		11C9D42E1F852524005B3577 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		11C9D42F1F852538005B3577 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		11C9D4301F852574005B3577 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		11C9D4311F85257E005B3577 /* Robot */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Robot;
+			sourceTree = "<group>";
+		};
+		36B504FA783D063403AF5057 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */,
+				39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A0C3F982FDB0B559863ABF61 /* Frameworks */ = {
+		DFC82970BC5F0D5944C90933 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4510E2392FE05C464F35E1E7 /* libPods-AiXiangBan.a */,
+				17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,12 +362,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11C9D4121F85159D005B3577 /* Build configuration list for PBXNativeTarget "AiXiangBan" */;
 			buildPhases = (
-				CC26D6DF448CD836B685DA7A /* [CP] Check Pods Manifest.lock */,
+				3EAD855B4B046335309D0AE0 /* [CP] Check Pods Manifest.lock */,
 				11C9D3E21F85159D005B3577 /* Sources */,
 				11C9D3E31F85159D005B3577 /* Frameworks */,
 				11C9D3E41F85159D005B3577 /* Resources */,
-				75D4B6A359684A0B96368BB8 /* [CP] Embed Pods Frameworks */,
-				82E0E1D34AE3DDD567460873 /* [CP] Copy Pods Resources */,
+				1825D5B4BC59CD6405F85FDE /* [CP] Embed Pods Frameworks */,
+				BD8E03E1D3FDAFEB9FEBB404 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -377,6 +464,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
+				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
+				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
+				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +488,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		75D4B6A359684A0B96368BB8 /* [CP] Embed Pods Frameworks */ = {
+		1825D5B4BC59CD6405F85FDE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -412,22 +503,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		82E0E1D34AE3DDD567460873 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC26D6DF448CD836B685DA7A /* [CP] Check Pods Manifest.lock */ = {
+		3EAD855B4B046335309D0AE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -442,6 +518,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		BD8E03E1D3FDAFEB9FEBB404 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -449,6 +540,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
+				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
+				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
+				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
+				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
+				11C9D3F91F85159D005B3577 /* main.m in Sources */,
+				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
+				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
+				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
+				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,
+				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,29 +692,37 @@
 		};
 		11C9D4131F85159D005B3577 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27FBE6F3E6B66A6367AB08DE /* Pods-AiXiangBan.debug.xcconfig */;
+			baseConfigurationReference = CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AiXiangBan/Info.plist;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/AiXiangBan/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZCS.AiXiangBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		11C9D4141F85159D005B3577 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 636DAAA2A4CE5D9F9EC4FDE9 /* Pods-AiXiangBan.release.xcconfig */;
+			baseConfigurationReference = 39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AiXiangBan/Info.plist;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/AiXiangBan/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZCS.AiXiangBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

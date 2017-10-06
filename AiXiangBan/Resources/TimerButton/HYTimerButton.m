@@ -85,9 +85,9 @@
                 [self setTitle:@"获取验证码" forState:UIControlStateNormal];
                 [self setTitle:_title forState: UIControlStateNormal];
                 self.userInteractionEnabled = YES;
-                self.backgroundColor = ColorRgbValue(0x55CAC3);
+                self.backgroundColor = ColorRgbValue(0xFFFFFF);
                 // _timerButton.center = CGPointMake(_timerButton.center.x, _codeTextFiled.center.y);
-                [self setTitleColor:ColorRgbValue(0xFFFFFF) forState:UIControlStateNormal];
+                [self setTitleColor:ThemeColor forState:UIControlStateNormal];
             });
         }else{
 //       int minutes = timeout / 60;
@@ -100,7 +100,7 @@
 //      NSLog(@"____%@",strTime);
                 [self setTitle:[NSString stringWithFormat:@"(%@s)",strTime] forState:UIControlStateNormal];
                 [self setTitleColor:self.countDownTitleColor forState:UIControlStateNormal];
-                self.backgroundColor = COLOR(228, 228, 228, 0.8);
+                self.backgroundColor = ColorRgbValue(0xFFFFFF);
                 self.userInteractionEnabled = NO;
                 
             });

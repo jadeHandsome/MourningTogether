@@ -6,7 +6,7 @@
 //  Copyright © 2017年 周春仕. All rights reserved.
 //
 
-#import "CALayer+CALayer_CircleBoard.h"
+#import "CALayer+CircleBoard.h"
 
 @implementation CALayer (CALayer_CircleBoard)
 - (void)addCircleBoardWithRadius:(CGFloat)radius boardColor:(UIColor *)boardColor boardWidth:(CGFloat)boardWidth{

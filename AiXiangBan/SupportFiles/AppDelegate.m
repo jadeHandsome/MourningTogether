@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import "HomeViewController.h"
+#import "BaseNaviViewController.h"
+#import "LoginViewController.h"
+#import "IQKeyboardManager.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +20,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setIQKeyboardManager];
+    [self judgeFirstView];
+    
+    
+    
     return YES;
+}
+
+//配置键盘管理
+- (void)setIQKeyboardManager{
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:20];
+    
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
+    
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+}
+
+- (void)judgeFirstView{
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    HomeViewController *homeVC = [HomeViewController new];
+    LoginViewController *loginVC = [LoginViewController new];
+    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
+    
+    
 }
 
 

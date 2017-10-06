@@ -10,4 +10,13 @@
 
 @interface NetWorkManager : NSObject
 
+
++ (void)SendGetRequestWithParams:(NSDictionary*)params AndURL:(NSString *)url progress:(void(^)(id downloadProgress))sepProgress success:(void (^)( id responseObject))sepSuccess
+                         failure:(void (^)(NSError *error))sepfailure;
+
++ (void)SendPostRequestWithParams:(NSDictionary*)Params andURL:(NSString *)url progress:(void(^)(id downloadProgress))sepProgress success:(void (^)( id responseObject))sepSuccess
+                          failure:(void (^)(NSError *error))sepfailure;
+
++ (void)statusReachabilityManager;
+
 @end

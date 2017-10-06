@@ -9,6 +9,77 @@
 #ifndef AXB_pch
 #define AXB_pch
 
+#import "Url.h"
+#import "UIView+EX.h"
+#import "CALayer+CircleBoard.h"
+
+
+
+/**
+ 定义输出
+ 
+ */
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif
+
+/**
+ 带RGBA的颜色值
+ */
+#define COLOR(R, G, B, A)  [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+#define ColorRgbValue(rgbValue) [UIColor colorWithRed:((float)((rgbValue &0xFF0000) >>16))/255.0 green:((float)((rgbValue &0xFF00) >>8))/255.0 blue:((float)(rgbValue &0xFF))/255.0 alpha:1.0]
+
+#define ColorRgbAValue(rgbValue,A) [UIColor colorWithRed:((float)((rgbValue &0xFF0000) >>16))/255.0 green:((float)((rgbValue &0xFF00) >>8))/255.0 blue:((float)(rgbValue &0xFF))/255.0 alpha:A]
+
+//主题色
+#define ThemeColor ColorRgbValue(0x1cb7cd)
+
+/**
+ 取值当前控制器名称
+ */
+#define CONTROLLERNAME NSStringFromClass([self class])
+
+
+//屏幕宽高
+#define   SIZEWIDTH  [[UIScreen mainScreen] bounds].size.width  //宽
+#define   SIZEHEIGHT  [[UIScreen mainScreen] bounds].size.height  //高
+
+
+/*
+ 机型判断
+ */
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_PLUS (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+#define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
+
+//图片
+#define IMAGE_NAMED(IMGNAME) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+
+
+
+//版本判断
+//大于等于8.0 小于10.0
+#define IOS8_10 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 10.0)
+//大于等于10.0 小于11.0
+#define IOS10_11 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 11.0)
+//大于等于11.0
+#define IOS_11 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
+
+
+//弱引用
+#define WeakSelf __weak typeof(self) weakSelf = self;
+
+
+
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

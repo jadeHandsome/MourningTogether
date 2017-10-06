@@ -8,14 +8,27 @@
 
 #import "BaseNaviViewController.h"
 
-@interface BaseNaviViewController ()
+@interface BaseNaviViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
 @implementation BaseNaviViewController
 
++ (void)load{
+    UINavigationBar *bar = [UINavigationBar appearance];
+    bar.shadowImage=[UIImage new];
+    [bar setTintColor:[UIColor whiteColor]];
+    [bar setBarTintColor:ColorRgbValue(0x1cb9cf)];
+    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.interactivePopGestureRecognizer.delegate = self;
+    self.interactivePopGestureRecognizer.enabled = YES;
     // Do any additional setup after loading the view.
 }
 
