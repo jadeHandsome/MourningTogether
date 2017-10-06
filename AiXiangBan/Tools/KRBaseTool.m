@@ -488,17 +488,17 @@ singleton_implementation(KRBaseTool)
     [UIColor colorWithPatternImage:image];
     
 }
-#pragma mark——————————————SDWebImage加载图片
-+ (void)sd_setImageWithimageView:(UIImageView *)imageView withImageUrl:(NSString *)imageUrl  withPlaceholderImage:(UIImage *)placeholderImage withCompleted:(SDWebImageCompletionBlock)completedBlock{
-        
-        if([imageUrl isKindOfClass:[NSNull class]])
-        {
-            imageUrl = @"";
-        }
-        
-        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:placeholderImage completed:completedBlock];
-        
-}
+//#pragma mark——————————————SDWebImage加载图片
+//+ (void)sd_setImageWithimageView:(UIImageView *)imageView withImageUrl:(NSString *)imageUrl  withPlaceholderImage:(UIImage *)placeholderImage withCompleted:(SDWebImageCompletionBlock)completedBlock{
+//        
+//        if([imageUrl isKindOfClass:[NSNull class]])
+//        {
+//            imageUrl = @"";
+//        }
+//        
+//        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:placeholderImage completed:completedBlock];
+//        
+//}
 #pragma mark————————————NSDict 转 json
 + (NSString*)DataTOjsonString:(id)object
 {

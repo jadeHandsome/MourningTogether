@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */; };
+		11599C401F87D09B0005D9ED /* CallPushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3F1F87D09B0005D9ED /* CallPushView.m */; };
+		11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C411F87D0C10005D9ED /* CallPushView.xib */; };
+		11599C451F87DD770005D9ED /* pullView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C441F87DD770005D9ED /* pullView.m */; };
+		11599C471F87DE6D0005D9ED /* pullView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C461F87DE6D0005D9ED /* pullView.xib */; };
+		11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */; };
+		11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */; };
 		11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */; };
 		11937D731F86807500C809C9 /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D721F86807500C809C9 /* UIView+EX.m */; };
 		11937D771F86879200C809C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D751F86879200C809C9 /* RegisterViewController.m */; };
@@ -52,6 +59,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11599C391F87CC790005D9ED /* UIView+BorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
+		11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BorderLine.m"; sourceTree = "<group>"; };
+		11599C3E1F87D09B0005D9ED /* CallPushView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallPushView.h; sourceTree = "<group>"; };
+		11599C3F1F87D09B0005D9ED /* CallPushView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallPushView.m; sourceTree = "<group>"; };
+		11599C411F87D0C10005D9ED /* CallPushView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallPushView.xib; sourceTree = "<group>"; };
+		11599C431F87DD770005D9ED /* pullView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pullView.h; sourceTree = "<group>"; };
+		11599C441F87DD770005D9ED /* pullView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pullView.m; sourceTree = "<group>"; };
+		11599C461F87DE6D0005D9ED /* pullView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = pullView.xib; sourceTree = "<group>"; };
+		11599C481F87E8AC0005D9ED /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
+		11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
+		11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		11937D6E1F86800900C809C9 /* CALayer+CircleBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+CircleBoard.h"; sourceTree = "<group>"; };
 		11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
 		11937D711F86807500C809C9 /* UIView+EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
@@ -135,6 +153,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11599C3C1F87D05C0005D9ED /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				11C9D44C1F852E1F005B3577 /* HomeViewController.h */,
+				11C9D44D1F852E1F005B3577 /* HomeViewController.m */,
+				11C9D44E1F852E1F005B3577 /* HomeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		11599C3D1F87D0690005D9ED /* views */ = {
+			isa = PBXGroup;
+			children = (
+				11599C3E1F87D09B0005D9ED /* CallPushView.h */,
+				11599C3F1F87D09B0005D9ED /* CallPushView.m */,
+				11599C411F87D0C10005D9ED /* CallPushView.xib */,
+				11599C431F87DD770005D9ED /* pullView.h */,
+				11599C441F87DD770005D9ED /* pullView.m */,
+				11599C461F87DE6D0005D9ED /* pullView.xib */,
+				11599C481F87E8AC0005D9ED /* HomeCollectionViewCell.h */,
+				11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */,
+				11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		11AF41FE1F87143400903A85 /* TimerButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,9 +345,8 @@
 		11C9D4271F85246B005B3577 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				11C9D44C1F852E1F005B3577 /* HomeViewController.h */,
-				11C9D44D1F852E1F005B3577 /* HomeViewController.m */,
-				11C9D44E1F852E1F005B3577 /* HomeViewController.xib */,
+				11599C3D1F87D0690005D9ED /* views */,
+				11599C3C1F87D05C0005D9ED /* controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -383,6 +426,8 @@
 				1A9A84D81F878F250003B9E1 /* MBProgressHUD.bundle */,
 				1A9A84DB1F878F260003B9E1 /* NSObject+KRExtention.h */,
 				1A9A84DC1F878F260003B9E1 /* NSObject+KRExtention.m */,
+				11599C391F87CC790005D9ED /* UIView+BorderLine.h */,
+				11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -514,8 +559,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
+				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
+				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
+				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +640,7 @@
 				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
 				1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */,
 				1A9A84DE1F878F290003B9E1 /* NSString+CZNSStringExt.m in Sources */,
+				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
@@ -604,7 +653,10 @@
 				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
 				1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */,
+				11599C451F87DD770005D9ED /* pullView.m in Sources */,
 				1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */,
+				11599C401F87D09B0005D9ED /* CallPushView.m in Sources */,
+				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
 				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
 			);
