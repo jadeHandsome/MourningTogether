@@ -76,9 +76,17 @@
 
 //弱引用
 #define WeakSelf __weak typeof(self) weakSelf = self;
+//占位图
+#define _zhanweiImageData [UIImage imageNamed:@"占位图"]
 
 
+#import "LRMacroDefinitionHeader.h"
+#import "NSString+CZNSStringExt.h"
+#import "KRMainNetTool.h"
+#import "MBProgressHUD+KR.h"
 
+#import "MJRefresh.h"
+#import "KRBaseTool.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
