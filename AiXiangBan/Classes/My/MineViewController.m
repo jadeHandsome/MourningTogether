@@ -8,7 +8,9 @@
 
 #import "MineViewController.h"
 #import "MineInfoView.h"
-@interface MineViewController ()
+#import "RepareInfoViewController.h"
+#import "SettingViewController.h"
+@interface MineViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIScrollView *mineScrollView;//信息的scrollView
 @property (nonatomic, strong) NSArray *allData;//所有的个人信息
 @end
@@ -25,7 +27,9 @@
     
 }
 - (void)settingClick {
-    
+    //跳转设置页面
+    SettingViewController *setting = [[SettingViewController alloc]init];
+    [self.navigationController pushViewController:setting animated:YES];
 }
 - (void)setUP {
     self.mineScrollView = [[UIScrollView alloc]init];
@@ -52,6 +56,62 @@
         MineInfoView *infoView = [[MineInfoView alloc]init];
         [infoView setUpWithDic:self.allData[i] withClickHandle:^{
             LRLog(@"点了第%d个",i);
+            RepareInfoViewController *repare = [[RepareInfoViewController alloc]init];
+            
+            switch (i) {
+                case 1:
+                {
+                    repare.title = @"姓名";
+                    [self.navigationController pushViewController:repare animated:YES];
+                }
+                    break;
+                case 2:
+                {
+                    repare.title = @"电话";
+                    [self.navigationController pushViewController:repare animated:YES];
+                }
+                    break;
+                case 4:
+                {
+                    repare.title = @"年龄";
+                    [self.navigationController pushViewController:repare animated:YES];
+                }
+                    break;
+                case 5:
+                {
+                    repare.title = @"体重";
+                    [self.navigationController pushViewController:repare animated:YES];
+                }
+                    break;
+                case 6:
+                {
+                    repare.title = @"身高";
+                    [self.navigationController pushViewController:repare animated:YES];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            if (i == 0) {
+                //修改头像
+                [self repareHeadImage];
+                //[WeakSelf repareHeadImage];
+            } else if (i == 3) {
+                //修改性别
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择性别" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    //选择女的
+                    
+                }];
+                UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    //选择男的
+                }];
+                [alert addAction:action];
+                [alert addAction:action1];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
         }];
         [centerView addSubview:infoView];
         [infoView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,6 +129,52 @@
     }
     
     
+}
+- (void)repareHeadImage {
+    //改头像
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //打开相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+            pickerController.delegate = self;
+            pickerController.allowsEditing = YES;
+            pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:pickerController animated:YES completion:nil];
+        }
+        
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //打开相册
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+        pickerController.delegate = self;
+        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        pickerController.allowsEditing = YES;
+        [self presentViewController:pickerController animated:YES completion:nil];
+        
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel  handler:^(UIAlertAction * _Nonnull action) {
+        //取消
+    }];
+    [controller addAction:action];
+    [controller addAction:action1];
+    [controller addAction:action2];
+    
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
+}
+#pragma -- imagePickerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    
+    //UIImage *newImage = [self thumbnaiWithImage:image size:CGSizeMake(170, 110)];
+    
+    NSData *data = UIImageJPEGRepresentation(image, 1);
+    
+    //self.param[@"imageData"] = [[UIImage alloc]initWithData:data];
+    //[self.imageArray addObject:@{self.upOrDown:data}];
+    //[self.tableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

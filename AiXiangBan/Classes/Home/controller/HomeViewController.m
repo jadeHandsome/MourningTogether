@@ -10,6 +10,7 @@
 #import "CallPushView.h"
 #import "pullView.h"
 #import "HomeCollectionViewCell.h"
+#import "MineViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -117,6 +118,8 @@
 }
 
 - (IBAction)goToMy:(UITapGestureRecognizer *)sender {
+    MineViewController *mine = [[MineViewController alloc]init];
+    [self.navigationController pushViewController:mine animated:YES];
 }
 - (IBAction)goToAddressBook:(UIButton *)sender {
 }

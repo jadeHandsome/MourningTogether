@@ -40,6 +40,8 @@
 		1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84DC1F878F260003B9E1 /* NSObject+KRExtention.m */; };
 		1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84E31F87D8EA0003B9E1 /* MineViewController.m */; };
 		1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84E71F87E6020003B9E1 /* MineInfoView.m */; };
+		1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84EA1F886B2F0003B9E1 /* RepareInfoViewController.m */; };
+		1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84ED1F886FDB0003B9E1 /* SettingViewController.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,10 @@
 		1A9A84E31F87D8EA0003B9E1 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		1A9A84E61F87E6020003B9E1 /* MineInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineInfoView.h; sourceTree = "<group>"; };
 		1A9A84E71F87E6020003B9E1 /* MineInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineInfoView.m; sourceTree = "<group>"; };
+		1A9A84E91F886B2F0003B9E1 /* RepareInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepareInfoViewController.h; sourceTree = "<group>"; };
+		1A9A84EA1F886B2F0003B9E1 /* RepareInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepareInfoViewController.m; sourceTree = "<group>"; };
+		1A9A84EC1F886FDB0003B9E1 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		1A9A84ED1F886FDB0003B9E1 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,6 +369,10 @@
 				1A9A84E51F87E5EA0003B9E1 /* InfoView */,
 				1A9A84E21F87D8EA0003B9E1 /* MineViewController.h */,
 				1A9A84E31F87D8EA0003B9E1 /* MineViewController.m */,
+				1A9A84E91F886B2F0003B9E1 /* RepareInfoViewController.h */,
+				1A9A84EA1F886B2F0003B9E1 /* RepareInfoViewController.m */,
+				1A9A84EC1F886FDB0003B9E1 /* SettingViewController.h */,
+				1A9A84ED1F886FDB0003B9E1 /* SettingViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -661,6 +671,7 @@
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
+				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
@@ -669,6 +680,7 @@
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
 				11C9D3F91F85159D005B3577 /* main.m in Sources */,
+				1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */,
 				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
 				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
