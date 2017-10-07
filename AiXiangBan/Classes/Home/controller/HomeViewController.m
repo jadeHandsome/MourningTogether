@@ -11,6 +11,7 @@
 #import "pullView.h"
 #import "HomeCollectionViewCell.h"
 #import "MineViewController.h"
+#import "RobotViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -161,6 +162,9 @@
 - (IBAction)goToAskHelp:(UITapGestureRecognizer *)sender {
 }
 - (IBAction)goToRobot:(UITapGestureRecognizer *)sender {
+    
+    RobotViewController *robot = [[RobotViewController alloc]init];
+    [self.navigationController pushViewController:robot animated:YES];
 }
 - (IBAction)headTap:(UITapGestureRecognizer *)sender {
     self.hartRateBtn.hidden = !self.hartRateBtn.hidden;

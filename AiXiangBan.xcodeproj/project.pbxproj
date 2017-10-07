@@ -46,6 +46,7 @@
 		1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84F31F8879630003B9E1 /* ReparePwsViewController.m */; };
 		1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A84F61F88A6B90003B9E1 /* ZHLSB.storyboard */; };
 		1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84FA1F88A7950003B9E1 /* RobotViewController.m */; };
+		1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84FD1F88A8200003B9E1 /* RobotView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,8 @@
 		1A9A84F61F88A6B90003B9E1 /* ZHLSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZHLSB.storyboard; sourceTree = "<group>"; };
 		1A9A84F91F88A7950003B9E1 /* RobotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RobotViewController.h; sourceTree = "<group>"; };
 		1A9A84FA1F88A7950003B9E1 /* RobotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotViewController.m; sourceTree = "<group>"; };
+		1A9A84FC1F88A8200003B9E1 /* RobotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RobotView.h; sourceTree = "<group>"; };
+		1A9A84FD1F88A8200003B9E1 /* RobotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotView.m; sourceTree = "<group>"; };
 		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +322,7 @@
 		11C9D41E1F851D98005B3577 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A84FF1F88AD920003B9E1 /* 公用Views */,
 				1A9A84D41F878F0F0003B9E1 /* 分类 */,
 				1A9A84CF1F878E4F0003B9E1 /* KRMainNetTool.h */,
 				1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */,
@@ -490,8 +494,17 @@
 		1A9A84F81F88A77F0003B9E1 /* robViews */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A84FC1F88A8200003B9E1 /* RobotView.h */,
+				1A9A84FD1F88A8200003B9E1 /* RobotView.m */,
 			);
 			path = robViews;
+			sourceTree = "<group>";
+		};
+		1A9A84FF1F88AD920003B9E1 /* 公用Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "公用Views";
 			sourceTree = "<group>";
 		};
 		36B504FA783D063403AF5057 /* Pods */ = {
@@ -707,6 +720,7 @@
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
+				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
