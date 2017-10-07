@@ -12,7 +12,7 @@
 #import "Url.h"
 #import "UIView+EX.h"
 #import "CALayer+CircleBoard.h"
-
+#import "UIView+BorderLine.h"
 
 
 /**
@@ -54,11 +54,11 @@
  机型判断
  */
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_PLUS (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-#define IS_IPHONE_X (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
+#define IS_IPHONE_4 (IS_IPHONE && SIZEHEIGHT < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SIZEHEIGHT == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SIZEHEIGHT == 667.0)
+#define IS_IPHONE_PLUS (IS_IPHONE && SIZEHEIGHT == 736.0)
+#define IS_IPHONE_X (IS_IPHONE && SIZEHEIGHT == 812.0)
 
 //图片
 #define IMAGE_NAMED(IMGNAME) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]

@@ -84,7 +84,7 @@ typedef void (^responseObjectBlock)(id responseObject);
 #pragma mark————————————————————UIImage转UIColor
 + (void)imageToColor:(UIImage *)image;
 #pragma mark——————————————SDWebImage加载图片
-+ (void)sd_setImageWithimageView:(UIImageView *)imageView withImageUrl:(NSString *)imageUrl  withPlaceholderImage:(UIImage *)placeholderImage withCompleted:(SDWebImageCompletionBlock)completedBlock;
+//+ (void)sd_setImageWithimageView:(UIImageView *)imageView withImageUrl:(NSString *)imageUrl  withPlaceholderImage:(UIImage *)placeholderImage withCompleted:(SDWebImageCompletionBlock)completedBlock;
 #pragma mark————————————NSDict 转 json
 + (NSString*)DataTOjsonString:(id)object;
 

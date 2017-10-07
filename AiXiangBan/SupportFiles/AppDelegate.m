@@ -44,10 +44,16 @@
 
 - (void)judgeFirstView{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//<<<<<<< HEAD
 //    HomeViewController *homeVC = [HomeViewController new];
     //LoginViewController *loginVC = [LoginViewController new];
-    MineViewController *mine = [[MineViewController alloc]init];
-    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:mine];
+//    MineViewController *mine = [[MineViewController alloc]init];
+//    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:mine];
+//=======
+    HomeViewController *homeVC = [HomeViewController new];
+//    LoginViewController *loginVC = [LoginViewController new];
+    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:homeVC];
+//>>>>>>> a88b9e27abd2ae38c198c87eba60348617301394
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
     
