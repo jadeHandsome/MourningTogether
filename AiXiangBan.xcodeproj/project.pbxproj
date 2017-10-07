@@ -42,6 +42,8 @@
 		1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84E71F87E6020003B9E1 /* MineInfoView.m */; };
 		1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84EA1F886B2F0003B9E1 /* RepareInfoViewController.m */; };
 		1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84ED1F886FDB0003B9E1 /* SettingViewController.m */; };
+		1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84F01F88771B0003B9E1 /* AboutUsViewController.m */; };
+		1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84F31F8879630003B9E1 /* ReparePwsViewController.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,10 @@
 		1A9A84EA1F886B2F0003B9E1 /* RepareInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepareInfoViewController.m; sourceTree = "<group>"; };
 		1A9A84EC1F886FDB0003B9E1 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		1A9A84ED1F886FDB0003B9E1 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		1A9A84EF1F88771B0003B9E1 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		1A9A84F01F88771B0003B9E1 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		1A9A84F21F8879630003B9E1 /* ReparePwsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReparePwsViewController.h; sourceTree = "<group>"; };
+		1A9A84F31F8879630003B9E1 /* ReparePwsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReparePwsViewController.m; sourceTree = "<group>"; };
 		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +379,10 @@
 				1A9A84EA1F886B2F0003B9E1 /* RepareInfoViewController.m */,
 				1A9A84EC1F886FDB0003B9E1 /* SettingViewController.h */,
 				1A9A84ED1F886FDB0003B9E1 /* SettingViewController.m */,
+				1A9A84EF1F88771B0003B9E1 /* AboutUsViewController.h */,
+				1A9A84F01F88771B0003B9E1 /* AboutUsViewController.m */,
+				1A9A84F21F8879630003B9E1 /* ReparePwsViewController.h */,
+				1A9A84F31F8879630003B9E1 /* ReparePwsViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -677,6 +687,7 @@
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
+				1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */,
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
 				11C9D3F91F85159D005B3577 /* main.m in Sources */,
@@ -691,6 +702,7 @@
 				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
 				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
+				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

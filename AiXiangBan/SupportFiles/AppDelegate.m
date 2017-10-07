@@ -79,7 +79,9 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+   // UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment[(UIOffsetMake(-100, 0), for: .default)
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-[UIScreen mainScreen].bounds.size.width, -[UIScreen mainScreen].bounds.size.height) forBarMetrics:UIBarMetricsDefault];
 }
 
 

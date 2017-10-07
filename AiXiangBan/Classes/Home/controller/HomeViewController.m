@@ -42,10 +42,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
-    [self hideNaviBar];
+    
     [self adjustFrame];
     
     // Do any additional setup after loading the view from its nib.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [self hideNaviBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated{

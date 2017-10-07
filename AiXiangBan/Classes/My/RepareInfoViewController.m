@@ -40,7 +40,7 @@
         make.bottom.equalTo(contentView.mas_bottom);
     }];
     infotext.placeholder = self.title;
-    infotext.textColor = LRRGBColor(200, 200, 200);
+    //infotext.textColor = LRRGBColor(200, 200, 200);
     
 }
 - (void)didReceiveMemoryWarning {
