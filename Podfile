@@ -7,4 +7,5 @@ target ‘AiXiangBan’ do
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'IQKeyboardManager’,’~> 4.0.8’
   pod ’SDWebImage’ 
+  pod ‘Masonry’
 end

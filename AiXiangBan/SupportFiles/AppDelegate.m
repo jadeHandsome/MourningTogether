@@ -11,6 +11,7 @@
 #import "BaseNaviViewController.h"
 #import "LoginViewController.h"
 #import "IQKeyboardManager.h"
+#import "MineViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -44,8 +45,9 @@
 - (void)judgeFirstView{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    HomeViewController *homeVC = [HomeViewController new];
-    LoginViewController *loginVC = [LoginViewController new];
-    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+    //LoginViewController *loginVC = [LoginViewController new];
+    MineViewController *mine = [[MineViewController alloc]init];
+    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:mine];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
     

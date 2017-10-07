@@ -31,6 +31,8 @@
 		1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84D61F878F250003B9E1 /* UITableView+KREmptyData.m */; };
 		1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84DD1F878F260003B9E1 /* MBProgressHUD+KR.m */; };
 		1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84DC1F878F260003B9E1 /* NSObject+KRExtention.m */; };
+		1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84E31F87D8EA0003B9E1 /* MineViewController.m */; };
+		1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84E71F87E6020003B9E1 /* MineInfoView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +107,10 @@
 		1A9A84DB1F878F260003B9E1 /* NSObject+KRExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KRExtention.h"; sourceTree = "<group>"; };
 		1A9A84DC1F878F260003B9E1 /* NSObject+KRExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KRExtention.m"; sourceTree = "<group>"; };
 		1A9A84DD1F878F260003B9E1 /* MBProgressHUD+KR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+KR.m"; sourceTree = "<group>"; };
+		1A9A84E21F87D8EA0003B9E1 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		1A9A84E31F87D8EA0003B9E1 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		1A9A84E61F87E6020003B9E1 /* MineInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineInfoView.h; sourceTree = "<group>"; };
+		1A9A84E71F87E6020003B9E1 /* MineInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineInfoView.m; sourceTree = "<group>"; };
 		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -311,6 +317,9 @@
 		11C9D4281F85247A005B3577 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A84E51F87E5EA0003B9E1 /* InfoView */,
+				1A9A84E21F87D8EA0003B9E1 /* MineViewController.h */,
+				1A9A84E31F87D8EA0003B9E1 /* MineViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -385,6 +394,15 @@
 				1A9A84DC1F878F260003B9E1 /* NSObject+KRExtention.m */,
 			);
 			path = "分类";
+			sourceTree = "<group>";
+		};
+		1A9A84E51F87E5EA0003B9E1 /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A84E61F87E6020003B9E1 /* MineInfoView.h */,
+				1A9A84E71F87E6020003B9E1 /* MineInfoView.m */,
+			);
+			path = InfoView;
 			sourceTree = "<group>";
 		};
 		36B504FA783D063403AF5057 /* Pods */ = {
@@ -595,8 +613,10 @@
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
+				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
+				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
 				11C9D3F91F85159D005B3577 /* main.m in Sources */,
