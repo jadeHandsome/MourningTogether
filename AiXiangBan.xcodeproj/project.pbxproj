@@ -47,6 +47,12 @@
 		1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A84F61F88A6B90003B9E1 /* ZHLSB.storyboard */; };
 		1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84FA1F88A7950003B9E1 /* RobotViewController.m */; };
 		1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84FD1F88A8200003B9E1 /* RobotView.m */; };
+		1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A850B1F88B5CC0003B9E1 /* AddressBookViewController.m */; };
+		1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85021F88B58A0003B9E1 /* TYPagerController.m */; };
+		1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85041F88B58A0003B9E1 /* TYTabButtonPagerController.m */; };
+		1A9A850F1F88B8060003B9E1 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85061F88B58A0003B9E1 /* TYTabPagerController.m */; };
+		1A9A85101F88B8090003B9E1 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85091F88B58A0003B9E1 /* TYTabTitleViewCell.m */; };
+		1A9A85141F88D5B20003B9E1 /* AddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85131F88D5B20003B9E1 /* AddressView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +155,19 @@
 		1A9A84FA1F88A7950003B9E1 /* RobotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotViewController.m; sourceTree = "<group>"; };
 		1A9A84FC1F88A8200003B9E1 /* RobotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RobotView.h; sourceTree = "<group>"; };
 		1A9A84FD1F88A8200003B9E1 /* RobotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotView.m; sourceTree = "<group>"; };
+		1A9A85011F88B58A0003B9E1 /* TYPagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYPagerController.h; sourceTree = "<group>"; };
+		1A9A85021F88B58A0003B9E1 /* TYPagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYPagerController.m; sourceTree = "<group>"; };
+		1A9A85031F88B58A0003B9E1 /* TYTabButtonPagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTabButtonPagerController.h; sourceTree = "<group>"; };
+		1A9A85041F88B58A0003B9E1 /* TYTabButtonPagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTabButtonPagerController.m; sourceTree = "<group>"; };
+		1A9A85051F88B58A0003B9E1 /* TYTabPagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTabPagerController.h; sourceTree = "<group>"; };
+		1A9A85061F88B58A0003B9E1 /* TYTabPagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerController.m; sourceTree = "<group>"; };
+		1A9A85071F88B58A0003B9E1 /* TYTabTitleCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTabTitleCellProtocol.h; sourceTree = "<group>"; };
+		1A9A85081F88B58A0003B9E1 /* TYTabTitleViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYTabTitleViewCell.h; sourceTree = "<group>"; };
+		1A9A85091F88B58A0003B9E1 /* TYTabTitleViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYTabTitleViewCell.m; sourceTree = "<group>"; };
+		1A9A850A1F88B5CC0003B9E1 /* AddressBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookViewController.h; sourceTree = "<group>"; };
+		1A9A850B1F88B5CC0003B9E1 /* AddressBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookViewController.m; sourceTree = "<group>"; };
+		1A9A85121F88D5B20003B9E1 /* AddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressView.h; sourceTree = "<group>"; };
+		1A9A85131F88D5B20003B9E1 /* AddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressView.m; sourceTree = "<group>"; };
 		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -322,6 +341,7 @@
 		11C9D41E1F851D98005B3577 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A85001F88B58A0003B9E1 /* TYPagerController */,
 				1A9A84FF1F88AD920003B9E1 /* 公用Views */,
 				1A9A84D41F878F0F0003B9E1 /* 分类 */,
 				1A9A84CF1F878E4F0003B9E1 /* KRMainNetTool.h */,
@@ -400,6 +420,9 @@
 		11C9D4291F852490005B3577 /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A85111F88D5960003B9E1 /* AddressVew */,
+				1A9A850A1F88B5CC0003B9E1 /* AddressBookViewController.h */,
+				1A9A850B1F88B5CC0003B9E1 /* AddressBookViewController.m */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -505,6 +528,31 @@
 			children = (
 			);
 			path = "公用Views";
+			sourceTree = "<group>";
+		};
+		1A9A85001F88B58A0003B9E1 /* TYPagerController */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A85011F88B58A0003B9E1 /* TYPagerController.h */,
+				1A9A85021F88B58A0003B9E1 /* TYPagerController.m */,
+				1A9A85031F88B58A0003B9E1 /* TYTabButtonPagerController.h */,
+				1A9A85041F88B58A0003B9E1 /* TYTabButtonPagerController.m */,
+				1A9A85051F88B58A0003B9E1 /* TYTabPagerController.h */,
+				1A9A85061F88B58A0003B9E1 /* TYTabPagerController.m */,
+				1A9A85071F88B58A0003B9E1 /* TYTabTitleCellProtocol.h */,
+				1A9A85081F88B58A0003B9E1 /* TYTabTitleViewCell.h */,
+				1A9A85091F88B58A0003B9E1 /* TYTabTitleViewCell.m */,
+			);
+			path = TYPagerController;
+			sourceTree = "<group>";
+		};
+		1A9A85111F88D5960003B9E1 /* AddressVew */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A85121F88D5B20003B9E1 /* AddressView.h */,
+				1A9A85131F88D5B20003B9E1 /* AddressView.m */,
+			);
+			path = AddressVew;
 			sourceTree = "<group>";
 		};
 		36B504FA783D063403AF5057 /* Pods */ = {
@@ -724,16 +772,21 @@
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
+				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
+				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
+				1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */,
 				1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */,
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
 				11C9D3F91F85159D005B3577 /* main.m in Sources */,
+				1A9A850F1F88B8060003B9E1 /* TYTabPagerController.m in Sources */,
 				1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */,
 				1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */,
 				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
 				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
+				1A9A85101F88B8090003B9E1 /* TYTabTitleViewCell.m in Sources */,
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
 				1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */,
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
@@ -741,6 +794,7 @@
 				11599C401F87D09B0005D9ED /* CallPushView.m in Sources */,
 				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
 				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,
+				1A9A85141F88D5B20003B9E1 /* AddressView.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
 				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
 			);

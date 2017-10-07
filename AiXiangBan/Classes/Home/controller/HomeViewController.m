@@ -12,6 +12,7 @@
 #import "HomeCollectionViewCell.h"
 #import "MineViewController.h"
 #import "RobotViewController.h"
+#import "AddressBookViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -126,6 +127,8 @@
     [self.navigationController pushViewController:mine animated:YES];
 }
 - (IBAction)goToAddressBook:(UIButton *)sender {
+    AddressBookViewController *address = [AddressBookViewController new];
+    [self.navigationController pushViewController:address animated:YES];
 }
 - (IBAction)goToAlarm:(UIButton *)sender {
 }
