@@ -14,7 +14,7 @@
 
 #import "RobotViewController.h"
 #import "AddressBookViewController.h"
-
+#import "MyViewController.h"
 #import "HelpViewController.h"
 #import "AskHelpViewController.h"
 
@@ -128,8 +128,8 @@
 }
 
 - (IBAction)goToMy:(UITapGestureRecognizer *)sender {
-    MineViewController *mine = [[MineViewController alloc]init];
-    [self.navigationController pushViewController:mine animated:YES];
+    MyViewController *My = [[MyViewController alloc]init];
+    [self.navigationController pushViewController:My animated:YES];
 }
 - (IBAction)goToAddressBook:(UIButton *)sender {
     AddressBookViewController *address = [AddressBookViewController new];

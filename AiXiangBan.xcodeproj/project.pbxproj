@@ -34,6 +34,13 @@
 		11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5A1F88CF1D004A2BCC /* AskHelpViewController.m */; };
 		11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */; };
 		11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F581F88CF1D004A2BCC /* AskHelpCell.m */; };
+		11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */; };
+		11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F5F1F88CF1E004A2BCC /* HelpViewController.xib */; };
+		11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F5B1F88CF1D004A2BCC /* AskHelpViewController.xib */; };
+		11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F671F88D1B5004A2BCC /* MyViewController.m */; };
+		11E09F6F1F88D610004A2BCC /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F6D1F88D610004A2BCC /* AccountViewController.m */; };
+		11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F6E1F88D610004A2BCC /* AccountViewController.xib */; };
+		11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F721F88E141004A2BCC /* RechargeViewController.m */; };
 		1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */; };
 		1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CC1F878E4F0003B9E1 /* KRUserInfo.m */; };
 		1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84C91F878E380003B9E1 /* KRBaseTool.m */; };
@@ -135,6 +142,13 @@
 		11E09F5D1F88CF1D004A2BCC /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = AiXiangBan/Classes/help/HelpViewController.h; sourceTree = SOURCE_ROOT; };
 		11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelpViewController.m; path = AiXiangBan/Classes/help/HelpViewController.m; sourceTree = SOURCE_ROOT; };
 		11E09F5F1F88CF1E004A2BCC /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpViewController.xib; path = AiXiangBan/Classes/help/HelpViewController.xib; sourceTree = SOURCE_ROOT; };
+		11E09F661F88D1B5004A2BCC /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		11E09F671F88D1B5004A2BCC /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		11E09F6C1F88D610004A2BCC /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		11E09F6D1F88D610004A2BCC /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		11E09F6E1F88D610004A2BCC /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		11E09F711F88E141004A2BCC /* RechargeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeViewController.h; sourceTree = "<group>"; };
+		11E09F721F88E141004A2BCC /* RechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeViewController.m; sourceTree = "<group>"; };
 		17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9A84C91F878E380003B9E1 /* KRBaseTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBaseTool.m; sourceTree = "<group>"; };
 		1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacroDefinitionHeader.h; sourceTree = "<group>"; };
@@ -328,6 +342,7 @@
 		11C9D41C1F851D27005B3577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				11E09F6B1F88D5CD004A2BCC /* Service */,
 				11C9D4311F85257E005B3577 /* Robot */,
 				11C9D4301F852574005B3577 /* Location */,
 				11C9D42F1F852538005B3577 /* Help */,
@@ -428,6 +443,8 @@
 				1A9A84F01F88771B0003B9E1 /* AboutUsViewController.m */,
 				1A9A84F21F8879630003B9E1 /* ReparePwsViewController.h */,
 				1A9A84F31F8879630003B9E1 /* ReparePwsViewController.m */,
+				11E09F661F88D1B5004A2BCC /* MyViewController.h */,
+				11E09F671F88D1B5004A2BCC /* MyViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -511,6 +528,18 @@
 			name = Views;
 			path = AiXiangBan/Classes/help/Views;
 			sourceTree = SOURCE_ROOT;
+		};
+		11E09F6B1F88D5CD004A2BCC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				11E09F6C1F88D610004A2BCC /* AccountViewController.h */,
+				11E09F6D1F88D610004A2BCC /* AccountViewController.m */,
+				11E09F6E1F88D610004A2BCC /* AccountViewController.xib */,
+				11E09F711F88E141004A2BCC /* RechargeViewController.h */,
+				11E09F721F88E141004A2BCC /* RechargeViewController.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
 		};
 		1A9A84D41F878F0F0003B9E1 /* 分类 */ = {
 			isa = PBXGroup;
@@ -715,15 +744,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
-				1A9A85161F88E4690003B9E1 /* HelpViewController.xib in Resources */,
-				1A9A85171F88E46C0003B9E1 /* AskHelpViewController.xib in Resources */,
+				11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */,
+				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
 				1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */,
-				1A9A85151F88E4630003B9E1 /* AskHelpCell.xib in Resources */,
+				11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
+				11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,11 +834,14 @@
 				1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */,
 				1A9A84DE1F878F290003B9E1 /* NSString+CZNSStringExt.m in Sources */,
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
+				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
+				11E09F6F1F88D610004A2BCC /* AccountViewController.m in Sources */,
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
+				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
