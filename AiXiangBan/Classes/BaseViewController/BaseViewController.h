@@ -11,6 +11,7 @@
 @interface BaseViewController : UIViewController
 //隐藏导航栏
 - (void)hideNaviBar;
+- (void)showNaviBar;
 //pop退出
 - (void)popOut;
 //NSUserDefaults存

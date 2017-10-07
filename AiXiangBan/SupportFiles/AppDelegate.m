@@ -11,7 +11,7 @@
 #import "BaseNaviViewController.h"
 #import "LoginViewController.h"
 #import "IQKeyboardManager.h"
-#import "MineViewController.h"
+
 @interface AppDelegate ()
 
 @end

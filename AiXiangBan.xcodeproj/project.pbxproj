@@ -31,6 +31,12 @@
 		11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D44D1F852E1F005B3577 /* HomeViewController.m */; };
 		11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D44E1F852E1F005B3577 /* HomeViewController.xib */; };
 		11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4691F853139005B3577 /* BaseNaviViewController.m */; };
+		11E09F431F88A71C004A2BCC /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F411F88A71C004A2BCC /* HelpViewController.m */; };
+		11E09F441F88A71C004A2BCC /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F421F88A71C004A2BCC /* HelpViewController.xib */; };
+		11E09F4D1F88BD66004A2BCC /* AskHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F4B1F88BD66004A2BCC /* AskHelpViewController.m */; };
+		11E09F4E1F88BD66004A2BCC /* AskHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F4C1F88BD66004A2BCC /* AskHelpViewController.xib */; };
+		11E09F521F88C1AC004A2BCC /* AskHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F511F88C1AC004A2BCC /* AskHelpCell.m */; };
+		11E09F541F88C1BB004A2BCC /* AskHelpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F531F88C1BB004A2BCC /* AskHelpCell.xib */; };
 		1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */; };
 		1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CC1F878E4F0003B9E1 /* KRUserInfo.m */; };
 		1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84C91F878E380003B9E1 /* KRBaseTool.m */; };
@@ -111,6 +117,15 @@
 		11C9D44E1F852E1F005B3577 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		11C9D4681F853139005B3577 /* BaseNaviViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNaviViewController.h; sourceTree = "<group>"; };
 		11C9D4691F853139005B3577 /* BaseNaviViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNaviViewController.m; sourceTree = "<group>"; };
+		11E09F401F88A71C004A2BCC /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		11E09F411F88A71C004A2BCC /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		11E09F421F88A71C004A2BCC /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		11E09F4A1F88BD66004A2BCC /* AskHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskHelpViewController.h; sourceTree = "<group>"; };
+		11E09F4B1F88BD66004A2BCC /* AskHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskHelpViewController.m; sourceTree = "<group>"; };
+		11E09F4C1F88BD66004A2BCC /* AskHelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskHelpViewController.xib; sourceTree = "<group>"; };
+		11E09F501F88C1AC004A2BCC /* AskHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskHelpCell.h; sourceTree = "<group>"; };
+		11E09F511F88C1AC004A2BCC /* AskHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskHelpCell.m; sourceTree = "<group>"; };
+		11E09F531F88C1BB004A2BCC /* AskHelpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskHelpCell.xib; sourceTree = "<group>"; };
 		17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9A84C91F878E380003B9E1 /* KRBaseTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBaseTool.m; sourceTree = "<group>"; };
 		1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacroDefinitionHeader.h; sourceTree = "<group>"; };
@@ -285,13 +300,13 @@
 		11C9D41C1F851D27005B3577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				11E09F551F88CD85004A2BCC /* Alarm */,
+				11E09F3A1F88A5CF004A2BCC /* help */,
 				11C9D4311F85257E005B3577 /* Robot */,
 				11C9D4301F852574005B3577 /* Location */,
-				11C9D42F1F852538005B3577 /* Help */,
 				11C9D42E1F852524005B3577 /* Call */,
 				11C9D42C1F8524FC005B3577 /* Look */,
 				11C9D42B1F8524E6005B3577 /* TendGroup */,
-				11C9D42A1F8524B5005B3577 /* Alarm */,
 				11C9D4291F852490005B3577 /* AddressBook */,
 				11C9D4281F85247A005B3577 /* My */,
 				11C9D4271F85246B005B3577 /* Home */,
@@ -394,13 +409,6 @@
 			path = AddressBook;
 			sourceTree = "<group>";
 		};
-		11C9D42A1F8524B5005B3577 /* Alarm */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Alarm;
-			sourceTree = "<group>";
-		};
 		11C9D42B1F8524E6005B3577 /* TendGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,13 +430,6 @@
 			path = Call;
 			sourceTree = "<group>";
 		};
-		11C9D42F1F852538005B3577 /* Help */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Help;
-			sourceTree = "<group>";
-		};
 		11C9D4301F852574005B3577 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +442,37 @@
 			children = (
 			);
 			path = Robot;
+			sourceTree = "<group>";
+		};
+		11E09F3A1F88A5CF004A2BCC /* help */ = {
+			isa = PBXGroup;
+			children = (
+				11E09F4F1F88C193004A2BCC /* Views */,
+				11E09F401F88A71C004A2BCC /* HelpViewController.h */,
+				11E09F411F88A71C004A2BCC /* HelpViewController.m */,
+				11E09F421F88A71C004A2BCC /* HelpViewController.xib */,
+				11E09F4A1F88BD66004A2BCC /* AskHelpViewController.h */,
+				11E09F4B1F88BD66004A2BCC /* AskHelpViewController.m */,
+				11E09F4C1F88BD66004A2BCC /* AskHelpViewController.xib */,
+			);
+			path = help;
+			sourceTree = "<group>";
+		};
+		11E09F4F1F88C193004A2BCC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11E09F501F88C1AC004A2BCC /* AskHelpCell.h */,
+				11E09F511F88C1AC004A2BCC /* AskHelpCell.m */,
+				11E09F531F88C1BB004A2BCC /* AskHelpCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		11E09F551F88CD85004A2BCC /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		1A9A84D41F878F0F0003B9E1 /* 分类 */ = {
@@ -596,12 +628,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E09F4E1F88BD66004A2BCC /* AskHelpViewController.xib in Resources */,
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
+				11E09F441F88A71C004A2BCC /* HelpViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
+				11E09F541F88C1BB004A2BCC /* AskHelpCell.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +715,7 @@
 				1A9A84DE1F878F290003B9E1 /* NSString+CZNSStringExt.m in Sources */,
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
+				11E09F4D1F88BD66004A2BCC /* AskHelpViewController.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
@@ -699,6 +735,8 @@
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
 				1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */,
 				11599C401F87D09B0005D9ED /* CallPushView.m in Sources */,
+				11E09F521F88C1AC004A2BCC /* AskHelpCell.m in Sources */,
+				11E09F431F88A71C004A2BCC /* HelpViewController.m in Sources */,
 				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
 				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,

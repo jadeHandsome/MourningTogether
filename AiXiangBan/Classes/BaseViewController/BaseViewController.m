@@ -19,15 +19,18 @@
     
     self.view.backgroundColor = ColorRgbValue(0xFFFFFF);
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.hidden = NO;
-    
-    
+
+
     // Do any additional setup after loading the view.
 }
 
 #pragma mark ----- 隐藏导航栏
 - (void)hideNaviBar{
-    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)showNaviBar{
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault]; 
 }
 
 #pragma  mark ----- pop退出
