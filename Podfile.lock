@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (4.0.10)
+  - IQKeyboardManager (4.0.9)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -32,7 +32,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806

@@ -11,8 +11,13 @@
 #import "pullView.h"
 #import "HomeCollectionViewCell.h"
 #import "MineViewController.h"
+
 #import "RobotViewController.h"
 #import "AddressBookViewController.h"
+
+#import "HelpViewController.h"
+#import "AskHelpViewController.h"
+
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -44,13 +49,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
-    
     [self adjustFrame];
     
     // Do any additional setup after loading the view from its nib.
 }
 - (void)viewWillAppear:(BOOL)animated {
     [self hideNaviBar];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -159,14 +164,17 @@
     [window addSubview:view];
 }
 - (IBAction)goToHelp:(UITapGestureRecognizer *)sender {
+    HelpViewController *helpVC = [HelpViewController new];
+    [self.navigationController pushViewController:helpVC animated:YES];
 }
 - (IBAction)goToLocation:(UITapGestureRecognizer *)sender {
 }
 - (IBAction)goToAskHelp:(UITapGestureRecognizer *)sender {
+    AskHelpViewController *AskVC = [[AskHelpViewController alloc]init];
+    [self.navigationController pushViewController:AskVC animated:YES];
 }
 - (IBAction)goToRobot:(UITapGestureRecognizer *)sender {
-    
-    RobotViewController *robot = [[RobotViewController alloc]init];
+    RobotViewController *robot = [RobotViewController new];
     [self.navigationController pushViewController:robot animated:YES];
 }
 - (IBAction)headTap:(UITapGestureRecognizer *)sender {
@@ -176,6 +184,12 @@
 }
 - (IBAction)closeAlarm:(UIButton *)sender {
     self.alarmView.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [self showNaviBar];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {

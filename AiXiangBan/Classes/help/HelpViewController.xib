@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpViewController">
+            <connections>
+                <outlet property="gradientView" destination="llC-65-QzZ" id="ayS-Ev-ACu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llC-65-QzZ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGs-cH-Yg5">
+                    <rect key="frame" x="0.0" y="183.5" width="375" height="300"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIC-41-STD">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                            <subviews>
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEN-c6-v05">
+                                    <rect key="frame" x="105" y="50" width="250" height="75"/>
+                                    <state key="normal" title="养生" backgroundImage="孝相伴-32">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-30" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-Jy-6AA">
+                                    <rect key="frame" x="20" y="-0.5" width="125" height="125"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstItem="Y5N-Jy-6AA" firstAttribute="top" secondItem="uIC-41-STD" secondAttribute="top" id="OE0-iK-Z9m"/>
+                                <constraint firstItem="Y5N-Jy-6AA" firstAttribute="leading" secondItem="uIC-41-STD" secondAttribute="leading" constant="20" id="Sey-1r-Gv1"/>
+                                <constraint firstAttribute="trailing" secondItem="vEN-c6-v05" secondAttribute="trailing" constant="20" id="VW5-M4-5mu"/>
+                                <constraint firstAttribute="bottom" secondItem="Y5N-Jy-6AA" secondAttribute="bottom" id="lpI-oL-0sn"/>
+                                <constraint firstItem="vEN-c6-v05" firstAttribute="height" secondItem="uIC-41-STD" secondAttribute="height" multiplier="0.6" id="pol-u2-bIg"/>
+                                <constraint firstItem="Y5N-Jy-6AA" firstAttribute="width" secondItem="uIC-41-STD" secondAttribute="height" id="uKA-LP-34G"/>
+                                <constraint firstAttribute="bottom" secondItem="vEN-c6-v05" secondAttribute="bottom" id="wo1-nw-db4"/>
+                                <constraint firstItem="vEN-c6-v05" firstAttribute="leading" secondItem="Y5N-Jy-6AA" secondAttribute="trailing" constant="-40" id="wpF-jl-cot"/>
+                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Zht-XA-2vR" appends="YES" id="iIg-Zy-MR5"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzA-uX-YSt">
+                            <rect key="frame" x="0.0" y="175" width="375" height="125"/>
+                            <subviews>
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVm-TI-iZk">
+                                    <rect key="frame" x="105" y="50" width="250" height="75"/>
+                                    <state key="normal" title="医疗" backgroundImage="孝相伴-32">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-31" translatesAutoresizingMaskIntoConstraints="NO" id="AqT-hG-cVK">
+                                    <rect key="frame" x="20" y="-0.5" width="125" height="125"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstItem="AqT-hG-cVK" firstAttribute="width" secondItem="xzA-uX-YSt" secondAttribute="height" id="5t5-Vs-2g1"/>
+                                <constraint firstItem="cVm-TI-iZk" firstAttribute="height" secondItem="xzA-uX-YSt" secondAttribute="height" multiplier="0.6" id="Af3-ox-zFR"/>
+                                <constraint firstItem="cVm-TI-iZk" firstAttribute="leading" secondItem="AqT-hG-cVK" secondAttribute="trailing" constant="-40" id="BTz-fs-eXx"/>
+                                <constraint firstAttribute="trailing" secondItem="cVm-TI-iZk" secondAttribute="trailing" constant="20" id="U9v-51-545"/>
+                                <constraint firstAttribute="bottom" secondItem="AqT-hG-cVK" secondAttribute="bottom" id="YWv-aA-8AQ"/>
+                                <constraint firstAttribute="bottom" secondItem="cVm-TI-iZk" secondAttribute="bottom" id="eMU-F4-P7b"/>
+                                <constraint firstItem="AqT-hG-cVK" firstAttribute="leading" secondItem="xzA-uX-YSt" secondAttribute="leading" constant="20" id="hJW-7O-r3F"/>
+                                <constraint firstItem="AqT-hG-cVK" firstAttribute="top" secondItem="xzA-uX-YSt" secondAttribute="top" id="ihw-5f-hDX"/>
+                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Nqi-uc-XdL" appends="YES" id="aNM-mV-Szj"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="uIC-41-STD" firstAttribute="leading" secondItem="iGs-cH-Yg5" secondAttribute="leading" id="0eg-M4-O85"/>
+                        <constraint firstAttribute="trailing" secondItem="xzA-uX-YSt" secondAttribute="trailing" id="9TP-72-7Vk"/>
+                        <constraint firstAttribute="trailing" secondItem="uIC-41-STD" secondAttribute="trailing" id="Ecn-XC-U14"/>
+                        <constraint firstItem="xzA-uX-YSt" firstAttribute="width" secondItem="uIC-41-STD" secondAttribute="width" id="FNN-Mf-zOg"/>
+                        <constraint firstItem="xzA-uX-YSt" firstAttribute="leading" secondItem="iGs-cH-Yg5" secondAttribute="leading" id="U2t-fJ-2OB"/>
+                        <constraint firstAttribute="bottom" secondItem="xzA-uX-YSt" secondAttribute="bottom" id="j7t-Jb-P5r"/>
+                        <constraint firstItem="xzA-uX-YSt" firstAttribute="height" secondItem="uIC-41-STD" secondAttribute="height" id="syC-lT-Ied"/>
+                        <constraint firstItem="uIC-41-STD" firstAttribute="top" secondItem="iGs-cH-Yg5" secondAttribute="top" id="xBL-7f-VKE"/>
+                        <constraint firstItem="xzA-uX-YSt" firstAttribute="top" secondItem="uIC-41-STD" secondAttribute="bottom" constant="50" id="xFY-Rv-LI1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="llC-65-QzZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Alp-ya-aYX"/>
+                <constraint firstItem="iGs-cH-Yg5" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="JQv-Cg-6Dy"/>
+                <constraint firstItem="iGs-cH-Yg5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZMr-VM-DsC"/>
+                <constraint firstItem="llC-65-QzZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZR7-jV-0EW"/>
+                <constraint firstItem="iGs-cH-Yg5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Zzl-Xm-C03"/>
+                <constraint firstAttribute="trailing" secondItem="iGs-cH-Yg5" secondAttribute="trailing" id="d4q-oj-6rs"/>
+                <constraint firstItem="llC-65-QzZ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="eRd-xP-NYz"/>
+                <constraint firstAttribute="trailing" secondItem="llC-65-QzZ" secondAttribute="trailing" id="i3d-70-OBO"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="73.5"/>
+        </view>
+        <tapGestureRecognizer id="Zht-XA-2vR">
+            <connections>
+                <action selector="yangsheng:" destination="-1" id="NIV-GR-kWT"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Nqi-uc-XdL">
+            <connections>
+                <action selector="yiliao:" destination="-1" id="CcO-FZ-tNV"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="孝相伴-30" width="196" height="198"/>
+        <image name="孝相伴-31" width="196" height="198"/>
+        <image name="孝相伴-32" width="458" height="120"/>
+    </resources>
+</document>
