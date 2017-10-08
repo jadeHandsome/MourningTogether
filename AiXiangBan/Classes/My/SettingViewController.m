@@ -10,6 +10,7 @@
 #import "MineInfoView.h"
 #import "AboutUsViewController.h"
 #import "ReparePwsViewController.h"
+#import "QYSDK.h"
 @interface SettingViewController ()
 @property (nonatomic, strong) NSArray *allData;
 @end
@@ -86,6 +87,8 @@
 }
 - (void)logOUtClick {
     //退出登录
+    //退出登录要掉客服的注销
+//    [[QYSDK sharedSDK] logout:^(){}];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

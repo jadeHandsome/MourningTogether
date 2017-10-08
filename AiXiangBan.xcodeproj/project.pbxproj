@@ -18,6 +18,18 @@
 		11937D731F86807500C809C9 /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D721F86807500C809C9 /* UIView+EX.m */; };
 		11937D771F86879200C809C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D751F86879200C809C9 /* RegisterViewController.m */; };
 		11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11937D761F86879200C809C9 /* RegisterViewController.xib */; };
+		11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A07C1F8A1758009AADC6 /* UIKit.framework */; };
+		11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A07E1F8A1761009AADC6 /* CoreText.framework */; };
+		11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0801F8A176A009AADC6 /* MobileCoreServices.framework */; };
+		11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0821F8A1773009AADC6 /* SystemConfiguration.framework */; };
+		11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0841F8A177C009AADC6 /* AVFoundation.framework */; };
+		11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0861F8A1785009AADC6 /* CoreTelephony.framework */; };
+		11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0881F8A178C009AADC6 /* CoreMedia.framework */; };
+		11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08A1F8A179F009AADC6 /* AudioToolbox.framework */; };
+		11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08C1F8A17AB009AADC6 /* libz.tbd */; };
+		11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */; };
+		11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */; };
+		11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0921F8A17C4009AADC6 /* libxml2.tbd */; };
 		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
 		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
 		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
@@ -114,6 +126,18 @@
 		11937D741F86879200C809C9 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		11937D751F86879200C809C9 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		11937D761F86879200C809C9 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		11A0A07C1F8A1758009AADC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		11A0A07E1F8A1761009AADC6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		11A0A0801F8A176A009AADC6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		11A0A0821F8A1773009AADC6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		11A0A0841F8A177C009AADC6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		11A0A0861F8A1785009AADC6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		11A0A0881F8A178C009AADC6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		11A0A08A1F8A179F009AADC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		11A0A08C1F8A17AB009AADC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		11A0A0921F8A17C4009AADC6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		11AF41FF1F87143400903A85 /* HYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTimerButton.h; sourceTree = "<group>"; };
 		11AF42001F87143400903A85 /* HYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTimerButton.m; sourceTree = "<group>"; };
 		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -235,6 +259,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
+				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
+				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
+				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
+				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
+				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
+				11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */,
+				11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */,
+				11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */,
+				11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */,
+				11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */,
+				11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */,
 				B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +722,18 @@
 		DFC82970BC5F0D5944C90933 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11A0A0921F8A17C4009AADC6 /* libxml2.tbd */,
+				11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */,
+				11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */,
+				11A0A08C1F8A17AB009AADC6 /* libz.tbd */,
+				11A0A08A1F8A179F009AADC6 /* AudioToolbox.framework */,
+				11A0A0881F8A178C009AADC6 /* CoreMedia.framework */,
+				11A0A0861F8A1785009AADC6 /* CoreTelephony.framework */,
+				11A0A0841F8A177C009AADC6 /* AVFoundation.framework */,
+				11A0A0821F8A1773009AADC6 /* SystemConfiguration.framework */,
+				11A0A0801F8A176A009AADC6 /* MobileCoreServices.framework */,
+				11A0A07E1F8A1761009AADC6 /* CoreText.framework */,
+				11A0A07C1F8A1758009AADC6 /* UIKit.framework */,
 				17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */,
 			);
 			name = Frameworks;
@@ -1085,11 +1133,31 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/AiXiangBan/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZCS.AiXiangBan;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManager\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.XiaoXiangBan.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1103,11 +1171,31 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/AiXiangBan/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZCS.AiXiangBan;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManager\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.XiaoXiangBan.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -8,4 +8,5 @@ target ‘AiXiangBan’ do
   pod 'IQKeyboardManager’,’~> 4.0.8’
   pod ’SDWebImage’ 
   pod ‘Masonry’
+  pod 'QIYU_iOS_SDK','~> 3.11.0’
 end

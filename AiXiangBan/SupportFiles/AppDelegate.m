@@ -11,7 +11,8 @@
 #import "BaseNaviViewController.h"
 #import "LoginViewController.h"
 #import "IQKeyboardManager.h"
-
+#import "QYSDK.h"
+#import "QYSessionViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[QYSDK sharedSDK] registerAppId:@"3cbd21513865110d300054b3d9184d13" appName:@"孝相伴"];
     [self setIQKeyboardManager];
     [self judgeFirstView];
     
@@ -40,6 +42,9 @@
     [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    
+    [[IQKeyboardManager sharedManager].disabledDistanceHandlingClasses addObject:[QYSessionViewController class]];
+    
 }
 
 - (void)judgeFirstView{

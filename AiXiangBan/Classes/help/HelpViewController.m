@@ -7,7 +7,9 @@
 //
 
 #import "HelpViewController.h"
-
+#import "QYSource.h"
+#import "QYSessionViewController.h"
+#import "QYSDK.h"
 @interface HelpViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
 
@@ -27,6 +29,11 @@
     [self hideNaviBar];
     [self gradient];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [self showNaviBar];
+}
+
 //渐变
 - (void)gradient{
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
@@ -41,6 +48,14 @@
 - (IBAction)yangsheng:(UITapGestureRecognizer *)sender {
 }
 - (IBAction)yiliao:(UITapGestureRecognizer *)sender {
+    QYSource *source = [[QYSource alloc] init];
+    source.title =  @"七鱼金融";
+    source.urlString = @"https://8.163.com/";
+    QYSessionViewController *sessionViewController = [[QYSDK sharedSDK] sessionViewController];
+    sessionViewController.sessionTitle = @"医疗";
+    sessionViewController.source = source;
+    sessionViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:sessionViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
