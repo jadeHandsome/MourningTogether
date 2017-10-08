@@ -9,6 +9,7 @@
 #import "AddressBookViewController.h"
 #import "TYTabButtonPagerController.h"
 #import "AddressView.h"
+#import "AddAddressViewController.h"
 @interface AddressBookViewController ()<UISearchBarDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSArray *sortArray;
@@ -28,8 +29,26 @@
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     self.dataArray = @[@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"}];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代1-27"] style:UIBarButtonItemStyleDone target:self action:@selector(addClick)];
     [self setUpPage];
     [self setUpScro];
+}
+//添加L联系人
+- (void)addClick {
+    AddAddressViewController *add = [[AddAddressViewController alloc]init];
+    NSInteger type = 1;
+    for (UIView *sub in self.titleView.subviews) {
+        if ([sub isKindOfClass:[UIButton class]]) {
+            UIButton *btn = (UIButton *)sub;
+            if (btn.selected) {
+                type = btn.tag - 99;
+                
+            }
+        }
+    }
+    add.type = type;
+    
+    [self.navigationController pushViewController:add animated:YES];
 }
 - (void)setUpPage {
     UIView *titleView = [[UIView alloc]init];

@@ -63,9 +63,8 @@
 		1A9A850F1F88B8060003B9E1 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85061F88B58A0003B9E1 /* TYTabPagerController.m */; };
 		1A9A85101F88B8090003B9E1 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85091F88B58A0003B9E1 /* TYTabTitleViewCell.m */; };
 		1A9A85141F88D5B20003B9E1 /* AddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A85131F88D5B20003B9E1 /* AddressView.m */; };
-		1A9A85151F88E4630003B9E1 /* AskHelpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */; };
-		1A9A85161F88E4690003B9E1 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F5F1F88CF1E004A2BCC /* HelpViewController.xib */; };
-		1A9A85171F88E46C0003B9E1 /* AskHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F5B1F88CF1D004A2BCC /* AskHelpViewController.xib */; };
+		1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */; };
+		1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F881F89F40700A6AE55 /* AddAddressView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +196,10 @@
 		1A9A850B1F88B5CC0003B9E1 /* AddressBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookViewController.m; sourceTree = "<group>"; };
 		1A9A85121F88D5B20003B9E1 /* AddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressView.h; sourceTree = "<group>"; };
 		1A9A85131F88D5B20003B9E1 /* AddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressView.m; sourceTree = "<group>"; };
+		1AE01F841F89F37B00A6AE55 /* AddAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
+		1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
+		1AE01F871F89F40700A6AE55 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
+		1AE01F881F89F40700A6AE55 /* AddAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressView.m; sourceTree = "<group>"; };
 		39D798FB88F1894B8D065316 /* Pods-AiXiangBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.release.xcconfig"; sourceTree = "<group>"; };
 		CD03534C1B3E5E3666FC42C5 /* Pods-AiXiangBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiXiangBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AiXiangBan/Pods-AiXiangBan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -455,6 +458,8 @@
 				1A9A85111F88D5960003B9E1 /* AddressVew */,
 				1A9A850A1F88B5CC0003B9E1 /* AddressBookViewController.h */,
 				1A9A850B1F88B5CC0003B9E1 /* AddressBookViewController.m */,
+				1AE01F841F89F37B00A6AE55 /* AddAddressViewController.h */,
+				1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -613,6 +618,8 @@
 			children = (
 				1A9A85121F88D5B20003B9E1 /* AddressView.h */,
 				1A9A85131F88D5B20003B9E1 /* AddressView.m */,
+				1AE01F871F89F40700A6AE55 /* AddAddressView.h */,
+				1AE01F881F89F40700A6AE55 /* AddAddressView.m */,
 			);
 			path = AddressVew;
 			sourceTree = "<group>";
@@ -854,7 +861,9 @@
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
 				11C9D3F91F85159D005B3577 /* main.m in Sources */,
 				1A9A850F1F88B8060003B9E1 /* TYTabPagerController.m in Sources */,
+				1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */,
 				1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */,
+				1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */,
 				1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */,
 				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
 				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
