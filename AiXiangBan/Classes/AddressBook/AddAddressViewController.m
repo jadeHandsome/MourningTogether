@@ -8,7 +8,7 @@
 
 #import "AddAddressViewController.h"
 #import "AddAddressView.h"
-@interface AddAddressViewController ()
+@interface AddAddressViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIScrollView *mainScrool;
 @end
 
@@ -59,6 +59,7 @@
     UIView *temp = centerView;
     for (int i = 0; i < typeCount; i ++) {
         AddAddressView *add = [[AddAddressView alloc]init];
+        add.superVc = self;
         [centerView addSubview:add];
         [add mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i ==0) {
@@ -84,6 +85,56 @@
     }];
     imageView.image = [UIImage imageNamed:@"孝相伴-27"];
     LRViewBorderRadius(imageView, 37.5, 0, [UIColor clearColor]);
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+    [tap addTarget:self action:@selector(addImage)];
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:tap];
+}
+- (void)addImage {
+    //改头像
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //打开相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+            pickerController.delegate = self;
+            pickerController.allowsEditing = YES;
+            pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:pickerController animated:YES completion:nil];
+        }
+        
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //打开相册
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+        pickerController.delegate = self;
+        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        pickerController.allowsEditing = YES;
+        [self presentViewController:pickerController animated:YES completion:nil];
+        
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel  handler:^(UIAlertAction * _Nonnull action) {
+        //取消
+    }];
+    [controller addAction:action];
+    [controller addAction:action1];
+    [controller addAction:action2];
+    
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
+}
+#pragma -- imagePickerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    
+    //UIImage *newImage = [self thumbnaiWithImage:image size:CGSizeMake(170, 110)];
+    
+    NSData *data = UIImageJPEGRepresentation(image, 1);
+    
+    //self.param[@"imageData"] = [[UIImage alloc]initWithData:data];
+    //[self.imageArray addObject:@{self.upOrDown:data}];
+    //[self.tableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

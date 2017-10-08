@@ -35,6 +35,10 @@
 	<string>需要麦克风权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>需要照片权限</string>
+
+	<key>NSContactsUsageDescription</key>
+	<string>访问通讯录</string>
+
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
