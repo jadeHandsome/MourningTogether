@@ -55,7 +55,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [self hideNaviBar];
-    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -149,7 +149,13 @@
     view.frame = CGRectMake(SIZEWIDTH - 153, rect.origin.y + rect.size.height + 3, 140, 45);
     [grayView addSubview:view];
     [window addSubview:grayView];
-
+    //动画效果
+    view.center = CGPointMake(SIZEWIDTH - 13 - 42, rect.origin.y + rect.size.height + 3 + 13.5);
+    view.transform = CGAffineTransformMakeScale(0.3, 0.3);
+    [UIView animateWithDuration:0.3 animations:^{
+        view.center = CGPointMake(SIZEWIDTH - 83, rect.origin.y + rect.size.height + 3 + 22.5);
+        view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    }];
 }
 
 - (void)groupGrayViewTap{
@@ -189,7 +195,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     [self showNaviBar];
-    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
