@@ -41,6 +41,16 @@
 		11E09F6F1F88D610004A2BCC /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F6D1F88D610004A2BCC /* AccountViewController.m */; };
 		11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F6E1F88D610004A2BCC /* AccountViewController.xib */; };
 		11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F721F88E141004A2BCC /* RechargeViewController.m */; };
+		11E09F7A1F88E989004A2BCC /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F781F88E989004A2BCC /* RechargeCell.m */; };
+		11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F791F88E989004A2BCC /* RechargeCell.xib */; };
+		11E09F7F1F88F82E004A2BCC /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F7D1F88F82E004A2BCC /* ConfirmViewController.m */; };
+		11E09F801F88F82E004A2BCC /* ConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F7E1F88F82E004A2BCC /* ConfirmViewController.xib */; };
+		11E09F831F88FC29004A2BCC /* RechargeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F821F88FC29004A2BCC /* RechargeRecordController.m */; };
+		11E09F871F890156004A2BCC /* RechargeRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F851F890156004A2BCC /* RechargeRecordCell.m */; };
+		11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F861F890156004A2BCC /* RechargeRecordCell.xib */; };
+		11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F8A1F890440004A2BCC /* BillViewController.m */; };
+		11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F8D1F8904BD004A2BCC /* BillCell.m */; };
+		11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F8E1F8904BD004A2BCC /* BillCell.xib */; };
 		1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */; };
 		1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CC1F878E4F0003B9E1 /* KRUserInfo.m */; };
 		1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84C91F878E380003B9E1 /* KRBaseTool.m */; };
@@ -148,6 +158,22 @@
 		11E09F6E1F88D610004A2BCC /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		11E09F711F88E141004A2BCC /* RechargeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeViewController.h; sourceTree = "<group>"; };
 		11E09F721F88E141004A2BCC /* RechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeViewController.m; sourceTree = "<group>"; };
+		11E09F771F88E989004A2BCC /* RechargeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
+		11E09F781F88E989004A2BCC /* RechargeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
+		11E09F791F88E989004A2BCC /* RechargeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
+		11E09F7C1F88F82E004A2BCC /* ConfirmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmViewController.h; sourceTree = "<group>"; };
+		11E09F7D1F88F82E004A2BCC /* ConfirmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmViewController.m; sourceTree = "<group>"; };
+		11E09F7E1F88F82E004A2BCC /* ConfirmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmViewController.xib; sourceTree = "<group>"; };
+		11E09F811F88FC29004A2BCC /* RechargeRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeRecordController.h; sourceTree = "<group>"; };
+		11E09F821F88FC29004A2BCC /* RechargeRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeRecordController.m; sourceTree = "<group>"; };
+		11E09F841F890156004A2BCC /* RechargeRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeRecordCell.h; sourceTree = "<group>"; };
+		11E09F851F890156004A2BCC /* RechargeRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeRecordCell.m; sourceTree = "<group>"; };
+		11E09F861F890156004A2BCC /* RechargeRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeRecordCell.xib; sourceTree = "<group>"; };
+		11E09F891F890440004A2BCC /* BillViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillViewController.h; sourceTree = "<group>"; };
+		11E09F8A1F890440004A2BCC /* BillViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillViewController.m; sourceTree = "<group>"; };
+		11E09F8C1F8904BD004A2BCC /* BillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillCell.h; sourceTree = "<group>"; };
+		11E09F8D1F8904BD004A2BCC /* BillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillCell.m; sourceTree = "<group>"; };
+		11E09F8E1F8904BD004A2BCC /* BillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell.xib; sourceTree = "<group>"; };
 		17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9A84C91F878E380003B9E1 /* KRBaseTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBaseTool.m; sourceTree = "<group>"; };
 		1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacroDefinitionHeader.h; sourceTree = "<group>"; };
@@ -537,13 +563,37 @@
 		11E09F6B1F88D5CD004A2BCC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				11E09F761F88E95E004A2BCC /* views */,
 				11E09F6C1F88D610004A2BCC /* AccountViewController.h */,
 				11E09F6D1F88D610004A2BCC /* AccountViewController.m */,
 				11E09F6E1F88D610004A2BCC /* AccountViewController.xib */,
 				11E09F711F88E141004A2BCC /* RechargeViewController.h */,
 				11E09F721F88E141004A2BCC /* RechargeViewController.m */,
+				11E09F7C1F88F82E004A2BCC /* ConfirmViewController.h */,
+				11E09F7D1F88F82E004A2BCC /* ConfirmViewController.m */,
+				11E09F7E1F88F82E004A2BCC /* ConfirmViewController.xib */,
+				11E09F811F88FC29004A2BCC /* RechargeRecordController.h */,
+				11E09F821F88FC29004A2BCC /* RechargeRecordController.m */,
+				11E09F891F890440004A2BCC /* BillViewController.h */,
+				11E09F8A1F890440004A2BCC /* BillViewController.m */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		11E09F761F88E95E004A2BCC /* views */ = {
+			isa = PBXGroup;
+			children = (
+				11E09F771F88E989004A2BCC /* RechargeCell.h */,
+				11E09F781F88E989004A2BCC /* RechargeCell.m */,
+				11E09F791F88E989004A2BCC /* RechargeCell.xib */,
+				11E09F841F890156004A2BCC /* RechargeRecordCell.h */,
+				11E09F851F890156004A2BCC /* RechargeRecordCell.m */,
+				11E09F861F890156004A2BCC /* RechargeRecordCell.xib */,
+				11E09F8C1F8904BD004A2BCC /* BillCell.h */,
+				11E09F8D1F8904BD004A2BCC /* BillCell.m */,
+				11E09F8E1F8904BD004A2BCC /* BillCell.xib */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		1A9A84D41F878F0F0003B9E1 /* 分类 */ = {
@@ -750,12 +800,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */,
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
 				11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */,
+				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
 				1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */,
+				11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */,
 				11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */,
+				11E09F801F88F82E004A2BCC /* ConfirmViewController.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
@@ -837,13 +891,16 @@
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */,
+				11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */,
 				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
 				1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */,
+				11E09F7A1F88E989004A2BCC /* RechargeCell.m in Sources */,
 				1A9A84DE1F878F290003B9E1 /* NSString+CZNSStringExt.m in Sources */,
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
 				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
+				11E09F7F1F88F82E004A2BCC /* ConfirmViewController.m in Sources */,
 				11E09F6F1F88D610004A2BCC /* AccountViewController.m in Sources */,
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
@@ -855,6 +912,7 @@
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
 				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
+				11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */,
 				1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */,
 				1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */,
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
@@ -872,6 +930,8 @@
 				1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */,
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
 				1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */,
+				11E09F831F88FC29004A2BCC /* RechargeRecordController.m in Sources */,
+				11E09F871F890156004A2BCC /* RechargeRecordCell.m in Sources */,
 				11599C401F87D09B0005D9ED /* CallPushView.m in Sources */,
 				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
 				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,

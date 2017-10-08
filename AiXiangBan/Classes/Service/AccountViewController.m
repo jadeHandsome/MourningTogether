@@ -7,7 +7,9 @@
 //
 
 #import "AccountViewController.h"
-
+#import "RechargeViewController.h"
+#import "RechargeRecordController.h"
+#import "BillViewController.h"
 @interface AccountViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
 @property (weak, nonatomic) IBOutlet UIView *bottomContainer;
@@ -37,10 +39,16 @@
 
 
 - (IBAction)recharge:(UITapGestureRecognizer *)sender {
+    RechargeViewController *rechargeVC = [RechargeViewController new];
+    [self.navigationController pushViewController:rechargeVC animated:YES];
 }
 - (IBAction)record:(UITapGestureRecognizer *)sender {
+    RechargeRecordController *record = [RechargeRecordController new];
+    [self.navigationController pushViewController:record animated:YES];
 }
 - (IBAction)bill:(UITapGestureRecognizer *)sender {
+    BillViewController *bill = [BillViewController new];
+    [self.navigationController pushViewController:bill animated:YES];
 }
 - (IBAction)service:(UITapGestureRecognizer *)sender {
 }
