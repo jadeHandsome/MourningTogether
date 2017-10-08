@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddAddressView : UIView
+@property (nonatomic, strong) UIViewController *superVc;
 - (void)setUpWithTag:(NSInteger)tag andParam:(NSMutableDictionary *)param andType:(NSInteger)type;
 @end
