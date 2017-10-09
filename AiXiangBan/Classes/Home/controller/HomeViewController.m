@@ -17,7 +17,7 @@
 #import "MyViewController.h"
 #import "HelpViewController.h"
 #import "AskHelpViewController.h"
-
+#import "TendViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -159,7 +159,10 @@
 }
 
 - (void)groupGrayViewTap{
+    
     [self.groupPullView removeFromSuperview];
+    TendViewController *tend = [TendViewController new];
+    [self.navigationController pushViewController:tend animated:YES];
 }
 
 - (IBAction)goToLook:(UITapGestureRecognizer *)sender {
