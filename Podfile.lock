@@ -14,10 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (4.0.9)
+  - IQKeyboardManager (4.0.10)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
+  - QIYU_iOS_SDK (3.7.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -28,16 +29,18 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh (~> 3.1.12)
+  - QIYU_iOS_SDK
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  QIYU_iOS_SDK: 3236bb5982718934639a436544bf34485366b01d
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: d312240373c9bbc5786ed6244ad96031c93d651b
+PODFILE CHECKSUM: 30600b90de2ac63b2a10479cd04c7d7112057aea
 
 COCOAPODS: 1.2.1

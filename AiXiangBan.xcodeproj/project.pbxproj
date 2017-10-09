@@ -18,6 +18,29 @@
 		11937D731F86807500C809C9 /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D721F86807500C809C9 /* UIView+EX.m */; };
 		11937D771F86879200C809C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D751F86879200C809C9 /* RegisterViewController.m */; };
 		11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11937D761F86879200C809C9 /* RegisterViewController.xib */; };
+		11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A07C1F8A1758009AADC6 /* UIKit.framework */; };
+		11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A07E1F8A1761009AADC6 /* CoreText.framework */; };
+		11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0801F8A176A009AADC6 /* MobileCoreServices.framework */; };
+		11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0821F8A1773009AADC6 /* SystemConfiguration.framework */; };
+		11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0841F8A177C009AADC6 /* AVFoundation.framework */; };
+		11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0861F8A1785009AADC6 /* CoreTelephony.framework */; };
+		11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0881F8A178C009AADC6 /* CoreMedia.framework */; };
+		11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08A1F8A179F009AADC6 /* AudioToolbox.framework */; };
+		11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08C1F8A17AB009AADC6 /* libz.tbd */; };
+		11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */; };
+		11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */; };
+		11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0921F8A17C4009AADC6 /* libxml2.tbd */; };
+		11A0A0E81F8B0AAB009AADC6 /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0E71F8B0A83009AADC6 /* LookViewController.m */; };
+		11A0A0E91F8B0AAB009AADC6 /* LookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0E21F8B0A73009AADC6 /* LookCell.m */; };
+		11A0A0EA1F8B0CF2009AADC6 /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */; };
+		11A0A0EB1F8B0CF5009AADC6 /* LookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0E31F8B0A74009AADC6 /* LookCell.xib */; };
+		11A0A0F51F8B24DF009AADC6 /* UIView+XLJExternFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0EE1F8B23C2009AADC6 /* UIView+XLJExternFrame.m */; };
+		11A0A0F61F8B24DF009AADC6 /* XLJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F01F8B23C2009AADC6 /* XLJCollectionViewCell.m */; };
+		11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */; };
+		11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */; };
+		11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */; };
+		11A0A0FD1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */; };
+		11A0A1001F8B50B4009AADC6 /* EZQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */; };
 		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
 		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
 		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
@@ -120,6 +143,37 @@
 		11937D741F86879200C809C9 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		11937D751F86879200C809C9 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		11937D761F86879200C809C9 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		11A0A07C1F8A1758009AADC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		11A0A07E1F8A1761009AADC6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		11A0A0801F8A176A009AADC6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		11A0A0821F8A1773009AADC6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		11A0A0841F8A177C009AADC6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		11A0A0861F8A1785009AADC6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		11A0A0881F8A178C009AADC6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		11A0A08A1F8A179F009AADC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		11A0A08C1F8A17AB009AADC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		11A0A0921F8A17C4009AADC6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		11A0A0E21F8B0A73009AADC6 /* LookCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookCell.m; sourceTree = "<group>"; };
+		11A0A0E31F8B0A74009AADC6 /* LookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCell.xib; sourceTree = "<group>"; };
+		11A0A0E41F8B0A74009AADC6 /* LookCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookCell.h; sourceTree = "<group>"; };
+		11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookViewController.xib; sourceTree = "<group>"; };
+		11A0A0E61F8B0A82009AADC6 /* LookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookViewController.h; sourceTree = "<group>"; };
+		11A0A0E71F8B0A83009AADC6 /* LookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookViewController.m; sourceTree = "<group>"; };
+		11A0A0ED1F8B23C2009AADC6 /* UIView+XLJExternFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XLJExternFrame.h"; sourceTree = "<group>"; };
+		11A0A0EE1F8B23C2009AADC6 /* UIView+XLJExternFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLJExternFrame.m"; sourceTree = "<group>"; };
+		11A0A0EF1F8B23C2009AADC6 /* XLJCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLJCollectionViewCell.h; sourceTree = "<group>"; };
+		11A0A0F01F8B23C2009AADC6 /* XLJCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJCollectionViewCell.m; sourceTree = "<group>"; };
+		11A0A0F11F8B23C2009AADC6 /* XLJExButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLJExButton.h; sourceTree = "<group>"; };
+		11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJExButton.m; sourceTree = "<group>"; };
+		11A0A0F31F8B23C2009AADC6 /* XLJNewFetureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLJNewFetureController.h; sourceTree = "<group>"; };
+		11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJNewFetureController.m; sourceTree = "<group>"; };
+		11A0A0F91F8B4E0B009AADC6 /* AddByQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddByQRCodeViewController.h; sourceTree = "<group>"; };
+		11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddByQRCodeViewController.m; sourceTree = "<group>"; };
+		11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddByQRCodeViewController.xib; sourceTree = "<group>"; };
+		11A0A0FE1F8B50B4009AADC6 /* EZQRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZQRView.h; sourceTree = "<group>"; };
+		11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EZQRView.m; sourceTree = "<group>"; };
 		11AF41FF1F87143400903A85 /* HYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTimerButton.h; sourceTree = "<group>"; };
 		11AF42001F87143400903A85 /* HYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTimerButton.m; sourceTree = "<group>"; };
 		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -253,6 +307,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
+				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
+				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
+				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
+				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
+				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
+				11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */,
+				11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */,
+				11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */,
+				11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */,
+				11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */,
+				11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */,
 				B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +364,47 @@
 				11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		11A0A0E01F8B0A63009AADC6 /* Look */ = {
+			isa = PBXGroup;
+			children = (
+				11A0A0E61F8B0A82009AADC6 /* LookViewController.h */,
+				11A0A0E71F8B0A83009AADC6 /* LookViewController.m */,
+				11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */,
+				11A0A0E11F8B0A6A009AADC6 /* views */,
+				11A0A0F91F8B4E0B009AADC6 /* AddByQRCodeViewController.h */,
+				11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */,
+				11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */,
+			);
+			path = Look;
+			sourceTree = "<group>";
+		};
+		11A0A0E11F8B0A6A009AADC6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				11A0A0FE1F8B50B4009AADC6 /* EZQRView.h */,
+				11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */,
+				11A0A0E41F8B0A74009AADC6 /* LookCell.h */,
+				11A0A0E21F8B0A73009AADC6 /* LookCell.m */,
+				11A0A0E31F8B0A74009AADC6 /* LookCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		11A0A0EC1F8B23C2009AADC6 /* newFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				11A0A0ED1F8B23C2009AADC6 /* UIView+XLJExternFrame.h */,
+				11A0A0EE1F8B23C2009AADC6 /* UIView+XLJExternFrame.m */,
+				11A0A0EF1F8B23C2009AADC6 /* XLJCollectionViewCell.h */,
+				11A0A0F01F8B23C2009AADC6 /* XLJCollectionViewCell.m */,
+				11A0A0F11F8B23C2009AADC6 /* XLJExButton.h */,
+				11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */,
+				11A0A0F31F8B23C2009AADC6 /* XLJNewFetureController.h */,
+				11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */,
+			);
+			path = newFeatures;
 			sourceTree = "<group>";
 		};
 		11AF41FE1F87143400903A85 /* TimerButton */ = {
@@ -389,12 +496,12 @@
 		11C9D41C1F851D27005B3577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				11A0A0E01F8B0A63009AADC6 /* Look */,
 				11E09F6B1F88D5CD004A2BCC /* Service */,
 				11C9D4311F85257E005B3577 /* Robot */,
 				11C9D4301F852574005B3577 /* Location */,
 				11C9D42F1F852538005B3577 /* Help */,
 				11C9D42E1F852524005B3577 /* Call */,
-				11C9D42C1F8524FC005B3577 /* Look */,
 				11C9D42B1F8524E6005B3577 /* TendGroup */,
 				11C9D42A1F8524B5005B3577 /* Alarm */,
 				11C9D4291F852490005B3577 /* AddressBook */,
@@ -409,6 +516,7 @@
 		11C9D41D1F851D57005B3577 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11A0A0EC1F8B23C2009AADC6 /* newFeatures */,
 				11AF41FE1F87143400903A85 /* TimerButton */,
 				11B2532E1F867C2700994575 /* Category */,
 			);
@@ -527,13 +635,6 @@
 				1A676A1C1F8BB115001BD32A /* AddTendViewController.m */,
 			);
 			path = TendGroup;
-			sourceTree = "<group>";
-		};
-		11C9D42C1F8524FC005B3577 /* Look */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Look;
 			sourceTree = "<group>";
 		};
 		11C9D42E1F852524005B3577 /* Call */ = {
@@ -724,6 +825,18 @@
 		DFC82970BC5F0D5944C90933 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11A0A0921F8A17C4009AADC6 /* libxml2.tbd */,
+				11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */,
+				11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */,
+				11A0A08C1F8A17AB009AADC6 /* libz.tbd */,
+				11A0A08A1F8A179F009AADC6 /* AudioToolbox.framework */,
+				11A0A0881F8A178C009AADC6 /* CoreMedia.framework */,
+				11A0A0861F8A1785009AADC6 /* CoreTelephony.framework */,
+				11A0A0841F8A177C009AADC6 /* AVFoundation.framework */,
+				11A0A0821F8A1773009AADC6 /* SystemConfiguration.framework */,
+				11A0A0801F8A176A009AADC6 /* MobileCoreServices.framework */,
+				11A0A07E1F8A1761009AADC6 /* CoreText.framework */,
+				11A0A07C1F8A1758009AADC6 /* UIKit.framework */,
 				17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */,
 			);
 			name = Frameworks;
@@ -844,6 +957,7 @@
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
+				11A0A0EB1F8B0CF5009AADC6 /* LookCell.xib in Resources */,
 				1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */,
 				11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */,
 				11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */,
@@ -851,9 +965,11 @@
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
+				11A0A0FD1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
 				11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
+				11A0A0EA1F8B0CF2009AADC6 /* LookViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,11 +1042,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A0A0F51F8B24DF009AADC6 /* UIView+XLJExternFrame.m in Sources */,
+				11A0A0F61F8B24DF009AADC6 /* XLJCollectionViewCell.m in Sources */,
+				11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */,
+				11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */,
+				11A0A0E81F8B0AAB009AADC6 /* LookViewController.m in Sources */,
+				11A0A0E91F8B0AAB009AADC6 /* LookCell.m in Sources */,
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */,
 				1A676A111F8BA173001BD32A /* TendView.m in Sources */,
 				11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */,
+				11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */,
 				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
 				1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */,
 				11E09F7A1F88E989004A2BCC /* RechargeCell.m in Sources */,
@@ -945,6 +1068,7 @@
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
+				11A0A1001F8B50B4009AADC6 /* EZQRView.m in Sources */,
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
@@ -1129,11 +1253,31 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/AiXiangBan/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZCS.AiXiangBan;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManager\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.XiaoXiangBan.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1147,11 +1291,31 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/AiXiangBan/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZCS.AiXiangBan;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManager\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.XiaoXiangBan.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

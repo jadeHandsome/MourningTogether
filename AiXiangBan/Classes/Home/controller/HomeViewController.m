@@ -18,6 +18,7 @@
 #import "HelpViewController.h"
 #import "AskHelpViewController.h"
 #import "TendViewController.h"
+#import "LookViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -166,6 +167,8 @@
 }
 
 - (IBAction)goToLook:(UITapGestureRecognizer *)sender {
+    LookViewController *lookVC = [LookViewController new];
+    [self.navigationController pushViewController:lookVC animated:YES];
 }
 - (IBAction)goToCall:(UITapGestureRecognizer *)sender {
     CallPushView *view = [[NSBundle mainBundle] loadNibNamed:@"CallPushView" owner:self options:nil].firstObject;
