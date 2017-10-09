@@ -13,6 +13,7 @@
 #import "IQKeyboardManager.h"
 #import "QYSDK.h"
 #import "QYSessionViewController.h"
+#import "XLJNewFetureController.h"
 @interface AppDelegate ()
 
 @end
@@ -48,21 +49,29 @@
 }
 
 - (void)judgeFirstView{
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//<<<<<<< HEAD
-//    HomeViewController *homeVC = [HomeViewController new];
-    //LoginViewController *loginVC = [LoginViewController new];
-//    MineViewController *mine = [[MineViewController alloc]init];
-//    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:mine];
-//=======
+    
+    
+    NSString *isFirst = [[NSUserDefaults standardUserDefaults] objectForKey:@"isFirst"];
     HomeViewController *homeVC = [HomeViewController new];
 //    LoginViewController *loginVC = [LoginViewController new];
     BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:homeVC];
-//>>>>>>> a88b9e27abd2ae38c198c87eba60348617301394
-    self.window.rootViewController = navi;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    if (!isFirst) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"isFirst" forKey:@"NO"];
+        NSArray *arr = @[@"yd1",@"yd2",@"yd3",@"yd4",@"yd5"];
+        if (IS_IPHONE_X) {
+            arr = @[@"yd1_X",@"yd2_X",@"yd3_X",@"yd4_X",@"yd5_X"];
+        }
+        //显示新特性，即引导页
+        NSMutableArray *imageNameArr = arr.mutableCopy;
+        XLJNewFetureController *newFeture = [[XLJNewFetureController alloc]initWithNSArray:imageNameArr withButtonSize:CGSizeMake(125, 35) withButtonTitle:@"立即体验" withButtonImage:@"" withButtonTitleColor:ThemeColor withButtonHeight:0.8 withViewController:navi];
+        self.window.rootViewController = newFeture;
+    }
+    else{
+        self.window.rootViewController = navi;
+        
+    }
     [self.window makeKeyAndVisible];
-    
-    
 }
 
 
