@@ -8,7 +8,7 @@
 
 #import "LookViewController.h"
 #import "LookCell.h"
-
+#import "AddByQRCodeViewController.h"
 
 @interface LookViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
@@ -68,9 +68,10 @@
 - (IBAction)addAction:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"添加新设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+        AddByQRCodeViewController *QRCodeVC = [AddByQRCodeViewController new];
+        [self.navigationController pushViewController:QRCodeVC animated:YES];
     }];
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"添加已有的设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"添加原来已有的设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

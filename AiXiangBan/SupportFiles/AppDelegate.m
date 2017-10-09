@@ -24,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[QYSDK sharedSDK] registerAppId:@"3cbd21513865110d300054b3d9184d13" appName:@"孝相伴"];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setIQKeyboardManager];
     [self judgeFirstView];
     
@@ -57,7 +58,7 @@
     BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:homeVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     if (!isFirst) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"isFirst" forKey:@"NO"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"isFirst"];
         NSArray *arr = @[@"yd1",@"yd2",@"yd3",@"yd4",@"yd5"];
         if (IS_IPHONE_X) {
             arr = @[@"yd1_X",@"yd2_X",@"yd3_X",@"yd4_X",@"yd5_X"];

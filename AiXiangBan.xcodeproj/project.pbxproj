@@ -38,6 +38,9 @@
 		11A0A0F61F8B24DF009AADC6 /* XLJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F01F8B23C2009AADC6 /* XLJCollectionViewCell.m */; };
 		11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */; };
 		11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */; };
+		11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */; };
+		11A0A0FD1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */; };
+		11A0A1001F8B50B4009AADC6 /* EZQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */; };
 		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
 		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
 		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
@@ -160,6 +163,11 @@
 		11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJExButton.m; sourceTree = "<group>"; };
 		11A0A0F31F8B23C2009AADC6 /* XLJNewFetureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLJNewFetureController.h; sourceTree = "<group>"; };
 		11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJNewFetureController.m; sourceTree = "<group>"; };
+		11A0A0F91F8B4E0B009AADC6 /* AddByQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddByQRCodeViewController.h; sourceTree = "<group>"; };
+		11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddByQRCodeViewController.m; sourceTree = "<group>"; };
+		11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddByQRCodeViewController.xib; sourceTree = "<group>"; };
+		11A0A0FE1F8B50B4009AADC6 /* EZQRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZQRView.h; sourceTree = "<group>"; };
+		11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EZQRView.m; sourceTree = "<group>"; };
 		11AF41FF1F87143400903A85 /* HYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTimerButton.h; sourceTree = "<group>"; };
 		11AF42001F87143400903A85 /* HYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTimerButton.m; sourceTree = "<group>"; };
 		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -347,6 +355,9 @@
 				11A0A0E71F8B0A83009AADC6 /* LookViewController.m */,
 				11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */,
 				11A0A0E11F8B0A6A009AADC6 /* views */,
+				11A0A0F91F8B4E0B009AADC6 /* AddByQRCodeViewController.h */,
+				11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */,
+				11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */,
 			);
 			path = Look;
 			sourceTree = "<group>";
@@ -354,6 +365,8 @@
 		11A0A0E11F8B0A6A009AADC6 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				11A0A0FE1F8B50B4009AADC6 /* EZQRView.h */,
+				11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */,
 				11A0A0E41F8B0A74009AADC6 /* LookCell.h */,
 				11A0A0E21F8B0A73009AADC6 /* LookCell.m */,
 				11A0A0E31F8B0A74009AADC6 /* LookCell.xib */,
@@ -914,6 +927,7 @@
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
+				11A0A0FD1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
 				11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
@@ -1000,6 +1014,7 @@
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */,
 				11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */,
+				11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */,
 				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
 				1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */,
 				11E09F7A1F88E989004A2BCC /* RechargeCell.m in Sources */,
@@ -1013,6 +1028,7 @@
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
+				11A0A1001F8B50B4009AADC6 /* EZQRView.m in Sources */,
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
