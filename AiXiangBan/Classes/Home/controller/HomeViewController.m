@@ -17,6 +17,7 @@
 #import "MyViewController.h"
 #import "HelpViewController.h"
 #import "AskHelpViewController.h"
+#import "TendViewController.h"
 #import "LookViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
@@ -159,7 +160,10 @@
 }
 
 - (void)groupGrayViewTap{
+    
     [self.groupPullView removeFromSuperview];
+    TendViewController *tend = [TendViewController new];
+    [self.navigationController pushViewController:tend animated:YES];
 }
 
 - (IBAction)goToLook:(UITapGestureRecognizer *)sender {

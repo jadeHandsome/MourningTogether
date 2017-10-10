@@ -83,6 +83,12 @@
 		11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F8A1F890440004A2BCC /* BillViewController.m */; };
 		11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F8D1F8904BD004A2BCC /* BillCell.m */; };
 		11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F8E1F8904BD004A2BCC /* BillCell.xib */; };
+		1A676A0D1F8B1DBE001BD32A /* TendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A0C1F8B1DBE001BD32A /* TendViewController.m */; };
+		1A676A111F8BA173001BD32A /* TendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A101F8BA173001BD32A /* TendView.m */; };
+		1A676A141F8BA733001BD32A /* AddTendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A131F8BA733001BD32A /* AddTendView.m */; };
+		1A676A171F8BA86F001BD32A /* TendOldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A161F8BA86F001BD32A /* TendOldView.m */; };
+		1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A191F8BAF30001BD32A /* ImageCenterButton.m */; };
+		1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A1C1F8BB115001BD32A /* AddTendViewController.m */; };
 		1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */; };
 		1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CC1F878E4F0003B9E1 /* KRUserInfo.m */; };
 		1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84C91F878E380003B9E1 /* KRBaseTool.m */; };
@@ -252,6 +258,18 @@
 		11E09F8D1F8904BD004A2BCC /* BillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillCell.m; sourceTree = "<group>"; };
 		11E09F8E1F8904BD004A2BCC /* BillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell.xib; sourceTree = "<group>"; };
 		17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A676A0B1F8B1DBE001BD32A /* TendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TendViewController.h; sourceTree = "<group>"; };
+		1A676A0C1F8B1DBE001BD32A /* TendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TendViewController.m; sourceTree = "<group>"; };
+		1A676A0F1F8BA173001BD32A /* TendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TendView.h; sourceTree = "<group>"; };
+		1A676A101F8BA173001BD32A /* TendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TendView.m; sourceTree = "<group>"; };
+		1A676A121F8BA733001BD32A /* AddTendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTendView.h; sourceTree = "<group>"; };
+		1A676A131F8BA733001BD32A /* AddTendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTendView.m; sourceTree = "<group>"; };
+		1A676A151F8BA86F001BD32A /* TendOldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TendOldView.h; sourceTree = "<group>"; };
+		1A676A161F8BA86F001BD32A /* TendOldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TendOldView.m; sourceTree = "<group>"; };
+		1A676A181F8BAF30001BD32A /* ImageCenterButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCenterButton.h; sourceTree = "<group>"; };
+		1A676A191F8BAF30001BD32A /* ImageCenterButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
+		1A676A1B1F8BB115001BD32A /* AddTendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTendViewController.h; sourceTree = "<group>"; };
+		1A676A1C1F8BB115001BD32A /* AddTendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTendViewController.m; sourceTree = "<group>"; };
 		1A9A84C91F878E380003B9E1 /* KRBaseTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBaseTool.m; sourceTree = "<group>"; };
 		1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacroDefinitionHeader.h; sourceTree = "<group>"; };
 		1A9A84CB1F878E390003B9E1 /* KRBaseTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -545,6 +563,8 @@
 		11C9D41E1F851D98005B3577 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A676A181F8BAF30001BD32A /* ImageCenterButton.h */,
+				1A676A191F8BAF30001BD32A /* ImageCenterButton.m */,
 				1A9A85001F88B58A0003B9E1 /* TYPagerController */,
 				1A9A84FF1F88AD920003B9E1 /* 公用Views */,
 				1A9A84D41F878F0F0003B9E1 /* 分类 */,
@@ -645,6 +665,11 @@
 		11C9D42B1F8524E6005B3577 /* TendGroup */ = {
 			isa = PBXGroup;
 			children = (
+				1A676A0E1F8BA159001BD32A /* tendViews */,
+				1A676A0B1F8B1DBE001BD32A /* TendViewController.h */,
+				1A676A0C1F8B1DBE001BD32A /* TendViewController.m */,
+				1A676A1B1F8BB115001BD32A /* AddTendViewController.h */,
+				1A676A1C1F8BB115001BD32A /* AddTendViewController.m */,
 			);
 			path = TendGroup;
 			sourceTree = "<group>";
@@ -732,6 +757,19 @@
 				11E09F8E1F8904BD004A2BCC /* BillCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		1A676A0E1F8BA159001BD32A /* tendViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A676A0F1F8BA173001BD32A /* TendView.h */,
+				1A676A101F8BA173001BD32A /* TendView.m */,
+				1A676A121F8BA733001BD32A /* AddTendView.h */,
+				1A676A131F8BA733001BD32A /* AddTendView.m */,
+				1A676A151F8BA86F001BD32A /* TendOldView.h */,
+				1A676A161F8BA86F001BD32A /* TendOldView.m */,
+			);
+			path = tendViews;
 			sourceTree = "<group>";
 		};
 		1A9A84D41F878F0F0003B9E1 /* 分类 */ = {
@@ -1056,6 +1094,7 @@
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */,
+				1A676A111F8BA173001BD32A /* TendView.m in Sources */,
 				11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */,
 				11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */,
 				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
@@ -1066,6 +1105,7 @@
 				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
+				1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */,
 				11E09F7F1F88F82E004A2BCC /* ConfirmViewController.m in Sources */,
 				11E09F6F1F88D610004A2BCC /* AccountViewController.m in Sources */,
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
@@ -1075,6 +1115,7 @@
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
+				1A676A141F8BA733001BD32A /* AddTendView.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
 				11A0A1031F8B87E8009AADC6 /* AddbyViewController.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
@@ -1094,7 +1135,9 @@
 				1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */,
 				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
 				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
+				1A676A0D1F8B1DBE001BD32A /* TendViewController.m in Sources */,
 				1A9A85101F88B8090003B9E1 /* TYTabTitleViewCell.m in Sources */,
+				1A676A171F8BA86F001BD32A /* TendOldView.m in Sources */,
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
 				1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */,
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
@@ -1108,6 +1151,7 @@
 				1A9A85141F88D5B20003B9E1 /* AddressView.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
 				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
+				1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
