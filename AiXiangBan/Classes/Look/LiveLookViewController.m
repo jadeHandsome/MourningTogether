@@ -11,7 +11,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet UIView *playerView;
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
 @property (weak, nonatomic) IBOutlet UIView *functionView;
@@ -27,7 +27,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *PTZImageView;
 @property (weak, nonatomic) IBOutlet UILabel *PTZLabel;
 @property (nonatomic, strong) UIButton *preBtn;
+@property (nonatomic, assign) CGFloat screenHeight;
+@property (nonatomic, assign) CGFloat naviHeight;
 @end
+
+
 
 @implementation LiveLookViewController
 
@@ -47,15 +51,18 @@
 }
 
 - (void)setUp{
+    self.screenHeight = SIZEHEIGHT;
+    self.naviHeight = navHight;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"云医时代-69"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction)];
     self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(5, 10, -5,-10);
     self.topConstraint.constant = navHight + 10;
+    self.bottomConstraint.constant = SIZEHEIGHT - navHight - 10 - 220;
     LRViewBorderRadius(self.vioceView, 11.5, 0, [UIColor clearColor]);
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.playerView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.playerView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.playerView.layer.mask = maskLayer;
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.playerView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    maskLayer.frame = self.playerView.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    self.playerView.layer.mask = maskLayer;
     self.preBtn = self.PTZBtn1;
     self.PTZCenterItem.hidden = YES;
 }
@@ -79,11 +86,9 @@
 }
 - (IBAction)enterFullScreen:(UIButton *)sender {
     if(self.isFull){
-        self.isFull = NO;
         [self setDecivePortrait];
     }
     else{
-        self.isFull = YES;
         NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
         [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
     }
@@ -197,21 +202,23 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                                 duration:(NSTimeInterval)duration
 {
+    self.isFull = NO;
     self.navigationController.navigationBar.hidden = NO;
-    self.topConstraint.constant = navHight + 10;
+    self.topConstraint.constant = self.naviHeight + 10;
     self.leftConstraint.constant = 10;
     self.rightConstraint.constant = 10;
-    self.heightConstraint.constant = 220;
+    self.bottomConstraint.constant = self.screenHeight - self.naviHeight - 10 - 220;;
     self.functionView.hidden = NO;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
+        self.isFull = YES;
         self.navigationController.navigationBar.hidden = YES;
         self.topConstraint.constant = 10;
         self.leftConstraint.constant = 10;
         self.rightConstraint.constant = 10;
-        self.heightConstraint.constant = SIZEHEIGHT - 10;
+        self.bottomConstraint.constant = 45;
         self.functionView.hidden = YES;
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }

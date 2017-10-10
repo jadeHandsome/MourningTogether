@@ -19,10 +19,10 @@
                 <outlet property="PTZImageView" destination="vUU-Bb-ZD5" id="2aD-GY-ygP"/>
                 <outlet property="PTZLabel" destination="Vkg-ja-1BQ" id="J3A-js-nhg"/>
                 <outlet property="PTZView" destination="McG-BM-ed5" id="fdf-tb-MQX"/>
+                <outlet property="bottomConstraint" destination="W5V-AO-ylj" id="Ktt-sm-86v"/>
                 <outlet property="bottomVoiceView" destination="wUS-hO-9E7" id="ixF-aB-ZLn"/>
                 <outlet property="buttonsView" destination="mLR-1m-8A8" id="1Zl-pc-uyN"/>
                 <outlet property="functionView" destination="cdX-Ek-eOy" id="o2w-Up-Fj9"/>
-                <outlet property="heightConstraint" destination="7Ln-vW-aJd" id="Byc-Bq-bXc"/>
                 <outlet property="leftConstraint" destination="Eyj-i5-0ad" id="M0X-K7-CmE"/>
                 <outlet property="playerView" destination="1ON-O2-XOc" id="YfD-v0-zRV"/>
                 <outlet property="qualityBtn" destination="VGJ-KR-0uW" id="EJG-3q-LuQ"/>
@@ -79,7 +79,6 @@
                     </subviews>
                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="220" id="7Ln-vW-aJd"/>
                         <constraint firstAttribute="bottom" secondItem="J5O-hL-beO" secondAttribute="bottom" constant="10" id="huA-9X-ffP"/>
                         <constraint firstAttribute="trailing" secondItem="J5O-hL-beO" secondAttribute="trailing" constant="10" id="jCA-w6-8lC"/>
                         <constraint firstAttribute="bottom" secondItem="Qgq-X0-i91" secondAttribute="bottom" constant="10" id="ugx-fI-7No"/>
@@ -723,6 +722,7 @@
                 <constraint firstAttribute="trailing" secondItem="McG-BM-ed5" secondAttribute="trailing" constant="10" id="TWx-PP-LOI"/>
                 <constraint firstItem="cdX-Ek-eOy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="TbC-ZZ-Zlo"/>
                 <constraint firstItem="1ON-O2-XOc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="U7w-Hj-BvJ"/>
+                <constraint firstAttribute="bottom" secondItem="1ON-O2-XOc" secondAttribute="bottom" constant="373" id="W5V-AO-ylj"/>
                 <constraint firstItem="mLR-1m-8A8" firstAttribute="top" secondItem="QKg-3h-l6t" secondAttribute="bottom" id="b0i-pf-i1l"/>
                 <constraint firstItem="wUS-hO-9E7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="byn-Lw-qL2"/>
                 <constraint firstItem="cdX-Ek-eOy" firstAttribute="top" secondItem="mLR-1m-8A8" secondAttribute="bottom" id="cKY-Ed-Acz"/>
