@@ -7,6 +7,7 @@
 //
 
 #import "LiveLookViewController.h"
+#import "AppDelegate.h"
 @interface LiveLookViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
@@ -45,9 +46,17 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.isFull = YES;
     [self addCornerRadius:self.functionView];
     [self addCornerRadius:self.bottomVoiceView];
     [self addCornerRadius:self.PTZView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.isFull = NO;
 }
 
 - (void)setUp{
