@@ -9,7 +9,8 @@
 #import "LookViewController.h"
 #import "LookCell.h"
 #import "AddByQRCodeViewController.h"
-
+#import "DeleteDeviceViewController.h"
+#import "LiveLookViewController.h"
 @interface LookViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -23,7 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"看看";
-    self.data = @[];
+    self.view.backgroundColor = COLOR(242, 242, 242, 1);
+    self.data = @[@{@"title":@"C6(12345678)",@"imageUrl":@""}];
     [self setUp];
     // Do any additional setup after loading the view from its nib.
 }
@@ -61,10 +63,18 @@
     }
     cell.titleLabel.text = self.data[indexPath.row][@"title"];
     cell.block = ^(){
-        
+        DeleteDeviceViewController *deleteVC = [DeleteDeviceViewController new];
+        [self.navigationController pushViewController:deleteVC animated:YES];
     };
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LiveLookViewController *LiveVC = [LiveLookViewController new];
+    [self.navigationController pushViewController:LiveVC animated:YES];
+}
+
 - (IBAction)addAction:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"添加新设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
