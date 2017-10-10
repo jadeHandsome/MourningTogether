@@ -34,23 +34,27 @@ singleton_interface(KRUserInfo)
 //"forbid":"0",//是否禁用 1禁用 0未禁用
 //"useable_score":"3000", //可抵用积分
 //"u_type": "2" //1普通用户 2 VIP用户 3门店用户
-@property (nonatomic, strong) NSString *u_id;
-@property (nonatomic, strong) NSString *u_name;
-@property (nonatomic, strong) NSString *u_password;
-@property (nonatomic, strong) NSDictionary *u_portrait;
-@property (nonatomic, strong) NSString *u_tel;
-@property (nonatomic, strong) NSString *u_realname;
-@property (nonatomic, strong) NSString *u_qq;
-@property (nonatomic, strong) NSString *u_email;
-@property (nonatomic, strong) NSString *u_sina;
-@property (nonatomic, strong) NSString *u_created;
+@property (nonatomic, strong) NSString *headImgUrl;
+@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *memberId;
+@property (nonatomic, strong) NSString *memberName;
+@property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *sex;
-@property (nonatomic, strong) NSString *birthday;
-@property (nonatomic, strong) NSString *pay_pwd;
-@property (nonatomic, strong) NSString *balance;
-@property (nonatomic, strong) NSString *u_score;
-@property (nonatomic, strong) NSString *forbid;
-@property (nonatomic, strong) NSString *useable_score;
-@property (nonatomic, strong) NSString *u_type;
+@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString *weight;
+@property (nonatomic, strong) NSString *height;
+//@property (nonatomic, strong) NSString *u_realname;
+//@property (nonatomic, strong) NSString *u_qq;
+//@property (nonatomic, strong) NSString *u_email;
+//@property (nonatomic, strong) NSString *u_sina;
+//@property (nonatomic, strong) NSString *u_created;
+//@property (nonatomic, strong) NSString *sex;
+//@property (nonatomic, strong) NSString *birthday;
+//@property (nonatomic, strong) NSString *pay_pwd;
+//@property (nonatomic, strong) NSString *balance;
+//@property (nonatomic, strong) NSString *u_score;
+//@property (nonatomic, strong) NSString *forbid;
+//@property (nonatomic, strong) NSString *useable_score;
+//@property (nonatomic, strong) NSString *u_type;
 
 @end

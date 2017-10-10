@@ -11,6 +11,8 @@
 #import "AboutUsViewController.h"
 #import "ReparePwsViewController.h"
 #import "QYSDK.h"
+#import "LoginViewController.h"
+#import "BaseNaviViewController.h"
 @interface SettingViewController ()
 @property (nonatomic, strong) NSArray *allData;
 @end
@@ -21,7 +23,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"设置";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    self.allData = @[@{@"isImage":@"0",@"title":@"关于我们",@"right":@"",@"leftFont":@"17"},@{@"isImage":@"0",@"title":@"服务协议",@"right":@"",@"leftFont":@"17"},@{@"isImage":@"0",@"title":@"当前版本",@"right":@"D当前已是最新版本",@"leftFont":@"17",@"noRight":@"1"},@{@"isImage":@"0",@"title":@"修改密码",@"right":@"",@"leftFont":@"17"}];
+    self.allData = @[@{@"isImage":@"0",@"title":@"关于我们",@"right":@"",@"leftFont":@"17"},@{@"isImage":@"0",@"title":@"服务协议",@"right":@"",@"leftFont":@"17"},@{@"isImage":@"0",@"title":@"当前版本",@"right":@"当前已是最新版本",@"leftFont":@"17",@"noRight":@"1"},@{@"isImage":@"0",@"title":@"修改密码",@"right":@"",@"leftFont":@"17"}];
     [self setUp];
 }
 - (void)setUp {
@@ -89,6 +91,15 @@
     //退出登录
     //退出登录要掉客服的注销
 //    [[QYSDK sharedSDK] logout:^(){}];
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/login/doLogout.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        [KRUserInfo sharedKRUserInfo].token = nil;
+        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
+        LoginViewController *loginVC = [LoginViewController new];
+        self.view.window.rootViewController = [[BaseNaviViewController alloc]initWithRootViewController:loginVC];
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

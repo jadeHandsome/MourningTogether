@@ -9,7 +9,8 @@
 #import "ReparePwsViewController.h"
 
 @interface ReparePwsViewController ()
-
+@property (nonatomic, strong) UITextField *pwdTextField;
+@property (nonatomic, strong) UITextField *repeatPwdTextField;
 @end
 
 @implementation ReparePwsViewController
@@ -52,6 +53,11 @@
         contentView.backgroundColor = [UIColor whiteColor];
         
         UITextField *infotext = [[UITextField alloc]init];
+        if (i == 0) {
+            self.pwdTextField = infotext;
+        } else {
+            self.repeatPwdTextField = infotext;
+        }
         [contentView addSubview:infotext];
         [infotext mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(contentView.mas_left).with.offset(10);
@@ -97,6 +103,25 @@
 }
 - (void)commitClick {
     //提交修改
+    if ([self cheakPwd:self.repeatPwdTextField.text]) {
+        if ([self.pwdTextField.text isEqualToString:self.repeatPwdTextField.text]) {
+            [self showHUDWithText:@"相同密码不需要修改"];
+        } else {
+            //修改密码
+            NSString *oldPwd = [KRBaseTool md5:self.pwdTextField.text];
+            NSString *newPwd = [KRBaseTool md5:self.repeatPwdTextField.text];
+            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/memberInfo/changePassword.do" params:@{@"password":oldPwd,@"newPassword":newPwd} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                if (showdata == nil) {
+                    return ;
+                }
+                [self showHUDWithText:@"修改成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            
+        }
+    } else {
+        [self showHUDWithText:@"密码格式输入不正确"];
+    }
 }
     
 - (void)didReceiveMemoryWarning {

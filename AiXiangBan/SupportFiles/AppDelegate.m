@@ -54,8 +54,21 @@
     
     NSString *isFirst = [[NSUserDefaults standardUserDefaults] objectForKey:@"isFirst"];
     HomeViewController *homeVC = [HomeViewController new];
-//    LoginViewController *loginVC = [LoginViewController new];
-    BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:homeVC];
+    LoginViewController *loginVC = [LoginViewController new];
+    BaseNaviViewController *navi = nil;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] integerValue]) {
+            [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"]];
+            navi = [[BaseNaviViewController alloc] initWithRootViewController:homeVC];
+        } else {
+            navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+        }
+        
+    } else {
+        navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
+    }
+    
+    //BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:loginVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     if (!isFirst) {
         [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"isFirst"];

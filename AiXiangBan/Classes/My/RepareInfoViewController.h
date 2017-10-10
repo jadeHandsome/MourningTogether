@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void(^SURE_CLICK)(NSString *repareStr);
 @interface RepareInfoViewController : BaseViewController
-
+@property (nonatomic, strong) SURE_CLICK block;
 @end
