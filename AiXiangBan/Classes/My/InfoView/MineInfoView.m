@@ -70,7 +70,7 @@
         }];
         rightLabel.textColor = [UIColor blackColor];
         rightLabel.font = [UIFont systemFontOfSize:15];
-        rightLabel.text = dic[@"right"];
+        rightLabel.text = [NSString stringWithFormat:@"%@",dic[@"right"]];
         if (dic[@"noRight"]) {
             rightLabel.textColor = LRRGBColor(31, 174, 198);
             rightLabel.font = [UIFont systemFontOfSize:16];

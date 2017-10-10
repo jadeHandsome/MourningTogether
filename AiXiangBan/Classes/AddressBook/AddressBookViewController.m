@@ -17,7 +17,10 @@
 @property (nonatomic, strong) UIView *bottomLine;//下面滑动的那条线
 @property (nonatomic, strong) UIScrollView *bottomScro;//下面装三个view
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) UIScrollView *oldScr;
+@property (nonatomic, strong) UIScrollView *jianhuScr;
+@property (nonatomic, strong) UIScrollView *qinQScr;
 @end
 
 @implementation AddressBookViewController
@@ -28,10 +31,22 @@
     self.navigationItem.title = @"通讯录";
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    self.dataArray = @[@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"}];
+    //self.dataArray = @[@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"}];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代1-27"] style:UIBarButtonItemStyleDone target:self action:@selector(addClick)];
     [self setUpPage];
-    [self setUpScro];
+    [self getOldManData];
+    [self getJianhuData];
+    [self getQinQiData];
+    //[self setUpScro];
+}
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+        [_dataArray addObject:[NSArray new]];
+        [_dataArray addObject:[NSArray new]];
+        [_dataArray addObject:[NSArray new]];
+    }
+    return _dataArray;
 }
 //添加L联系人
 - (void)addClick {
@@ -142,7 +157,16 @@
     
 }
 - (void)setUpScro {
+    if (self.dataArray.count < 3) {
+        return;
+    }
+    for (UIView *sub in self.bottomScro.subviews) {
+        [sub removeFromSuperview];
+    }
+    
     self.bottomScro = [[UIScrollView alloc]init];
+    
+    
     [self.view addSubview:self.bottomScro];
     self.bottomScro.delegate = self;
     [self.bottomScro mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -181,19 +205,30 @@
         }];
         subS.backgroundColor = [UIColor clearColor];
         
-        subS.contentSize = CGSizeMake(0, self.dataArray.count * 60);
+        subS.contentSize = CGSizeMake(0, [self.dataArray[i] count] * 60);
+        if (i == 0) {
+            _oldScr = subS;
+            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getOldManData)];
+        } else if (i == 1) {
+            _jianhuScr = subS;
+            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getJianhuData)];
+        } else {
+            _qinQScr = subS;
+            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getQinQiData)];
+        }
+        
         UIView *secondView = [[UIView alloc]init];
         secondView.backgroundColor = [UIColor whiteColor];
         [subS addSubview:secondView];
         LRViewBorderRadius(secondView, 5, 0, [UIColor clearColor]);
         [secondView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(subS.mas_top);
-            make.height.equalTo(@(self.dataArray.count * 60));
+            make.height.equalTo(@([self.dataArray[i] count] * 60));
             make.left.equalTo(subView.mas_left).with.offset(10);
             make.right.equalTo(subView.mas_right).with.offset(-10);
         }];
         UIView *bottomTemp = secondView;
-        for (int j = 0; j < self.dataArray.count; j ++) {
+        for (int j = 0; j < [self.dataArray[i] count]; j ++) {
             AddressView *address = [[AddressView alloc]init];
             [secondView addSubview:address];
             [address mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -206,7 +241,7 @@
                 make.right.equalTo(secondView.mas_right);
                 make.height.equalTo(@60);
             }];
-            [address setUpWithDic:self.dataArray[j] withClickHandle:^(id responseObject) {
+            [address setUpWithDic:self.dataArray[i][j] withClickHandle:^(id responseObject) {
                 NSLog(@"%@",responseObject);
             }];
             bottomTemp = address;
@@ -227,6 +262,65 @@
         UIButton *btn = [self.titleView viewWithTag:102];
         [self titleClick:btn];
     }
+}
+#pragma -- 获取所有数据
+//获取老人数据
+- (void)getOldManData {
+    NSInteger count = 0;
+    if (self.dataArray.count > 0) {
+        count = [self.dataArray[0] count];
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/elder/getElderList.do" params:@{@"offset":@(count),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [_oldScr.mj_footer endRefreshing];
+        if (showdata == nil) {
+            return ;
+        }
+        if ([showdata[@"elderList"] count] == 0 && count == 0) {
+            self.dataArray[0] = [NSArray array];
+        } else {
+            [self.dataArray[0] addObjectsFromArray:showdata[@"elderList"]];
+        }
+        [self setUpScro];
+    }];
+}
+//获取监护人数据
+- (void)getJianhuData {
+    NSInteger count = 0;
+    if (self.dataArray.count > 1) {
+        count = [self.dataArray[1] count];
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"2"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [_jianhuScr.mj_footer endRefreshing];
+        if (showdata == nil) {
+            return ;
+        }
+        if ([showdata[@"otherList"] count] == 0 && count == 0) {
+            self.dataArray[1] = [NSArray array];
+        } else {
+            [self.dataArray[1] addObjectsFromArray:showdata[@"otherlist"]];
+        }
+        [self setUpScro];
+    }];
+}
+//获取亲属邻里数据
+- (void)getQinQiData {
+    NSInteger count = 0;
+    if (self.dataArray.count > 2) {
+        count = [self.dataArray[2] count];
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"1"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [_qinQScr.mj_footer endRefreshing];
+        if (showdata == nil) {
+            return ;
+        }
+       
+        if ([showdata[@"otherList"] count] == 0 && count == 0) {
+             self.dataArray[2] = [NSArray array];
+        } else {
+             [self.dataArray[2] addObjectsFromArray:showdata[@"otherlist"]];
+        }
+        [self setUpScro];
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

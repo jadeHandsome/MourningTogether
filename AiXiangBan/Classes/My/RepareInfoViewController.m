@@ -9,7 +9,7 @@
 #import "RepareInfoViewController.h"
 
 @interface RepareInfoViewController ()
-
+@property (nonatomic, strong) UITextField *inpuText;
 @end
 
 @implementation RepareInfoViewController
@@ -32,6 +32,7 @@
     contentView.backgroundColor = [UIColor whiteColor];
     
     UITextField *infotext = [[UITextField alloc]init];
+    _inpuText = infotext;
     [contentView addSubview:infotext];
     [infotext mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(contentView.mas_left).with.offset(10);
@@ -40,8 +41,29 @@
         make.bottom.equalTo(contentView.mas_bottom);
     }];
     infotext.placeholder = self.title;
+    UIButton *sureBtn = [[UIButton alloc]init];
+    [self.view addSubview:sureBtn];
+    [sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.top.equalTo(contentView.mas_bottom).with.offset(30);
+        make.height.equalTo(@45);
+        make.right.equalTo(self.view.mas_right).with.offset(-10);
+    }];
+    sureBtn.backgroundColor = LRRGBColor(100, 192, 210);
+    [sureBtn setTitle:@"确认" forState:UIControlStateNormal];
+    [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    LRViewBorderRadius(sureBtn, 5, 0, [UIColor clearColor]);
+    [sureBtn addTarget:self action:@selector(sureClick) forControlEvents:UIControlEventTouchUpInside];
+    
     //infotext.textColor = LRRGBColor(200, 200, 200);
     
+}
+- (void)sureClick {
+    //确认修改
+    if (self.block) {
+        self.block(self.inpuText.text);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

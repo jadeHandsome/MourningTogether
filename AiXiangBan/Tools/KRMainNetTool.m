@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 
 
-#define baseURL @"http://www.jsgodml.com/index.php/Home/"
+#define baseURL @"http://47.92.87.19/"
 @implementation KRMainNetTool
 singleton_implementation(KRMainNetTool)
 //不需要上传文件的接口方法
@@ -49,38 +49,49 @@ singleton_implementation(KRMainNetTool)
 //    [managers.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10.f;
-    
-    [manager POST:path parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params addEntriesFromDictionary:dic];
+    if ([KRUserInfo sharedKRUserInfo].token) {
+        params[@"token"] = [KRUserInfo sharedKRUserInfo].token;
+    }
+    [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         //请求成功，隐藏HUD并销毁
         [HUD hideAnimated:YES];
         //NSLog(@"%@",responseObject);
-        NSNumber *num = responseObject[@"status"];
+        NSDictionary *response = nil;
+        if ([responseObject isKindOfClass:[NSData class]]) {
+            response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        } else {
+            response = responseObject;
+        }
+        NSNumber *num = response[@"errorCode"];
         //判断返回的状态，200即为服务器查询成功，500服务器查询失败
         //NSLog(@"%@",responseObject);
-        if ([num longValue] == 200) {
+        if ([num longValue] == 0) {
             if (model == nil) {
-                if (responseObject[@"show_data"]) {
+                if (response[@"responseParams"]) {
                     if ([self.isShow isEqualToString:@"1"]) {
                         //[waitView hideBubble];
                     }
                     
-                    complet(responseObject[@"show_data"],nil);
+                    complet(response[@"responseParams"],nil);
                 } else {
                     if ([self.isShow isEqualToString:@"1"]) {
                         //[waitView hideBubble];
                     }
-                    [MBProgressHUD showError:responseObject[@"message"]];
-                    complet(responseObject[@"message"],nil);
+                    [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
+                    complet(response[@"errorMsg"],nil);
                 }
                 
             } else {
                 //[waitView hideBubble];
-                complet([self getModelArrayWith:responseObject[@"show_data"] andModel:model],nil);
+                complet([self getModelArrayWith:response[@"responseParams"] andModel:model],nil);
             }
         } else {
             
-            
-            complet(nil,responseObject[@"message"]);
+            [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
+            complet(nil,response[@"errorMsg"]);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         //网络请求失败，隐藏HUD，服务器响应失败。网络问题 或者服务器崩溃
@@ -108,37 +119,52 @@ singleton_implementation(KRMainNetTool)
     //[waitView showRoundProgressWithTitle:nil];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10.f;
-    [manager POST:path parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params addEntriesFromDictionary:param];
+    if ([KRUserInfo sharedKRUserInfo].token) {
+        params[@"token"] = [KRUserInfo sharedKRUserInfo].token;
+    }
+    
+    
+    
+    [manager POST:path parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //通过遍历传过来的上传数据的数组，把每一个数据拼接到formData对象上
-        for (NSData *data in array) {
-            NSString *str = [NSString stringWithFormat:@"pic%ld.png",[array indexOfObject:data]];
+        for (NSDictionary *data in array) {
+            //NSString *str = [NSString stringWithFormat:@"pic%ld.png",[array indexOfObject:data]];
             //NSLog(@"%@",str);
-            [formData appendPartWithFileData:data name:str fileName:@"up-file.png" mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:data[@"data"] name:data[@"name"] fileName:@"up-file.png" mimeType:@"image/jpeg"];
         }
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         //请求成功，隐藏HUD并销毁
         //NSLog(@"%@",responseObject);
         [HUD hideAnimated:YES];
-        NSNumber *num = responseObject[@"status"];
+        NSDictionary *response = nil;
+        if ([responseObject isKindOfClass:[NSData class]]) {
+            response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        } else {
+            response = responseObject;
+        }
+        NSNumber *num = response[@"errorCode"];
         //判断返回的状态，200即为服务器查询成功，500服务器查询失败
-        if ([num longLongValue] == 200) {
+        if ([num longLongValue] == 0) {
             if ([self.isShow isEqualToString:@"1"]) {
                 //[waitView hideBubble];
             }
             
             complet(@"修改成功",nil);
         } else {
-            [MBProgressHUD showError:responseObject[@"message"]];
+            [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
             //[waitView showErrorWithTitle:responseObject[@"message"] autoCloseTime:2];
-            complet(nil,responseObject[@"message"]);
+            complet(nil,responseObject[@"errorMsg"]);
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         //网络请求失败，隐藏HUD，服务器响应失败。网络问题 或者服务器崩溃
         //[waitView hideBubble];
         [HUD hideAnimated:YES];
-        [MBProgressHUD showError:@"网络错误"];
+        [MBProgressHUD showError:@"网络错误" toView:waitView];
         //[waitView showErrorWithTitle:@"网络错误" autoCloseTime:2];
         complet(nil,@"网络错误");
     }];

@@ -13,17 +13,43 @@
 @interface MineViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIScrollView *mineScrollView;//信息的scrollView
 @property (nonatomic, strong) NSArray *allData;//所有的个人信息
+@property (nonatomic, strong) NSMutableDictionary *repareParam;
 @end
 
 @implementation MineViewController
-
+- (NSMutableDictionary *)repareParam {
+    if (!_repareParam) {
+        _repareParam = [NSMutableDictionary dictionary];
+    }
+    return _repareParam;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    self.allData = @[@{@"isImage":@"1",@"title":@"头像",@"right":@""},@{@"isImage":@"0",@"title":@"姓名",@"right":@"周春仕"},@{@"isImage":@"0",@"title":@"电话",@"right":@"18888888888"},@{@"isImage":@"0",@"title":@"性别",@"right":@"女"},@{@"isImage":@"0",@"title":@"年龄",@"right":@"80"},@{@"isImage":@"0",@"title":@"体重",@"right":@"80KG"},@{@"isImage":@"0",@"title":@"身高",@"right":@"188"}];
-    [self setUP];
+//    self.allData = @[@{@"isImage":@"1",@"title":@"头像",@"right":@""},@{@"isImage":@"0",@"title":@"姓名",@"right":@"周春仕"},@{@"isImage":@"0",@"title":@"电话",@"right":@"18888888888"},@{@"isImage":@"0",@"title":@"性别",@"right":@"女"},@{@"isImage":@"0",@"title":@"年龄",@"right":@"80"},@{@"isImage":@"0",@"title":@"体重",@"right":@"80KG"},@{@"isImage":@"0",@"title":@"身高",@"right":@"188"}];
+    
+    [self loadData];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-53"] style:UIBarButtonItemStyleDone target:self action:@selector(settingClick)];
+    
+}
+//获取信息接口
+- (void)loadData {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/memberInfo/getMemberInfo.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        
+        NSLog(@"%@",showdata);
+        self.allData = @[@{@"isImage":@"1",@"title":@"头像",@"right":showdata[@"headImgUrl"],@"noRight":@"1"},@{@"isImage":@"0",@"title":@"姓名",@"right":showdata[@"memberName"]},@{@"isImage":@"0",@"title":@"电话",@"right":showdata[@"mobile"]},@{@"isImage":@"0",@"title":@"性别",@"right":[showdata[@"sex"] intValue] == 1 ? @"男" : @"女"},@{@"isImage":@"0",@"title":@"年龄",@"right":showdata[@"age"]},@{@"isImage":@"0",@"title":@"体重",@"right":[showdata[@"weight"] stringByAppendingString:@" kg"]},@{@"isImage":@"0",@"title":@"身高",@"right":[showdata[@"height"] stringByAppendingString:@" cm"]}];
+        self.repareParam[@"memberName"] = showdata[@"memberName"];
+        self.repareParam[@"sex"] = showdata[@"sex"];
+        self.repareParam[@"height"] = showdata[@"height"];
+        self.repareParam[@"weight"] = showdata[@"weight"];
+        self.repareParam[@"mobile"] = showdata[@"mobile"];
+        self.repareParam[@"age"] = showdata[@"age"];
+        [self setUP];
+    }];
     
 }
 - (void)settingClick {
@@ -54,7 +80,11 @@
     UIView *temp = centerView;
     for (int i = 0; i < 7; i ++) {
         MineInfoView *infoView = [[MineInfoView alloc]init];
-        [infoView setUpWithDic:self.allData[i] withClickHandle:^{
+        NSDictionary *data = [NSDictionary dictionary];
+        if (self.allData.count == 7) {
+            data = self.allData[i];
+        }
+        [infoView setUpWithDic:data withClickHandle:^{
             LRLog(@"点了第%d个",i);
             RepareInfoViewController *repare = [[RepareInfoViewController alloc]init];
             
@@ -62,30 +92,55 @@
                 case 1:
                 {
                     repare.title = @"姓名";
+                    __weak typeof(self) weakSelf = self;
+                    repare.block = ^(NSString *repareStr) {
+                        weakSelf.repareParam[@"memberName"] = repareStr;
+                        [weakSelf repareClick];
+                    };
                     [self.navigationController pushViewController:repare animated:YES];
                 }
                     break;
                 case 2:
                 {
                     repare.title = @"电话";
+                    __weak typeof(self) weakSelf = self;
+                    repare.block = ^(NSString *repareStr) {
+                        weakSelf.repareParam[@"mobile"] = repareStr;
+                        [weakSelf repareClick];
+                    };
                     [self.navigationController pushViewController:repare animated:YES];
                 }
                     break;
                 case 4:
                 {
                     repare.title = @"年龄";
+                    __weak typeof(self) weakSelf = self;
+                    repare.block = ^(NSString *repareStr) {
+                        weakSelf.repareParam[@"age"] = repareStr;
+                        [weakSelf repareClick];
+                    };
                     [self.navigationController pushViewController:repare animated:YES];
                 }
                     break;
                 case 5:
                 {
                     repare.title = @"体重";
+                    __weak typeof(self) weakSelf = self;
+                    repare.block = ^(NSString *repareStr) {
+                        weakSelf.repareParam[@"weight"] = repareStr;
+                        [weakSelf repareClick];
+                    };
                     [self.navigationController pushViewController:repare animated:YES];
                 }
                     break;
                 case 6:
                 {
                     repare.title = @"身高";
+                    __weak typeof(self) weakSelf = self;
+                    repare.block = ^(NSString *repareStr) {
+                        weakSelf.repareParam[@"height"] = repareStr;
+                        [weakSelf repareClick];
+                    };
                     [self.navigationController pushViewController:repare animated:YES];
                 }
                     break;
@@ -100,13 +155,17 @@
                 //[WeakSelf repareHeadImage];
             } else if (i == 3) {
                 //修改性别
+                __weak typeof(self) weakSelf = self;
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择性别" message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     //选择女的
-                    
+                    weakSelf.repareParam[@"sex"] = @"2";
+                    [weakSelf repareClick];
                 }];
                 UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     //选择男的
+                    weakSelf.repareParam[@"sex"] = @"1";
+                    [weakSelf repareClick];
                 }];
                 [alert addAction:action];
                 [alert addAction:action1];
@@ -129,6 +188,15 @@
     }
     
     
+}
+//修改个人信息
+- (void)repareClick {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/memberInfo/editMemberInfo.do" params:self.repareParam withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        [self loadData];
+    }];
 }
 - (void)repareHeadImage {
     //改头像
@@ -174,6 +242,12 @@
     //self.param[@"imageData"] = [[UIImage alloc]initWithData:data];
     //[self.imageArray addObject:@{self.upOrDown:data}];
     //[self.tableView reloadData];
+    [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"/mgr/member/memberInfo/upLoadPhoto.do" params:nil andData:@[@{@"data":data,@"name":@"fileName"}] waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        [self loadData];
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {

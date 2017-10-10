@@ -12,8 +12,9 @@ typedef NS_ENUM(NSInteger,VC_TYPE){
     VC_TYPE_REGISTER = 0,
     VC_TYPE_GORGETPWD,
 };
+typedef void(^REGISTER_SUCCESS)(NSDictionary *dic);
 @interface RegisterViewController : BaseViewController
 
 @property (nonatomic, assign) VC_TYPE type;
-
+@property (nonatomic, copy) REGISTER_SUCCESS block;
 @end

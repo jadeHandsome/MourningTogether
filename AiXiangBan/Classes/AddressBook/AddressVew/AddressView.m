@@ -18,10 +18,14 @@
     if (!dic) {
         return;
     }
+    for (UIView *sub in self.subviews) {
+        [sub removeFromSuperview];
+    }
     block = clickHandle;
     self.myData = [dic copy];
     UIImageView *headImageView = [[UIImageView alloc]init];
     [self addSubview:headImageView];
+    [headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"headImgUrl"]] placeholderImage:_zhanweiImageData];
     [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@60);
         make.left.equalTo(self.mas_left);
@@ -37,7 +41,12 @@
         make.top.equalTo(self.mas_top);
     }];
     nameLabel.textColor = [UIColor blackColor];
-    nameLabel.text = dic[@"name"];
+    if (dic[@"otherName"]) {
+        nameLabel.text = dic[@"otherName"];
+    } else {
+        nameLabel.text = dic[@"elderName"];
+    }
+    
     UILabel *IDLabel = [[UILabel alloc]init];
     [self addSubview:IDLabel];
     [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,7 +56,7 @@
         make.height.equalTo(nameLabel.mas_height);
     }];
     IDLabel.textColor = LRRGBColor(145, 145, 145);
-    IDLabel.text = [NSString stringWithFormat:@"%@",dic[@"phone"]];
+    IDLabel.text = [NSString stringWithFormat:@"%@",dic[@"mobile"]];
     
     UIView *linView = [[UIView alloc]init];
     [self addSubview:linView];

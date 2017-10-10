@@ -28,6 +28,7 @@
         {
             titleStr = @"姓名";
             UITextField *textField = [[UITextField alloc]init];
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
             [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -52,6 +53,7 @@
         {
             titleStr = @"手机";
             UITextField *textField = [[UITextField alloc]init];
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
             [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,6 +97,7 @@
             
                 titleStr = @"称呼";
                 UITextField *textField = [[UITextField alloc]init];
+                [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
                 textField.textAlignment = NSTextAlignmentRight;
                 [self addSubview:textField];
                 [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,6 +114,7 @@
         {
             titleStr = @"称呼";
             UITextField *textField = [[UITextField alloc]init];
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
             [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -126,6 +130,7 @@
         {
             titleStr = @"身份证号";
             UITextField *textField = [[UITextField alloc]init];
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
             [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -180,6 +185,7 @@
         {
             titleStr = @"社区工作人员";
             UITextField *textField = [[UITextField alloc]init];
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
             [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -208,6 +214,9 @@
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
 //    [self addGestureRecognizer:tap];
 //    [tap addTarget:self action:@selector(click)];
+}
+- (void)textFielDidChange:(UITextField *)textField {
+    
 }
 - (void)sexBtnClick:(UIButton *)sender {
     for (UIView *sub in self.subviews) {

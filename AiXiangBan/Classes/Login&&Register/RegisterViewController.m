@@ -58,12 +58,29 @@
 }
 
 - (void)getCode{
-    [self.codeBtn start];
+    if (![self cheakPhoneNumber:self.phoneTextField.text]) {
+        [MBProgressHUD showError:@"手机号码输入有误" toView:self.view];
+        return;
+    }
+    NSString *type = @"1";
+    if (self.type == VC_TYPE_REGISTER) {
+        type = @"1";
+    } else {
+        type = @"2";
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/register/getSmsCode.do" params:@{@"mobile":self.phoneTextField.text,@"type":type} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        [MBProgressHUD showSuccess:@"验证码发送成功" toView:self.view];
+        [self.codeBtn start];
+    }];
+    
 }
 
 - (IBAction)next:(UIButton *)sender {
     if([self cheakPhoneNumber:self.phoneTextField.text]){
-        if(self.codeTextField.text && self.codeTextField.text.length == 4){
+        if(self.codeTextField.text && self.codeTextField.text.length == 6){
             if([self cheakPwd:self.pwdTextField.text]){
                 [self request];
             }
@@ -83,9 +100,31 @@
 - (void)request{
     if(self.type == VC_TYPE_REGISTER){
         //注册
+        NSString *mdPws = [KRBaseTool md5:self.pwdTextField.text];
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/register/register.do" params:@{@"mobile":self.phoneTextField.text,@"password":mdPws,@"smsCode":self.codeTextField.text} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata == nil) {
+                return ;
+            }
+            [MBProgressHUD showSuccess:@"注册成功" toView:self.view.window];
+            if (self.block) {
+                self.block(@{@"phone":self.phoneTextField.text,@"pwd":self.pwdTextField.text});
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
     }
     else{
         //找回密码
+        NSString *mdPws = [KRBaseTool md5:self.pwdTextField.text];
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/register/forgetPassword.do" params:@{@"mobile":self.phoneTextField.text,@"password":mdPws,@"smsCode":self.codeTextField.text} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata == nil) {
+                return ;
+            }
+            [MBProgressHUD showSuccess:@"修改成功" toView:self.view.window];
+            if (self.block) {
+                self.block(@{@"phone":self.phoneTextField.text,@"pwd":self.pwdTextField.text});
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
     }
 }
 

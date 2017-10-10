@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "HomeViewController.h"
+#import "BaseNaviViewController.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *phoneView;
 @property (weak, nonatomic) IBOutlet UIView *pwdView;
@@ -35,17 +37,38 @@
 - (IBAction)forgetPwd:(UIButton *)sender {
     RegisterViewController *registerVC = [RegisterViewController new];
     registerVC.type = 1;
+    registerVC.block = ^(NSDictionary *dic) {
+        self.phoneTextField.text = dic[@"phone"];
+        self.pwdTextField.text = dic[@"pwd"];
+    };
     [self.navigationController pushViewController:registerVC animated:YES];
 }
 - (IBAction)registe:(UIButton *)sender {
     RegisterViewController *registerVC = [RegisterViewController new];
     registerVC.type = 0;
+    registerVC.block = ^(NSDictionary *dic) {
+        self.phoneTextField.text = dic[@"phone"];
+        self.pwdTextField.text = dic[@"pwd"];
+    };
     [self.navigationController pushViewController:registerVC animated:YES];
 }
 - (IBAction)login:(UIButton *)sender {
     if([self cheakPhoneNumber:self.phoneTextField.text]){
         if([self cheakPwd:self.pwdTextField.text]){
             //登录接口
+            NSString *mdPws = [KRBaseTool md5:self.pwdTextField.text];
+            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/login/doLogin.do" params:@{@"mobile":self.phoneTextField.text,@"password":mdPws} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                if (showdata == nil) {
+                    return ;
+                }
+                NSLog(@"%@",showdata);
+                HomeViewController *homeVC = [HomeViewController new];
+                BaseNaviViewController *navi = [[BaseNaviViewController alloc] initWithRootViewController:homeVC];
+                self.view.window.rootViewController = navi;
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"isLogin"];
+                [[NSUserDefaults standardUserDefaults] setObject:showdata forKey:@"userInfo"];
+                [[KRUserInfo sharedKRUserInfo] setValuesForKeysWithDictionary:showdata];
+            }];
         }
         else{
             [self showHUDWithText:@"密码输入错误!"];
