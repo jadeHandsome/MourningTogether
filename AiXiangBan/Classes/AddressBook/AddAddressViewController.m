@@ -10,11 +10,19 @@
 #import "AddAddressView.h"
 @interface AddAddressViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIScrollView *mainScrool;
+@property (nonatomic, strong) NSMutableDictionary *param;
+@property (nonatomic, strong) UIImageView *headImageView;
 @end
 
 @implementation AddAddressViewController
 {
     NSInteger typeCount;
+}
+- (NSMutableDictionary *)param {
+    if (!_param) {
+        _param = [NSMutableDictionary dictionary];
+    }
+    return _param;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,15 +33,54 @@
         self.navigationItem.title = @"添加老人";
     } else if (self.type == 2) {
         typeCount = 3;
+        self.param[@"contactType"] = @1;
         self.navigationItem.title = @"添加监护人";
     } else {
         typeCount = 3;
+        self.param[@"contactType"] = @2;
         self.navigationItem.title = @"添加亲属邻里";
     }
+    if (self.oldDic) {
+        [self.param addEntriesFromDictionary:self.oldDic];
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseFinish) name:@"choosePhoneFinish" object:nil];
     [self setUP];
 }
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)chooseFinish {
+    [self upData];
+}
+- (void)upData {
+    for (UIView *sub in self.mainScrool.subviews) {
+        for (UIView *centerSub in sub.subviews) {
+            if (centerSub.tag == 1001 || centerSub.tag == 1002) {
+                AddAddressView *addView = (AddAddressView *)centerSub;
+                [addView upData:centerSub.tag];
+            }
+        }
+    }
+}
 - (void)finish {
-    
+    if (self.type == 1) {
+        [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"/mgr/contacts/other/addElder.do" params:self.param andData:@[self.param[@"image"]] waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata == nil) {
+                return ;
+            }
+            [self showHUDWithText:@"添加成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    } else {
+        [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"/mgr/contacts/other/addOther.do" params:self.param andData:@[self.param[@"image"]] waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata == nil) {
+                return ;
+            }
+            [self showHUDWithText:@"添加成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        
+    }
 }
 - (void)setUP {
     self.mainScrool = [[UIScrollView alloc]init];
@@ -59,6 +106,11 @@
     UIView *temp = centerView;
     for (int i = 0; i < typeCount; i ++) {
         AddAddressView *add = [[AddAddressView alloc]init];
+        if ( i == 0 ) {
+            add.tag = 1001;
+        } else if (i == 1) {
+            add.tag = 1002;
+        }
         add.superVc = self;
         [centerView addSubview:add];
         [add mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -72,7 +124,7 @@
             make.left.equalTo(centerView.mas_left);
             make.right.equalTo(centerView.mas_right);
         }];
-        [add setUpWithTag:i + 1 andParam:[NSMutableDictionary dictionary] andType:self.type];
+        [add setUpWithTag:i + 1 andParam:self.param andType:self.type];
         temp = add;
     }
     UIImageView *imageView = [[UIImageView alloc]init];
@@ -84,6 +136,7 @@
         make.height.equalTo(@75);
     }];
     imageView.image = [UIImage imageNamed:@"孝相伴-27"];
+    self.headImageView = imageView;
     LRViewBorderRadius(imageView, 37.5, 0, [UIColor clearColor]);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
     [tap addTarget:self action:@selector(addImage)];
@@ -130,7 +183,8 @@
     //UIImage *newImage = [self thumbnaiWithImage:image size:CGSizeMake(170, 110)];
     
     NSData *data = UIImageJPEGRepresentation(image, 1);
-    
+    self.param[@"image"] = @{@"name":@"headImgUrl",@"data":data};
+    self.headImageView.image = image;
     //self.param[@"imageData"] = [[UIImage alloc]initWithData:data];
     //[self.imageArray addObject:@{self.upOrDown:data}];
     //[self.tableView reloadData];

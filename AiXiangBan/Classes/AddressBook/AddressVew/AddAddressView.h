@@ -11,4 +11,5 @@
 @interface AddAddressView : UIView
 @property (nonatomic, strong) UIViewController *superVc;
 - (void)setUpWithTag:(NSInteger)tag andParam:(NSMutableDictionary *)param andType:(NSInteger)type;
+- (void)upData:(NSInteger)tag;
 @end

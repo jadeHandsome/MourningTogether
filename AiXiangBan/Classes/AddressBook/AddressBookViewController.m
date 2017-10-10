@@ -34,17 +34,20 @@
     //self.dataArray = @[@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"}];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代1-27"] style:UIBarButtonItemStyleDone target:self action:@selector(addClick)];
     [self setUpPage];
+    
+    //[self setUpScro];
+}
+- (void)viewWillAppear:(BOOL)animated {
     [self getOldManData];
     [self getJianhuData];
     [self getQinQiData];
-    //[self setUpScro];
 }
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
-        [_dataArray addObject:[NSArray new]];
-        [_dataArray addObject:[NSArray new]];
-        [_dataArray addObject:[NSArray new]];
+        [_dataArray addObject:[NSMutableArray new]];
+        [_dataArray addObject:[NSMutableArray new]];
+        [_dataArray addObject:[NSMutableArray new]];
     }
     return _dataArray;
 }
@@ -243,12 +246,41 @@
             }];
             [address setUpWithDic:self.dataArray[i][j] withClickHandle:^(id responseObject) {
                 NSLog(@"%@",responseObject);
+                AddAddressViewController *add = [[AddAddressViewController alloc]init];
+                NSInteger type = 1;
+                add.oldDic = [responseObject copy];
+                for (UIView *sub in self.titleView.subviews) {
+                    if ([sub isKindOfClass:[UIButton class]]) {
+                        UIButton *btn = (UIButton *)sub;
+                        if (btn.selected) {
+                            type = btn.tag - 99;
+                            
+                        }
+                    }
+                }
+                add.type = type;
+                
+                [self.navigationController pushViewController:add animated:YES];
+                
             }];
             bottomTemp = address;
             
         }
         temp = subView;
     }
+    
+    NSInteger type = 1;
+    
+    for (UIView *sub in self.titleView.subviews) {
+        if ([sub isKindOfClass:[UIButton class]]) {
+            UIButton *btn = (UIButton *)sub;
+            if (btn.selected) {
+                type = btn.tag - 99;
+                
+            }
+        }
+    }
+    self.bottomScro.contentOffset = CGPointMake(SCREEN_WIDTH * (type - 1), 0);
 }
 #pragma -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -276,7 +308,7 @@
             return ;
         }
         if ([showdata[@"elderList"] count] == 0 && count == 0) {
-            self.dataArray[0] = [NSArray array];
+            self.dataArray[0] = [NSMutableArray array];
         } else {
             [self.dataArray[0] addObjectsFromArray:showdata[@"elderList"]];
         }
@@ -289,15 +321,15 @@
     if (self.dataArray.count > 1) {
         count = [self.dataArray[1] count];
     }
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"2"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"1"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [_jianhuScr.mj_footer endRefreshing];
         if (showdata == nil) {
             return ;
         }
         if ([showdata[@"otherList"] count] == 0 && count == 0) {
-            self.dataArray[1] = [NSArray array];
+            self.dataArray[1] = [NSMutableArray array];
         } else {
-            [self.dataArray[1] addObjectsFromArray:showdata[@"otherlist"]];
+            [self.dataArray[1] addObjectsFromArray:showdata[@"otherList"]];
         }
         [self setUpScro];
     }];
@@ -308,16 +340,16 @@
     if (self.dataArray.count > 2) {
         count = [self.dataArray[2] count];
     }
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"1"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"2"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [_qinQScr.mj_footer endRefreshing];
         if (showdata == nil) {
             return ;
         }
        
         if ([showdata[@"otherList"] count] == 0 && count == 0) {
-             self.dataArray[2] = [NSArray array];
+             self.dataArray[2] = [NSMutableArray array];
         } else {
-             [self.dataArray[2] addObjectsFromArray:showdata[@"otherlist"]];
+             [self.dataArray[2] addObjectsFromArray:showdata[@"otherList"]];
         }
         [self setUpScro];
     }];

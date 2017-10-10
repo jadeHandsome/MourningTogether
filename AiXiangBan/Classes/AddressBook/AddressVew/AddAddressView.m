@@ -9,12 +9,17 @@
 #import "AddAddressView.h"
 #import <AddressBookUI/AddressBookUI.h>
 @interface AddAddressView()<ABPeoplePickerNavigationControllerDelegate>
+@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSMutableDictionary *param;
 @end
 @implementation AddAddressView
 
 - (void)setUpWithTag:(NSInteger)tag andParam:(NSMutableDictionary *)param andType:(NSInteger)type {
+    
     UILabel *title = [[UILabel alloc]init];
+    self.type = type;
     [self addSubview:title];
+    self.param = param;
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(10);
         make.centerY.equalTo(self.mas_centerY);
@@ -28,6 +33,13 @@
         {
             titleStr = @"姓名";
             UITextField *textField = [[UITextField alloc]init];
+            textField.tag = 1;
+            if (param[@"elderName"]) {
+                textField.text = param[@"elderName"];
+            } else {
+                textField.text = param[@"otherName"];
+            }
+            
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
@@ -53,6 +65,8 @@
         {
             titleStr = @"手机";
             UITextField *textField = [[UITextField alloc]init];
+            textField.text = param[@"mobile"];
+            textField.tag = 2;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
@@ -70,7 +84,9 @@
             if (type == 1) {
                 titleStr = @"性别";
                 UIButton *women = [[UIButton alloc]init];
+                
                 [self addSubview:women];
+                women.tag = 50;
                 [women mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.right.equalTo(self.mas_right).with.offset(-10);
                     make.centerY.equalTo(self.mas_centerY);
@@ -88,15 +104,23 @@
                     make.centerY.equalTo(self.mas_centerY);
                     
                 }];
+                man.tag = 51;
                 [man setTitle:@"  男" forState:UIControlStateNormal];
                 [man setTitleColor:LRRGBColor(140, 140, 140) forState:UIControlStateNormal];
                 [man setImage:[UIImage imageNamed:@"云医时代1-59"] forState:UIControlStateNormal];
                 [man setImage:[UIImage imageNamed:@"云医时代1-56"] forState:UIControlStateSelected];
                 [man addTarget:self action:@selector(sexBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+                if ([param[@"sex"] integerValue] == 1) {
+                    [man setSelected:YES];
+                } else if ([param[@"sex"] integerValue] == 2) {
+                    [women setSelected:YES];
+                }
             } else {
             
                 titleStr = @"称呼";
                 UITextField *textField = [[UITextField alloc]init];
+                textField.text = param[@"nickname"];
+                textField.tag = 3;
                 [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
                 textField.textAlignment = NSTextAlignmentRight;
                 [self addSubview:textField];
@@ -114,6 +138,8 @@
         {
             titleStr = @"称呼";
             UITextField *textField = [[UITextField alloc]init];
+            textField.text = param[@"nickname"];
+            textField.tag = 3;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
@@ -130,6 +156,8 @@
         {
             titleStr = @"身份证号";
             UITextField *textField = [[UITextField alloc]init];
+            textField.text = param[@"idCard"];
+            textField.tag = 4;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
@@ -185,6 +213,8 @@
         {
             titleStr = @"社区工作人员";
             UITextField *textField = [[UITextField alloc]init];
+            textField.text = param[@"healthIds"];
+            textField.tag = 5;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
@@ -217,6 +247,49 @@
 }
 - (void)textFielDidChange:(UITextField *)textField {
     
+   
+        if (textField.tag == 1) {
+            if (self.type == 1) {
+                self.param[@"elderName"] = textField.text;
+            } else {
+                self.param[@"otherName"] = textField.text;
+            }
+        } else if (textField.tag == 2) {
+            self.param[@"mobile"] = textField.text;
+        } else if (textField.tag == 3) {
+            self.param[@"nickname"] = textField.text;
+        } else if (textField.tag == 4) {
+            self.param[@"idCard"] = textField.text;
+        } else {
+            self.param[@"healthIds"] = textField.text;
+        }
+    
+}
+- (void)upData:(NSInteger)tag {
+    if (tag == 1001) {
+        for (UIView *sub in self.subviews) {
+            if ([sub isKindOfClass:[UITextField class]]) {
+                UITextField *textF = (UITextField *)sub;
+                if (self.type == 1) {
+                    textF.text = self.param[@"elderName"];
+                } else {
+                    textF.text = self.param[@"otherName"];
+                }
+                return;
+                
+            }
+        }
+    } else if (tag == 1002) {
+        for (UIView *sub in self.subviews) {
+            if ([sub isKindOfClass:[UITextField class]]) {
+                UITextField *textF = (UITextField *)sub;
+                textF.text = self.param[@"mobile"];
+                return;
+                
+            }
+        }
+    }
+    
 }
 - (void)sexBtnClick:(UIButton *)sender {
     for (UIView *sub in self.subviews) {
@@ -224,6 +297,11 @@
             UIButton *btn = (UIButton *)sub;
             [btn setSelected:NO];
         }
+    }
+    if (sender.tag == 50) {
+        self.param[@"sex"] = @2;
+    } else {
+        self.param[@"sex"] = @1;
     }
     [sender setSelected:YES];
 }
@@ -273,8 +351,15 @@
     NSString *phoneStr = [phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
     phoneStr = [phoneStr stringByReplacingOccurrencesOfString:@"+86" withString:@""];
     phoneStr = [phoneStr stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
+    if (self.type == 1) {
+        self.param[@"elderName"] = nameStr;
+    } else {
+        self.param[@"otherName"] = nameStr;
+    }
+    self.param[@"mobile"] = phoneStr;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"choosePhoneFinish" object:nil];
     //[self.nameTextField setText:nameStr];
     //[self.phoneTextField setText:phoneStr];
 }
+
 @end

@@ -14,14 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (4.0.13)
-  - Masonry (1.1.0)
+  - IQKeyboardManager (4.0.10)
+  - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
-  - MJRefresh (3.1.14)
-  - QIYU_iOS_SDK (3.11.2)
-  - SDWebImage (4.1.1):
-    - SDWebImage/Core (= 4.1.1)
-  - SDWebImage/Core (4.1.1)
+  - MJRefresh (3.1.12)
+  - QIYU_iOS_SDK (3.7.1)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -34,12 +34,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
-  QIYU_iOS_SDK: b8b94211d6b9bd66132dd546f3afd7da30e8e60c
-  SDWebImage: caf91ee75671c95eb7b3073cd90649d25f852a88
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  QIYU_iOS_SDK: 3236bb5982718934639a436544bf34485366b01d
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
 PODFILE CHECKSUM: 30600b90de2ac63b2a10479cd04c7d7112057aea
 

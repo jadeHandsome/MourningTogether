@@ -10,4 +10,5 @@
 
 @interface AddAddressViewController : BaseViewController
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSDictionary *oldDic;
 @end
