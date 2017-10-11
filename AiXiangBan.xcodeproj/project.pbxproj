@@ -244,25 +244,6 @@
 		11D4013C1F8E117F0096F67B /* LookCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookCell.h; sourceTree = "<group>"; };
 		11D4013D1F8E117F0096F67B /* LookCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookCell.m; sourceTree = "<group>"; };
 		11D4013E1F8E117F0096F67B /* LookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCell.xib; sourceTree = "<group>"; };
-		11D4014E1F8E122A0096F67B /* EZAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAccessToken.h; sourceTree = "<group>"; };
-		11D4014F1F8E122A0096F67B /* EZAlarmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAlarmInfo.h; sourceTree = "<group>"; };
-		11D401501F8E122A0096F67B /* EZAreaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAreaInfo.h; sourceTree = "<group>"; };
-		11D401511F8E122A0096F67B /* EZCameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCameraInfo.h; sourceTree = "<group>"; };
-		11D401521F8E122A0096F67B /* EZCloudRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCloudRecordFile.h; sourceTree = "<group>"; };
-		11D401531F8E122A0096F67B /* EZConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZConstants.h; sourceTree = "<group>"; };
-		11D401541F8E122A0096F67B /* EZDetectorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDetectorInfo.h; sourceTree = "<group>"; };
-		11D401551F8E122A0096F67B /* EZDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceInfo.h; sourceTree = "<group>"; };
-		11D401561F8E122A0096F67B /* EZDeviceRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceRecordFile.h; sourceTree = "<group>"; };
-		11D401571F8E122A0096F67B /* EZDeviceUpgradeStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceUpgradeStatus.h; sourceTree = "<group>"; };
-		11D401581F8E122A0096F67B /* EZDeviceVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceVersion.h; sourceTree = "<group>"; };
-		11D401591F8E122A0096F67B /* EZGlobalSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGlobalSDK.h; sourceTree = "<group>"; };
-		11D4015A1F8E122A0096F67B /* EZLeaveMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLeaveMessage.h; sourceTree = "<group>"; };
-		11D4015B1F8E122A0096F67B /* EZOpenSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZOpenSDK.h; sourceTree = "<group>"; };
-		11D4015C1F8E122A0096F67B /* EZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZPlayer.h; sourceTree = "<group>"; };
-		11D4015D1F8E122A0096F67B /* EZProbeDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZProbeDeviceInfo.h; sourceTree = "<group>"; };
-		11D4015E1F8E122A0096F67B /* EZStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStorageInfo.h; sourceTree = "<group>"; };
-		11D4015F1F8E122A0096F67B /* EZUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZUserInfo.h; sourceTree = "<group>"; };
-		11D401601F8E122A0096F67B /* EZVideoQualityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZVideoQualityInfo.h; sourceTree = "<group>"; };
 		11D401651F8E123D0096F67B /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		11D401661F8E123D0096F67B /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
 		11D401671F8E123D0096F67B /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
@@ -645,7 +626,6 @@
 			isa = PBXGroup;
 			children = (
 				11D401621F8E123D0096F67B /* openssl */,
-				11D4014D1F8E122A0096F67B /* include */,
 				11A0A0EC1F8B23C2009AADC6 /* newFeatures */,
 				11AF41FE1F87143400903A85 /* TimerButton */,
 				11B2532E1F867C2700994575 /* Category */,
@@ -852,33 +832,6 @@
 				11D4013E1F8E117F0096F67B /* LookCell.xib */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		11D4014D1F8E122A0096F67B /* include */ = {
-			isa = PBXGroup;
-			children = (
-				11D4014E1F8E122A0096F67B /* EZAccessToken.h */,
-				11D4014F1F8E122A0096F67B /* EZAlarmInfo.h */,
-				11D401501F8E122A0096F67B /* EZAreaInfo.h */,
-				11D401511F8E122A0096F67B /* EZCameraInfo.h */,
-				11D401521F8E122A0096F67B /* EZCloudRecordFile.h */,
-				11D401531F8E122A0096F67B /* EZConstants.h */,
-				11D401541F8E122A0096F67B /* EZDetectorInfo.h */,
-				11D401551F8E122A0096F67B /* EZDeviceInfo.h */,
-				11D401561F8E122A0096F67B /* EZDeviceRecordFile.h */,
-				11D401571F8E122A0096F67B /* EZDeviceUpgradeStatus.h */,
-				11D401581F8E122A0096F67B /* EZDeviceVersion.h */,
-				11D401591F8E122A0096F67B /* EZGlobalSDK.h */,
-				11D4015A1F8E122A0096F67B /* EZLeaveMessage.h */,
-				11D4015B1F8E122A0096F67B /* EZOpenSDK.h */,
-				11D4015C1F8E122A0096F67B /* EZPlayer.h */,
-				11D4015D1F8E122A0096F67B /* EZProbeDeviceInfo.h */,
-				11D4015E1F8E122A0096F67B /* EZStorageInfo.h */,
-				11D4015F1F8E122A0096F67B /* EZUserInfo.h */,
-				11D401601F8E122A0096F67B /* EZVideoQualityInfo.h */,
-			);
-			name = include;
-			path = ../../../../Downloads/iOS_v4.5.0.build20170605/Demo/EZOpenSDK/include;
 			sourceTree = "<group>";
 		};
 		11D401621F8E123D0096F67B /* openssl */ = {
