@@ -8,9 +8,11 @@
 
 #import "AddAddressView.h"
 #import <AddressBookUI/AddressBookUI.h>
+#import "HealthyTypeViewController.h"
 @interface AddAddressView()<ABPeoplePickerNavigationControllerDelegate>
 @property (nonatomic, assign) NSInteger type;
 @property (nonatomic, strong) NSMutableDictionary *param;
+@property (nonatomic, strong) UILabel *chooselabel;
 @end
 @implementation AddAddressView
 
@@ -181,6 +183,16 @@
             }];
             right.contentMode = UIViewContentModeRight;
             right.image = [UIImage imageNamed:@"云医时代1-58"];
+            UILabel *chooseLabel = [[UILabel alloc]init];
+            [self addSubview:chooseLabel];
+            _chooselabel = chooseLabel;
+            _chooselabel.hidden = YES;
+            [chooseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(right.mas_left).with.offset(-10);
+                make.centerY.equalTo(right.mas_centerY);
+            }];
+            chooseLabel.textColor = LRRGBColor(85, 183, 204);
+            chooseLabel.text = @"已选";
         }
             break;
         case 7:
@@ -194,6 +206,19 @@
             }];
             right.contentMode = UIViewContentModeRight;
             right.image = [UIImage imageNamed:@"云医时代1-58"];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+            [self addGestureRecognizer:tap];
+            [tap addTarget:self action:@selector(chooseHealthy)];
+            UILabel *chooseLabel = [[UILabel alloc]init];
+            _chooselabel = chooseLabel;
+            _chooselabel.hidden = YES;
+            [self addSubview:chooseLabel];
+            [chooseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(right.mas_left).with.offset(-10);
+                make.centerY.equalTo(right.mas_centerY);
+            }];
+            chooseLabel.textColor = LRRGBColor(85, 183, 204);
+            chooseLabel.text = @"已选";
         }
             break;
         case 8:
@@ -207,24 +232,52 @@
             }];
             right.contentMode = UIViewContentModeRight;
             right.image = [UIImage imageNamed:@"云医时代1-58"];
+            UILabel *chooseLabel = [[UILabel alloc]init];
+            chooseLabel.tag = 10000;
+            [self addSubview:chooseLabel];
+            _chooselabel = chooseLabel;
+        
+            [chooseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(right.mas_left).with.offset(-10);
+                make.centerY.equalTo(right.mas_centerY);
+            }];
+            chooseLabel.textColor = LRRGBColor(85, 183, 204);
+            chooseLabel.text = self.param[@"communityName"];
+            UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+            [self addGestureRecognizer:tap];
+            [tap addTarget:self action:@selector(commuitClick)];
         }
             break;
         case 9:
         {
             titleStr = @"社区工作人员";
-            UITextField *textField = [[UITextField alloc]init];
-            textField.text = param[@"healthIds"];
-            textField.tag = 5;
-            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
-            textField.textAlignment = NSTextAlignmentRight;
-            [self addSubview:textField];
-            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(title.mas_right).with.offset(10);
-                make.centerY.equalTo(self.mas_centerY);
-                make.height.equalTo(@30);
+//            UITextField *textField = [[UITextField alloc]init];
+//            textField.text = param[@"communityWorker"];
+//            //textField.text = param[@"healthIds"];
+//            textField.tag = 5;
+//            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
+//            textField.textAlignment = NSTextAlignmentRight;
+//            [self addSubview:textField];
+//            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(title.mas_right).with.offset(10);
+//                make.centerY.equalTo(self.mas_centerY);
+//                make.height.equalTo(@30);
+//                make.right.equalTo(self.mas_right).with.offset(-10);
+//
+//            }];
+            UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+            [self addGestureRecognizer:tap];
+            [tap addTarget:self action:@selector(commuitClick)];
+            UILabel *chooseLabel = [[UILabel alloc]init];
+            chooseLabel.tag = 10001;
+            _chooselabel = chooseLabel;
+            [self addSubview:chooseLabel];
+            [chooseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.equalTo(self.mas_right).with.offset(-10);
-                
+                make.centerY.equalTo(self.mas_centerY);
             }];
+            chooseLabel.textColor = LRRGBColor(85, 183, 204);
+            chooseLabel.text = param[@"communityWorker"];
         }
             break;
             
@@ -244,6 +297,47 @@
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
 //    [self addGestureRecognizer:tap];
 //    [tap addTarget:self action:@selector(click)];
+}
+- (void)commuitClick {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/community/getCommunityList.do" params:@{@"offset":@"0",@"size":@"20"} withModel:nil waitView:self complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择社区工作人员" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        __weak typeof(self) weakSelf = self;
+        for (NSDictionary *dic in showdata[@"communityList"]) {
+            UIAlertAction *action = [UIAlertAction actionWithTitle:dic[@"name"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //_chooselabel.text = dic[@"worker"];
+                weakSelf.param[@"communityId"] = dic[@"communityId"];
+                weakSelf.param[@"communityWorker"] = dic[@"worker"];
+                weakSelf.param[@"communityName"] = dic[@"name"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"choosePhoneFinish" object:nil];
+            }];
+            [alert addAction:action];
+        }
+        [self.superVc presentViewController:alert animated:YES completion:^{
+            
+        }];
+    }];
+}
+- (void)chooseHealthy {
+    HealthyTypeViewController *health = [[HealthyTypeViewController alloc]init];
+    health.block = ^(NSArray *paramArray) {
+        NSMutableString *heath = [NSMutableString string];
+        for (NSDictionary *dic in paramArray) {
+            if ([paramArray indexOfObject:dic] < paramArray.count - 1) {
+                [heath appendString:[dic[@"healthId"] stringByAppendingString:@","]];
+            } else {
+                [heath appendString:dic[@"healthId"]];
+            }
+        }
+        self.param[@"healthIds"] = heath;
+        _chooselabel.hidden = NO;
+    
+    };
+    
+       
+    [self.superVc.navigationController pushViewController:health animated:YES];
 }
 - (void)textFielDidChange:(UITextField *)textField {
     
@@ -288,6 +382,13 @@
                 
             }
         }
+    } else {
+        if (self.chooselabel.tag == 10000) {
+            self.chooselabel.text = self.param[@"communityName"];
+        } else if (self.chooselabel.tag == 10001) {
+            self.chooselabel.text = self.param[@"communityWorker"];
+        }
+        
     }
     
 }
@@ -308,6 +409,7 @@
 - (void)chooseAdd {
     ABPeoplePickerNavigationController *picker =[[ABPeoplePickerNavigationController alloc] init];
     picker.peoplePickerDelegate = self;
+    
     [self.superVc presentViewController:picker animated:YES completion:nil];
 }
 //这个方法在用户取消选择时调用

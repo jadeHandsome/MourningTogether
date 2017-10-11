@@ -9,4 +9,7 @@ target ‘AiXiangBan’ do
   pod ’SDWebImage’ 
   pod ‘Masonry’
   pod 'QIYU_iOS_SDK'
+  #pod ‘AMapNavi’
+  #pod ‘AMapSearch’
+  #pod ‘AMapLocation’
 end

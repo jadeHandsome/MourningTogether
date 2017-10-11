@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LookCell" id="KGk-i7-Jjw" customClass="LookCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="255"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="254.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-fP-Nka">
+                        <rect key="frame" x="10" y="10" width="300" height="244"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMt-r3-ff1">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Va-bv-acS">
+                                        <rect key="frame" x="10" y="8" width="40" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.59607843137254901" green="0.59607843137254901" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOe-sw-qdr">
+                                        <rect key="frame" x="265" y="5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="Yj0-Js-gdy"/>
+                                            <constraint firstAttribute="height" constant="25" id="xUX-JC-6mO"/>
+                                        </constraints>
+                                        <state key="normal" image="云医时代2-19"/>
+                                        <connections>
+                                            <action selector="setAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="75M-Rv-MOT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="A4c-AV-Vzd"/>
+                                    <constraint firstItem="hOe-sw-qdr" firstAttribute="centerY" secondItem="GMt-r3-ff1" secondAttribute="centerY" id="ADe-Ck-nlQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="hOe-sw-qdr" secondAttribute="trailing" constant="10" id="mcK-rD-oDn"/>
+                                    <constraint firstItem="8Va-bv-acS" firstAttribute="leading" secondItem="GMt-r3-ff1" secondAttribute="leading" constant="10" id="nSg-F8-GiU"/>
+                                    <constraint firstItem="8Va-bv-acS" firstAttribute="centerY" secondItem="GMt-r3-ff1" secondAttribute="centerY" id="rUj-T5-96c"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医引导页-2" translatesAutoresizingMaskIntoConstraints="NO" id="MIO-OQ-sfi">
+                                <rect key="frame" x="10" y="35" width="280" height="199"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备不在线" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k68-xH-ov1">
+                                <rect key="frame" x="112" y="126" width="76.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="k68-xH-ov1" firstAttribute="centerX" secondItem="MIO-OQ-sfi" secondAttribute="centerX" id="6Fi-4l-EcG"/>
+                            <constraint firstItem="GMt-r3-ff1" firstAttribute="leading" secondItem="zU9-fP-Nka" secondAttribute="leading" id="CKN-Du-rp9"/>
+                            <constraint firstItem="MIO-OQ-sfi" firstAttribute="top" secondItem="GMt-r3-ff1" secondAttribute="bottom" id="J0U-9Z-lDe"/>
+                            <constraint firstAttribute="trailing" secondItem="MIO-OQ-sfi" secondAttribute="trailing" constant="10" id="OBR-wf-tly"/>
+                            <constraint firstItem="GMt-r3-ff1" firstAttribute="top" secondItem="zU9-fP-Nka" secondAttribute="top" id="TT9-oj-IKf"/>
+                            <constraint firstItem="MIO-OQ-sfi" firstAttribute="leading" secondItem="zU9-fP-Nka" secondAttribute="leading" constant="10" id="WIJ-eX-BGg"/>
+                            <constraint firstItem="k68-xH-ov1" firstAttribute="centerY" secondItem="MIO-OQ-sfi" secondAttribute="centerY" id="fcR-0M-AGo"/>
+                            <constraint firstAttribute="bottom" secondItem="MIO-OQ-sfi" secondAttribute="bottom" constant="10" id="hVy-6X-gXT"/>
+                            <constraint firstAttribute="trailing" secondItem="GMt-r3-ff1" secondAttribute="trailing" id="jjg-2t-mTv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zU9-fP-Nka" secondAttribute="trailing" constant="10" id="Dma-kv-Dgt"/>
+                    <constraint firstItem="zU9-fP-Nka" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Ena-ah-U15"/>
+                    <constraint firstAttribute="bottom" secondItem="zU9-fP-Nka" secondAttribute="bottom" id="IIQ-dI-MOF"/>
+                    <constraint firstItem="zU9-fP-Nka" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rVb-wZ-XRS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="image" destination="MIO-OQ-sfi" id="1pa-ia-Pev"/>
+                <outlet property="onlineLabel" destination="k68-xH-ov1" id="011-eM-mSk"/>
+                <outlet property="titleLabel" destination="8Va-bv-acS" id="Mqh-eM-EB7"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="云医引导页-2" width="640" height="400"/>
+        <image name="云医时代2-19" width="40" height="40"/>
+    </resources>
+</document>

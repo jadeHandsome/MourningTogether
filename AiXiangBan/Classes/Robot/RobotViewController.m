@@ -19,6 +19,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"附近机器人";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
+    
+    
     self.allRobot = @[@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"}];
     [self setUP];
 }
