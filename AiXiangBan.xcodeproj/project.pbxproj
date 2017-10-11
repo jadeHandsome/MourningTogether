@@ -30,29 +30,13 @@
 		11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */; };
 		11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */; };
 		11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A0A0921F8A17C4009AADC6 /* libxml2.tbd */; };
-		11A0A0E81F8B0AAB009AADC6 /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0E71F8B0A83009AADC6 /* LookViewController.m */; };
-		11A0A0E91F8B0AAB009AADC6 /* LookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0E21F8B0A73009AADC6 /* LookCell.m */; };
-		11A0A0EA1F8B0CF2009AADC6 /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */; };
-		11A0A0EB1F8B0CF5009AADC6 /* LookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0E31F8B0A74009AADC6 /* LookCell.xib */; };
 		11A0A0F51F8B24DF009AADC6 /* UIView+XLJExternFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0EE1F8B23C2009AADC6 /* UIView+XLJExternFrame.m */; };
 		11A0A0F61F8B24DF009AADC6 /* XLJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F01F8B23C2009AADC6 /* XLJCollectionViewCell.m */; };
 		11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */; };
 		11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */; };
-		11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */; };
-		11A0A0FD1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */; };
-		11A0A1001F8B50B4009AADC6 /* EZQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */; };
-		11A0A1031F8B87E8009AADC6 /* AddbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0A1021F8B87E8009AADC6 /* AddbyViewController.m */; };
 		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
 		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
 		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
-		11C3030C1F8B92560043D104 /* CheakPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C3030A1F8B92560043D104 /* CheakPhoneViewController.m */; };
-		11C3030D1F8B92560043D104 /* CheakPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C3030B1F8B92560043D104 /* CheakPhoneViewController.xib */; };
-		11C303111F8C5A8D0043D104 /* DeleteDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C3030E1F8C5A8C0043D104 /* DeleteDeviceViewController.m */; };
-		11C303151F8C5A9B0043D104 /* LiveLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C303141F8C5A9B0043D104 /* LiveLookViewController.m */; };
-		11C303191F8C5AA70043D104 /* SetDeviceNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C303181F8C5AA60043D104 /* SetDeviceNameViewController.m */; };
-		11C3031A1F8C5FA60043D104 /* SetDeviceNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C303171F8C5AA60043D104 /* SetDeviceNameViewController.xib */; };
-		11C3031B1F8C5FA90043D104 /* LiveLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C303121F8C5A9A0043D104 /* LiveLookViewController.xib */; };
-		11C3031C1F8C5FAB0043D104 /* DeleteDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C303101F8C5A8D0043D104 /* DeleteDeviceViewController.xib */; };
 		11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3EA1F85159D005B3577 /* AppDelegate.m */; };
 		11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D3F21F85159D005B3577 /* Assets.xcassets */; };
 		11C9D3F91F85159D005B3577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3F81F85159D005B3577 /* main.m */; };
@@ -63,6 +47,33 @@
 		11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D44D1F852E1F005B3577 /* HomeViewController.m */; };
 		11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D44E1F852E1F005B3577 /* HomeViewController.xib */; };
 		11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4691F853139005B3577 /* BaseNaviViewController.m */; };
+		11D4013F1F8E11C00096F67B /* AddByQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D4011E1F8E117F0096F67B /* AddByQRCodeViewController.m */; };
+		11D401401F8E11C00096F67B /* AddbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401211F8E117F0096F67B /* AddbyViewController.m */; };
+		11D401411F8E11C00096F67B /* CheakPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401231F8E117F0096F67B /* CheakPhoneViewController.m */; };
+		11D401421F8E11C00096F67B /* DeleteDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401261F8E117F0096F67B /* DeleteDeviceViewController.m */; };
+		11D401431F8E11C00096F67B /* LiveLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401291F8E117F0096F67B /* LiveLookViewController.m */; };
+		11D401441F8E11C00096F67B /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D4012C1F8E117F0096F67B /* LookViewController.m */; };
+		11D401451F8E11C00096F67B /* SetDeviceNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D4012F1F8E117F0096F67B /* SetDeviceNameViewController.m */; };
+		11D401461F8E11C00096F67B /* EZQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401331F8E117F0096F67B /* EZQRView.m */; };
+		11D401471F8E11C00096F67B /* HIKLoadPercentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401351F8E117F0096F67B /* HIKLoadPercentView.m */; };
+		11D401481F8E11C00096F67B /* HIKLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401371F8E117F0096F67B /* HIKLoadView.m */; };
+		11D401491F8E11C00096F67B /* HIKLoadViewItem+configPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D401391F8E117F0096F67B /* HIKLoadViewItem+configPath.m */; };
+		11D4014A1F8E11C00096F67B /* HIKLoadViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D4013B1F8E117F0096F67B /* HIKLoadViewItem.m */; };
+		11D4014B1F8E11C00096F67B /* LookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D4013D1F8E117F0096F67B /* LookCell.m */; };
+		11D401B71F8E123E0096F67B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401B51F8E123D0096F67B /* libcrypto.a */; };
+		11D401B81F8E123E0096F67B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401B61F8E123D0096F67B /* libssl.a */; };
+		11D401BA1F8E12670096F67B /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401B91F8E12670096F67B /* libiconv.2.4.0.tbd */; };
+		11D401BC1F8E12780096F67B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BB1F8E12780096F67B /* libc++.tbd */; };
+		11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BD1F8E12830096F67B /* OpenAL.framework */; };
+		11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BF1F8E128F0096F67B /* GLKit.framework */; };
+		11D401C21F8E129B0096F67B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401C11F8E129B0096F67B /* VideoToolbox.framework */; };
+		11D401C31F8E14FB0096F67B /* AddByQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D4011F1F8E117F0096F67B /* AddByQRCodeViewController.xib */; };
+		11D401C41F8E150D0096F67B /* CheakPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D401241F8E117F0096F67B /* CheakPhoneViewController.xib */; };
+		11D401C51F8E15100096F67B /* DeleteDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D401271F8E117F0096F67B /* DeleteDeviceViewController.xib */; };
+		11D401C61F8E15120096F67B /* LiveLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D4012A1F8E117F0096F67B /* LiveLookViewController.xib */; };
+		11D401C71F8E15140096F67B /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D4012D1F8E117F0096F67B /* LookViewController.xib */; };
+		11D401C81F8E15180096F67B /* SetDeviceNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D401301F8E117F0096F67B /* SetDeviceNameViewController.xib */; };
+		11D401C91F8E151C0096F67B /* LookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D4013E1F8E117F0096F67B /* LookCell.xib */; };
 		11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5A1F88CF1D004A2BCC /* AskHelpViewController.m */; };
 		11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */; };
 		11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F581F88CF1D004A2BCC /* AskHelpCell.m */; };
@@ -164,12 +175,6 @@
 		11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		11A0A0921F8A17C4009AADC6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		11A0A0E21F8B0A73009AADC6 /* LookCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookCell.m; sourceTree = "<group>"; };
-		11A0A0E31F8B0A74009AADC6 /* LookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCell.xib; sourceTree = "<group>"; };
-		11A0A0E41F8B0A74009AADC6 /* LookCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookCell.h; sourceTree = "<group>"; };
-		11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookViewController.xib; sourceTree = "<group>"; };
-		11A0A0E61F8B0A82009AADC6 /* LookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookViewController.h; sourceTree = "<group>"; };
-		11A0A0E71F8B0A83009AADC6 /* LookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookViewController.m; sourceTree = "<group>"; };
 		11A0A0ED1F8B23C2009AADC6 /* UIView+XLJExternFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XLJExternFrame.h"; sourceTree = "<group>"; };
 		11A0A0EE1F8B23C2009AADC6 /* UIView+XLJExternFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLJExternFrame.m"; sourceTree = "<group>"; };
 		11A0A0EF1F8B23C2009AADC6 /* XLJCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLJCollectionViewCell.h; sourceTree = "<group>"; };
@@ -178,30 +183,11 @@
 		11A0A0F21F8B23C2009AADC6 /* XLJExButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJExButton.m; sourceTree = "<group>"; };
 		11A0A0F31F8B23C2009AADC6 /* XLJNewFetureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLJNewFetureController.h; sourceTree = "<group>"; };
 		11A0A0F41F8B23C2009AADC6 /* XLJNewFetureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLJNewFetureController.m; sourceTree = "<group>"; };
-		11A0A0F91F8B4E0B009AADC6 /* AddByQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddByQRCodeViewController.h; sourceTree = "<group>"; };
-		11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddByQRCodeViewController.m; sourceTree = "<group>"; };
-		11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddByQRCodeViewController.xib; sourceTree = "<group>"; };
-		11A0A0FE1F8B50B4009AADC6 /* EZQRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZQRView.h; sourceTree = "<group>"; };
-		11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EZQRView.m; sourceTree = "<group>"; };
-		11A0A1011F8B87E8009AADC6 /* AddbyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddbyViewController.h; sourceTree = "<group>"; };
-		11A0A1021F8B87E8009AADC6 /* AddbyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddbyViewController.m; sourceTree = "<group>"; };
 		11AF41FF1F87143400903A85 /* HYTimerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYTimerButton.h; sourceTree = "<group>"; };
 		11AF42001F87143400903A85 /* HYTimerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYTimerButton.m; sourceTree = "<group>"; };
 		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		11B2532A1F8668D100994575 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		11B2532B1F8668D100994575 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		11C303091F8B92560043D104 /* CheakPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheakPhoneViewController.h; sourceTree = "<group>"; };
-		11C3030A1F8B92560043D104 /* CheakPhoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheakPhoneViewController.m; sourceTree = "<group>"; };
-		11C3030B1F8B92560043D104 /* CheakPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheakPhoneViewController.xib; sourceTree = "<group>"; };
-		11C3030E1F8C5A8C0043D104 /* DeleteDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteDeviceViewController.m; sourceTree = "<group>"; };
-		11C3030F1F8C5A8C0043D104 /* DeleteDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteDeviceViewController.h; sourceTree = "<group>"; };
-		11C303101F8C5A8D0043D104 /* DeleteDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteDeviceViewController.xib; sourceTree = "<group>"; };
-		11C303121F8C5A9A0043D104 /* LiveLookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveLookViewController.xib; sourceTree = "<group>"; };
-		11C303131F8C5A9B0043D104 /* LiveLookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveLookViewController.h; sourceTree = "<group>"; };
-		11C303141F8C5A9B0043D104 /* LiveLookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveLookViewController.m; sourceTree = "<group>"; };
-		11C303161F8C5AA60043D104 /* SetDeviceNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetDeviceNameViewController.h; sourceTree = "<group>"; };
-		11C303171F8C5AA60043D104 /* SetDeviceNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetDeviceNameViewController.xib; sourceTree = "<group>"; };
-		11C303181F8C5AA60043D104 /* SetDeviceNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetDeviceNameViewController.m; sourceTree = "<group>"; };
 		11C9D3E61F85159D005B3577 /* AiXiangBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiXiangBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C9D3E91F85159D005B3577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11C9D3EA1F85159D005B3577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -225,6 +211,144 @@
 		11C9D44E1F852E1F005B3577 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		11C9D4681F853139005B3577 /* BaseNaviViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNaviViewController.h; sourceTree = "<group>"; };
 		11C9D4691F853139005B3577 /* BaseNaviViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNaviViewController.m; sourceTree = "<group>"; };
+		11D4011D1F8E117F0096F67B /* AddByQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddByQRCodeViewController.h; sourceTree = "<group>"; };
+		11D4011E1F8E117F0096F67B /* AddByQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddByQRCodeViewController.m; sourceTree = "<group>"; };
+		11D4011F1F8E117F0096F67B /* AddByQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddByQRCodeViewController.xib; sourceTree = "<group>"; };
+		11D401201F8E117F0096F67B /* AddbyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddbyViewController.h; sourceTree = "<group>"; };
+		11D401211F8E117F0096F67B /* AddbyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddbyViewController.m; sourceTree = "<group>"; };
+		11D401221F8E117F0096F67B /* CheakPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheakPhoneViewController.h; sourceTree = "<group>"; };
+		11D401231F8E117F0096F67B /* CheakPhoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheakPhoneViewController.m; sourceTree = "<group>"; };
+		11D401241F8E117F0096F67B /* CheakPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheakPhoneViewController.xib; sourceTree = "<group>"; };
+		11D401251F8E117F0096F67B /* DeleteDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteDeviceViewController.h; sourceTree = "<group>"; };
+		11D401261F8E117F0096F67B /* DeleteDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteDeviceViewController.m; sourceTree = "<group>"; };
+		11D401271F8E117F0096F67B /* DeleteDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteDeviceViewController.xib; sourceTree = "<group>"; };
+		11D401281F8E117F0096F67B /* LiveLookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveLookViewController.h; sourceTree = "<group>"; };
+		11D401291F8E117F0096F67B /* LiveLookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveLookViewController.m; sourceTree = "<group>"; };
+		11D4012A1F8E117F0096F67B /* LiveLookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveLookViewController.xib; sourceTree = "<group>"; };
+		11D4012B1F8E117F0096F67B /* LookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookViewController.h; sourceTree = "<group>"; };
+		11D4012C1F8E117F0096F67B /* LookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookViewController.m; sourceTree = "<group>"; };
+		11D4012D1F8E117F0096F67B /* LookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookViewController.xib; sourceTree = "<group>"; };
+		11D4012E1F8E117F0096F67B /* SetDeviceNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetDeviceNameViewController.h; sourceTree = "<group>"; };
+		11D4012F1F8E117F0096F67B /* SetDeviceNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetDeviceNameViewController.m; sourceTree = "<group>"; };
+		11D401301F8E117F0096F67B /* SetDeviceNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetDeviceNameViewController.xib; sourceTree = "<group>"; };
+		11D401321F8E117F0096F67B /* EZQRView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZQRView.h; sourceTree = "<group>"; };
+		11D401331F8E117F0096F67B /* EZQRView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EZQRView.m; sourceTree = "<group>"; };
+		11D401341F8E117F0096F67B /* HIKLoadPercentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIKLoadPercentView.h; sourceTree = "<group>"; };
+		11D401351F8E117F0096F67B /* HIKLoadPercentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIKLoadPercentView.m; sourceTree = "<group>"; };
+		11D401361F8E117F0096F67B /* HIKLoadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIKLoadView.h; sourceTree = "<group>"; };
+		11D401371F8E117F0096F67B /* HIKLoadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIKLoadView.m; sourceTree = "<group>"; };
+		11D401381F8E117F0096F67B /* HIKLoadViewItem+configPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HIKLoadViewItem+configPath.h"; sourceTree = "<group>"; };
+		11D401391F8E117F0096F67B /* HIKLoadViewItem+configPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HIKLoadViewItem+configPath.m"; sourceTree = "<group>"; };
+		11D4013A1F8E117F0096F67B /* HIKLoadViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIKLoadViewItem.h; sourceTree = "<group>"; };
+		11D4013B1F8E117F0096F67B /* HIKLoadViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIKLoadViewItem.m; sourceTree = "<group>"; };
+		11D4013C1F8E117F0096F67B /* LookCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookCell.h; sourceTree = "<group>"; };
+		11D4013D1F8E117F0096F67B /* LookCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookCell.m; sourceTree = "<group>"; };
+		11D4013E1F8E117F0096F67B /* LookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCell.xib; sourceTree = "<group>"; };
+		11D4014E1F8E122A0096F67B /* EZAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAccessToken.h; sourceTree = "<group>"; };
+		11D4014F1F8E122A0096F67B /* EZAlarmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAlarmInfo.h; sourceTree = "<group>"; };
+		11D401501F8E122A0096F67B /* EZAreaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAreaInfo.h; sourceTree = "<group>"; };
+		11D401511F8E122A0096F67B /* EZCameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCameraInfo.h; sourceTree = "<group>"; };
+		11D401521F8E122A0096F67B /* EZCloudRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCloudRecordFile.h; sourceTree = "<group>"; };
+		11D401531F8E122A0096F67B /* EZConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZConstants.h; sourceTree = "<group>"; };
+		11D401541F8E122A0096F67B /* EZDetectorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDetectorInfo.h; sourceTree = "<group>"; };
+		11D401551F8E122A0096F67B /* EZDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceInfo.h; sourceTree = "<group>"; };
+		11D401561F8E122A0096F67B /* EZDeviceRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceRecordFile.h; sourceTree = "<group>"; };
+		11D401571F8E122A0096F67B /* EZDeviceUpgradeStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceUpgradeStatus.h; sourceTree = "<group>"; };
+		11D401581F8E122A0096F67B /* EZDeviceVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceVersion.h; sourceTree = "<group>"; };
+		11D401591F8E122A0096F67B /* EZGlobalSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZGlobalSDK.h; sourceTree = "<group>"; };
+		11D4015A1F8E122A0096F67B /* EZLeaveMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLeaveMessage.h; sourceTree = "<group>"; };
+		11D4015B1F8E122A0096F67B /* EZOpenSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZOpenSDK.h; sourceTree = "<group>"; };
+		11D4015C1F8E122A0096F67B /* EZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZPlayer.h; sourceTree = "<group>"; };
+		11D4015D1F8E122A0096F67B /* EZProbeDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZProbeDeviceInfo.h; sourceTree = "<group>"; };
+		11D4015E1F8E122A0096F67B /* EZStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStorageInfo.h; sourceTree = "<group>"; };
+		11D4015F1F8E122A0096F67B /* EZUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZUserInfo.h; sourceTree = "<group>"; };
+		11D401601F8E122A0096F67B /* EZVideoQualityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZVideoQualityInfo.h; sourceTree = "<group>"; };
+		11D401651F8E123D0096F67B /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		11D401661F8E123D0096F67B /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		11D401671F8E123D0096F67B /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		11D401681F8E123D0096F67B /* asn1t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		11D401691F8E123D0096F67B /* bio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		11D4016A1F8E123D0096F67B /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		11D4016B1F8E123D0096F67B /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		11D4016C1F8E123D0096F67B /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		11D4016D1F8E123D0096F67B /* camellia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		11D4016E1F8E123D0096F67B /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		11D4016F1F8E123D0096F67B /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		11D401701F8E123D0096F67B /* cms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		11D401711F8E123D0096F67B /* comp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		11D401721F8E123D0096F67B /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		11D401731F8E123D0096F67B /* conf_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		11D401741F8E123D0096F67B /* crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		11D401751F8E123D0096F67B /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		11D401761F8E123D0096F67B /* des_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
+		11D401771F8E123D0096F67B /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		11D401781F8E123D0096F67B /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		11D401791F8E123D0096F67B /* dso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		11D4017A1F8E123D0096F67B /* dtls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		11D4017B1F8E123D0096F67B /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		11D4017C1F8E123D0096F67B /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		11D4017D1F8E123D0096F67B /* ec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		11D4017E1F8E123D0096F67B /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		11D4017F1F8E123D0096F67B /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		11D401801F8E123D0096F67B /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		11D401811F8E123D0096F67B /* err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		11D401821F8E123D0096F67B /* evp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		11D401831F8E123D0096F67B /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		11D401841F8E123D0096F67B /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		11D401851F8E123D0096F67B /* krb5_asn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
+		11D401861F8E123D0096F67B /* kssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
+		11D401871F8E123D0096F67B /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		11D401881F8E123D0096F67B /* md2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md2.h; sourceTree = "<group>"; };
+		11D401891F8E123D0096F67B /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		11D4018A1F8E123D0096F67B /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		11D4018B1F8E123D0096F67B /* mdc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		11D4018C1F8E123D0096F67B /* modes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		11D4018D1F8E123D0096F67B /* obj_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		11D4018E1F8E123D0096F67B /* objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		11D4018F1F8E123D0096F67B /* ocsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		11D401901F8E123D0096F67B /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		11D401911F8E123D0096F67B /* opensslv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		11D401921F8E123D0096F67B /* ossl_typ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		11D401931F8E123D0096F67B /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		11D401941F8E123D0096F67B /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		11D401951F8E123D0096F67B /* pkcs12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		11D401961F8E123D0096F67B /* pkcs7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		11D401971F8E123D0096F67B /* pq_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pq_compat.h; sourceTree = "<group>"; };
+		11D401981F8E123D0096F67B /* pqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
+		11D401991F8E123D0096F67B /* rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		11D4019A1F8E123D0096F67B /* rc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		11D4019B1F8E123D0096F67B /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		11D4019C1F8E123D0096F67B /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		11D4019D1F8E123D0096F67B /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		11D4019E1F8E123D0096F67B /* safestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		11D4019F1F8E123D0096F67B /* seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		11D401A01F8E123D0096F67B /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		11D401A11F8E123D0096F67B /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		11D401A21F8E123D0096F67B /* srtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		11D401A31F8E123D0096F67B /* ssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		11D401A41F8E123D0096F67B /* ssl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		11D401A51F8E123D0096F67B /* ssl23.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
+		11D401A61F8E123D0096F67B /* ssl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		11D401A71F8E123D0096F67B /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		11D401A81F8E123D0096F67B /* store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = store.h; sourceTree = "<group>"; };
+		11D401A91F8E123D0096F67B /* symhacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		11D401AA1F8E123D0096F67B /* tls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		11D401AB1F8E123D0096F67B /* tmdiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmdiff.h; sourceTree = "<group>"; };
+		11D401AC1F8E123D0096F67B /* ts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		11D401AD1F8E123D0096F67B /* txt_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		11D401AE1F8E123D0096F67B /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		11D401AF1F8E123D0096F67B /* ui_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
+		11D401B01F8E123D0096F67B /* whrlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		11D401B11F8E123D0096F67B /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		11D401B21F8E123D0096F67B /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		11D401B31F8E123D0096F67B /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		11D401B51F8E123D0096F67B /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		11D401B61F8E123D0096F67B /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		11D401B91F8E12670096F67B /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		11D401BB1F8E12780096F67B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		11D401BD1F8E12830096F67B /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		11D401BF1F8E128F0096F67B /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		11D401C11F8E129B0096F67B /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		11E09F571F88CF1D004A2BCC /* AskHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskHelpCell.h; sourceTree = "<group>"; };
 		11E09F581F88CF1D004A2BCC /* AskHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskHelpCell.m; sourceTree = "<group>"; };
 		11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskHelpCell.xib; sourceTree = "<group>"; };
@@ -330,16 +454,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
-				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
-				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
-				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
-				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
-				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
-				11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */,
-				11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */,
 				11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */,
 				11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */,
+				11D401C21F8E129B0096F67B /* VideoToolbox.framework in Frameworks */,
+				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
+				11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */,
+				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
+				11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */,
+				11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */,
+				11D401BC1F8E12780096F67B /* libc++.tbd in Frameworks */,
+				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
+				11D401BA1F8E12670096F67B /* libiconv.2.4.0.tbd in Frameworks */,
+				11D401B81F8E123E0096F67B /* libssl.a in Frameworks */,
+				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
+				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
+				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
+				11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */,
+				11D401B71F8E123E0096F67B /* libcrypto.a in Frameworks */,
 				11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */,
 				11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */,
 				B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */,
@@ -385,46 +516,6 @@
 				11599C481F87E8AC0005D9ED /* HomeCollectionViewCell.h */,
 				11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */,
 				11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
-		11A0A0E01F8B0A63009AADC6 /* Look */ = {
-			isa = PBXGroup;
-			children = (
-				11A0A0E11F8B0A6A009AADC6 /* views */,
-				11C303161F8C5AA60043D104 /* SetDeviceNameViewController.h */,
-				11C303181F8C5AA60043D104 /* SetDeviceNameViewController.m */,
-				11C303171F8C5AA60043D104 /* SetDeviceNameViewController.xib */,
-				11C303131F8C5A9B0043D104 /* LiveLookViewController.h */,
-				11C303141F8C5A9B0043D104 /* LiveLookViewController.m */,
-				11C303121F8C5A9A0043D104 /* LiveLookViewController.xib */,
-				11C3030F1F8C5A8C0043D104 /* DeleteDeviceViewController.h */,
-				11C3030E1F8C5A8C0043D104 /* DeleteDeviceViewController.m */,
-				11C303101F8C5A8D0043D104 /* DeleteDeviceViewController.xib */,
-				11C303091F8B92560043D104 /* CheakPhoneViewController.h */,
-				11C3030A1F8B92560043D104 /* CheakPhoneViewController.m */,
-				11C3030B1F8B92560043D104 /* CheakPhoneViewController.xib */,
-				11A0A1011F8B87E8009AADC6 /* AddbyViewController.h */,
-				11A0A1021F8B87E8009AADC6 /* AddbyViewController.m */,
-				11A0A0E61F8B0A82009AADC6 /* LookViewController.h */,
-				11A0A0E71F8B0A83009AADC6 /* LookViewController.m */,
-				11A0A0E51F8B0A82009AADC6 /* LookViewController.xib */,
-				11A0A0F91F8B4E0B009AADC6 /* AddByQRCodeViewController.h */,
-				11A0A0FA1F8B4E0B009AADC6 /* AddByQRCodeViewController.m */,
-				11A0A0FB1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib */,
-			);
-			path = Look;
-			sourceTree = "<group>";
-		};
-		11A0A0E11F8B0A6A009AADC6 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				11A0A0FE1F8B50B4009AADC6 /* EZQRView.h */,
-				11A0A0FF1F8B50B4009AADC6 /* EZQRView.m */,
-				11A0A0E41F8B0A74009AADC6 /* LookCell.h */,
-				11A0A0E21F8B0A73009AADC6 /* LookCell.m */,
-				11A0A0E31F8B0A74009AADC6 /* LookCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -533,7 +624,7 @@
 		11C9D41C1F851D27005B3577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				11A0A0E01F8B0A63009AADC6 /* Look */,
+				11D4011C1F8E117F0096F67B /* Look */,
 				11E09F6B1F88D5CD004A2BCC /* Service */,
 				11C9D4311F85257E005B3577 /* Robot */,
 				11C9D4301F852574005B3577 /* Location */,
@@ -553,6 +644,8 @@
 		11C9D41D1F851D57005B3577 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11D401621F8E123D0096F67B /* openssl */,
+				11D4014D1F8E122A0096F67B /* include */,
 				11A0A0EC1F8B23C2009AADC6 /* newFeatures */,
 				11AF41FE1F87143400903A85 /* TimerButton */,
 				11B2532E1F867C2700994575 /* Category */,
@@ -712,6 +805,194 @@
 			path = Robot;
 			sourceTree = "<group>";
 		};
+		11D4011C1F8E117F0096F67B /* Look */ = {
+			isa = PBXGroup;
+			children = (
+				11D4011D1F8E117F0096F67B /* AddByQRCodeViewController.h */,
+				11D4011E1F8E117F0096F67B /* AddByQRCodeViewController.m */,
+				11D4011F1F8E117F0096F67B /* AddByQRCodeViewController.xib */,
+				11D401201F8E117F0096F67B /* AddbyViewController.h */,
+				11D401211F8E117F0096F67B /* AddbyViewController.m */,
+				11D401221F8E117F0096F67B /* CheakPhoneViewController.h */,
+				11D401231F8E117F0096F67B /* CheakPhoneViewController.m */,
+				11D401241F8E117F0096F67B /* CheakPhoneViewController.xib */,
+				11D401251F8E117F0096F67B /* DeleteDeviceViewController.h */,
+				11D401261F8E117F0096F67B /* DeleteDeviceViewController.m */,
+				11D401271F8E117F0096F67B /* DeleteDeviceViewController.xib */,
+				11D401281F8E117F0096F67B /* LiveLookViewController.h */,
+				11D401291F8E117F0096F67B /* LiveLookViewController.m */,
+				11D4012A1F8E117F0096F67B /* LiveLookViewController.xib */,
+				11D4012B1F8E117F0096F67B /* LookViewController.h */,
+				11D4012C1F8E117F0096F67B /* LookViewController.m */,
+				11D4012D1F8E117F0096F67B /* LookViewController.xib */,
+				11D4012E1F8E117F0096F67B /* SetDeviceNameViewController.h */,
+				11D4012F1F8E117F0096F67B /* SetDeviceNameViewController.m */,
+				11D401301F8E117F0096F67B /* SetDeviceNameViewController.xib */,
+				11D401311F8E117F0096F67B /* views */,
+			);
+			name = Look;
+			path = "../../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/038811e4285ef6304471913ca64be192/Message/MessageTemp/40a56d8b0dee11af0977e39be20202b5/OpenData/Look";
+			sourceTree = "<group>";
+		};
+		11D401311F8E117F0096F67B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				11D401321F8E117F0096F67B /* EZQRView.h */,
+				11D401331F8E117F0096F67B /* EZQRView.m */,
+				11D401341F8E117F0096F67B /* HIKLoadPercentView.h */,
+				11D401351F8E117F0096F67B /* HIKLoadPercentView.m */,
+				11D401361F8E117F0096F67B /* HIKLoadView.h */,
+				11D401371F8E117F0096F67B /* HIKLoadView.m */,
+				11D401381F8E117F0096F67B /* HIKLoadViewItem+configPath.h */,
+				11D401391F8E117F0096F67B /* HIKLoadViewItem+configPath.m */,
+				11D4013A1F8E117F0096F67B /* HIKLoadViewItem.h */,
+				11D4013B1F8E117F0096F67B /* HIKLoadViewItem.m */,
+				11D4013C1F8E117F0096F67B /* LookCell.h */,
+				11D4013D1F8E117F0096F67B /* LookCell.m */,
+				11D4013E1F8E117F0096F67B /* LookCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		11D4014D1F8E122A0096F67B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				11D4014E1F8E122A0096F67B /* EZAccessToken.h */,
+				11D4014F1F8E122A0096F67B /* EZAlarmInfo.h */,
+				11D401501F8E122A0096F67B /* EZAreaInfo.h */,
+				11D401511F8E122A0096F67B /* EZCameraInfo.h */,
+				11D401521F8E122A0096F67B /* EZCloudRecordFile.h */,
+				11D401531F8E122A0096F67B /* EZConstants.h */,
+				11D401541F8E122A0096F67B /* EZDetectorInfo.h */,
+				11D401551F8E122A0096F67B /* EZDeviceInfo.h */,
+				11D401561F8E122A0096F67B /* EZDeviceRecordFile.h */,
+				11D401571F8E122A0096F67B /* EZDeviceUpgradeStatus.h */,
+				11D401581F8E122A0096F67B /* EZDeviceVersion.h */,
+				11D401591F8E122A0096F67B /* EZGlobalSDK.h */,
+				11D4015A1F8E122A0096F67B /* EZLeaveMessage.h */,
+				11D4015B1F8E122A0096F67B /* EZOpenSDK.h */,
+				11D4015C1F8E122A0096F67B /* EZPlayer.h */,
+				11D4015D1F8E122A0096F67B /* EZProbeDeviceInfo.h */,
+				11D4015E1F8E122A0096F67B /* EZStorageInfo.h */,
+				11D4015F1F8E122A0096F67B /* EZUserInfo.h */,
+				11D401601F8E122A0096F67B /* EZVideoQualityInfo.h */,
+			);
+			name = include;
+			path = ../../../../Downloads/iOS_v4.5.0.build20170605/Demo/EZOpenSDK/include;
+			sourceTree = "<group>";
+		};
+		11D401621F8E123D0096F67B /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				11D401631F8E123D0096F67B /* include */,
+				11D401B41F8E123D0096F67B /* lib */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		11D401631F8E123D0096F67B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				11D401641F8E123D0096F67B /* openssl */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		11D401641F8E123D0096F67B /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				11D401651F8E123D0096F67B /* aes.h */,
+				11D401661F8E123D0096F67B /* asn1.h */,
+				11D401671F8E123D0096F67B /* asn1_mac.h */,
+				11D401681F8E123D0096F67B /* asn1t.h */,
+				11D401691F8E123D0096F67B /* bio.h */,
+				11D4016A1F8E123D0096F67B /* blowfish.h */,
+				11D4016B1F8E123D0096F67B /* bn.h */,
+				11D4016C1F8E123D0096F67B /* buffer.h */,
+				11D4016D1F8E123D0096F67B /* camellia.h */,
+				11D4016E1F8E123D0096F67B /* cast.h */,
+				11D4016F1F8E123D0096F67B /* cmac.h */,
+				11D401701F8E123D0096F67B /* cms.h */,
+				11D401711F8E123D0096F67B /* comp.h */,
+				11D401721F8E123D0096F67B /* conf.h */,
+				11D401731F8E123D0096F67B /* conf_api.h */,
+				11D401741F8E123D0096F67B /* crypto.h */,
+				11D401751F8E123D0096F67B /* des.h */,
+				11D401761F8E123D0096F67B /* des_old.h */,
+				11D401771F8E123D0096F67B /* dh.h */,
+				11D401781F8E123D0096F67B /* dsa.h */,
+				11D401791F8E123D0096F67B /* dso.h */,
+				11D4017A1F8E123D0096F67B /* dtls1.h */,
+				11D4017B1F8E123D0096F67B /* e_os2.h */,
+				11D4017C1F8E123D0096F67B /* ebcdic.h */,
+				11D4017D1F8E123D0096F67B /* ec.h */,
+				11D4017E1F8E123D0096F67B /* ecdh.h */,
+				11D4017F1F8E123D0096F67B /* ecdsa.h */,
+				11D401801F8E123D0096F67B /* engine.h */,
+				11D401811F8E123D0096F67B /* err.h */,
+				11D401821F8E123D0096F67B /* evp.h */,
+				11D401831F8E123D0096F67B /* hmac.h */,
+				11D401841F8E123D0096F67B /* idea.h */,
+				11D401851F8E123D0096F67B /* krb5_asn.h */,
+				11D401861F8E123D0096F67B /* kssl.h */,
+				11D401871F8E123D0096F67B /* lhash.h */,
+				11D401881F8E123D0096F67B /* md2.h */,
+				11D401891F8E123D0096F67B /* md4.h */,
+				11D4018A1F8E123D0096F67B /* md5.h */,
+				11D4018B1F8E123D0096F67B /* mdc2.h */,
+				11D4018C1F8E123D0096F67B /* modes.h */,
+				11D4018D1F8E123D0096F67B /* obj_mac.h */,
+				11D4018E1F8E123D0096F67B /* objects.h */,
+				11D4018F1F8E123D0096F67B /* ocsp.h */,
+				11D401901F8E123D0096F67B /* opensslconf.h */,
+				11D401911F8E123D0096F67B /* opensslv.h */,
+				11D401921F8E123D0096F67B /* ossl_typ.h */,
+				11D401931F8E123D0096F67B /* pem.h */,
+				11D401941F8E123D0096F67B /* pem2.h */,
+				11D401951F8E123D0096F67B /* pkcs12.h */,
+				11D401961F8E123D0096F67B /* pkcs7.h */,
+				11D401971F8E123D0096F67B /* pq_compat.h */,
+				11D401981F8E123D0096F67B /* pqueue.h */,
+				11D401991F8E123D0096F67B /* rand.h */,
+				11D4019A1F8E123D0096F67B /* rc2.h */,
+				11D4019B1F8E123D0096F67B /* rc4.h */,
+				11D4019C1F8E123D0096F67B /* ripemd.h */,
+				11D4019D1F8E123D0096F67B /* rsa.h */,
+				11D4019E1F8E123D0096F67B /* safestack.h */,
+				11D4019F1F8E123D0096F67B /* seed.h */,
+				11D401A01F8E123D0096F67B /* sha.h */,
+				11D401A11F8E123D0096F67B /* srp.h */,
+				11D401A21F8E123D0096F67B /* srtp.h */,
+				11D401A31F8E123D0096F67B /* ssl.h */,
+				11D401A41F8E123D0096F67B /* ssl2.h */,
+				11D401A51F8E123D0096F67B /* ssl23.h */,
+				11D401A61F8E123D0096F67B /* ssl3.h */,
+				11D401A71F8E123D0096F67B /* stack.h */,
+				11D401A81F8E123D0096F67B /* store.h */,
+				11D401A91F8E123D0096F67B /* symhacks.h */,
+				11D401AA1F8E123D0096F67B /* tls1.h */,
+				11D401AB1F8E123D0096F67B /* tmdiff.h */,
+				11D401AC1F8E123D0096F67B /* ts.h */,
+				11D401AD1F8E123D0096F67B /* txt_db.h */,
+				11D401AE1F8E123D0096F67B /* ui.h */,
+				11D401AF1F8E123D0096F67B /* ui_compat.h */,
+				11D401B01F8E123D0096F67B /* whrlpool.h */,
+				11D401B11F8E123D0096F67B /* x509.h */,
+				11D401B21F8E123D0096F67B /* x509_vfy.h */,
+				11D401B31F8E123D0096F67B /* x509v3.h */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		11D401B41F8E123D0096F67B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				11D401B51F8E123D0096F67B /* libcrypto.a */,
+				11D401B61F8E123D0096F67B /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		11E09F561F88CF1D004A2BCC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +1143,11 @@
 		DFC82970BC5F0D5944C90933 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11D401C11F8E129B0096F67B /* VideoToolbox.framework */,
+				11D401BF1F8E128F0096F67B /* GLKit.framework */,
+				11D401BD1F8E12830096F67B /* OpenAL.framework */,
+				11D401BB1F8E12780096F67B /* libc++.tbd */,
+				11D401B91F8E12670096F67B /* libiconv.2.4.0.tbd */,
 				11A0A0921F8A17C4009AADC6 /* libxml2.tbd */,
 				11A0A0901F8A17BD009AADC6 /* libsqlite3.0.tbd */,
 				11A0A08E1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd */,
@@ -988,29 +1274,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D401C91F8E151C0096F67B /* LookCell.xib in Resources */,
+				11D401C81F8E15180096F67B /* SetDeviceNameViewController.xib in Resources */,
+				11D401C31F8E14FB0096F67B /* AddByQRCodeViewController.xib in Resources */,
 				11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */,
-				11C3031B1F8C5FA90043D104 /* LiveLookViewController.xib in Resources */,
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
 				11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */,
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
+				11D401C51F8E15100096F67B /* DeleteDeviceViewController.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
-				11A0A0EB1F8B0CF5009AADC6 /* LookCell.xib in Resources */,
 				1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */,
+				11D401C41F8E150D0096F67B /* CheakPhoneViewController.xib in Resources */,
+				11D401C71F8E15140096F67B /* LookViewController.xib in Resources */,
 				11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */,
+				11D401C61F8E15120096F67B /* LiveLookViewController.xib in Resources */,
 				11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */,
 				11E09F801F88F82E004A2BCC /* ConfirmViewController.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
-				11A0A0FD1F8B4E0B009AADC6 /* AddByQRCodeViewController.xib in Resources */,
-				11C3031C1F8C5FAB0043D104 /* DeleteDeviceViewController.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
-				11C3031A1F8C5FA60043D104 /* SetDeviceNameViewController.xib in Resources */,
 				11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
-				11C3030D1F8B92560043D104 /* CheakPhoneViewController.xib in Resources */,
-				11A0A0EA1F8B0CF2009AADC6 /* LookViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,20 +1369,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D4013F1F8E11C00096F67B /* AddByQRCodeViewController.m in Sources */,
+				11D401401F8E11C00096F67B /* AddbyViewController.m in Sources */,
+				11D401411F8E11C00096F67B /* CheakPhoneViewController.m in Sources */,
+				11D401421F8E11C00096F67B /* DeleteDeviceViewController.m in Sources */,
+				11D401431F8E11C00096F67B /* LiveLookViewController.m in Sources */,
+				11D401441F8E11C00096F67B /* LookViewController.m in Sources */,
+				11D401451F8E11C00096F67B /* SetDeviceNameViewController.m in Sources */,
+				11D401461F8E11C00096F67B /* EZQRView.m in Sources */,
+				11D401471F8E11C00096F67B /* HIKLoadPercentView.m in Sources */,
+				11D401481F8E11C00096F67B /* HIKLoadView.m in Sources */,
+				11D401491F8E11C00096F67B /* HIKLoadViewItem+configPath.m in Sources */,
+				11D4014A1F8E11C00096F67B /* HIKLoadViewItem.m in Sources */,
+				11D4014B1F8E11C00096F67B /* LookCell.m in Sources */,
 				11A0A0F51F8B24DF009AADC6 /* UIView+XLJExternFrame.m in Sources */,
-				11C303111F8C5A8D0043D104 /* DeleteDeviceViewController.m in Sources */,
 				11A0A0F61F8B24DF009AADC6 /* XLJCollectionViewCell.m in Sources */,
 				11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */,
 				11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */,
-				11A0A0E81F8B0AAB009AADC6 /* LookViewController.m in Sources */,
-				11A0A0E91F8B0AAB009AADC6 /* LookCell.m in Sources */,
-				11C303151F8C5A9B0043D104 /* LiveLookViewController.m in Sources */,
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */,
 				1A676A111F8BA173001BD32A /* TendView.m in Sources */,
 				11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */,
-				11A0A0FC1F8B4E0B009AADC6 /* AddByQRCodeViewController.m in Sources */,
 				11AF42011F87154600903A85 /* HYTimerButton.m in Sources */,
 				1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */,
 				11E09F7A1F88E989004A2BCC /* RechargeCell.m in Sources */,
@@ -1111,13 +1405,11 @@
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
-				11A0A1001F8B50B4009AADC6 /* EZQRView.m in Sources */,
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A676A141F8BA733001BD32A /* AddTendView.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
-				11A0A1031F8B87E8009AADC6 /* AddbyViewController.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
 				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
@@ -1130,7 +1422,6 @@
 				1A9A850F1F88B8060003B9E1 /* TYTabPagerController.m in Sources */,
 				1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */,
 				1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */,
-				11C303191F8C5AA70043D104 /* SetDeviceNameViewController.m in Sources */,
 				1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */,
 				1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */,
 				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
@@ -1141,7 +1432,6 @@
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
 				1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */,
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
-				11C3030C1F8B92560043D104 /* CheakPhoneViewController.m in Sources */,
 				1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */,
 				11E09F831F88FC29004A2BCC /* RechargeRecordController.m in Sources */,
 				11E09F871F890156004A2BCC /* RechargeRecordCell.m in Sources */,
@@ -1299,6 +1589,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1322,8 +1613,10 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"$(PROJECT_DIR)/AiXiangBan/Resources",
+					"$(PROJECT_DIR)/AiXiangBan/Resources/openssl/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XiaoXiangBan.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huasky.doctoryun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1337,6 +1630,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1360,8 +1654,10 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"$(PROJECT_DIR)/AiXiangBan/Resources",
+					"$(PROJECT_DIR)/AiXiangBan/Resources/openssl/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.XiaoXiangBan.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huasky.doctoryun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

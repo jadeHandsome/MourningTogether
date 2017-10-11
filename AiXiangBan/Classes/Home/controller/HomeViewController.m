@@ -167,6 +167,7 @@
 }
 
 - (IBAction)goToLook:(UITapGestureRecognizer *)sender {
+    [EZOPENSDK setAccessToken:@"at.4xf125v181nleffl2fz3tsq5an3p0p0t-5q4l72bmgs-1mnvuch-ouitoyzzm"];
     LookViewController *lookVC = [LookViewController new];
     [self.navigationController pushViewController:lookVC animated:YES];
 }

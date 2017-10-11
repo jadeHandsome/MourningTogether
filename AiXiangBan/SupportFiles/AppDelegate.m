@@ -14,6 +14,9 @@
 #import "QYSDK.h"
 #import "QYSessionViewController.h"
 #import "XLJNewFetureController.h"
+
+#define EzvizAppKey @"d8550d61c51642669567ccf473a1d752"
+#define EZPushAppSecret @"4d4037b10a3ce40056a702dea61e52e9"
 @interface AppDelegate ()
 
 @end
@@ -27,7 +30,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setIQKeyboardManager];
     [self judgeFirstView];
-    
+    [self setEZOpen];
     
     
     return YES;
@@ -48,6 +51,16 @@
     [[IQKeyboardManager sharedManager].disabledDistanceHandlingClasses addObject:[QYSessionViewController class]];
     
 }
+
+//萤石出事话
+- (void)setEZOpen{
+    [EZOPENSDK initLibWithAppKey:EzvizAppKey];
+    [EZOPENSDK enableP2P:YES];
+    [EZOPENSDK setDebugLogEnable:YES];
+    [EZOPENSDK initPushService];
+    NSLog(@"EZOpenSDK Version = %@", [EZOPENSDK getVersion]);
+}
+
 
 - (void)judgeFirstView{
     
