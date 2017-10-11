@@ -54,6 +54,7 @@
 		11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BD1F8E12830096F67B /* OpenAL.framework */; };
 		11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BF1F8E128F0096F67B /* GLKit.framework */; };
 		11D401C21F8E129B0096F67B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401C11F8E129B0096F67B /* VideoToolbox.framework */; };
+		11D402031F8E3D4D0096F67B /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D402021F8E3D4D0096F67B /* libEZOpenSDK.a */; };
 		11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5A1F88CF1D004A2BCC /* AskHelpViewController.m */; };
 		11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */; };
 		11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F581F88CF1D004A2BCC /* AskHelpCell.m */; };
@@ -320,6 +321,7 @@
 		11D401FD1F8E19430096F67B /* EZStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStorageInfo.h; sourceTree = "<group>"; };
 		11D401FE1F8E19430096F67B /* EZUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZUserInfo.h; sourceTree = "<group>"; };
 		11D401FF1F8E19430096F67B /* EZVideoQualityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZVideoQualityInfo.h; sourceTree = "<group>"; };
+		11D402021F8E3D4D0096F67B /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		11E09F571F88CF1D004A2BCC /* AskHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskHelpCell.h; sourceTree = "<group>"; };
 		11E09F581F88CF1D004A2BCC /* AskHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskHelpCell.m; sourceTree = "<group>"; };
 		11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskHelpCell.xib; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
 				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
 				11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */,
+				11D402031F8E3D4D0096F67B /* libEZOpenSDK.a in Frameworks */,
 				11D401B71F8E123E0096F67B /* libcrypto.a in Frameworks */,
 				11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */,
 				11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */,
@@ -937,6 +940,7 @@
 		11D401EB1F8E19430096F67B /* EZOpenSDK */ = {
 			isa = PBXGroup;
 			children = (
+				11D402021F8E3D4D0096F67B /* libEZOpenSDK.a */,
 				11D401EC1F8E19430096F67B /* include */,
 			);
 			path = EZOpenSDK;
@@ -1638,7 +1642,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
@@ -1680,7 +1684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;

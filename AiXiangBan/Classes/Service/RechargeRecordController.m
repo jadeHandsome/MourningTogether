@@ -13,6 +13,7 @@
 @property (nonatomic, assign) NSInteger nowCount;
 @property (nonatomic, assign) NSInteger totalCount;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, assign) NSInteger everyCount;
 @end
 
 @implementation RechargeRecordController
@@ -29,40 +30,45 @@
     self.navigationItem.title = @"充值记录";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     self.nowCount = 0;
+    self.everyCount = 20;
     [self requestData];
-    
+    [self setUp];
     // Do any additional setup after loading the view.
 }
 
 - (void)requestData{
-    NSDictionary *params = @{@"offset":@(self.nowCount),@"size":@3};
+    NSDictionary *params = @{@"offset":@(self.nowCount),@"size":@(self.everyCount)};
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/base/getRechargeList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
-        if(!showdata){
-            return ;
+        if ([showdata[@"rechargeList"] count] == 0) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
-
-        self.totalCount = [showdata[@"totalCount"] integerValue];
-        [self.data addObjectsFromArray:showdata[@"rechargeList"]];
-        [self setUp];
+        else{
+            [self.tableView.mj_footer endRefreshing];
+            self.totalCount = [showdata[@"totalCount"] integerValue];
+            [self.data addObjectsFromArray:showdata[@"rechargeList"]];
+            CGFloat height = self.data.count * 45 < SIZEHEIGHT - navHight - 20 ? self.data.count * 45 : SIZEHEIGHT - navHight - 20;
+            self.tableView.frame = CGRectMake(10, navHight + 10, SIZEWIDTH - 20, height);
+            [self.tableView reloadData];
+        }
     }];
 }
 
 - (void)getMoreData{
-    self.nowCount ++ ;
+    self.nowCount += self.everyCount ;
     [self requestData];
 }
 
 - (void)setUp{
-    CGFloat height = self.data.count * 45 < SIZEHEIGHT - navHight - 20 ? self.data.count * 45 : SIZEHEIGHT - navHight - 20;
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, navHight + 10, SIZEWIDTH - 20, height) style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.rowHeight = 45;
-    LRViewBorderRadius(tableView, 7.5, 0, [UIColor whiteColor]);
-    [KRBaseTool tableViewAddRefreshFooter:tableView withTarget:self refreshingAction:@selector(getMoreData)];
-    self.tableView = tableView;
-    [self.view addSubview:tableView];
+    CGFloat height = 0;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, navHight + 10, SIZEWIDTH - 20, height) style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 45;
+    LRViewBorderRadius(self.tableView, 7.5, 0, [UIColor whiteColor]);
+    [KRBaseTool tableViewAddRefreshFooter:self.tableView withTarget:self refreshingAction:@selector(getMoreData)];
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
