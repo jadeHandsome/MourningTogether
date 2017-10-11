@@ -55,7 +55,7 @@
 - (void)upData {
     for (UIView *sub in self.mainScrool.subviews) {
         for (UIView *centerSub in sub.subviews) {
-            if (centerSub.tag == 1001 || centerSub.tag == 1002) {
+            if (centerSub.tag == 1001 || centerSub.tag == 1002 || centerSub.tag == 10000 || centerSub.tag == 10001) {
                 AddAddressView *addView = (AddAddressView *)centerSub;
                 [addView upData:centerSub.tag];
             }
@@ -91,7 +91,12 @@
         make.top.equalTo(self.view.mas_top).with.offset(navHight);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-    self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount);
+    if (self.oldDic) {
+        self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount + 65);
+    } else {
+        self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount);
+        
+    }
     UIView *centerView = [[UIView alloc]init];
     centerView.backgroundColor = [UIColor whiteColor];
     [self.mainScrool addSubview:centerView];
@@ -110,6 +115,13 @@
             add.tag = 1001;
         } else if (i == 1) {
             add.tag = 1002;
+        }
+        if (typeCount > 5) {
+            if (i == 7) {
+                add.tag = 10000;
+            } else if (i == 8) {
+                add.tag = 10001;
+            }
         }
         add.superVc = self;
         [centerView addSubview:add];
@@ -142,6 +154,20 @@
     [tap addTarget:self action:@selector(addImage)];
     imageView.userInteractionEnabled = YES;
     [imageView addGestureRecognizer:tap];
+    if (self.oldDic) {
+        UIButton *deletBtn = [[UIButton alloc]init];
+        [self.mainScrool addSubview:deletBtn];
+        [deletBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(centerView.mas_bottom).with.offset(10);
+            make.left.equalTo(self.view.mas_left).with.offset(10);
+            make.right.equalTo(self.view.mas_right).with.offset(-10);
+            make.height.equalTo(@45);
+        }];
+        deletBtn.backgroundColor =LRRGBColor(211, 80, 70);
+        [deletBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [deletBtn setTitle:@"删除" forState:UIControlStateNormal];
+        LRViewBorderRadius(deletBtn, 5, 0, [UIColor clearColor]);
+    }
 }
 - (void)addImage {
     //改头像

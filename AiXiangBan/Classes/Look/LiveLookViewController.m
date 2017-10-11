@@ -1,0 +1,684 @@
+//
+//  LiveLookViewController.m
+//  孝相伴
+//
+//  Created by MAC on 17/10/10.
+//  Copyright © 2017年 周春仕. All rights reserved.
+//
+
+#import "LiveLookViewController.h"
+#import "AppDelegate.h"
+#import "EZPlayer.h"
+#import "HIKLoadView.h"
+@interface LiveLookViewController ()<EZPlayerDelegate,UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (weak, nonatomic) IBOutlet UIView *playerView;
+@property (weak, nonatomic) IBOutlet UIView *buttonsView;
+@property (weak, nonatomic) IBOutlet UIView *functionView;
+@property (weak, nonatomic) IBOutlet UIView *qualityView;
+@property (weak, nonatomic) IBOutlet UIButton *qualityBtn;
+@property (weak, nonatomic) IBOutlet UIButton *voiceControlBtn;
+@property (weak, nonatomic) IBOutlet UIButton *playerControlBtn;
+@property (nonatomic, assign) BOOL isFull;
+@property (weak, nonatomic) IBOutlet UIView *vioceView;
+@property (weak, nonatomic) IBOutlet UIView *bottomVoiceView;
+@property (weak, nonatomic) IBOutlet UIView *PTZView;
+@property (weak, nonatomic) IBOutlet UIButton *PTZBtn1;
+@property (weak, nonatomic) IBOutlet UIView *PTZCenterView;
+@property (weak, nonatomic) IBOutlet UIView *PTZCenterItem;
+@property (weak, nonatomic) IBOutlet UIImageView *PTZImageView;
+@property (weak, nonatomic) IBOutlet UILabel *PTZLabel;
+@property (nonatomic, strong) UIButton *preBtn;
+@property (nonatomic, assign) CGFloat screenHeight;
+@property (nonatomic, assign) CGFloat naviHeight;
+@property (weak, nonatomic) IBOutlet UIButton *PTZBtn;
+@property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shotBtn;
+@property (weak, nonatomic) IBOutlet UIButton *screenshotBtn;
+@property (weak, nonatomic) IBOutlet UIButton *videoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *historyBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *PTZImage;
+@property (weak, nonatomic) IBOutlet UIImageView *voiceImage;
+@property (weak, nonatomic) IBOutlet UIImageView *shotImage;
+@property (weak, nonatomic) IBOutlet UIImageView *screenshotImage;
+@property (weak, nonatomic) IBOutlet UIImageView *voideImage;
+@property (weak, nonatomic) IBOutlet UIImageView *historyImage;
+@property (weak, nonatomic) IBOutlet UILabel *PTZText;
+@property (weak, nonatomic) IBOutlet UILabel *voiceText;
+@property (weak, nonatomic) IBOutlet UILabel *shotText;
+@property (weak, nonatomic) IBOutlet UILabel *screenshotText;
+@property (weak, nonatomic) IBOutlet UILabel *videoText;
+@property (nonatomic) BOOL isStartingTalk;
+@property (nonatomic, strong) EZCameraInfo *cameraInfo;
+@property (nonatomic, strong) EZPlayer *player;
+@property (nonatomic, strong) EZPlayer *talkPlayer;
+@property (nonatomic) BOOL isOpenSound;
+@property (nonatomic) BOOL isPlaying;
+@property (nonatomic) BOOL isPressed;
+@property (nonatomic, strong) NSMutableData *fileData;
+@property (nonatomic, copy) NSString *filePath;
+@property (nonatomic, strong) HIKLoadView *loadingView;
+@end
+
+
+
+@implementation LiveLookViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"看看";
+    self.view.backgroundColor = COLOR(242, 242, 242, 1);
+    [self setUp];
+    [self config];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.isFull = YES;
+    [self addCornerRadius:self.functionView];
+    [self addCornerRadius:self.bottomVoiceView];
+    [self addCornerRadius:self.PTZView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.isFull = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    if(self.videoBtn.selected)
+    {
+        [_player stopLocalRecord];
+        [self.fileData writeToFile:_filePath atomically:YES];
+        [self saveRecordToPhotosAlbum:_filePath];
+    }
+    
+    [_player stopRealPlay];
+    [_talkPlayer stopVoiceTalk];
+}
+
+
+- (void)setUp{
+    self.screenHeight = SIZEHEIGHT;
+    self.naviHeight = navHight;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"云医时代-69"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction)];
+    self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(5, 10, -5,-10);
+    self.topConstraint.constant = navHight + 10;
+    self.bottomConstraint.constant = SIZEHEIGHT - navHight - 10 - 220;
+    LRViewBorderRadius(self.vioceView, 11.5, 0, [UIColor clearColor]);
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.playerView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    maskLayer.frame = self.playerView.bounds;
+//    maskLayer.path = maskPath.CGPath;
+//    self.playerView.layer.mask = maskLayer;
+    self.preBtn = self.PTZBtn1;
+    self.PTZCenterItem.hidden = YES;
+}
+
+- (void)config{
+    if (self.deviceInfo.status == 2) {
+        [self showHUDWithText:@"设备不在线"];
+    }
+    self.isStartingTalk = NO;
+    [self disenable];
+    self.cameraInfo = self.deviceInfo.cameraInfo[0];
+    self.player = [EZOPENSDK createPlayerWithDeviceSerial:_cameraInfo.deviceSerial cameraNo:_cameraInfo.cameraNo];
+    self.talkPlayer = [EZOPENSDK createPlayerWithDeviceSerial:_cameraInfo.deviceSerial cameraNo:_cameraInfo.cameraNo];
+    //        _player = [EZOPENSDK createPlayerWithDeviceSerial:info.deviceSerial cameraNo:info.cameraNo streamType:1];
+    if (_cameraInfo.videoLevel == 2)
+    {
+        [self.qualityBtn setTitle:@"高清" forState:UIControlStateNormal];
+    }
+    else if (_cameraInfo.videoLevel == 1)
+    {
+        [self.qualityBtn setTitle:@"均衡" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.qualityBtn setTitle:@"流畅" forState:UIControlStateNormal];
+    }
+    
+    if(!_loadingView)
+        _loadingView = [[HIKLoadView alloc] initWithHIKLoadViewStyle:HIKLoadViewStyleSqureClockWise];
+    [self.view insertSubview:_loadingView aboveSubview:self.playerView];
+    [_loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.mas_equalTo(@14);
+        make.centerX.mas_equalTo(self.playerView.mas_centerX);
+        make.centerY.mas_equalTo(self.playerView.mas_centerY);
+    }];
+    [self.loadingView startSquareClcokwiseAnimation];
+    
+
+    
+    _player.delegate = self;
+    _talkPlayer.delegate = self;
+    _isOpenSound = YES;
+    
+    [_player setPlayerView:_playerView];
+    [_player startRealPlay];
+}
+
+- (void)rightItemAction{
+    
+}
+
+
+- (void)addCornerRadius:(UIView *)view{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
+}
+
+- (IBAction)startOrStop:(UIButton *)sender {
+    if(self.deviceInfo.status == 2){
+        [self showHUDWithText:@"设备不在线"];
+    }
+    else{
+        if(_isPlaying)
+        {
+            [_player stopRealPlay];
+            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
+            [self disenable];
+            self.playerControlBtn.enabled = YES;
+        }
+        else
+        {
+            [_player startRealPlay];
+            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代2-7") forState:UIControlStateNormal];
+            
+            [self.loadingView startSquareClcokwiseAnimation];
+        }
+        _isPlaying = !_isPlaying;
+    }
+}
+- (IBAction)voiceAction:(UIButton *)sender {
+    if (self.deviceInfo.status == 2) {
+        [self showHUDWithText:@"设备不在线"];
+    }
+    else{
+        if(_isOpenSound){
+            [_player closeSound];
+            [self.voiceControlBtn setImage:IMAGE_NAMED(@"云医时代-67") forState:UIControlStateNormal];  ;
+        }
+        else
+        {
+            [_player openSound];
+            [self.voiceControlBtn setImage:IMAGE_NAMED(@"云医时代2-8") forState:UIControlStateNormal];
+        }
+        _isOpenSound = !_isOpenSound;
+    }
+}
+- (IBAction)enterFullScreen:(UIButton *)sender {
+    if(self.isFull){
+        [self setDecivePortrait];
+    }
+    else{
+        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    }
+}
+- (IBAction)changeQuality:(UIButton *)sender {
+    if(self.qualityBtn.selected)
+    {
+        self.qualityView.hidden = YES;
+    }
+    else
+    {
+        self.qualityView.hidden = NO;
+        //停留5s以后隐藏视频质量View.
+        [self performSelector:@selector(hideQualityView) withObject:nil afterDelay:2.0f];
+    }
+    self.qualityBtn.selected = !self.qualityBtn.selected;
+}
+
+- (void)hideQualityView
+{
+    self.qualityBtn.selected = NO;
+    self.qualityView.hidden = YES;
+}
+
+- (IBAction)quality:(UIButton *)sender {
+    BOOL result = NO;
+    EZVideoLevelType type = EZVideoLevelLow;
+    switch (sender.tag) {
+        case 100:
+            //流畅
+            type = EZVideoLevelLow;
+            break;
+        case 101:
+            //普通
+            type = EZVideoLevelMiddle;
+            break;
+        case 102:
+            //高清
+            type = EZVideoLevelHigh;
+            break;
+        default:
+            break;
+    }
+    [EZOPENSDK setVideoLevel:_cameraInfo.deviceSerial
+                    cameraNo:_cameraInfo.cameraNo
+                  videoLevel:type
+                  completion:^(NSError *error) {
+                      if (error)
+                      {
+                          return;
+                      }
+                      [_player stopRealPlay];
+                      if (sender.tag == 102)
+                      {
+                          [self.qualityBtn setTitle:@"高清" forState:UIControlStateNormal];
+                      }
+                      else if (sender.tag == 101)
+                      {
+                          [self.qualityBtn setTitle:@"均衡" forState:UIControlStateNormal];
+                      }
+                      else
+                      {
+                          [self.qualityBtn setTitle:@"流畅" forState:UIControlStateNormal];
+                      }
+                      self.qualityView.hidden = YES;
+                      if (result)
+                      {
+                          [self.loadingView startSquareClcokwiseAnimation];
+                      }
+                      [_player startRealPlay];
+                  }];
+    
+}
+
+- (IBAction)functionViewAction:(UIButton *)sender {
+    if (self.deviceInfo.status == 2) {
+        [self showHUDWithText:@"设备不在线"];
+    }
+    else{
+        NSLog(@"点击了%ld",sender.tag);
+        switch (sender.tag) {
+            case 200:
+                //云台
+                if (self.deviceInfo.isSupportPTZ) {
+                    self.PTZView.hidden = NO;
+                }
+                else{
+                    [self showHUDWithText:@"该设备不支持平台控制"];
+                }
+                break;
+            case 201:
+                //语音
+            {
+                if (self.deviceInfo.isSupportTalk) {
+                    if (self.deviceInfo.isSupportTalk != 1 && self.deviceInfo.isSupportTalk != 3)
+                    {
+                        return;
+                    }
+                    self.isStartingTalk = YES;
+                    [_talkPlayer startVoiceTalk];
+                }
+                else{
+                    [self showHUDWithText:@"该设备不支持对讲"];
+                }
+            }
+                break;
+            case 202:
+                //镜头
+                break;
+            case 203:
+                //截图
+            {
+                UIImage *image = [_player capturePicture:100];
+                [self saveImageToPhotosAlbum:image];
+            }
+                break;
+            case 204:
+                //录像
+                [self videoRecord];
+                break;
+            case 205:
+                //历史影像
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+- (IBAction)PTZChange:(UIButton *)sender {
+    [self.preBtn setTitleColor:ColorRgbValue(0x898989) forState:UIControlStateNormal];
+    self.preBtn.backgroundColor = [UIColor whiteColor];
+    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    sender.backgroundColor = ThemeColor;
+    self.preBtn = sender;
+    switch (sender.tag) {
+        case 300:
+            self.PTZCenterItem.hidden = YES;
+            break;
+        case 301:
+            self.PTZCenterItem.hidden = NO;
+            self.PTZImageView.image = [UIImage imageNamed:@"云医时代-91"];
+            self.PTZLabel.text = @"收藏位置后，方便摄像头快速定位";
+            break;
+        case 302:
+            self.PTZCenterItem.hidden = NO;
+            self.PTZImageView.image = [UIImage imageNamed:@"云医时代-92"];
+            self.PTZLabel.text = @"开启后，一单周围发出声音，摄像机自动转动镜头，对准声音源";
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+- (IBAction)closeVoice:(UIButton *)sender {
+    [_talkPlayer stopVoiceTalk];
+    self.vioceView.hidden = YES;
+    self.bottomVoiceView.hidden = YES;
+}
+
+- (IBAction)closePTZ:(UIButton *)sender {
+    self.PTZView.hidden = YES;
+}
+
+
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (void)setDecivePortrait{
+    
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                duration:(NSTimeInterval)duration
+{
+    self.isFull = NO;
+    self.navigationController.navigationBar.hidden = NO;
+    self.topConstraint.constant = self.naviHeight + 10;
+    self.leftConstraint.constant = 10;
+    self.rightConstraint.constant = 10;
+    self.bottomConstraint.constant = self.screenHeight - self.naviHeight - 10 - 220;;
+    self.functionView.hidden = NO;
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+       toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+    {
+        self.isFull = YES;
+        self.navigationController.navigationBar.hidden = YES;
+        self.topConstraint.constant = 10;
+        self.leftConstraint.constant = 10;
+        self.rightConstraint.constant = 10;
+        self.bottomConstraint.constant = 45;
+        self.functionView.hidden = YES;
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+}
+
+- (void)saveRecordToPhotosAlbum:(NSString *)path
+{
+    UISaveVideoAtPathToSavedPhotosAlbum(path, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), NULL);
+}
+
+- (void)saveImageToPhotosAlbum:(UIImage *)savedImage
+{
+    UIImageWriteToSavedPhotosAlbum(savedImage, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), NULL);
+}
+
+// 指定回调方法
+- (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *message = nil;
+    if (!error) {
+        message = @"已保存至手机相册";
+    }
+    else
+    {
+        message = [error description];
+    }
+    [self showHUDWithText:message];
+}
+
+#pragma mark - PlayerDelegate Methods
+
+- (void)player:(EZPlayer *)player didReceivedDataLength:(NSInteger)dataLength
+{
+    
+    
+}
+
+- (void)player:(EZPlayer *)player didPlayFailed:(NSError *)error
+{
+    NSLog(@"player: %@, didPlayFailed: %@", player, error);
+    //如果是需要验证码或者是验证码错误
+    if (error.code == EZ_SDK_NEED_VALIDATECODE) {
+        [self showSetPassword];
+        return;
+    } else if (error.code == EZ_SDK_VALIDATECODE_NOT_MATCH) {
+        [self showRetry];
+        return;
+    } else if (error.code == EZ_SDK_NOT_SUPPORT_TALK) {
+        [self showHUDWithText:[NSString stringWithFormat:@"%d", (int)error.code]];
+        return;
+    }else if (error.code == 34) {//34错误特殊操作
+        [_player stopRealPlay];
+        [_player startRealPlay];
+        return;
+    }
+    
+    [self showHUDWithText:[NSString stringWithFormat:@"%d", (int)error.code]];
+    [self.loadingView stopSquareClockwiseAnimation];
+}
+
+- (void)player:(EZPlayer *)player didReceivedMessage:(NSInteger)messageCode
+{
+    if (messageCode == PLAYER_REALPLAY_START)
+    {
+        [self able];
+        [self.loadingView stopSquareClockwiseAnimation];
+        _isPlaying = YES;
+        if (!_isOpenSound)
+        {
+            [_player closeSound];
+        }
+    }
+    else if(messageCode == PLAYER_VOICE_TALK_START)
+    {
+        [_player closeSound];
+        self.isStartingTalk = NO;
+        self.bottomVoiceView.hidden = NO;
+        self.vioceView.hidden = NO;
+    }
+    else if (messageCode == PLAYER_VOICE_TALK_END)
+    {
+        //对讲结束开启声音
+        [_player openSound];
+    }
+}
+
+
+
+
+
+#pragma mark - ValidateCode Methods
+
+- (void)showSetPassword
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入视频图片加密密码"
+                                                        message:@"您的视频已加密，请输入密码进行查看，初始密码为机身标签上的验证码，如果没有验证码，请输入ABCDEF（密码区分大小写)"
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              otherButtonTitles:@"确定", nil];
+    alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    [alertView show];
+}
+
+- (void)showRetry
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                        message:@"设备密码错误"
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              otherButtonTitles:NSLocalizedString(@"重试", nil), nil];
+    [alertView show];
+}
+
+#pragma mark - UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.alertViewStyle == UIAlertViewStyleSecureTextInput)
+    {
+        if (buttonIndex == 1)
+        {
+            NSString *checkCode = [alertView textFieldAtIndex:0].text;
+            if (!self.isStartingTalk)
+            {
+                [self.player setPlayVerifyCode:checkCode];
+                [self.player startRealPlay];
+            }
+            else
+            {
+                [self.talkPlayer setPlayVerifyCode:checkCode];
+                [self.talkPlayer startVoiceTalk];
+            }
+        }
+    }
+    else
+    {
+        if (buttonIndex == 1)
+        {
+            [self showSetPassword];
+            return;
+        }
+    }
+}
+
+//录像
+- (void)videoRecord{
+    //结束本地录像
+    if(self.videoBtn.selected)
+    {
+        [_player stopLocalRecord];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [_fileData writeToFile:_filePath atomically:YES];
+            [self saveRecordToPhotosAlbum:_filePath];
+            _filePath = nil;
+        });
+    }
+    else
+    {
+        //开始本地录像
+        NSString *path = @"/OpenSDK/EzvizLocalRecord";
+        NSArray * docdirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString * docdir = [docdirs objectAtIndex:0];
+        
+        NSString * configFilePath = [docdir stringByAppendingPathComponent:path];
+        if(![[NSFileManager defaultManager] fileExistsAtPath:configFilePath]){
+            NSError *error = nil;
+            [[NSFileManager defaultManager] createDirectoryAtPath:configFilePath
+                                      withIntermediateDirectories:YES
+                                                       attributes:nil
+                                                            error:&error];
+        }
+        NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+        dateformatter.dateFormat = @"yyyyMMddHHmmssSSS";
+        _filePath = [NSString stringWithFormat:@"%@/%@.mov",configFilePath,[dateformatter stringFromDate:[NSDate date]]];
+        _fileData = [NSMutableData new];
+        
+        __weak __typeof(self) weakSelf = self;
+        [_player startLocalRecord:^(NSData *data) {
+            if (!data || !weakSelf.fileData) {
+                return;
+            }
+            [weakSelf.fileData appendData:data];
+        }];
+    }
+    self.videoBtn.selected = !self.videoBtn.selected;
+}
+- (IBAction)talkPressed:(UIButton *)sender {
+    if (!_isPressed)
+    {
+        [self.talkPlayer audioTalkPressed:YES];
+    }
+    else
+    {
+        [self.talkPlayer audioTalkPressed:NO];
+    }
+    _isPressed = !_isPressed;
+}
+
+- (void)disenable{
+    self.PTZImage.image = IMAGE_NAMED(@"云医时代2-1");
+    self.voiceImage.image = IMAGE_NAMED(@"云医时代2-3");
+    self.shotImage.image = IMAGE_NAMED(@"云医时代2-2");
+    self.screenshotImage.image = IMAGE_NAMED(@"云医时代2-4");
+    self.voideImage.image = IMAGE_NAMED(@"云医时代2-5");
+    self.PTZText.textColor = ColorRgbValue(0x989898);
+    self.voiceText.textColor = ColorRgbValue(0x989898);
+    self.shotText.textColor = ColorRgbValue(0x989898);
+    self.screenshotText.textColor = ColorRgbValue(0x989898);
+    self.videoText.textColor = ColorRgbValue(0x989898);
+    self.PTZBtn.enabled = NO;
+    self.voiceBtn.enabled = NO;
+    self.shotBtn.enabled = NO;
+    self.screenshotBtn.enabled = NO;
+    self.videoBtn.enabled = NO;
+    self.voiceControlBtn.enabled = NO;
+    self.playerControlBtn.enabled = NO;
+    self.qualityBtn.enabled = NO;
+}
+
+- (void)able{
+    self.shotBtn.enabled = YES;
+    self.screenshotBtn.enabled = YES;
+    self.videoBtn.enabled = YES;
+    self.voiceControlBtn.enabled = YES;
+    self.playerControlBtn.enabled = YES;
+    self.qualityBtn.enabled = YES;
+    self.PTZBtn.enabled = YES;
+    self.voiceBtn.enabled = YES;
+    self.PTZImage.image = self.deviceInfo.isSupportPTZ ? IMAGE_NAMED(@"云医时代-56") : IMAGE_NAMED(@"云医时代2-1");
+    self.voiceImage.image = self.deviceInfo.isSupportTalk ? IMAGE_NAMED(@"云医时代-57") : IMAGE_NAMED(@"云医时代2-3");
+    self.shotImage.image = IMAGE_NAMED(@"云医时代-55");
+    self.screenshotImage.image = IMAGE_NAMED(@"云医时代-58");
+    self.voideImage.image = IMAGE_NAMED(@"云医时代2-18");
+    self.PTZText.textColor = self.deviceInfo.isSupportPTZ ? ColorRgbValue(0x35D79C) : ColorRgbValue(0x989898);
+    self.voiceText.textColor = self.deviceInfo.isSupportTalk ? ColorRgbValue(0xE2D423) : ColorRgbValue(0x989898);;
+    self.shotText.textColor = ColorRgbValue(0x5CB5EE);
+    self.screenshotText.textColor = ColorRgbValue(0xF06589);
+    self.videoText.textColor = ColorRgbValue(0x97A2CC);
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
