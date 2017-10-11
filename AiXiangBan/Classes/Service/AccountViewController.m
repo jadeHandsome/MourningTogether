@@ -27,7 +27,18 @@
     self.navigationItem.title = @"孝心币";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     [self setUp];
+    [self requestData];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)requestData{
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/base/getAccountTradeInfo.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (!showdata) {
+            return ;
+        }
+        
+        self.numbelLabel.text = [NSString stringWithFormat:@"账户余额(元) | %.2f",[showdata[@"balance"] floatValue]];
+    }];
 }
 
 - (void)setUp{
@@ -35,6 +46,8 @@
     LRViewBorderRadius(self.bottomContainer, 10, 0, [UIColor clearColor]);
     LRViewBorderRadius(self.headImage, 25, 5, ColorRgbAValue(0xffffff, 0.5));
     self.topConstraint.constant = navHight;
+    self.accountLabel.text = SharedUserInfo.mobile;
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:SharedUserInfo.headImgUrl] placeholderImage:IMAGE_NAMED(@"云医3-13")];
 }
 
 

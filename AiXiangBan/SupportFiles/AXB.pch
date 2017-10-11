@@ -16,9 +16,9 @@
 #import "EZOpenSDK.h"
 #import "EZDeviceInfo.h"
 #import "EZCameraInfo.h"
-
+#import "KRUserInfo.h"
 #define EZOPENSDK [EZOpenSDK class]
-
+#define SharedUserInfo [KRUserInfo sharedKRUserInfo]
 /**
  定义输出
  

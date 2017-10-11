@@ -9,18 +9,47 @@
 #import "RechargeRecordController.h"
 #import "RechargeRecordCell.h"
 @interface RechargeRecordController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, assign) NSInteger nowCount;
+@property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation RechargeRecordController
+
+- (NSMutableArray *)data{
+    if(!_data){
+        _data = [NSMutableArray array];
+    }
+    return _data;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"充值记录";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
-    self.data = @[@{@"time":@"2016-12-30 08:30:30",@"price":@"100元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"50元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"60元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"88元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"100元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"50元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"60元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"88元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"100元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"50元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"60元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"88元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"100元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"50元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"60元"},@{@"time":@"2016-12-30 08:30:30",@"price":@"88元"}];
-    [self setUp];
+    self.nowCount = 0;
+    [self requestData];
+    
     // Do any additional setup after loading the view.
+}
+
+- (void)requestData{
+    NSDictionary *params = @{@"offset":@(self.nowCount),@"size":@3};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/base/getRechargeList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if(!showdata){
+            return ;
+        }
+
+        self.totalCount = [showdata[@"totalCount"] integerValue];
+        [self.data addObjectsFromArray:showdata[@"rechargeList"]];
+        [self setUp];
+    }];
+}
+
+- (void)getMoreData{
+    self.nowCount ++ ;
+    [self requestData];
 }
 
 - (void)setUp{
@@ -31,6 +60,8 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.rowHeight = 45;
     LRViewBorderRadius(tableView, 7.5, 0, [UIColor whiteColor]);
+    [KRBaseTool tableViewAddRefreshFooter:tableView withTarget:self refreshingAction:@selector(getMoreData)];
+    self.tableView = tableView;
     [self.view addSubview:tableView];
 }
 
@@ -47,8 +78,8 @@
     if(!cell){
         cell = [[NSBundle mainBundle] loadNibNamed:@"RechargeRecordCell" owner:self options:nil].firstObject;
     }
-    cell.timeLabel.text = self.data[indexPath.row][@"time"];
-    cell.moneyLabel.text = self.data[indexPath.row][@"price"];
+    cell.timeLabel.text = self.data[indexPath.row][@"payTime"];
+    cell.moneyLabel.text = [NSString stringWithFormat:@"%g",[self.data[indexPath.row][@"totalPrice"] floatValue]];
     return cell;
 }
 
