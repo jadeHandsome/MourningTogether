@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchXixunViewController">
+            <connections>
+                <outlet property="contentCiew" destination="koH-OU-ij2" id="Ryo-UN-qR5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koH-OU-ij2">
+                    <rect key="frame" x="10" y="10" width="355" height="467"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-Ed-tSX">
+                            <rect key="frame" x="10" y="10" width="335" height="317.5"/>
+                            <color key="backgroundColor" red="0.70983654260635376" green="0.70983874797821045" blue="0.70984351634979248" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咨询热线：010-88405314" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFh-Kb-neS">
+                            <rect key="frame" x="10" y="439" width="180.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.87026023864746094" green="0.0050072162412106991" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老人智能手表是一款及定位语音通话为一体的智能设备，您可以通过手机app随时随地地与老人沟通，出现意外能快速了解老人当前位置。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYq-ug-FHj">
+                            <rect key="frame" x="10" y="337.5" width="335" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="YYq-ug-FHj" secondAttribute="trailing" constant="10" id="1Ma-gk-O4t"/>
+                        <constraint firstAttribute="trailing" secondItem="f6N-Ed-tSX" secondAttribute="trailing" constant="10" id="4HD-wE-4nq"/>
+                        <constraint firstItem="f6N-Ed-tSX" firstAttribute="leading" secondItem="koH-OU-ij2" secondAttribute="leading" constant="10" id="O2b-jN-2JK"/>
+                        <constraint firstItem="YYq-ug-FHj" firstAttribute="leading" secondItem="koH-OU-ij2" secondAttribute="leading" constant="10" id="PuB-ep-YZP"/>
+                        <constraint firstItem="pFh-Kb-neS" firstAttribute="leading" secondItem="koH-OU-ij2" secondAttribute="leading" constant="10" id="RD3-Gn-S8a"/>
+                        <constraint firstItem="YYq-ug-FHj" firstAttribute="top" secondItem="f6N-Ed-tSX" secondAttribute="bottom" constant="10" id="YuY-Ca-CvK"/>
+                        <constraint firstItem="f6N-Ed-tSX" firstAttribute="top" secondItem="koH-OU-ij2" secondAttribute="top" constant="10" id="fEu-3q-UXe"/>
+                        <constraint firstAttribute="bottom" secondItem="pFh-Kb-neS" secondAttribute="bottom" constant="10" id="kFp-Wx-vQK"/>
+                        <constraint firstItem="f6N-Ed-tSX" firstAttribute="height" secondItem="koH-OU-ij2" secondAttribute="height" multiplier="0.68" id="l6p-Uc-Bji"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90196549892425537" green="0.90196824073791504" blue="0.90197432041168213" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="koH-OU-ij2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="1ED-Lc-iAX"/>
+                <constraint firstItem="koH-OU-ij2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="297-Qe-Z4e"/>
+                <constraint firstItem="koH-OU-ij2" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.7" id="fnm-pF-Oua"/>
+                <constraint firstAttribute="trailing" secondItem="koH-OU-ij2" secondAttribute="trailing" constant="10" id="tbj-r7-aDg"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
