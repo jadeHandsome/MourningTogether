@@ -27,17 +27,19 @@
     [self addSubview:headImageView];
     [headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"headImgUrl"]] placeholderImage:_zhanweiImageData];
     [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@60);
-        make.left.equalTo(self.mas_left);
-        make.top.equalTo(self.mas_top);
-        make.bottom.equalTo(self.mas_bottom);
+        make.width.equalTo(@40);
+        make.left.equalTo(self.mas_left).with.offset(10);
+        make.top.equalTo(self.mas_top).with.offset(10);
+        make.bottom.equalTo(self.mas_bottom).with.offset(-10);
     }];
-    headImageView.contentMode = UIViewContentModeCenter;
+    headImageView.contentMode = UIViewContentModeScaleAspectFit;
+    headImageView.clipsToBounds = YES;
+    LRViewBorderRadius(headImageView, 20, 10, [UIColor clearColor]);
     
     UILabel *nameLabel = [[UILabel alloc]init];
     [self addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(headImageView.mas_right);
+        make.left.equalTo(headImageView.mas_right).with.offset(10);
         make.top.equalTo(self.mas_top);
     }];
     nameLabel.textColor = [UIColor blackColor];
@@ -50,7 +52,7 @@
     UILabel *IDLabel = [[UILabel alloc]init];
     [self addSubview:IDLabel];
     [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(headImageView.mas_right);
+        make.left.equalTo(headImageView.mas_right).with.offset(10);
         make.bottom.equalTo(self.mas_bottom);
         make.top.equalTo(nameLabel.mas_bottom);
         make.height.equalTo(nameLabel.mas_height);

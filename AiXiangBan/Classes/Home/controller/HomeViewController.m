@@ -19,6 +19,10 @@
 #import "AskHelpViewController.h"
 #import "TendViewController.h"
 #import "LookViewController.h"
+#import "LocationViewController.h"
+
+#import "AddAddressViewController.h"
+#import "AddWatchViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -32,36 +36,69 @@
 @property (weak, nonatomic) IBOutlet UILabel *alarmDetail;
 @property (weak, nonatomic) IBOutlet UIButton *groupBtn;
 @property (nonatomic, strong) UIView *groupPullView;
-@property (nonatomic, copy) NSArray *linkmanArr;
+@property (nonatomic, copy) NSMutableArray *linkmanArr;
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *collectionContainer;
+@property (nonatomic, strong) NSDictionary *curretOlder;
 
 @end
 
 @implementation HomeViewController
 
-- (NSArray *)linkmanArr{
+- (NSMutableArray *)linkmanArr{
     if(_linkmanArr == nil){
-        _linkmanArr = @[@"大姨",@"二姨"];
+        _linkmanArr = [NSMutableArray array];
     }
     return _linkmanArr;
 }
-
+- (void)setCurretOlder:(NSDictionary *)curretOlder {
+    _curretOlder = curretOlder;
+    self.nameLabel.text = curretOlder[@"elderName"];
+    self.detailLabel.text = curretOlder[@"nickname"];
+    if (![curretOlder[@"emergency"] integerValue]) {
+        //self.alarmDetail.text = @"";
+        self.alarmView.hidden = YES;
+    } else {
+        self.alarmDetail.text = [NSString stringWithFormat:@"警报：%@",curretOlder[@"emergencyTime"]];
+        
+    }
+    if (curretOlder[@"devPhone"]) {
+        [KRUserInfo sharedKRUserInfo].deviceId = curretOlder[@"devPhone"];
+    } else {
+        [KRUserInfo sharedKRUserInfo].deviceId = nil;
+    }
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:self.curretOlder[@"headImgUrl"]] placeholderImage:_zhanweiImageData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
     [self adjustFrame];
-    
+    [self configCollectionView];
     // Do any additional setup after loading the view from its nib.
 }
+//获取首页数据
+- (void)getHomeData {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/homepage/getElderList.do" params:@{@"offset":@(0),@"size":@"20"} withModel:nil complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        self.linkmanArr = [showdata[@"elderList"] mutableCopy];
+        if (!self.curretOlder && [showdata[@"elderList"] count] > 0) {
+            self.curretOlder = showdata[@"elderList"][0];
+        }
+        [self.collectionView reloadData];
+        
+    }];
+}
 - (void)viewWillAppear:(BOOL)animated {
+    [self getHomeData];
     [self hideNaviBar];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    [self configCollectionView];
+    
 }
 
 - (void)configCollectionView{
@@ -72,7 +109,7 @@
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];//设置其布局方向
 
-    self.collectionView  = [[UICollectionView alloc]initWithFrame:self.collectionContainer.bounds collectionViewLayout:flowLayout];
+    self.collectionView  = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.collectionContainer.frame.size.height) collectionViewLayout:flowLayout];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
@@ -107,14 +144,16 @@
 {
     
     HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeCollectionViewCell" forIndexPath:indexPath];
-    if(indexPath.item == self.linkmanArr.count){
+    if(indexPath.row == self.linkmanArr.count){
         cell.addBtn.hidden = NO;
         cell.headImage.hidden = YES;
+        cell.nameLabel.text = @"";
     }
     else{
         cell.addBtn.hidden = YES;
         cell.headImage.hidden = NO;
-        cell.nameLabel.text = self.linkmanArr[indexPath.item];
+        cell.nameLabel.text = self.linkmanArr[indexPath.row][@"elderName"];
+        [cell.headImage sd_setImageWithURL:[NSURL URLWithString:self.linkmanArr[indexPath.row][@"headImgUrl"]] placeholderImage:_zhanweiImageData];
         
     }
     return cell;
@@ -124,7 +163,13 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == self.linkmanArr.count) {
+        AddAddressViewController *add = [[AddAddressViewController alloc]init];
+        add.type = 1;
+        [self.navigationController pushViewController:add animated:YES];
+    } else {
+        self.curretOlder = self.linkmanArr[indexPath.row];
+    }
     
 }
 
@@ -181,6 +226,16 @@
     [self.navigationController pushViewController:helpVC animated:YES];
 }
 - (IBAction)goToLocation:(UITapGestureRecognizer *)sender {
+    if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
+        AddWatchViewController *addWatch = [[AddWatchViewController alloc]init];
+        [self.navigationController pushViewController:addWatch animated:YES];
+        
+        [MBProgressHUD showError:@"请先绑定设备" toView:addWatch.view];
+    } else {
+        LocationViewController *location = [LocationViewController new];
+        [self.navigationController pushViewController:location animated:YES];
+        
+    }
 }
 - (IBAction)goToAskHelp:(UITapGestureRecognizer *)sender {
     AskHelpViewController *AskVC = [[AskHelpViewController alloc]init];

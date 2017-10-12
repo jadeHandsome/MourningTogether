@@ -8,8 +8,9 @@
 
 #import "KRMainNetTool.h"
 #import "AFNetworking.h"
-
-
+#import <UIKit/UIKit.h>
+#import "BaseNaviViewController.h"
+#import "LoginViewController.h"
 #define baseURL @"http://47.92.87.19/"
 @implementation KRMainNetTool
 singleton_implementation(KRMainNetTool)
@@ -35,7 +36,7 @@ singleton_implementation(KRMainNetTool)
     
     if (waitView != nil) {
         //如果view不为空就添加到view上
-        HUD = [MBProgressHUD showHUDAddedTo:waitView animated:YES];
+        HUD = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         UIView *cusTome = [[UIView alloc]init];
         cusTome.backgroundColor = [UIColor blackColor];
         HUD.customView = cusTome;
@@ -88,6 +89,10 @@ singleton_implementation(KRMainNetTool)
                 //[waitView hideBubble];
                 complet([self getModelArrayWith:response[@"responseParams"] andModel:model],nil);
             }
+        } else if ([num longLongValue] == 6) {
+            //登录失效
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
+            [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
         } else {
             
             [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
@@ -110,7 +115,7 @@ singleton_implementation(KRMainNetTool)
     //定义需要加载动画的HUD
     __block MBProgressHUD *HUD;
     if (!waitView) {
-         HUD = [MBProgressHUD showHUDAddedTo:waitView animated:YES];
+         HUD = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         UIView *cusTome = [[UIView alloc]init];
         cusTome.backgroundColor = [UIColor blackColor];
         HUD.customView = cusTome;
@@ -154,6 +159,10 @@ singleton_implementation(KRMainNetTool)
             }
             
             complet(@"修改成功",nil);
+        } else if ([num longLongValue] == 6) {
+            //登录失效
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
+            [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
         } else {
             [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
             //[waitView showErrorWithTitle:responseObject[@"message"] autoCloseTime:2];
