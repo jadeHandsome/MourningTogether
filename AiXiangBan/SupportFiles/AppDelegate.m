@@ -14,7 +14,7 @@
 #import "QYSDK.h"
 #import "QYSessionViewController.h"
 #import "XLJNewFetureController.h"
-
+#import <AMapFoundationKit/AMapFoundationKit.h>
 #define EzvizAppKey @"d8550d61c51642669567ccf473a1d752"
 #define EZPushAppSecret @"4d4037b10a3ce40056a702dea61e52e9"
 @interface AppDelegate ()
@@ -31,8 +31,8 @@
     [self setIQKeyboardManager];
     [self judgeFirstView];
     [self setEZOpen];
-    
-    
+    [AMapServices sharedServices].apiKey = @"6f4c1f303c438c5bdc6fb7f23389684e";
+    [AMapServices sharedServices].enableHTTPS = YES;
     return YES;
 }
 

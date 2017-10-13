@@ -114,6 +114,15 @@
 		1A676A171F8BA86F001BD32A /* TendOldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A161F8BA86F001BD32A /* TendOldView.m */; };
 		1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A191F8BAF30001BD32A /* ImageCenterButton.m */; };
 		1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A1C1F8BB115001BD32A /* AddTendViewController.m */; };
+		1A7919431F8F097B003917A2 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919421F8F097A003917A2 /* AMapFoundationKit.framework */; };
+		1A7919451F8F0998003917A2 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919441F8F0998003917A2 /* AMapLocationKit.framework */; };
+		1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919461F8F09AE003917A2 /* AMapSearchKit.framework */; };
+		1A7919491F8F09D4003917A2 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919481F8F09D4003917A2 /* MAMapKit.framework */; };
+		1A79194C1F8F1716003917A2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A79194B1F8F1716003917A2 /* LocationViewController.m */; };
+		1A7919501F8F31A2003917A2 /* AddWatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A79194F1F8F31A2003917A2 /* AddWatchViewController.m */; };
+		1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7919551F8F3B92003917A2 /* WatchXixunViewController.m */; };
+		1A7919581F8F3B92003917A2 /* WatchXixunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7919561F8F3B92003917A2 /* WatchXixunViewController.xib */; };
+		1A79195B1F8F3F29003917A2 /* TRAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7919591F8F3F29003917A2 /* TRAnnotation.m */; };
 		1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */; };
 		1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CC1F878E4F0003B9E1 /* KRUserInfo.m */; };
 		1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84C91F878E380003B9E1 /* KRBaseTool.m */; };
@@ -433,6 +442,19 @@
 		1A676A191F8BAF30001BD32A /* ImageCenterButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
 		1A676A1B1F8BB115001BD32A /* AddTendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTendViewController.h; sourceTree = "<group>"; };
 		1A676A1C1F8BB115001BD32A /* AddTendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTendViewController.m; sourceTree = "<group>"; };
+		1A7919421F8F097A003917A2 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = "Pods/AMapFoundation-NO-IDFA/AMapFoundationKit.framework"; sourceTree = "<group>"; };
+		1A7919441F8F0998003917A2 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapLocationKit.framework; path = "Pods/AMapLocation-NO-IDFA/AMapLocationKit.framework"; sourceTree = "<group>"; };
+		1A7919461F8F09AE003917A2 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = "Pods/AMapSearch-NO-IDFA/AMapSearchKit.framework"; sourceTree = "<group>"; };
+		1A7919481F8F09D4003917A2 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = "Pods/AMap3DMap-NO-IDFA/MAMapKit.framework"; sourceTree = "<group>"; };
+		1A79194A1F8F1716003917A2 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		1A79194B1F8F1716003917A2 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		1A79194E1F8F31A2003917A2 /* AddWatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddWatchViewController.h; sourceTree = "<group>"; };
+		1A79194F1F8F31A2003917A2 /* AddWatchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddWatchViewController.m; sourceTree = "<group>"; };
+		1A7919541F8F3B92003917A2 /* WatchXixunViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchXixunViewController.h; sourceTree = "<group>"; };
+		1A7919551F8F3B92003917A2 /* WatchXixunViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchXixunViewController.m; sourceTree = "<group>"; };
+		1A7919561F8F3B92003917A2 /* WatchXixunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchXixunViewController.xib; sourceTree = "<group>"; };
+		1A7919591F8F3F29003917A2 /* TRAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRAnnotation.m; sourceTree = "<group>"; };
+		1A79195A1F8F3F29003917A2 /* TRAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRAnnotation.h; sourceTree = "<group>"; };
 		1A9A84C91F878E380003B9E1 /* KRBaseTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBaseTool.m; sourceTree = "<group>"; };
 		1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacroDefinitionHeader.h; sourceTree = "<group>"; };
 		1A9A84CB1F878E390003B9E1 /* KRBaseTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -495,15 +517,19 @@
 			files = (
 				11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */,
 				11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */,
+				1A7919451F8F0998003917A2 /* AMapLocationKit.framework in Frameworks */,
 				11D401C21F8E129B0096F67B /* VideoToolbox.framework in Frameworks */,
+				1A7919491F8F09D4003917A2 /* MAMapKit.framework in Frameworks */,
 				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
 				11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */,
 				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
 				11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */,
+				1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */,
 				11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */,
 				11D401BC1F8E12780096F67B /* libc++.tbd in Frameworks */,
 				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
 				11D401BA1F8E12670096F67B /* libiconv.2.4.0.tbd in Frameworks */,
+				1A7919431F8F097B003917A2 /* AMapFoundationKit.framework in Frameworks */,
 				11D401B81F8E123E0096F67B /* libssl.a in Frameworks */,
 				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
 				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
@@ -834,6 +860,11 @@
 		11C9D4301F852574005B3577 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				1A79195A1F8F3F29003917A2 /* TRAnnotation.h */,
+				1A7919591F8F3F29003917A2 /* TRAnnotation.m */,
+				1A79194D1F8F3191003917A2 /* AddWatch */,
+				1A79194A1F8F1716003917A2 /* LocationViewController.h */,
+				1A79194B1F8F1716003917A2 /* LocationViewController.m */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -1139,6 +1170,18 @@
 			path = tendViews;
 			sourceTree = "<group>";
 		};
+		1A79194D1F8F3191003917A2 /* AddWatch */ = {
+			isa = PBXGroup;
+			children = (
+				1A79194E1F8F31A2003917A2 /* AddWatchViewController.h */,
+				1A79194F1F8F31A2003917A2 /* AddWatchViewController.m */,
+				1A7919541F8F3B92003917A2 /* WatchXixunViewController.h */,
+				1A7919551F8F3B92003917A2 /* WatchXixunViewController.m */,
+				1A7919561F8F3B92003917A2 /* WatchXixunViewController.xib */,
+			);
+			path = AddWatch;
+			sourceTree = "<group>";
+		};
 		1A9A84D41F878F0F0003B9E1 /* 分类 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,6 +1272,10 @@
 		DFC82970BC5F0D5944C90933 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A7919481F8F09D4003917A2 /* MAMapKit.framework */,
+				1A7919461F8F09AE003917A2 /* AMapSearchKit.framework */,
+				1A7919441F8F0998003917A2 /* AMapLocationKit.framework */,
+				1A7919421F8F097A003917A2 /* AMapFoundationKit.framework */,
 				1A4E9C291F8DB08B007D6832 /* libIQKeyboardManager.a */,
 				11D401C11F8E129B0096F67B /* VideoToolbox.framework */,
 				11D401BF1F8E128F0096F67B /* GLKit.framework */,
@@ -1379,6 +1426,7 @@
 				1A4E9C831F8E1C4A007D6832 /* LookViewController.xib in Resources */,
 				11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */,
 				1A4E9C821F8E1C47007D6832 /* LiveLookViewController.xib in Resources */,
+				1A7919581F8F3B92003917A2 /* WatchXixunViewController.xib in Resources */,
 				11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */,
 				11E09F801F88F82E004A2BCC /* ConfirmViewController.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
@@ -1465,8 +1513,10 @@
 				11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */,
 				11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */,
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
+				1A79195B1F8F3F29003917A2 /* TRAnnotation.m in Sources */,
 				1A4E9C761F8E1B11007D6832 /* LiveLookViewController.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
+				1A79194C1F8F1716003917A2 /* LocationViewController.m in Sources */,
 				1A4E9C7A1F8E1B1E007D6832 /* HIKLoadPercentView.m in Sources */,
 				11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */,
 				1A4E9C7C1F8E1B25007D6832 /* HIKLoadViewItem+configPath.m in Sources */,
@@ -1483,6 +1533,7 @@
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
 				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
+				1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */,
 				1A4E9C781F8E1B17007D6832 /* SetDeviceNameViewController.m in Sources */,
@@ -1540,6 +1591,7 @@
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
 				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
 				1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */,
+				1A7919501F8F31A2003917A2 /* AddWatchViewController.m in Sources */,
 				1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */,
 				1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */,
 			);
@@ -1690,7 +1742,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
+					"$(PROJECT_DIR)/Pods/AMapLocation-NO-IDFA",
+					"$(PROJECT_DIR)/Pods/AMapSearch-NO-IDFA",
+					"$(PROJECT_DIR)/Pods/AMap3DMap-NO-IDFA",
+				);
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1732,7 +1789,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
+					"$(PROJECT_DIR)/Pods/AMapLocation-NO-IDFA",
+					"$(PROJECT_DIR)/Pods/AMapSearch-NO-IDFA",
+					"$(PROJECT_DIR)/Pods/AMap3DMap-NO-IDFA",
+				);
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

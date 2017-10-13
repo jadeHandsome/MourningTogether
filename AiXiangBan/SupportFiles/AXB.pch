@@ -81,7 +81,7 @@
 //弱引用
 #define WeakSelf __weak typeof(self) weakSelf = self;
 //占位图
-#define _zhanweiImageData [UIImage imageNamed:@"占位图"]
+#define _zhanweiImageData [UIImage imageNamed:@"孝相伴-14"]
 
 
 #import "LRMacroDefinitionHeader.h"
