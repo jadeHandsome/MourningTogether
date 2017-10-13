@@ -91,6 +91,8 @@ singleton_implementation(KRMainNetTool)
             }
         } else if ([num longLongValue] == 6) {
             //登录失效
+            [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
+            [KRUserInfo sharedKRUserInfo].token = nil;
             [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
             [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
         } else {
@@ -161,12 +163,14 @@ singleton_implementation(KRMainNetTool)
             complet(@"修改成功",nil);
         } else if ([num longLongValue] == 6) {
             //登录失效
+            [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];
+            [KRUserInfo sharedKRUserInfo].token = nil;
             [UIApplication sharedApplication].keyWindow.rootViewController = [[BaseNaviViewController alloc] initWithRootViewController:[LoginViewController new]];
             [MBProgressHUD showError:@"登录失效" toView:[UIApplication sharedApplication].keyWindow];
         } else {
             [MBProgressHUD showError:response[@"errorMsg"] toView:waitView];
             //[waitView showErrorWithTitle:responseObject[@"message"] autoCloseTime:2];
-            complet(nil,responseObject[@"errorMsg"]);
+            complet(nil,response[@"errorMsg"]);
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -9,6 +9,7 @@
 #import "AddAddressView.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import "HealthyTypeViewController.h"
+#import "ArearViewController.h"
 @interface AddAddressView()<ABPeoplePickerNavigationControllerDelegate>
 @property (nonatomic, assign) NSInteger type;
 @property (nonatomic, strong) NSMutableDictionary *param;
@@ -138,6 +139,24 @@
             break;
         case 4:
         {
+            titleStr = @"年龄";
+            UITextField *textField = [[UITextField alloc]init];
+            textField.text = [NSString stringWithFormat:@"%@",param[@"age"]];
+            textField.tag = 5;
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
+            textField.textAlignment = NSTextAlignmentRight;
+            [self addSubview:textField];
+            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(title.mas_right).with.offset(10);
+                make.centerY.equalTo(self.mas_centerY);
+                make.height.equalTo(@30);
+                make.right.equalTo(self.mas_right).with.offset(-10);
+                
+            }];
+        }
+            break;
+        case 5:
+        {
             titleStr = @"称呼";
             UITextField *textField = [[UITextField alloc]init];
             textField.text = param[@"nickname"];
@@ -154,7 +173,7 @@
             }];
         }
             break;
-        case 5:
+        case 6:
         {
             titleStr = @"身份证号";
             UITextField *textField = [[UITextField alloc]init];
@@ -172,9 +191,9 @@
             }];
         }
             break;
-        case 6:
+        case 7:
         {
-            titleStr = @"详细地址";
+            titleStr = @"地址";
             UIImageView *right = [[UIImageView alloc]init];
             [self addSubview:right];
             [right mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -193,9 +212,30 @@
             }];
             chooseLabel.textColor = LRRGBColor(85, 183, 204);
             chooseLabel.text = @"已选";
+            UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+            [self addGestureRecognizer:tap];
+            [tap addTarget:self action:@selector(addressClick)];
         }
             break;
-        case 7:
+        case 8:
+        {
+            titleStr = @"详细地址";
+            UITextField *textField = [[UITextField alloc]init];
+            textField.text = param[@"detailAddr"];
+            textField.tag = 6;
+            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
+            textField.textAlignment = NSTextAlignmentRight;
+            [self addSubview:textField];
+            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(title.mas_right).with.offset(10);
+                make.centerY.equalTo(self.mas_centerY);
+                make.height.equalTo(@30);
+                make.right.equalTo(self.mas_right).with.offset(-10);
+                
+            }];
+        }
+            break;
+        case 9:
         {
             titleStr = @"健康状况";
             UIImageView *right = [[UIImageView alloc]init];
@@ -221,7 +261,7 @@
             chooseLabel.text = @"已选";
         }
             break;
-        case 8:
+        case 10:
         {
             titleStr = @"所在区域";
             UIImageView *right = [[UIImageView alloc]init];
@@ -248,7 +288,7 @@
             [tap addTarget:self action:@selector(commuitClick)];
         }
             break;
-        case 9:
+        case 11:
         {
             titleStr = @"社区工作人员";
 //            UITextField *textField = [[UITextField alloc]init];
@@ -297,6 +337,31 @@
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
 //    [self addGestureRecognizer:tap];
 //    [tap addTarget:self action:@selector(click)];
+}
+- (void)addressClick {
+    //详细地址
+    ArearViewController *health = [[ArearViewController alloc]init];
+    health.block = ^(NSString *result) {
+        self.param[@"address"] = result;
+        _chooselabel.text = result;
+        _chooselabel.hidden = NO;
+    };
+//    health.block = ^(NSString *paramArray) {
+//        NSMutableString *heath = [NSMutableString string];
+//        for (NSDictionary *dic in paramArray) {
+//            if ([paramArray indexOfObject:dic] < paramArray.count - 1) {
+//                [heath appendString:[dic[@"healthId"] stringByAppendingString:@","]];
+//            } else {
+//                [heath appendString:dic[@"healthId"]];
+//            }
+//        }
+//        self.param[@"healthIds"] = heath;
+//        _chooselabel.hidden = NO;
+//
+//    };
+    
+    
+    [self.superVc.navigationController pushViewController:health animated:YES];
 }
 - (void)commuitClick {
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/community/getCommunityList.do" params:@{@"offset":@"0",@"size":@"20"} withModel:nil waitView:self complateHandle:^(id showdata, NSString *error) {
@@ -354,8 +419,10 @@
             self.param[@"nickname"] = textField.text;
         } else if (textField.tag == 4) {
             self.param[@"idCard"] = textField.text;
-        } else {
-            self.param[@"healthIds"] = textField.text;
+        } else if (textField.tag == 5){
+            self.param[@"age"] = textField.text;
+        } else if (textField.tag == 6) {
+            self.param[@"detailAddr"] = textField.text;
         }
     
 }

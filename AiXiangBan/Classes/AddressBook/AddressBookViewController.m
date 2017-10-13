@@ -31,7 +31,6 @@
     self.navigationItem.title = @"通讯录";
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    //self.dataArray = @[@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"},@{@"name":@"曾洪磊",@"phone":@"18888888888"}];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代1-27"] style:UIBarButtonItemStyleDone target:self action:@selector(addClick)];
     [self setUpPage];
     

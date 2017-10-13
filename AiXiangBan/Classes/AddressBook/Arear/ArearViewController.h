@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void(^AREA_FINISH)(NSString *result);
 @interface ArearViewController : BaseViewController
-@property (nonatomic, strong) NSArray *myData;
+@property (nonatomic, strong) NSDictionary *myData;
+@property (nonatomic, strong) NSString *resultStr;
+@property (nonatomic, strong) AREA_FINISH block;
 @end

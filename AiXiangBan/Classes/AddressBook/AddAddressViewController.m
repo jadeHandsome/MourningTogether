@@ -27,9 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(finish)];
+    if (!self.oldDic) {
+       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(finish)];
+    }
+    
     if (self.type == 1) {
-        typeCount = 9;
+        typeCount = 11;
         self.navigationItem.title = @"添加老人";
     } else if (self.type == 2) {
         typeCount = 3;
@@ -64,7 +67,21 @@
 }
 - (void)finish {
     if (self.type == 1) {
-        [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"/mgr/contacts/other/addElder.do" params:self.param andData:@[self.param[@"image"]] waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        NSArray *image = nil;
+        if (self.param[@"image"]) {
+            image = @[self.param[@"image"]];
+        }
+        if (self) {
+            image = @[@{@"name":@"headImgUrl",@"data":UIImageJPEGRepresentation(_zhanweiImageData, 1)}];
+        }
+        self.param[@"headImgUrl"] = @"111";
+        NSString *path = @"";
+        if (self.oldDic) {
+            path = @"/mgr/contacts/elder/editElder.do";
+        } else {
+            path = @"/mgr/contacts/elder/addElder.do";
+        }
+        [[KRMainNetTool sharedKRMainNetTool] upLoadData:path params:self.param andData:image waitView:self.view complateHandle:^(id showdata, NSString *error) {
             if (showdata == nil) {
                 return ;
             }
@@ -72,7 +89,13 @@
             [self.navigationController popViewControllerAnimated:YES];
         }];
     } else {
-        [[KRMainNetTool sharedKRMainNetTool] upLoadData:@"/mgr/contacts/other/addOther.do" params:self.param andData:@[self.param[@"image"]] waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        NSString *path = @"";
+        if (self.oldDic) {
+            path = @"/mgr/contacts/other/editOther.do";
+        } else {
+            path = @"/mgr/contacts/other/addOther.do";
+        }
+        [[KRMainNetTool sharedKRMainNetTool] upLoadData:path params:self.param andData:@[self.param[@"image"]] waitView:self.view complateHandle:^(id showdata, NSString *error) {
             if (showdata == nil) {
                 return ;
             }
@@ -92,9 +115,9 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     if (self.oldDic) {
-        self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount + 65);
+        self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount + 65 + 50);
     } else {
-        self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount);
+        self.mainScrool.contentSize = CGSizeMake(0, 50 + 45 * typeCount + 50);
         
     }
     UIView *centerView = [[UIView alloc]init];
@@ -117,9 +140,9 @@
             add.tag = 1002;
         }
         if (typeCount > 5) {
-            if (i == 7) {
+            if (i == 9) {
                 add.tag = 10000;
-            } else if (i == 8) {
+            } else if (i == 10) {
                 add.tag = 10001;
             }
         }
@@ -167,7 +190,45 @@
         [deletBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [deletBtn setTitle:@"删除" forState:UIControlStateNormal];
         LRViewBorderRadius(deletBtn, 5, 0, [UIColor clearColor]);
+        [deletBtn addTarget:self action:@selector(delectClick) forControlEvents:UIControlEventTouchUpInside];
     }
+}
+//删除
+- (void)delectClick {
+    //删除
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"删除联系人" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+       
+        if (self.type == 1) {
+            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/elder/deleteElder.do" params:@{@"elderId":self.oldDic[@"elderId"]} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                if (showdata == nil) {
+                    return ;
+                }
+                [self.navigationController popViewControllerAnimated:YES];
+                [MBProgressHUD showSuccess:@"删除成功"];
+            }];
+        } else {
+            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/deleteOther.do" params:@{@"elderId":self.oldDic[@"otherId"]} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                if (showdata == nil) {
+                    return ;
+                }
+                [self.navigationController popViewControllerAnimated:YES];
+                [MBProgressHUD showSuccess:@"删除成功"];
+            }];
+        }
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+       
+        
+    }];
+   
+    [controller addAction:action];
+    [controller addAction:action1];
+    
+    
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
+    
 }
 - (void)addImage {
     //改头像

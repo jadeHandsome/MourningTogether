@@ -11,6 +11,7 @@
 @interface ReparePwsViewController ()
 @property (nonatomic, strong) UITextField *pwdTextField;
 @property (nonatomic, strong) UITextField *repeatPwdTextField;
+@property (nonatomic, strong) UITextField *repet;
 @end
 
 @implementation ReparePwsViewController
@@ -32,10 +33,10 @@
         make.top.equalTo(self.view.mas_top).with.offset(navHight + 10);
         make.left.equalTo(self.view.mas_left).with.offset(10);
         make.right.equalTo(self.view.mas_right).with.offset(-10);
-        make.height.equalTo(@90);
+        make.height.equalTo(@135);
     }];
     UIView *temp = centerView;
-    for (int i = 0 ; i < 2; i ++) {
+    for (int i = 0 ; i < 3; i ++) {
         UIView *contentView = [[UIView alloc]init];
         [centerView addSubview:contentView];
         [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -55,8 +56,10 @@
         UITextField *infotext = [[UITextField alloc]init];
         if (i == 0) {
             self.pwdTextField = infotext;
-        } else {
+        } else if (i == 1) {
             self.repeatPwdTextField = infotext;
+        } else {
+            self.repet = infotext;
         }
         [contentView addSubview:infotext];
         [infotext mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,7 +68,7 @@
             make.top.equalTo(contentView.mas_top);
             make.bottom.equalTo(contentView.mas_bottom);
         }];
-        if (i == 0) {
+        if (i == 0 || i == 1) {
             infotext.placeholder = @"原密码";
             UIView *lineView = [[UIView alloc]init];
             [centerView addSubview:lineView];
@@ -77,8 +80,10 @@
             }];
             lineView.backgroundColor = LRRGBColor(200, 200, 200);
             temp = lineView;
-        } else {
+        } else if (i == 1) {
             infotext.placeholder = @"输入新密码6-16位的英文或数字";
+        } else {
+            infotext.placeholder = @"再次输入新密码";
         }
         
         infotext.secureTextEntry = YES;
@@ -108,15 +113,20 @@
             [self showHUDWithText:@"相同密码不需要修改"];
         } else {
             //修改密码
-            NSString *oldPwd = [KRBaseTool md5:self.pwdTextField.text];
-            NSString *newPwd = [KRBaseTool md5:self.repeatPwdTextField.text];
-            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/memberInfo/changePassword.do" params:@{@"password":oldPwd,@"newPassword":newPwd} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
-                if (showdata == nil) {
-                    return ;
-                }
-                [self showHUDWithText:@"修改成功"];
-                [self.navigationController popViewControllerAnimated:YES];
-            }];
+            if ([self.repet.text isEqualToString:self.repeatPwdTextField.text]) {
+                NSString *oldPwd = [KRBaseTool md5:self.pwdTextField.text];
+                NSString *newPwd = [KRBaseTool md5:self.repeatPwdTextField.text];
+                [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/memberInfo/changePassword.do" params:@{@"password":oldPwd,@"newPassword":newPwd} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+                    if (showdata == nil) {
+                        return ;
+                    }
+                    [self showHUDWithText:@"修改成功"];
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+            } else {
+                [self showHUDWithText:@"两次输入不匹配"];
+            }
+            
             
         }
     } else {

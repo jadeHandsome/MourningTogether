@@ -40,6 +40,7 @@
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *collectionContainer;
 @property (nonatomic, strong) NSDictionary *curretOlder;
+@property (weak, nonatomic) IBOutlet UIImageView *myHeadImage;
 
 @end
 
@@ -63,7 +64,7 @@
         
     }
     if (curretOlder[@"devPhone"]) {
-        [KRUserInfo sharedKRUserInfo].deviceId = curretOlder[@"devPhone"];
+        [KRUserInfo sharedKRUserInfo].deviceId = curretOlder[@"deviceSn"];
     } else {
         [KRUserInfo sharedKRUserInfo].deviceId = nil;
     }
@@ -74,6 +75,8 @@
     self.title = @"首页";
     [self adjustFrame];
     [self configCollectionView];
+    [self.myHeadImage sd_setImageWithURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].headImgUrl] placeholderImage:_zhanweiImageData];
+    LRViewBorderRadius(self.myHeadImage, 12.5, 0, [UIColor clearColor]);
     // Do any additional setup after loading the view from its nib.
 }
 //获取首页数据

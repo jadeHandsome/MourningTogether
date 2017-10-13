@@ -23,6 +23,7 @@
                 <outlet property="headImage" destination="2Ga-xa-kPj" id="d3z-4N-2Fp"/>
                 <outlet property="locationBtn" destination="nD2-dD-npO" id="3f6-uV-rGB"/>
                 <outlet property="messageBth" destination="nRc-AO-3i7" id="GRo-EQ-0h9"/>
+                <outlet property="myHeadImage" destination="vzD-Mw-TAx" id="FAn-ln-yvp"/>
                 <outlet property="nameLabel" destination="iMV-6Y-8ch" id="yMr-b5-wAj"/>
                 <outlet property="naviTop" destination="bCn-Tr-3nN" id="Gh4-Pw-7dA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

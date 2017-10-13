@@ -20,6 +20,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"看护群组";
     self.alltend = @[@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]}];
+    
     if (self.alltend.count == 0) {
         self.view.backgroundColor = LRRGBAColor(255, 255, 255, 1);
         [self setUpZero];

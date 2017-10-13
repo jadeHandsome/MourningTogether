@@ -10,7 +10,7 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "ImageCenterButton.h"
-
+#import "RailViewController.h"
 #import "TRAnnotation.h"
 @interface LocationViewController ()<MAMapViewDelegate,AMapLocationManagerDelegate>
 @property (nonatomic, strong) MAMapView *mapView;
@@ -22,6 +22,7 @@
 {
     NSInteger locationUpdata;
     MACircle *circle;
+    TRAnnotation *pointAnnotation;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +30,9 @@
     self.navigationItem.title = @"位置";
     [self setUPMap];
     [self setBottomView];
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
     [self getLocation];
 }
 //获取位置信息
@@ -48,9 +52,13 @@
         
         
         circle = [MACircle circleWithCenterCoordinate:location radius:r];
-        TRAnnotation *pointAnnotation  = [[TRAnnotation alloc] init];
+        pointAnnotation  = [[TRAnnotation alloc] init];
         pointAnnotation.coordinate = CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]);
         pointAnnotation.image = [UIImage imageNamed:@"云医时代-75"];
+        [self.mapView removeOverlay:circle];
+        [self.mapView removeAnnotation:pointAnnotation];
+        
+        [self.mapView addAnnotation:pointAnnotation];
         [self.mapView addOverlay:circle];
         [self.mapView setCenterCoordinate:location animated:YES];
         NSLog(@"%@",showdata);
@@ -83,9 +91,6 @@
         make.top.equalTo(self.view.mas_top).with.offset(navHight);
     }];
 }
-- (void)viewWillAppear:(BOOL)animated {
-    
-}
 - (void)setBottomView {
     UIView *bottomView = [[UIView alloc]init];
     [self.view addSubview:bottomView];
@@ -105,6 +110,7 @@
     [leftBtn setImage:[UIImage imageNamed:@"云医时代-69"] forState:UIControlStateNormal];
     [leftBtn setTitle:@"足迹" forState:UIControlStateNormal];
     [leftBtn setTitleColor:LRRGBColor(223, 103, 113) forState:UIControlStateNormal];
+    [leftBtn addTarget:self action:@selector(guijiClick) forControlEvents:UIControlEventTouchUpInside];
     ImageCenterButton *rightBtn = [[ImageCenterButton alloc]init];
     [bottomView addSubview:rightBtn];
     [rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,6 +123,16 @@
     [rightBtn setImage:[UIImage imageNamed:@"云医时代-70"] forState:UIControlStateNormal];
     [rightBtn setTitle:@"栅栏" forState:UIControlStateNormal];
     [rightBtn setTitleColor:LRRGBColor(144, 219, 79) forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(railClick) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+- (void)guijiClick {
+    //去轨迹
+}
+- (void)railClick {
+    //去围栏
+    RailViewController *rail = [[RailViewController alloc]init];
+    [self.navigationController pushViewController:rail animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
