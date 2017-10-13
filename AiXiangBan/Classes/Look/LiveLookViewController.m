@@ -108,8 +108,8 @@
 - (void)setUp{
     self.screenHeight = SIZEHEIGHT;
     self.naviHeight = navHight;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"云医时代-69"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemAction)];
-    self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(5, 10, -5,-10);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-53"] style:UIBarButtonItemStyleDone target:self action:@selector(rightItemAction)];
+//    self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(5, 10, -5,-10);
     self.topConstraint.constant = navHight + 10;
     self.bottomConstraint.constant = SIZEHEIGHT - navHight - 10 - 220;
     LRViewBorderRadius(self.vioceView, 11.5, 0, [UIColor clearColor]);

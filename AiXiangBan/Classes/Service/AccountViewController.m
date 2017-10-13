@@ -10,6 +10,7 @@
 #import "RechargeViewController.h"
 #import "RechargeRecordController.h"
 #import "BillViewController.h"
+#import "CallCardViewController.h"
 @interface AccountViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
 @property (weak, nonatomic) IBOutlet UIView *bottomContainer;
@@ -64,6 +65,8 @@
     [self.navigationController pushViewController:bill animated:YES];
 }
 - (IBAction)service:(UITapGestureRecognizer *)sender {
+    CallCardViewController *callCardVC = [CallCardViewController new];
+    [self.navigationController pushViewController:callCardVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

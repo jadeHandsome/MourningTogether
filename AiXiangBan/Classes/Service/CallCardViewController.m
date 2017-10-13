@@ -1,34 +1,33 @@
 //
-//  BillViewController.m
+//  CallCardViewController.m
 //  AiXiangBan
 //
-//  Created by 周春仕 on 2017/10/7.
+//  Created by 周春仕 on 2017/10/13.
 //  Copyright © 2017年 周春仕. All rights reserved.
 //
 
-#import "BillViewController.h"
-#import "BillCell.h"
-#import "BillDetailViewController.h"
-@interface BillViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "CallCardViewController.h"
+#import "CallCardCell.h"
+#import "CallCardDetailViewController.h"
+@interface CallCardViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, assign) NSInteger nowCount;
 @property (nonatomic, assign) NSInteger totalCount;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger everyCount;
+
 @end
 
-@implementation BillViewController
-
+@implementation CallCardViewController
 - (NSMutableArray *)data{
-    if (!_data) {
+    if(!_data){
         _data = [NSMutableArray array];
     }
     return _data;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"缴费记录";
+    self.navigationItem.title = @"通讯卡服务";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     self.nowCount = 0;
     self.everyCount = 20;
@@ -39,14 +38,14 @@
 
 - (void)requestData{
     NSDictionary *params = @{@"offset":@(self.nowCount),@"size":@(self.everyCount)};
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/base/getConsumeList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
-        if ([showdata[@"consumeList"] count] == 0) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/base/getSimList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if ([showdata[@"simList"] count] == 0) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
         else{
             [self.tableView.mj_footer endRefreshing];
             self.totalCount = [showdata[@"totalCount"] integerValue];
-            [self.data addObjectsFromArray:showdata[@"consumeList"]];
+            [self.data addObjectsFromArray:showdata[@"simList"]];
             [self.tableView reloadData];
         }
     }];
@@ -63,7 +62,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.rowHeight = 90;
+    tableView.rowHeight = 110;
     tableView.backgroundColor = COLOR(242, 242, 242, 1);
     [KRBaseTool tableViewAddRefreshFooter:self.tableView withTarget:self refreshingAction:@selector(getMoreData)];
     self.tableView = tableView;
@@ -79,24 +78,43 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BillCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BillCell"];
+    CallCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CallCardCell"];
     if(!cell){
-        cell = [[NSBundle mainBundle] loadNibNamed:@"BillCell" owner:self options:nil].firstObject;
+        cell = [[NSBundle mainBundle] loadNibNamed:@"CallCardCell" owner:self options:nil].firstObject;
     }
-    cell.timeLabel.text = self.data[indexPath.row][@"createdTime"];
-//    cell.detailLabel.text = self.data[indexPath.row][@"text"];
-    cell.priceLabel.text = [NSString stringWithFormat:@"%g元",[self.data[indexPath.row][@"totalPrice"] floatValue]];
+    cell.nameLabel.text = self.data[indexPath.row][@"elderName"];
+    cell.numberLabel.text = self.data[indexPath.row][@"simMsisdn"];
+    cell.cardNameLabel.text = self.data[indexPath.row][@"packageList"][0][@"packageName"];
+    NSInteger switchStatus = [self.data[indexPath.row][@"switchStatus"] integerValue];
+    NSString *simIccid = self.data[indexPath.row][@"simIccid"];
+    [cell.button setTitle:switchStatus == 0 ? @"开通":@"停止" forState:UIControlStateNormal];
+    __weak __typeof(self) weakSelf = self;
+    cell.switchBlock = ^(){
+        [weakSelf openOrClose:switchStatus simIccid:simIccid];
+    };
+    cell.detailBlock = ^(){
+        CallCardDetailViewController *detail = [CallCardDetailViewController new];
+        detail.package = weakSelf.data[indexPath.row][@"packageList"][0];
+        [weakSelf.navigationController pushViewController:detail animated:YES];
+    };
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BillDetailViewController *detailVC = [BillDetailViewController new];
-    detailVC.consumeContent = self.data[indexPath.row][@"consumeContent"];
-    detailVC.price = [self.data[indexPath.row][@"totalPrice"] floatValue];
-    [self.navigationController pushViewController:detailVC animated:YES];
+- (void)openOrClose:(NSInteger)state simIccid:(NSString *)simIccid{
+    NSString *url = @"";
+    NSDictionary *params = @{@"simIccid" : simIccid};
+    if (state == 1) {
+        url = @"/trade/base/stopSimService.do";
+    }
+    else{
+        url = @"/trade/base/startSimService.do";
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:url params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        self.nowCount = 0;
+        [self.data removeAllObjects];
+        [self requestData];
+    }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

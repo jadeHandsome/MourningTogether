@@ -88,7 +88,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Qgq-X0-i91" secondAttribute="bottom" constant="10" id="ugx-fI-7No"/>
                         <constraint firstItem="Qgq-X0-i91" firstAttribute="leading" secondItem="1ON-O2-XOc" secondAttribute="leading" constant="15" id="yai-0R-QKg"/>
@@ -151,7 +151,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="On1-Fu-chJ" firstAttribute="top" secondItem="VGJ-KR-0uW" secondAttribute="bottom" id="15q-l8-tVf"/>
                         <constraint firstItem="On1-Fu-chJ" firstAttribute="leading" secondItem="mLR-1m-8A8" secondAttribute="leading" id="2dt-IE-NNM"/>
@@ -2579,17 +2579,17 @@ JQABni0AAZ4wAAGeNQABnkQAAZ5IAAGeTwABnlcAAZ5kAAGeaQABnmsAAZ5tAAGecgABnnoAAZ59AAGe
 ggABnooAAZ6NAAGenwABnqIAAZ6nAAAAAAAABAEAAAAAAAAAPgAAAAAAAAAAAAAAAAABnqk
 </mutableData>
         </image>
-        <image name="云医时代-55" width="66" height="62"/>
-        <image name="云医时代-56" width="62" height="62"/>
-        <image name="云医时代-57" width="40" height="62"/>
-        <image name="云医时代-58" width="62" height="62"/>
-        <image name="云医时代-65" width="17" height="27"/>
-        <image name="云医时代-67" width="25" height="25"/>
-        <image name="云医时代-68" width="250" height="250"/>
-        <image name="云医时代2-18" width="58" height="62"/>
-        <image name="云医时代2-6" width="62" height="62"/>
-        <image name="云医时代2-7" width="30" height="30"/>
-        <image name="云医时代2-8" width="30" height="30"/>
-        <image name="云医时代2-9" width="30" height="30"/>
+        <image name="云医时代-55" width="33" height="31"/>
+        <image name="云医时代-56" width="31" height="31"/>
+        <image name="云医时代-57" width="20" height="31"/>
+        <image name="云医时代-58" width="31" height="31"/>
+        <image name="云医时代-65" width="8" height="13"/>
+        <image name="云医时代-67" width="12" height="12"/>
+        <image name="云医时代-68" width="125" height="125"/>
+        <image name="云医时代2-18" width="29" height="31"/>
+        <image name="云医时代2-6" width="31" height="31"/>
+        <image name="云医时代2-7" width="15" height="15"/>
+        <image name="云医时代2-8" width="15" height="15"/>
+        <image name="云医时代2-9" width="15" height="15"/>
     </resources>
 </document>

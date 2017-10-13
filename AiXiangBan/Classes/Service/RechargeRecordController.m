@@ -85,7 +85,7 @@
         cell = [[NSBundle mainBundle] loadNibNamed:@"RechargeRecordCell" owner:self options:nil].firstObject;
     }
     cell.timeLabel.text = self.data[indexPath.row][@"payTime"];
-    cell.moneyLabel.text = [NSString stringWithFormat:@"%g",[self.data[indexPath.row][@"totalPrice"] floatValue]];
+    cell.moneyLabel.text = [NSString stringWithFormat:@"%g元",[self.data[indexPath.row][@"totalPrice"] floatValue]];
     return cell;
 }
 
