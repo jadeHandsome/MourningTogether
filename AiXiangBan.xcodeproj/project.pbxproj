@@ -14,6 +14,15 @@
 		11599C471F87DE6D0005D9ED /* pullView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C461F87DE6D0005D9ED /* pullView.xib */; };
 		11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */; };
 		11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */; };
+		118035371F8F043F0067CCA6 /* BillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118035351F8F043F0067CCA6 /* BillDetailViewController.m */; };
+		118035381F8F043F0067CCA6 /* BillDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118035361F8F043F0067CCA6 /* BillDetailViewController.xib */; };
+		1188E9761F904B2300E4EB27 /* CallCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9701F904B2200E4EB27 /* CallCardCell.m */; };
+		1188E9781F904B2C00E4EB27 /* CallCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188E9711F904B2200E4EB27 /* CallCardCell.xib */; };
+		1188E97D1F904B6200E4EB27 /* LookSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E97A1F904B6100E4EB27 /* LookSetViewController.m */; };
+		1188E97E1F904B6500E4EB27 /* LookSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188E97B1F904B6200E4EB27 /* LookSetViewController.xib */; };
+		1188E9811F904BCA00E4EB27 /* CallCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9801F904BCA00E4EB27 /* CallCardViewController.m */; };
+		1188E9851F9053C800E4EB27 /* CallCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9831F9053C800E4EB27 /* CallCardDetailViewController.m */; };
+		1188E9861F9053C800E4EB27 /* CallCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188E9841F9053C800E4EB27 /* CallCardDetailViewController.xib */; };
 		11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */; };
 		11937D731F86807500C809C9 /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D721F86807500C809C9 /* UIView+EX.m */; };
 		11937D771F86879200C809C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D751F86879200C809C9 /* RegisterViewController.m */; };
@@ -161,6 +170,20 @@
 		11599C481F87E8AC0005D9ED /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
 		11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		118035341F8F043F0067CCA6 /* BillDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailViewController.h; sourceTree = "<group>"; };
+		118035351F8F043F0067CCA6 /* BillDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillDetailViewController.m; sourceTree = "<group>"; };
+		118035361F8F043F0067CCA6 /* BillDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailViewController.xib; sourceTree = "<group>"; };
+		1188E9701F904B2200E4EB27 /* CallCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallCardCell.m; sourceTree = "<group>"; };
+		1188E9711F904B2200E4EB27 /* CallCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallCardCell.xib; sourceTree = "<group>"; };
+		1188E9751F904B2300E4EB27 /* CallCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallCardCell.h; sourceTree = "<group>"; };
+		1188E97A1F904B6100E4EB27 /* LookSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LookSetViewController.m; sourceTree = "<group>"; };
+		1188E97B1F904B6200E4EB27 /* LookSetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookSetViewController.xib; sourceTree = "<group>"; };
+		1188E97C1F904B6200E4EB27 /* LookSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LookSetViewController.h; sourceTree = "<group>"; };
+		1188E97F1F904BCA00E4EB27 /* CallCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallCardViewController.h; sourceTree = "<group>"; };
+		1188E9801F904BCA00E4EB27 /* CallCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallCardViewController.m; sourceTree = "<group>"; };
+		1188E9821F9053C800E4EB27 /* CallCardDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallCardDetailViewController.h; sourceTree = "<group>"; };
+		1188E9831F9053C800E4EB27 /* CallCardDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallCardDetailViewController.m; sourceTree = "<group>"; };
+		1188E9841F9053C800E4EB27 /* CallCardDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallCardDetailViewController.xib; sourceTree = "<group>"; };
 		11937D6E1F86800900C809C9 /* CALayer+CircleBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+CircleBoard.h"; sourceTree = "<group>"; };
 		11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
 		11937D711F86807500C809C9 /* UIView+EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
@@ -999,6 +1022,14 @@
 				11E09F821F88FC29004A2BCC /* RechargeRecordController.m */,
 				11E09F891F890440004A2BCC /* BillViewController.h */,
 				11E09F8A1F890440004A2BCC /* BillViewController.m */,
+				118035341F8F043F0067CCA6 /* BillDetailViewController.h */,
+				118035351F8F043F0067CCA6 /* BillDetailViewController.m */,
+				118035361F8F043F0067CCA6 /* BillDetailViewController.xib */,
+				1188E97F1F904BCA00E4EB27 /* CallCardViewController.h */,
+				1188E9801F904BCA00E4EB27 /* CallCardViewController.m */,
+				1188E9821F9053C800E4EB27 /* CallCardDetailViewController.h */,
+				1188E9831F9053C800E4EB27 /* CallCardDetailViewController.m */,
+				1188E9841F9053C800E4EB27 /* CallCardDetailViewController.xib */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1006,6 +1037,9 @@
 		11E09F761F88E95E004A2BCC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				1188E9751F904B2300E4EB27 /* CallCardCell.h */,
+				1188E9701F904B2200E4EB27 /* CallCardCell.m */,
+				1188E9711F904B2200E4EB27 /* CallCardCell.xib */,
 				11E09F771F88E989004A2BCC /* RechargeCell.h */,
 				11E09F781F88E989004A2BCC /* RechargeCell.m */,
 				11E09F791F88E989004A2BCC /* RechargeCell.xib */,
@@ -1044,6 +1078,9 @@
 		1A4E9C4F1F8E1AFE007D6832 /* Look */ = {
 			isa = PBXGroup;
 			children = (
+				1188E97C1F904B6200E4EB27 /* LookSetViewController.h */,
+				1188E97A1F904B6100E4EB27 /* LookSetViewController.m */,
+				1188E97B1F904B6200E4EB27 /* LookSetViewController.xib */,
 				1A4E9C501F8E1AFE007D6832 /* AddByQRCodeViewController.h */,
 				1A4E9C511F8E1AFE007D6832 /* AddByQRCodeViewController.m */,
 				1A4E9C521F8E1AFE007D6832 /* AddByQRCodeViewController.xib */,
@@ -1328,13 +1365,16 @@
 				1A4E9C841F8E1C4D007D6832 /* SetDeviceNameViewController.xib in Resources */,
 				1A4E9C7F1F8E1C3C007D6832 /* AddByQRCodeViewController.xib in Resources */,
 				11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */,
+				1188E9781F904B2C00E4EB27 /* CallCardCell.xib in Resources */,
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
 				11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */,
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
 				1A4E9C811F8E1C44007D6832 /* DeleteDeviceViewController.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
+				118035381F8F043F0067CCA6 /* BillDetailViewController.xib in Resources */,
 				1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */,
+				1188E97E1F904B6500E4EB27 /* LookSetViewController.xib in Resources */,
 				1A4E9C801F8E1C41007D6832 /* CheakPhoneViewController.xib in Resources */,
 				1A4E9C831F8E1C4A007D6832 /* LookViewController.xib in Resources */,
 				11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */,
@@ -1343,6 +1383,7 @@
 				11E09F801F88F82E004A2BCC /* ConfirmViewController.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
+				1188E9861F9053C800E4EB27 /* CallCardDetailViewController.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
 				11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */,
@@ -1436,6 +1477,7 @@
 				11E09F7A1F88E989004A2BCC /* RechargeCell.m in Sources */,
 				1A9A84DE1F878F290003B9E1 /* NSString+CZNSStringExt.m in Sources */,
 				1A4E9C311F8DE112007D6832 /* KRShengTableViewController.m in Sources */,
+				1188E97D1F904B6200E4EB27 /* LookSetViewController.m in Sources */,
 				1A4E9C2D1F8DDB87007D6832 /* ArearViewController.m in Sources */,
 				1A4E9C731F8E1B09007D6832 /* AddbyViewController.m in Sources */,
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
@@ -1448,6 +1490,7 @@
 				11E09F6F1F88D610004A2BCC /* AccountViewController.m in Sources */,
 				1A9A84EB1F886B2F0003B9E1 /* RepareInfoViewController.m in Sources */,
 				1A4E9C7B1F8E1B22007D6832 /* HIKLoadView.m in Sources */,
+				1188E9811F904BCA00E4EB27 /* CallCardViewController.m in Sources */,
 				1A4E9C741F8E1B0B007D6832 /* CheakPhoneViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
@@ -1484,7 +1527,10 @@
 				1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */,
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
 				1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */,
+				1188E9851F9053C800E4EB27 /* CallCardDetailViewController.m in Sources */,
+				1188E9761F904B2300E4EB27 /* CallCardCell.m in Sources */,
 				11E09F831F88FC29004A2BCC /* RechargeRecordController.m in Sources */,
+				118035371F8F043F0067CCA6 /* BillDetailViewController.m in Sources */,
 				11E09F871F890156004A2BCC /* RechargeRecordCell.m in Sources */,
 				11599C401F87D09B0005D9ED /* CallPushView.m in Sources */,
 				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
