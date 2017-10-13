@@ -54,7 +54,6 @@
 		11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BD1F8E12830096F67B /* OpenAL.framework */; };
 		11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BF1F8E128F0096F67B /* GLKit.framework */; };
 		11D401C21F8E129B0096F67B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401C11F8E129B0096F67B /* VideoToolbox.framework */; };
-		11D402031F8E3D4D0096F67B /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D402021F8E3D4D0096F67B /* libEZOpenSDK.a */; };
 		11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5A1F88CF1D004A2BCC /* AskHelpViewController.m */; };
 		11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */; };
 		11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F581F88CF1D004A2BCC /* AskHelpCell.m */; };
@@ -114,7 +113,6 @@
 		1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7919551F8F3B92003917A2 /* WatchXixunViewController.m */; };
 		1A7919581F8F3B92003917A2 /* WatchXixunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7919561F8F3B92003917A2 /* WatchXixunViewController.xib */; };
 		1A79195B1F8F3F29003917A2 /* TRAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7919591F8F3F29003917A2 /* TRAnnotation.m */; };
-		1A79195D1F8F4554003917A2 /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A79195C1F8F4554003917A2 /* libEZOpenSDK.a */; };
 		1A9A84D11F878E570003B9E1 /* KRMainNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */; };
 		1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84CC1F878E4F0003B9E1 /* KRUserInfo.m */; };
 		1A9A84D31F878E5E0003B9E1 /* KRBaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A84C91F878E380003B9E1 /* KRBaseTool.m */; };
@@ -336,7 +334,6 @@
 		11D401FD1F8E19430096F67B /* EZStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStorageInfo.h; sourceTree = "<group>"; };
 		11D401FE1F8E19430096F67B /* EZUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZUserInfo.h; sourceTree = "<group>"; };
 		11D401FF1F8E19430096F67B /* EZVideoQualityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZVideoQualityInfo.h; sourceTree = "<group>"; };
-		11D402021F8E3D4D0096F67B /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		11E09F571F88CF1D004A2BCC /* AskHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskHelpCell.h; sourceTree = "<group>"; };
 		11E09F581F88CF1D004A2BCC /* AskHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskHelpCell.m; sourceTree = "<group>"; };
 		11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskHelpCell.xib; sourceTree = "<group>"; };
@@ -437,7 +434,6 @@
 		1A7919561F8F3B92003917A2 /* WatchXixunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchXixunViewController.xib; sourceTree = "<group>"; };
 		1A7919591F8F3F29003917A2 /* TRAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRAnnotation.m; sourceTree = "<group>"; };
 		1A79195A1F8F3F29003917A2 /* TRAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRAnnotation.h; sourceTree = "<group>"; };
-		1A79195C1F8F4554003917A2 /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		1A9A84C91F878E380003B9E1 /* KRBaseTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBaseTool.m; sourceTree = "<group>"; };
 		1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacroDefinitionHeader.h; sourceTree = "<group>"; };
 		1A9A84CB1F878E390003B9E1 /* KRBaseTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRBaseTool.h; sourceTree = "<group>"; };
@@ -523,13 +519,11 @@
 				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
 				11D401BA1F8E12670096F67B /* libiconv.2.4.0.tbd in Frameworks */,
 				1A7919431F8F097B003917A2 /* AMapFoundationKit.framework in Frameworks */,
-				1A79195D1F8F4554003917A2 /* libEZOpenSDK.a in Frameworks */,
 				11D401B81F8E123E0096F67B /* libssl.a in Frameworks */,
 				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
 				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
 				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
 				11A0A0871F8A1785009AADC6 /* CoreTelephony.framework in Frameworks */,
-				11D402031F8E3D4D0096F67B /* libEZOpenSDK.a in Frameworks */,
 				11D401B71F8E123E0096F67B /* libcrypto.a in Frameworks */,
 				11A0A07F1F8A1761009AADC6 /* CoreText.framework in Frameworks */,
 				11A0A07D1F8A1758009AADC6 /* UIKit.framework in Frameworks */,
@@ -993,8 +987,6 @@
 		11D401EB1F8E19430096F67B /* EZOpenSDK */ = {
 			isa = PBXGroup;
 			children = (
-				11D402021F8E3D4D0096F67B /* libEZOpenSDK.a */,
-				1A79195C1F8F4554003917A2 /* libEZOpenSDK.a */,
 				11D401EC1F8E19430096F67B /* include */,
 			);
 			path = EZOpenSDK;
