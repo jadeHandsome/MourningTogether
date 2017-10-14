@@ -9,29 +9,74 @@
 #import "TendViewController.h"
 #import "TendView.h"
 #import "AddTendViewController.h"
+#import "ChooseOlderViewController.h"
 @interface TendViewController ()
-@property (nonatomic, strong) NSArray *alltend;//所有群组的数组
+@property (nonatomic, strong) NSMutableArray *alltend;//所有群组的数组
 @property (nonatomic, strong) UIScrollView *mainScroll;
 @end
 
 @implementation TendViewController
-
+- (NSMutableArray *)alltend {
+    if (!_alltend) {
+        _alltend = [NSMutableArray array];
+    }
+    return _alltend;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"看护群组";
-    self.alltend = @[@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]},@{@"old":@[@"爸爸",@"妈妈"],@"child":@[@"大儿子",@"二儿子",@"三儿子"]}];
     
-    if (self.alltend.count == 0) {
-        self.view.backgroundColor = LRRGBAColor(255, 255, 255, 1);
-        [self setUpZero];
-    } else {
-        self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStyleDone target:self action:@selector(addBtnClick)];
-        [self setUP];
-    }
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [self getTendGropData];
+}
+//获取群组数据
+- (void)getTendGropData {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/family/getFamilyList.do" params:@{@"offset":@(self.alltend.count),@"size":@20} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        if (self.alltend.count > 0) {
+            NSMutableArray *listArray = [NSMutableArray array];
+            
+            for (NSDictionary *dic in showdata[@"familyList"]) {
+                NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                param[@"old"] = dic[@"familyElderList"];
+                param[@"child"] = dic[@"familyOtherList"];
+                param[@"familyId"] = dic[@"familyId"];
+                [listArray addObject:param];
+            }
+            [self.alltend addObjectsFromArray:listArray];
+        } else {
+            NSMutableArray *listArray = [NSMutableArray array];
+            
+            for (NSDictionary *dic in showdata[@"familyList"]) {
+                NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                param[@"old"] = dic[@"familyElderList"];
+                param[@"child"] = dic[@"familyOtherList"];
+                param[@"familyId"] = dic[@"familyId"];
+                [listArray addObject:param];
+            }
+            self.alltend = [listArray mutableCopy];
+            
+        }
+        if (self.alltend.count == 0) {
+            self.view.backgroundColor = LRRGBAColor(255, 255, 255, 1);
+            [self setUpZero];
+        } else {
+            self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStyleDone target:self action:@selector(addBtnClick)];
+            [self setUP];
+        }
+        
+    }];
 }
 //没有群组时的布局
 - (void)setUpZero {
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
     UILabel *centerLabel = [[UILabel alloc]init];
     [self.view addSubview:centerLabel];
     [centerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -64,6 +109,9 @@
 }
 //有群组时的布局
 - (void)setUP {
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
     self.mainScroll = [[UIScrollView alloc]init];
     [self.view addSubview:self.mainScroll];
     self.mainScroll.backgroundColor = [UIColor clearColor];
@@ -89,14 +137,24 @@
             make.height.equalTo(@106);
         }];
         [tend setTendWithDic:self.alltend[i]];
+        tend.block = ^(NSDictionary *dic) {
+            AddTendViewController *addTend = [[AddTendViewController alloc]init];
+            addTend.famliID = dic[@"familyId"];
+            [self.navigationController pushViewController:addTend animated:YES];
+        };
         temp = tend;
         
     }
 }
+- (void)viewDidAppear:(BOOL)animated {
+    self.mainScroll.contentOffset = CGPointMake(0, 0);
+}
 //添加群组
 - (void)addBtnClick {
-    AddTendViewController *addTend = [[AddTendViewController alloc]init];
-    [self.navigationController pushViewController:addTend animated:YES];
+    ChooseOlderViewController *vc = [[ChooseOlderViewController alloc]init];
+    vc.type = 1;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

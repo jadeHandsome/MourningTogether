@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^ADD_CLICK)(NSDictionary *dic,BOOL isChoose);
 @interface AddressView : UIView
+@property (nonatomic, assign) BOOL isAdd;
+@property (nonatomic, assign) BOOL isChoose;
+@property (nonatomic, copy) ADD_CLICK addBlock;
 - (void)setUpWithDic:(NSDictionary *)dic withClickHandle:(responseObjectBlock)clickHandle;//设置信息的方法
 @end

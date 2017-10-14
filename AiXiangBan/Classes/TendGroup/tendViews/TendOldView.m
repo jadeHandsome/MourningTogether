@@ -19,6 +19,7 @@
         make.width.equalTo(@55);
         make.height.equalTo(@55);
     }];
+    [headImage sd_setImageWithURL:[NSURL URLWithString:dic[@"oldDic"][@"headImgUrl"]] placeholderImage:_zhanweiImageData];
     UIView *temp = headImage;
     
     UILabel *oldLabel = [[UILabel alloc]init];
@@ -29,7 +30,7 @@
         
         make.centerY.equalTo(temp.mas_centerY);
     }];
-    oldLabel.text = dic[@"name"];
+    oldLabel.text = dic[@"oldDic"][@"familyElderName"];
     oldLabel.textColor = [UIColor blackColor];
     oldLabel.font = [UIFont systemFontOfSize:16];
     temp = self;
@@ -46,7 +47,7 @@
             
             make.height.equalTo(@15);
             if (tempEq == headImage) {
-                make.top.equalTo(tempEq.mas_bottom);
+                make.top.equalTo(tempEq.mas_bottom).with.offset(20);
             } else {
                make.top.equalTo(tempEq.mas_bottom).with.offset(20);
             }
@@ -60,6 +61,7 @@
             make.centerY.equalTo(subView.mas_centerY);
             
         }];
+        eqImageView.image = [UIImage imageNamed:dic[@"equipment"][i][@"eqImage"]];
         UILabel *eqLabel = [[UILabel alloc]init];
         [subView addSubview:eqLabel];
         [eqLabel mas_makeConstraints:^(MASConstraintMaker *make) {

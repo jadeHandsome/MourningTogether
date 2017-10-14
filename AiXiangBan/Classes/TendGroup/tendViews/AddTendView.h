@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^ADD_CLICKWITH)(NSInteger tag,BOOL isAdd);
 @interface AddTendView : UIView
+@property (nonatomic, copy) ADD_CLICKWITH block;
 - (void)setAddTendWith:(NSDictionary *)tendDic;
 @end

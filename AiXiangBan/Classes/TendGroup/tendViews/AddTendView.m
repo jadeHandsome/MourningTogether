@@ -9,6 +9,7 @@
 #import "AddTendView.h"
 #import "TendOldView.h"
 #import "ImageCenterButton.h"
+#import "UIButton+WebCache.h"
 @implementation AddTendView
 
 - (void)setAddTendWith:(NSDictionary *)tendDic {
@@ -47,7 +48,7 @@
                 make.left.equalTo(self.mas_left);
                 make.right.equalTo(self.mas_right);
                 LRLog(@"%@",@(size.height + 20 + 55 + ([tendDic[@"child"][i][@"equipment"] count]/3 + 1) * 15 + [tendDic[@"child"][i][@"equipment"] count]/3 * 20));
-                make.height.equalTo(@(size.height + 20 + 55 + ([tendDic[@"child"][i][@"equipment"] count]/3 + 1) * 15 + [tendDic[@"child"][i][@"equipment"] count]/3 * 20));
+                make.height.equalTo(@(size.height + 55 + ([tendDic[@"child"][i][@"equipment"] count]/3 + 1) * 15 + [tendDic[@"child"][i][@"equipment"] count]/3 * 20));
             }];
             [old setOldDataWith:tendDic[@"child"][i]];
             UIView *line1 = [[UIView alloc]init];
@@ -77,38 +78,86 @@
             make.height.equalTo(@55);
         }];
         [subBtn setImage:[UIImage imageNamed:@"云医时代1-84"] forState:UIControlStateNormal];
+        addBtn.tag = 98;
+        subBtn.tag = 99;
+        [addBtn addTarget:self action:@selector(addClickWith:) forControlEvents:UIControlEventTouchUpInside];
+        [subBtn addTarget:self action:@selector(addClickWith:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         UIView *temp = self;
         for (int i = 0; i < [tendDic[@"child"] count]; i ++) {
-            ImageCenterButton *btn = [[ImageCenterButton alloc]init];
-            btn.imageTextSpace = 5;
-            btn.titleLabel.font = [UIFont systemFontOfSize:14];
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            btn.imageViewMaxSize = CGSizeMake(SCREEN_WIDTH * 0.2 * 0.5, SCREEN_WIDTH * 0.2 * 0.5);
-            [btn setTitle:tendDic[@"child"][i][@"name"] forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:tendDic[@"child"][i][@"image"]] forState:UIControlStateNormal];
-            
-            [self addSubview:btn];
-            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            UIView *otherView = [[UIView alloc]init];
+            [self addSubview:otherView];
+            [otherView mas_makeConstraints:^(MASConstraintMaker *make) {
                 if (i == 0) {
                     make.left.equalTo(temp.mas_left).with.offset(10);;
                     
                 } else {
                     make.left.equalTo(temp.mas_right).with.offset(10);
                 }
-                make.width.equalTo(@40);
+                make.width.equalTo(@60);
                 make.top.equalTo(line.mas_bottom).with.offset(10);
                 make.bottom.equalTo(self.mas_bottom).with.offset(-10);
                 
             }];
-            temp = btn;
+            UIImageView *otherhead = [[UIImageView alloc]init];
+            [otherView addSubview:otherhead];
+            [otherhead mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(otherView.mas_centerX);
+                make.top.equalTo(otherhead.mas_top).with.offset(10);
+                make.height.equalTo(@45);
+                make.width.equalTo(@45);
+                
+            }];
+            LRViewBorderRadius(otherhead, 22.5, 0, [UIColor clearColor]);
+            [otherhead sd_setImageWithURL:[NSURL URLWithString:tendDic[@"child"][i][@"headImgUrl"]] placeholderImage:_zhanweiImageData];
+            UILabel *otherNameLabel = [[UILabel alloc]init];
+            [otherView addSubview:otherNameLabel];
+            [otherNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(otherhead.mas_bottom);
+                make.bottom.equalTo(otherView.mas_bottom);
+                make.left.equalTo(otherView.mas_left);
+                make.right.equalTo(otherView.mas_right);
+            }];
+            otherNameLabel.textAlignment = NSTextAlignmentCenter;
+            otherNameLabel.font = [UIFont systemFontOfSize:15];
+            otherNameLabel.text = tendDic[@"child"][i][@"familyOtherName"];
+            
+            
+//            ImageCenterButton *btn = [[ImageCenterButton alloc]init];
+//            btn.imageTextSpace = 5;
+//            LRViewBorderRadius(btn.imageView, btn.imageView.frame.size.height * 0.5, 0, [UIColor clearColor]);
+//            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+//            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//            btn.imageViewMaxSize = CGSizeMake(SCREEN_WIDTH * 0.2 * 0.5, SCREEN_WIDTH * 0.2 * 0.5);
+//            [btn setTitle:[@" " stringByAppendingString:tendDic[@"child"][i][@"familyOtherName"]] forState:UIControlStateNormal];
+////            [btn sd_setImageWithURL:[NSURL URLWithString:tendDic[@"child"][i][@"headImgUrl"]] forState:UIControlStateNormal];
+//            [btn sd_setImageWithURL:[NSURL URLWithString:tendDic[@"child"][i][@"headImgUrl"]] forState:UIControlStateNormal placeholderImage:_zhanweiImageData];
+//            [self addSubview:btn];
+//            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+//                if (i == 0) {
+//                    make.left.equalTo(temp.mas_left).with.offset(10);;
+//
+//                } else {
+//                    make.left.equalTo(temp.mas_right).with.offset(10);
+//                }
+//                make.width.equalTo(@60);
+//                make.top.equalTo(line.mas_bottom).with.offset(10);
+//                make.bottom.equalTo(self.mas_bottom).with.offset(-10);
+//
+//            }];
+            temp = otherView;
             
         }
         UIButton *addBtn = [[UIButton alloc]init];
         [self addSubview:addBtn];
         [addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(line.mas_bottom).with.offset(10);
-            make.left.equalTo(temp.mas_right).with.offset(10);
+            if (temp == self) {
+                make.left.equalTo(temp.mas_left).with.offset(10);
+            } else {
+               make.left.equalTo(temp.mas_right).with.offset(10);
+            }
+            
             make.height.equalTo(@55);
         }];
         [addBtn setImage:[UIImage imageNamed:@"云医时代1-83"] forState:UIControlStateNormal];
@@ -120,9 +169,38 @@
             make.height.equalTo(@55);
         }];
         [subBtn setImage:[UIImage imageNamed:@"云医时代1-84"] forState:UIControlStateNormal];
+        if ([tendDic[@"title"] isEqualToString:@"监护人"]) {
+            addBtn.tag = 100;
+            subBtn.tag = 101;
+            [addBtn addTarget:self action:@selector(addClickWith:) forControlEvents:UIControlEventTouchUpInside];
+            [subBtn addTarget:self action:@selector(addClickWith:) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            addBtn.tag = 102;
+            subBtn.tag = 103;
+            [addBtn addTarget:self action:@selector(addClickWith:) forControlEvents:UIControlEventTouchUpInside];
+            [subBtn addTarget:self action:@selector(addClickWith:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
     LRViewBorderRadius(self, 5, 0, [UIColor clearColor]);
     self.backgroundColor = [UIColor whiteColor];
 }
-
+- (void)addClickWith:(UIButton *)sender {
+    if ([sender isKindOfClass:[UIButton class]]) {
+        BOOL isADD = NO;
+        NSInteger tag = 1;
+        if (sender.tag == 101 || sender.tag == 103 || sender.tag == 99) {
+            isADD = YES;
+        }
+        if (sender.tag == 98 || sender.tag == 99) {
+            tag = 1;
+        } else if (sender.tag == 100 || sender.tag == 101) {
+            tag = 2;
+        } else {
+            tag = 3;
+        }
+        if (self.block) {
+            self.block(tag, isADD);
+        }
+    }
+}
 @end
