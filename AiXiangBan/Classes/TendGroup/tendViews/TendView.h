@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^TEND_CLICK)(NSDictionary *dic);
 @interface TendView : UIView
+@property (nonatomic, strong) TEND_CLICK block;
 - (void)setTendWithDic:(NSDictionary *)dic;
 @end

@@ -84,6 +84,8 @@
 		11E09F8B1F890440004A2BCC /* BillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F8A1F890440004A2BCC /* BillViewController.m */; };
 		11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F8D1F8904BD004A2BCC /* BillCell.m */; };
 		11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F8E1F8904BD004A2BCC /* BillCell.xib */; };
+		1A0B541D1F919978009A1B12 /* TrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B541C1F919978009A1B12 /* TrackViewController.m */; };
+		1A0B54201F91B198009A1B12 /* ChooseOlderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */; };
 		1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */; };
 		1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C261F8DA79A007D6832 /* HealthyTypeView.m */; };
 		1A4E9C2D1F8DDB87007D6832 /* ArearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C2C1F8DDB87007D6832 /* ArearViewController.m */; };
@@ -150,6 +152,7 @@
 		1AA2E0CB1F907ECF00AA185F /* RailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CA1F907ECF00AA185F /* RailViewController.m */; };
 		1AA2E0CE1F90854300AA185F /* CustomSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CD1F90854300AA185F /* CustomSliderView.m */; };
 		1AA2E0D01F90855100AA185F /* CustomSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CF1F90855100AA185F /* CustomSliderView.xib */; };
+		1AA2E0D51F90A90000AA185F /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA2E0D41F90A90000AA185F /* libEZOpenSDK.a */; };
 		1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */; };
 		1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F881F89F40700A6AE55 /* AddAddressView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
@@ -392,6 +395,10 @@
 		11E09F8D1F8904BD004A2BCC /* BillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillCell.m; sourceTree = "<group>"; };
 		11E09F8E1F8904BD004A2BCC /* BillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell.xib; sourceTree = "<group>"; };
 		17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AiXiangBan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0B541B1F919978009A1B12 /* TrackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackViewController.h; sourceTree = "<group>"; };
+		1A0B541C1F919978009A1B12 /* TrackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrackViewController.m; sourceTree = "<group>"; };
+		1A0B541E1F91B198009A1B12 /* ChooseOlderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseOlderViewController.h; sourceTree = "<group>"; };
+		1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseOlderViewController.m; sourceTree = "<group>"; };
 		1A4E9C221F8DA6D0007D6832 /* HealthyTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeViewController.h; sourceTree = "<group>"; };
 		1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthyTypeViewController.m; sourceTree = "<group>"; };
 		1A4E9C251F8DA79A007D6832 /* HealthyTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeView.h; sourceTree = "<group>"; };
@@ -516,6 +523,7 @@
 		1AA2E0CC1F90854300AA185F /* CustomSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSliderView.h; sourceTree = "<group>"; };
 		1AA2E0CD1F90854300AA185F /* CustomSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSliderView.m; sourceTree = "<group>"; };
 		1AA2E0CF1F90855100AA185F /* CustomSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSliderView.xib; sourceTree = "<group>"; };
+		1AA2E0D41F90A90000AA185F /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		1AE01F841F89F37B00A6AE55 /* AddAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
 		1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
 		1AE01F871F89F40700A6AE55 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
@@ -536,7 +544,10 @@
 				1A7919491F8F09D4003917A2 /* MAMapKit.framework in Frameworks */,
 				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
 				11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */,
+
 				1188E9881F90E2BD00E4EB27 /* libEZOpenSDK.a in Frameworks */,
+
+
 				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
 				11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */,
 				1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */,
@@ -845,6 +856,8 @@
 				1A676A0C1F8B1DBE001BD32A /* TendViewController.m */,
 				1A676A1B1F8BB115001BD32A /* AddTendViewController.h */,
 				1A676A1C1F8BB115001BD32A /* AddTendViewController.m */,
+				1A0B541E1F91B198009A1B12 /* ChooseOlderViewController.h */,
+				1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */,
 			);
 			path = TendGroup;
 			sourceTree = "<group>";
@@ -873,6 +886,7 @@
 		11C9D4301F852574005B3577 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				1A0B541A1F919963009A1B12 /* Track */,
 				1AA2E0C81F907EBC00AA185F /* Rail */,
 				1AA2E0C31F90533700AA185F /* KRCustomView.h */,
 				1AA2E0C11F90533600AA185F /* KRCustomView.m */,
@@ -1013,7 +1027,9 @@
 		11D401EB1F8E19430096F67B /* EZOpenSDK */ = {
 			isa = PBXGroup;
 			children = (
+
 				1188E9871F90E2BD00E4EB27 /* libEZOpenSDK.a */,
+
 				11D401EC1F8E19430096F67B /* include */,
 			);
 			path = EZOpenSDK;
@@ -1101,6 +1117,15 @@
 				11E09F8E1F8904BD004A2BCC /* BillCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		1A0B541A1F919963009A1B12 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				1A0B541B1F919978009A1B12 /* TrackViewController.h */,
+				1A0B541C1F919978009A1B12 /* TrackViewController.m */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 		1A4E9C211F8DA6BF007D6832 /* HealthyType */ = {
@@ -1563,6 +1588,7 @@
 				1A4E9C2D1F8DDB87007D6832 /* ArearViewController.m in Sources */,
 				1A4E9C731F8E1B09007D6832 /* AddbyViewController.m in Sources */,
 				11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */,
+				1A0B541D1F919978009A1B12 /* TrackViewController.m in Sources */,
 				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */,
@@ -1627,6 +1653,7 @@
 				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
 				1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */,
 				1A7919501F8F31A2003917A2 /* AddWatchViewController.m in Sources */,
+				1A0B54201F91B198009A1B12 /* ChooseOlderViewController.m in Sources */,
 				1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */,
 				1AA2E0CB1F907ECF00AA185F /* RailViewController.m in Sources */,
 				1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */,

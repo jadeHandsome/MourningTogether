@@ -93,7 +93,7 @@
     //退出登录要掉客服的注销
 //    [[QYSDK sharedSDK] logout:^(){}];
     //删除
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"删除联系人" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"退出登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/member/login/doLogout.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {

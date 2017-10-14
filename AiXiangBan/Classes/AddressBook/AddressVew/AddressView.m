@@ -9,6 +9,7 @@
 #import "AddressView.h"
 @interface AddressView()
 @property (nonatomic, strong) NSDictionary *myData;
+@property (nonatomic, strong) UIButton *seleectBtn;
 @end
 @implementation AddressView
 {
@@ -45,8 +46,12 @@
     nameLabel.textColor = [UIColor blackColor];
     if (dic[@"otherName"]) {
         nameLabel.text = dic[@"otherName"];
-    } else {
+    } else if (dic[@"elderName"]) {
         nameLabel.text = dic[@"elderName"];
+    } else if (dic[@"familyOtherName"]) {
+        nameLabel.text = dic[@"familyOtherName"];
+    } else if (dic[@"familyElderName"]) {
+        nameLabel.text = dic[@"familyElderName"];
     }
     
     UILabel *IDLabel = [[UILabel alloc]init];
@@ -69,14 +74,46 @@
         make.height.equalTo(@1);
     }];
     linView.backgroundColor = LRRGBColor(236, 236, 236);
+    
+    UIButton *selectBtn = [[UIButton alloc]init];
+    _seleectBtn = selectBtn;
+    [self addSubview:selectBtn];
+    selectBtn.hidden = YES;
+    selectBtn.userInteractionEnabled = NO;
+    [selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).with.offset(-10);
+        make.centerY.equalTo(self.mas_centerY);
+    }];
+    [selectBtn setImage:[UIImage imageNamed:@"云医时代1-10"] forState:UIControlStateNormal];
+    [selectBtn setImage:[UIImage imageNamed:@"云医时代1-03"] forState:UIControlStateDisabled];
+    [selectBtn setImage:[UIImage imageNamed:@"云医时代1-97"] forState:UIControlStateSelected];
+    if (self.isAdd) {
+        selectBtn.hidden = NO;
+        if (self.isChoose) {
+            self.seleectBtn.enabled = NO;
+        }
+    }
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
     [self addGestureRecognizer:tap];
     [tap addTarget:self action:@selector(click)];
     
+    
 }
 - (void)click {
-    if (block) {
-        block(self.myData);
+    if (self.isAdd ) {
+        if (!self.isChoose) {
+            self.seleectBtn.selected = !self.seleectBtn.selected;
+            if (self.addBlock) {
+                self.addBlock(self.myData,self.seleectBtn.selected);
+            }
+        }
+        
+        
+    } else {
+         if (block) {
+            block(self.myData);
+          }
+        
     }
 }
 

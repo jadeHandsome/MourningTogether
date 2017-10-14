@@ -10,4 +10,5 @@
 
 @interface AddTendViewController : BaseViewController
 @property (nonatomic, strong) NSArray *alltend;//所有群组的数组
+@property (nonatomic, strong) NSString *famliID;
 @end
