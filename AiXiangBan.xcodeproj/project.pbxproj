@@ -152,7 +152,6 @@
 		1AA2E0CB1F907ECF00AA185F /* RailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CA1F907ECF00AA185F /* RailViewController.m */; };
 		1AA2E0CE1F90854300AA185F /* CustomSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CD1F90854300AA185F /* CustomSliderView.m */; };
 		1AA2E0D01F90855100AA185F /* CustomSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CF1F90855100AA185F /* CustomSliderView.xib */; };
-		1AA2E0D51F90A90000AA185F /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA2E0D41F90A90000AA185F /* libEZOpenSDK.a */; };
 		1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */; };
 		1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F881F89F40700A6AE55 /* AddAddressView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
@@ -523,7 +522,6 @@
 		1AA2E0CC1F90854300AA185F /* CustomSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSliderView.h; sourceTree = "<group>"; };
 		1AA2E0CD1F90854300AA185F /* CustomSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSliderView.m; sourceTree = "<group>"; };
 		1AA2E0CF1F90855100AA185F /* CustomSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSliderView.xib; sourceTree = "<group>"; };
-		1AA2E0D41F90A90000AA185F /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		1AE01F841F89F37B00A6AE55 /* AddAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
 		1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
 		1AE01F871F89F40700A6AE55 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
@@ -544,10 +542,7 @@
 				1A7919491F8F09D4003917A2 /* MAMapKit.framework in Frameworks */,
 				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
 				11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */,
-
 				1188E9881F90E2BD00E4EB27 /* libEZOpenSDK.a in Frameworks */,
-
-
 				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
 				11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */,
 				1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */,
@@ -1027,9 +1022,7 @@
 		11D401EB1F8E19430096F67B /* EZOpenSDK */ = {
 			isa = PBXGroup;
 			children = (
-
 				1188E9871F90E2BD00E4EB27 /* libEZOpenSDK.a */,
-
 				11D401EC1F8E19430096F67B /* include */,
 			);
 			path = EZOpenSDK;

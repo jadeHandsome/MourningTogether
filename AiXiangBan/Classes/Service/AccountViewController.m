@@ -39,6 +39,8 @@
         }
         
         self.numbelLabel.text = [NSString stringWithFormat:@"账户余额(元) | %.2f",[showdata[@"balance"] floatValue]];
+        SharedUserInfo.balance = [NSString stringWithFormat:@"%.2f",[showdata[@"balance"] floatValue]];
+        
     }];
 }
 
