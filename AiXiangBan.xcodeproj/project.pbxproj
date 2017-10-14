@@ -23,6 +23,7 @@
 		1188E9811F904BCA00E4EB27 /* CallCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9801F904BCA00E4EB27 /* CallCardViewController.m */; };
 		1188E9851F9053C800E4EB27 /* CallCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9831F9053C800E4EB27 /* CallCardDetailViewController.m */; };
 		1188E9861F9053C800E4EB27 /* CallCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188E9841F9053C800E4EB27 /* CallCardDetailViewController.xib */; };
+		1188E9881F90E2BD00E4EB27 /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1188E9871F90E2BD00E4EB27 /* libEZOpenSDK.a */; };
 		11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */; };
 		11937D731F86807500C809C9 /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D721F86807500C809C9 /* UIView+EX.m */; };
 		11937D771F86879200C809C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11937D751F86879200C809C9 /* RegisterViewController.m */; };
@@ -197,6 +198,7 @@
 		1188E9821F9053C800E4EB27 /* CallCardDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallCardDetailViewController.h; sourceTree = "<group>"; };
 		1188E9831F9053C800E4EB27 /* CallCardDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallCardDetailViewController.m; sourceTree = "<group>"; };
 		1188E9841F9053C800E4EB27 /* CallCardDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallCardDetailViewController.xib; sourceTree = "<group>"; };
+		1188E9871F90E2BD00E4EB27 /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEZOpenSDK.a; path = ../../../../../Downloads/iOS_v4.5.0.build20170605/EZOpenSDK/libEZOpenSDK.a; sourceTree = "<group>"; };
 		11937D6E1F86800900C809C9 /* CALayer+CircleBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+CircleBoard.h"; sourceTree = "<group>"; };
 		11937D6F1F86800900C809C9 /* CALayer+CircleBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+CircleBoard.m"; sourceTree = "<group>"; };
 		11937D711F86807500C809C9 /* UIView+EX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EX.h"; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				1A7919491F8F09D4003917A2 /* MAMapKit.framework in Frameworks */,
 				11A0A08B1F8A179F009AADC6 /* AudioToolbox.framework in Frameworks */,
 				11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */,
+				1188E9881F90E2BD00E4EB27 /* libEZOpenSDK.a in Frameworks */,
 				11A0A0891F8A178C009AADC6 /* CoreMedia.framework in Frameworks */,
 				11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */,
 				1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */,
@@ -1010,6 +1013,7 @@
 		11D401EB1F8E19430096F67B /* EZOpenSDK */ = {
 			isa = PBXGroup;
 			children = (
+				1188E9871F90E2BD00E4EB27 /* libEZOpenSDK.a */,
 				11D401EC1F8E19430096F67B /* include */,
 			);
 			path = EZOpenSDK;
@@ -1772,7 +1776,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -1819,7 +1823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
