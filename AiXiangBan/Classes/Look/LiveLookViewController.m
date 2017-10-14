@@ -23,14 +23,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *voiceControlBtn;
 @property (weak, nonatomic) IBOutlet UIButton *playerControlBtn;
 @property (nonatomic, assign) BOOL isFull;
+@property (weak, nonatomic) IBOutlet UIView *recordView;
 @property (weak, nonatomic) IBOutlet UIView *vioceView;
 @property (weak, nonatomic) IBOutlet UIView *bottomVoiceView;
 @property (weak, nonatomic) IBOutlet UIView *PTZView;
-@property (weak, nonatomic) IBOutlet UIButton *PTZBtn1;
 @property (weak, nonatomic) IBOutlet UIView *PTZCenterView;
-@property (weak, nonatomic) IBOutlet UIView *PTZCenterItem;
-@property (weak, nonatomic) IBOutlet UIImageView *PTZImageView;
-@property (weak, nonatomic) IBOutlet UILabel *PTZLabel;
 @property (nonatomic, strong) UIButton *preBtn;
 @property (nonatomic, assign) CGFloat screenHeight;
 @property (nonatomic, assign) CGFloat naviHeight;
@@ -61,6 +58,12 @@
 @property (nonatomic, strong) NSMutableData *fileData;
 @property (nonatomic, copy) NSString *filePath;
 @property (nonatomic, strong) HIKLoadView *loadingView;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+@property (weak, nonatomic) IBOutlet UIButton *PTTop;
+@property (weak, nonatomic) IBOutlet UIButton *PTRight;
+@property (weak, nonatomic) IBOutlet UIButton *PTBottom;
+@property (weak, nonatomic) IBOutlet UIButton *PTLeft;
+@property (weak, nonatomic) IBOutlet UILabel *talkdisplay;
 @end
 
 
@@ -108,18 +111,11 @@
 - (void)setUp{
     self.screenHeight = SIZEHEIGHT;
     self.naviHeight = navHight;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-53"] style:UIBarButtonItemStyleDone target:self action:@selector(rightItemAction)];
-//    self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(5, 10, -5,-10);
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-53"] style:UIBarButtonItemStyleDone target:self action:@selector(rightItemAction)];
+////    self.navigationItem.rightBarButtonItem.imageInsets = UIEdgeInsetsMake(5, 10, -5,-10);
     self.topConstraint.constant = navHight + 10;
     self.bottomConstraint.constant = SIZEHEIGHT - navHight - 10 - 220;
     LRViewBorderRadius(self.vioceView, 11.5, 0, [UIColor clearColor]);
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.playerView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
-//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//    maskLayer.frame = self.playerView.bounds;
-//    maskLayer.path = maskPath.CGPath;
-//    self.playerView.layer.mask = maskLayer;
-    self.preBtn = self.PTZBtn1;
-    self.PTZCenterItem.hidden = YES;
 }
 
 - (void)config{
@@ -320,6 +316,10 @@
                     {
                         return;
                     }
+                    if (self.deviceInfo.isSupportTalk == 3) {
+                        self.talkdisplay.text = @"轻点后说话";
+                    }
+                    self.bottomVoiceView.hidden = NO;
                     self.isStartingTalk = YES;
                     [_talkPlayer startVoiceTalk];
                 }
@@ -349,30 +349,6 @@
             default:
                 break;
         }
-    }
-}
-- (IBAction)PTZChange:(UIButton *)sender {
-    [self.preBtn setTitleColor:ColorRgbValue(0x898989) forState:UIControlStateNormal];
-    self.preBtn.backgroundColor = [UIColor whiteColor];
-    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    sender.backgroundColor = ThemeColor;
-    self.preBtn = sender;
-    switch (sender.tag) {
-        case 300:
-            self.PTZCenterItem.hidden = YES;
-            break;
-        case 301:
-            self.PTZCenterItem.hidden = NO;
-            self.PTZImageView.image = [UIImage imageNamed:@"云医时代-91"];
-            self.PTZLabel.text = @"收藏位置后，方便摄像头快速定位";
-            break;
-        case 302:
-            self.PTZCenterItem.hidden = NO;
-            self.PTZImageView.image = [UIImage imageNamed:@"云医时代-92"];
-            self.PTZLabel.text = @"开启后，一单周围发出声音，摄像机自动转动镜头，对准声音源";
-            break;
-        default:
-            break;
     }
 }
 
@@ -459,8 +435,14 @@
 
 - (void)player:(EZPlayer *)player didReceivedDataLength:(NSInteger)dataLength
 {
-    
-    
+    CGFloat value = dataLength/1024.0;
+    NSString *fromatStr = @"%.1f KB/s";
+    if (value > 1024)
+    {
+        value = value/1024;
+        fromatStr = @"%.1f MB/s";
+    }
+    self.speedLabel.text = fromatStr;
 }
 
 - (void)player:(EZPlayer *)player didPlayFailed:(NSError *)error
@@ -482,7 +464,7 @@
         return;
     }
     
-    [self showHUDWithText:[NSString stringWithFormat:@"%d", (int)error.code]];
+    [self showHUDWithText:[NSString stringWithFormat:@"播放失败%d", (int)error.code]];
     [self.loadingView stopSquareClockwiseAnimation];
 }
 
@@ -569,12 +551,40 @@
         }
     }
 }
+- (IBAction)PTControl:(UIButton *)sender {
+    EZPTZCommand command;
+    if (sender == self.PTTop) {
+        command = EZPTZCommandUp;
+    }
+    else if (sender == self.PTRight){
+        command = EZPTZCommandRight;
+    }
+    else if (sender == self.PTBottom){
+        command = EZPTZCommandDown;
+    }
+    else{
+        command = EZPTZCommandLeft;
+    }
+    EZCameraInfo *cameraInfo = [self.deviceInfo.cameraInfo firstObject];
+    [EZOPENSDK controlPTZ:cameraInfo.deviceSerial
+                 cameraNo:cameraInfo.cameraNo
+                  command:command
+                   action:EZPTZActionStart
+                    speed:2
+                   result:^(NSError *error) {
+                       [self showHUDWithText:[NSString stringWithFormat:@"控制失败%d", (int)error.code]];
+                   }];
+    
+}
+
+
 
 //录像
 - (void)videoRecord{
     //结束本地录像
     if(self.videoBtn.selected)
     {
+        self.recordView.hidden = YES;
         [_player stopLocalRecord];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [_fileData writeToFile:_filePath atomically:YES];
@@ -584,6 +594,7 @@
     }
     else
     {
+        self.recordView.hidden = NO;
         //开始本地录像
         NSString *path = @"/OpenSDK/EzvizLocalRecord";
         NSArray * docdirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -615,10 +626,12 @@
 - (IBAction)talkPressed:(UIButton *)sender {
     if (!_isPressed)
     {
+        self.talkdisplay.text = @"轻点切换为听";
         [self.talkPlayer audioTalkPressed:YES];
     }
     else
     {
+        self.talkdisplay.text = @"轻点切换为讲";
         [self.talkPlayer audioTalkPressed:NO];
     }
     _isPressed = !_isPressed;
@@ -635,8 +648,8 @@
     self.shotText.textColor = ColorRgbValue(0x989898);
     self.screenshotText.textColor = ColorRgbValue(0x989898);
     self.videoText.textColor = ColorRgbValue(0x989898);
-    self.PTZBtn.enabled = NO;
-    self.voiceBtn.enabled = NO;
+    self.PTZBtn.enabled = YES;
+    self.voiceBtn.enabled = YES;
     self.shotBtn.enabled = NO;
     self.screenshotBtn.enabled = NO;
     self.videoBtn.enabled = NO;

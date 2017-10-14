@@ -28,7 +28,7 @@
 
 - (void)setUp{
     self.topConstraint.constant = navHight + 10;
-    
+    LRViewBorderRadius(self.deleteBtn, 10, 0, [UIColor whiteColor]);
 }
 
 - (IBAction)deleteDevice:(UIButton *)sender {
