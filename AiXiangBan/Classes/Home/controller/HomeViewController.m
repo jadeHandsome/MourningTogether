@@ -64,7 +64,7 @@
         
     }
     if (curretOlder[@"devPhone"]) {
-        [KRUserInfo sharedKRUserInfo].deviceId = curretOlder[@"deviceSn"];
+        [KRUserInfo sharedKRUserInfo].deviceId = curretOlder[@"devPhone"];
     } else {
         [KRUserInfo sharedKRUserInfo].deviceId = nil;
     }

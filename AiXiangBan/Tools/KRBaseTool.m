@@ -698,4 +698,10 @@ singleton_implementation(KRBaseTool)
         vc.scrollIndicatorInsets = vc.contentInset;
     }
 }
++ (NSString *)timeStringFromFormat:(NSString *)dateFormate withDate:(NSDate *)date{
+    NSDateFormatter *formater = [[NSDateFormatter alloc]init];
+    formater.dateFormat = dateFormate;
+    return [formater stringFromDate:date];
+    
+}
 @end

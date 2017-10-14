@@ -12,6 +12,7 @@
 #import "ImageCenterButton.h"
 #import "RailViewController.h"
 #import "TRAnnotation.h"
+#import "TrackViewController.h"
 @interface LocationViewController ()<MAMapViewDelegate,AMapLocationManagerDelegate>
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapLocationManager *locationManager;
@@ -128,6 +129,8 @@
 }
 - (void)guijiClick {
     //去轨迹
+    TrackViewController *track = [[TrackViewController alloc]init];
+    [self.navigationController pushViewController:track animated:YES];
 }
 - (void)railClick {
     //去围栏

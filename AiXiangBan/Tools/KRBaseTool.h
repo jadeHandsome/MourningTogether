@@ -96,4 +96,5 @@ typedef void (^responseObjectBlock)(id responseObject);
 + (void)daojishi:(NSInteger)miao  withButton:(UIButton *)button;
 #pragma mark-------------适配ios11
 + (void)setIOSX:(UIScrollView *)vc;
++ (NSString *)timeStringFromFormat:(NSString *)dateFormate withDate:(NSDate *)date;
 @end
