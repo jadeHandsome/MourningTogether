@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchXixunViewController">
             <connections>
                 <outlet property="contentCiew" destination="koH-OU-ij2" id="Ryo-UN-qR5"/>
+                <outlet property="top" destination="1ED-Lc-iAX" id="5pr-Iz-NVp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

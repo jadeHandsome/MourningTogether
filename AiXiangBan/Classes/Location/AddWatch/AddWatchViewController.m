@@ -164,7 +164,7 @@
     UIButton *sureBtn = [[UIButton alloc]init];
     [self.view addSubview:sureBtn];
     [sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.left.equalTo(myView.mas_left).with.offset(10);
         make.bottom.equalTo(myView.mas_bottom).with.offset(-10);
         make.height.equalTo(@45);
         make.right.equalTo(self.view.mas_right).with.offset(-10);

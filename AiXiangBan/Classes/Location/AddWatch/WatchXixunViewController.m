@@ -10,6 +10,7 @@
 
 @interface WatchXixunViewController ()
 @property (weak, nonatomic) IBOutlet UIView *contentCiew;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
 
 @end
 
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"手表咨询";
+    self.top.constant = navHight + 10;
+    self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     LRViewBorderRadius(self.contentCiew, 5, 0, [UIColor clearColor]);
     // Do any additional setup after loading the view from its nib.
 }
