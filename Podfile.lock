@@ -21,6 +21,7 @@ PODS:
     - AMapFoundation-NO-IDFA (~> 1.4)
   - AMapSearch-NO-IDFA (5.4.0):
     - AMapFoundation-NO-IDFA (~> 1.4)
+  - CocoaAsyncSocket (7.6.1)
   - IQKeyboardManager (4.0.13)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - AMap3DMap-NO-IDFA
   - AMapLocation-NO-IDFA
   - AMapSearch-NO-IDFA
+  - CocoaAsyncSocket
   - IQKeyboardManager (~> 4.0.8)
   - Masonry
   - MBProgressHUD (~> 1.0.0)
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   AMapFoundation-NO-IDFA: 3b9ce87abc6a37c718cc320687469d0b74d5c953
   AMapLocation-NO-IDFA: 9493012d3241a7d551942c7c1e1069b51f295083
   AMapSearch-NO-IDFA: efddeaa3f62f6adb8f0170ebff3d799bcf637ade
+  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -55,6 +58,6 @@ SPEC CHECKSUMS:
   QIYU_iOS_SDK: b8b94211d6b9bd66132dd546f3afd7da30e8e60c
   SDWebImage: caf91ee75671c95eb7b3073cd90649d25f852a88
 
-PODFILE CHECKSUM: 3355e90a5b58188579cc3bc4b1e507a2fe4ba5cf
+PODFILE CHECKSUM: f285786e611f429b149a4bd3c76f34206f70e403
 
 COCOAPODS: 1.2.1
