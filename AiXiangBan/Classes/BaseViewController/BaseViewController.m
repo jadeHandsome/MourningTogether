@@ -19,8 +19,8 @@
     
     self.view.backgroundColor = ColorRgbValue(0xFFFFFF);
     self.automaticallyAdjustsScrollViewInsets = NO;
-
-
+//[UIViewController attemptRotationToDeviceOrientation];
+    [UIViewController attemptRotationToDeviceOrientation];
     // Do any additional setup after loading the view.
 }
 

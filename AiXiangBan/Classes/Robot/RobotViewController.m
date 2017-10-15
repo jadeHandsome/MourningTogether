@@ -8,21 +8,52 @@
 
 #import "RobotViewController.h"
 #import "RobotView.h"
-@interface RobotViewController ()
+#import "SocketTool.h"
+#import "ControllRobotViewController.h"
+@interface RobotViewController ()<TcpManagerDelegate>
 @property (nonatomic, strong) UIScrollView *mainScroll;
 @property (nonatomic, strong) NSArray *allRobot;//附近的所有机器人
+@property (nonatomic, strong) SocketTool *sockManager;
 @end
 
 @implementation RobotViewController
-
+- (SocketTool *)sockManager {
+    if (!_sockManager) {
+       
+    }
+    return _sockManager;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"附近机器人";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     
+    _sockManager = [SocketTool Share];
+    _sockManager.delegate = self;
+    if (![_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil]) {
+        
+        NSLog(@"fail to connect");
+        
+    }
     
-    self.allRobot = @[@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"}];
-    [self setUP];
+    
+    
+//    self.allRobot = @[@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"}];
+    [self getRobotInfo];
+    
+}
+- (void)getRobotInfo {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/device/getDeviceList.do" params:@{@"deviceType":@"3",@"offset":@"0",@"size":@"20"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        NSLog(@"%@",showdata);
+        self.allRobot = [showdata[@"deviceList"] copy];
+        [self setUP];
+    }];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
 }
 - (void)setUP {
     if (self.allRobot.count == 0) {
@@ -54,8 +85,11 @@
     UIView *temp = centerView;
     for (int i = 0; i < self.allRobot.count; i ++) {
         RobotView *infoView = [[RobotView alloc]init];
+        __weak typeof(self) weakSelf = self;
         [infoView setUpWithDic:self.allRobot[i] withClickHandle:^(id responseObject) {
             NSLog(@"%@",responseObject);
+            ControllRobotViewController *ct = [ControllRobotViewController new];
+            [weakSelf.navigationController pushViewController:ct animated:YES];
         }];
 //        [RobotView setUpWithDic:self.allRobot[i] withClickHandle:^{
 //            LRLog(@"点了第%d个",i);
@@ -107,21 +141,34 @@
 
 }
 - (void)searchClick {
+    NSString *longConnect = @"groupcode=xxs&version=01&type=01&cmdid=01000001&transationid=00000001&sn=SM123456789123456789&reserved=0000&length=0100";
+    NSData   *data  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];
     
+    [self.sockManager.asyncsocket writeData:data withTimeout:3 tag:1];
+    
+    [self.sockManager.asyncsocket readDataWithTimeout:30 tag:2];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma -- TcpManagerDelegate
+//获取到数据
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    NSLog(@"获取完成");
 }
-*/
+//写入数据
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
+    NSLog(@"写入完成");
+}
+//链接成功
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
+    NSLog(@"链接成功了");
+}
+//断开链接
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
+    NSLog(@"断开链接了");
+}
 
 @end

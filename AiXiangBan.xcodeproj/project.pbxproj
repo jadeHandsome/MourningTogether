@@ -85,6 +85,14 @@
 		11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E09F8E1F8904BD004A2BCC /* BillCell.xib */; };
 		1A0B541D1F919978009A1B12 /* TrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B541C1F919978009A1B12 /* TrackViewController.m */; };
 		1A0B54201F91B198009A1B12 /* ChooseOlderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */; };
+		1A0B54231F91FAC3009A1B12 /* SocketTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B54221F91FAC3009A1B12 /* SocketTool.m */; };
+		1A0B54261F91FBC5009A1B12 /* ControllRobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B54251F91FBC5009A1B12 /* ControllRobotViewController.m */; };
+		1A24A91E1F9338880069E3B8 /* ControllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A91D1F9338880069E3B8 /* ControllView.m */; };
+		1A24A9201F9338930069E3B8 /* ControllView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A24A91F1F9338930069E3B8 /* ControllView.xib */; };
+		1A24A9231F9366D30069E3B8 /* RoailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A9221F9366D30069E3B8 /* RoailView.m */; };
+		1A24A9251F9366E10069E3B8 /* RoailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A24A9241F9366E10069E3B8 /* RoailView.xib */; };
+		1A24A92B1F939F090069E3B8 /* YHMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A9291F939F090069E3B8 /* YHMath.m */; };
+		1A24A92E1F93ACDA0069E3B8 /* YHArcSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A92D1F93ACDA0069E3B8 /* YHArcSlider.m */; };
 		1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */; };
 		1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C261F8DA79A007D6832 /* HealthyTypeView.m */; };
 		1A4E9C2D1F8DDB87007D6832 /* ArearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C2C1F8DDB87007D6832 /* ArearViewController.m */; };
@@ -397,6 +405,20 @@
 		1A0B541C1F919978009A1B12 /* TrackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrackViewController.m; sourceTree = "<group>"; };
 		1A0B541E1F91B198009A1B12 /* ChooseOlderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseOlderViewController.h; sourceTree = "<group>"; };
 		1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseOlderViewController.m; sourceTree = "<group>"; };
+		1A0B54211F91FAC3009A1B12 /* SocketTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketTool.h; sourceTree = "<group>"; };
+		1A0B54221F91FAC3009A1B12 /* SocketTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketTool.m; sourceTree = "<group>"; };
+		1A0B54241F91FBC5009A1B12 /* ControllRobotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllRobotViewController.h; sourceTree = "<group>"; };
+		1A0B54251F91FBC5009A1B12 /* ControllRobotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllRobotViewController.m; sourceTree = "<group>"; };
+		1A24A91C1F9338880069E3B8 /* ControllView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllView.h; sourceTree = "<group>"; };
+		1A24A91D1F9338880069E3B8 /* ControllView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllView.m; sourceTree = "<group>"; };
+		1A24A91F1F9338930069E3B8 /* ControllView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllView.xib; sourceTree = "<group>"; };
+		1A24A9211F9366D30069E3B8 /* RoailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoailView.h; sourceTree = "<group>"; };
+		1A24A9221F9366D30069E3B8 /* RoailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoailView.m; sourceTree = "<group>"; };
+		1A24A9241F9366E10069E3B8 /* RoailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoailView.xib; sourceTree = "<group>"; };
+		1A24A9281F939F090069E3B8 /* YHMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMath.h; sourceTree = "<group>"; };
+		1A24A9291F939F090069E3B8 /* YHMath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHMath.m; sourceTree = "<group>"; };
+		1A24A92C1F93ACDA0069E3B8 /* YHArcSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHArcSlider.h; sourceTree = "<group>"; };
+		1A24A92D1F93ACDA0069E3B8 /* YHArcSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHArcSlider.m; sourceTree = "<group>"; };
 		1A4E9C221F8DA6D0007D6832 /* HealthyTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeViewController.h; sourceTree = "<group>"; };
 		1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthyTypeViewController.m; sourceTree = "<group>"; };
 		1A4E9C251F8DA79A007D6832 /* HealthyTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeView.h; sourceTree = "<group>"; };
@@ -742,6 +764,10 @@
 		11C9D41E1F851D98005B3577 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A24A92C1F93ACDA0069E3B8 /* YHArcSlider.h */,
+				1A24A92D1F93ACDA0069E3B8 /* YHArcSlider.m */,
+				1A24A9281F939F090069E3B8 /* YHMath.h */,
+				1A24A9291F939F090069E3B8 /* YHMath.m */,
 				1A676A181F8BAF30001BD32A /* ImageCenterButton.h */,
 				1A676A191F8BAF30001BD32A /* ImageCenterButton.m */,
 				1A9A85001F88B58A0003B9E1 /* TYPagerController */,
@@ -756,6 +782,8 @@
 				1A9A84C91F878E380003B9E1 /* KRBaseTool.m */,
 				1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */,
 				11C9D41F1F851DE7005B3577 /* NetWorkManager */,
+				1A0B54211F91FAC3009A1B12 /* SocketTool.h */,
+				1A0B54221F91FAC3009A1B12 /* SocketTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -903,6 +931,8 @@
 				1A9A84F81F88A77F0003B9E1 /* robViews */,
 				1A9A84F91F88A7950003B9E1 /* RobotViewController.h */,
 				1A9A84FA1F88A7950003B9E1 /* RobotViewController.m */,
+				1A0B54241F91FBC5009A1B12 /* ControllRobotViewController.h */,
+				1A0B54251F91FBC5009A1B12 /* ControllRobotViewController.m */,
 			);
 			path = Robot;
 			sourceTree = "<group>";
@@ -1259,6 +1289,12 @@
 			children = (
 				1A9A84FC1F88A8200003B9E1 /* RobotView.h */,
 				1A9A84FD1F88A8200003B9E1 /* RobotView.m */,
+				1A24A91C1F9338880069E3B8 /* ControllView.h */,
+				1A24A91D1F9338880069E3B8 /* ControllView.m */,
+				1A24A91F1F9338930069E3B8 /* ControllView.xib */,
+				1A24A9211F9366D30069E3B8 /* RoailView.h */,
+				1A24A9221F9366D30069E3B8 /* RoailView.m */,
+				1A24A9241F9366E10069E3B8 /* RoailView.xib */,
 			);
 			path = robViews;
 			sourceTree = "<group>";
@@ -1482,10 +1518,12 @@
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
 				1188E9861F9053C800E4EB27 /* CallCardDetailViewController.xib in Resources */,
+				1A24A9201F9338930069E3B8 /* ControllView.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
 				11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */,
 				11E09F701F88D610004A2BCC /* AccountViewController.xib in Resources */,
 				11937D781F86879200C809C9 /* RegisterViewController.xib in Resources */,
+				1A24A9251F9366E10069E3B8 /* RoailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1564,6 +1602,7 @@
 				11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */,
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
 				1A79195B1F8F3F29003917A2 /* TRAnnotation.m in Sources */,
+				1A0B54261F91FBC5009A1B12 /* ControllRobotViewController.m in Sources */,
 				1A4E9C761F8E1B11007D6832 /* LiveLookViewController.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				1A79194C1F8F1716003917A2 /* LocationViewController.m in Sources */,
@@ -1604,6 +1643,7 @@
 				1A4E9C7E1F8E1B2B007D6832 /* LookCell.m in Sources */,
 				1A4E9C791F8E1B1B007D6832 /* EZQRView.m in Sources */,
 				1A4E9C7D1F8E1B29007D6832 /* HIKLoadViewItem.m in Sources */,
+				1A24A91E1F9338880069E3B8 /* ControllView.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
 				1AA2E0C61F90533700AA185F /* KRCustomView.m in Sources */,
 				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
@@ -1619,6 +1659,7 @@
 				1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */,
 				1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */,
 				1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */,
+				1A24A92B1F939F090069E3B8 /* YHMath.m in Sources */,
 				11937D771F86879200C809C9 /* RegisterViewController.m in Sources */,
 				11B2532C1F8668D100994575 /* LoginViewController.m in Sources */,
 				1AA2E0CE1F90854300AA185F /* CustomSliderView.m in Sources */,
@@ -1633,6 +1674,7 @@
 				11599C451F87DD770005D9ED /* pullView.m in Sources */,
 				1A9A84E11F878F310003B9E1 /* NSObject+KRExtention.m in Sources */,
 				1188E9851F9053C800E4EB27 /* CallCardDetailViewController.m in Sources */,
+				1A24A92E1F93ACDA0069E3B8 /* YHArcSlider.m in Sources */,
 				1188E9761F904B2300E4EB27 /* CallCardCell.m in Sources */,
 				11E09F831F88FC29004A2BCC /* RechargeRecordController.m in Sources */,
 				118035371F8F043F0067CCA6 /* BillDetailViewController.m in Sources */,
@@ -1641,8 +1683,10 @@
 				11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */,
 				11937D701F86800900C809C9 /* CALayer+CircleBoard.m in Sources */,
 				1A4E9C751F8E1B0E007D6832 /* DeleteDeviceViewController.m in Sources */,
+				1A0B54231F91FAC3009A1B12 /* SocketTool.m in Sources */,
 				1A9A85141F88D5B20003B9E1 /* AddressView.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
+				1A24A9231F9366D30069E3B8 /* RoailView.m in Sources */,
 				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
 				1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */,
 				1A7919501F8F31A2003917A2 /* AddWatchViewController.m in Sources */,

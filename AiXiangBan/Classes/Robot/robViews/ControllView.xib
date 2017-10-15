@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ControllView">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ik-bJ-BHV">
+                    <rect key="frame" x="0.0" y="66.5" width="66.5" height="67"/>
+                    <state key="normal" image="云医时代1-48"/>
+                    <connections>
+                        <action selector="click:" destination="iN0-l3-epB" eventType="touchUpInside" id="seg-uA-wHW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-Cg-264">
+                    <rect key="frame" x="133.5" y="66.5" width="66.5" height="67"/>
+                    <state key="normal" image="云医时代1-46"/>
+                    <connections>
+                        <action selector="click:" destination="iN0-l3-epB" eventType="touchUpInside" id="caK-3Z-61w"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O10-mZ-OoL">
+                    <rect key="frame" x="66.5" y="0.0" width="67" height="66.5"/>
+                    <state key="normal" image="云医时代1-45"/>
+                    <connections>
+                        <action selector="click:" destination="iN0-l3-epB" eventType="touchUpInside" id="ttD-4e-SQY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-np-Mli">
+                    <rect key="frame" x="66.5" y="66.5" width="67" height="67"/>
+                    <state key="normal" image="云医时代1-25"/>
+                    <connections>
+                        <action selector="click:" destination="iN0-l3-epB" eventType="touchUpInside" id="qfn-X8-UNL"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbi-XP-lKE">
+                    <rect key="frame" x="66.5" y="133.5" width="67" height="66.5"/>
+                    <state key="normal" image="云医时代1-47"/>
+                    <connections>
+                        <action selector="click:" destination="iN0-l3-epB" eventType="touchUpInside" id="I8Q-xr-eyK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DNT-Cg-264" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4YM-Ai-u3q"/>
+                <constraint firstItem="O10-mZ-OoL" firstAttribute="height" secondItem="6ik-bJ-BHV" secondAttribute="height" id="6ER-dv-P0e"/>
+                <constraint firstItem="uPP-np-Mli" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7Pb-FW-Lm3"/>
+                <constraint firstItem="DNT-Cg-264" firstAttribute="width" secondItem="6ik-bJ-BHV" secondAttribute="width" id="8rW-27-4cC"/>
+                <constraint firstItem="DNT-Cg-264" firstAttribute="height" secondItem="6ik-bJ-BHV" secondAttribute="height" id="BDY-Og-RBh"/>
+                <constraint firstItem="O10-mZ-OoL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FeM-0v-h0Z"/>
+                <constraint firstItem="O10-mZ-OoL" firstAttribute="width" secondItem="6ik-bJ-BHV" secondAttribute="width" id="GnT-yi-NMN"/>
+                <constraint firstAttribute="bottom" secondItem="jbi-XP-lKE" secondAttribute="bottom" id="JV7-aR-z2X"/>
+                <constraint firstItem="6ik-bJ-BHV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JYQ-dk-VWB"/>
+                <constraint firstItem="jbi-XP-lKE" firstAttribute="width" secondItem="6ik-bJ-BHV" secondAttribute="width" id="Oq5-kU-wDZ"/>
+                <constraint firstItem="uPP-np-Mli" firstAttribute="width" secondItem="6ik-bJ-BHV" secondAttribute="width" id="SIY-MO-96C"/>
+                <constraint firstItem="jbi-XP-lKE" firstAttribute="height" secondItem="6ik-bJ-BHV" secondAttribute="height" id="Xrc-LR-Y8X"/>
+                <constraint firstItem="O10-mZ-OoL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zu4-eN-cWg"/>
+                <constraint firstItem="uPP-np-Mli" firstAttribute="height" secondItem="6ik-bJ-BHV" secondAttribute="height" id="io2-ID-1gQ"/>
+                <constraint firstItem="6ik-bJ-BHV" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.33333" id="kcY-JD-CH0"/>
+                <constraint firstAttribute="trailing" secondItem="DNT-Cg-264" secondAttribute="trailing" id="mR1-so-bzO"/>
+                <constraint firstItem="6ik-bJ-BHV" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.3333" id="mVF-vn-Uke"/>
+                <constraint firstItem="6ik-bJ-BHV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="o4w-KW-7jS"/>
+                <constraint firstItem="uPP-np-Mli" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="y0K-ne-MSN"/>
+                <constraint firstItem="jbi-XP-lKE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="y9C-rc-0sG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="云医时代1-25" width="17" height="17"/>
+        <image name="云医时代1-45" width="42" height="27"/>
+        <image name="云医时代1-46" width="27" height="42"/>
+        <image name="云医时代1-47" width="42" height="27"/>
+        <image name="云医时代1-48" width="27" height="42"/>
+    </resources>
+</document>

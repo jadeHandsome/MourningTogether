@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RoailView">
+            <rect key="frame" x="0.0" y="0.0" width="195" height="137.5"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代1-19" translatesAutoresizingMaskIntoConstraints="NO" id="tfC-d3-ClK">
+                    <rect key="frame" x="0.0" y="0.0" width="195" height="137.5"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tfC-d3-ClK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CNW-fC-Xk5"/>
+                <constraint firstItem="tfC-d3-ClK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E7K-Pf-s8J"/>
+                <constraint firstAttribute="bottom" secondItem="tfC-d3-ClK" secondAttribute="bottom" id="Qme-0O-gy2"/>
+                <constraint firstAttribute="trailing" secondItem="tfC-d3-ClK" secondAttribute="trailing" id="c5s-6O-BPu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="46" y="-190"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="云医时代1-19" width="195" height="137"/>
+    </resources>
+</document>

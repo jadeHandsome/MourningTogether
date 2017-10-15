@@ -25,6 +25,7 @@
     self.myData = [dic copy];
     UIImageView *headImageView = [[UIImageView alloc]init];
     [self addSubview:headImageView];
+    headImageView.image = [UIImage imageNamed:@"云医时代1-27da (2)"];
     [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@45);
         make.left.equalTo(self.mas_left);
@@ -40,7 +41,7 @@
         make.top.equalTo(self.mas_top);
     }];
     nameLabel.textColor = [UIColor blackColor];
-    nameLabel.text = dic[@"name"];
+    nameLabel.text = dic[@"deviceName"];
     UILabel *IDLabel = [[UILabel alloc]init];
     [self addSubview:IDLabel];
     [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,7 +51,7 @@
         make.height.equalTo(nameLabel.mas_height);
     }];
     IDLabel.textColor = LRRGBColor(145, 145, 145);
-    IDLabel.text = [NSString stringWithFormat:@"ID：%@",dic[@"ID"]];
+    IDLabel.text = [NSString stringWithFormat:@"ID：%@",dic[@"deviceId"]];
     
     UIView *linView = [[UIView alloc]init];
     [self addSubview:linView];

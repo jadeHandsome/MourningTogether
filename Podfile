@@ -12,4 +12,5 @@ target ‘AiXiangBan’ do
   pod ‘AMap3DMap-NO-IDFA’
   pod ‘AMapSearch-NO-IDFA’
   pod ‘AMapLocation-NO-IDFA’
+  pod ‘CocoaAsyncSocket’
 end
