@@ -83,7 +83,7 @@
     if(!cell){
         cell = [[NSBundle mainBundle] loadNibNamed:@"BillCell" owner:self options:nil].firstObject;
     }
-    cell.timeLabel.text = self.data[indexPath.row][@"createdTime"];
+    cell.timeLabel.text = [self changeTimeStr:self.data[indexPath.row][@"createdTime"]];
 //    cell.detailLabel.text = self.data[indexPath.row][@"text"];
     cell.priceLabel.text = [NSString stringWithFormat:@"%g元",[self.data[indexPath.row][@"totalPrice"] floatValue]];
     return cell;
@@ -97,6 +97,16 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+- (NSString *)changeTimeStr:(NSString *)str{
+    NSString *year = [str substringToIndex:4];
+    NSString *month = [str substringWithRange:NSMakeRange(4, 2)];
+    NSString *day = [str substringWithRange:NSMakeRange(6, 2)];
+    NSString *hour = [str substringWithRange:NSMakeRange(8, 2)];
+    NSString *min = [str substringWithRange:NSMakeRange(10, 2)];
+    NSString *sec = [str substringWithRange:NSMakeRange(12, 2)];
+    NSString *time = [NSString stringWithFormat:@"%@-%@-%@ %@:%@:%@",year,month,day,hour,min,sec];
+    return time;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

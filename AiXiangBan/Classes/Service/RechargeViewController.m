@@ -48,7 +48,7 @@
     UILabel *phoneLabel = [[UILabel alloc] init];
     phoneLabel.font = [UIFont systemFontOfSize:18];
     phoneLabel.textColor = ColorRgbValue(0x333333);
-    phoneLabel.text = @"188888888888";
+    phoneLabel.text = SharedUserInfo.mobile;
     [self.view addSubview:phoneLabel];
     [phoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).with.offset(navHight + 15);
@@ -133,7 +133,7 @@
     UILabel *balance = [[UILabel alloc] init];
     balance.font = [UIFont systemFontOfSize:16];
     balance.textColor = ColorRgbValue(0x333333);
-    balance.text = @"余额：50.00元";
+    balance.text = [NSString stringWithFormat:@"余额：%@",SharedUserInfo.balance];
     [self.view addSubview:balance];
     [balance mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(price.mas_bottom).with.offset(15);

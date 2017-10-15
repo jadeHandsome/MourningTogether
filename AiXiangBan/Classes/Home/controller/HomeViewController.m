@@ -256,6 +256,23 @@
 - (IBAction)closeAlarm:(UIButton *)sender {
     self.alarmView.hidden = YES;
 }
+- (IBAction)rateAction:(UIButton *)sender {
+    
+}
+- (IBAction)sendMessage:(UIButton *)sender {
+}
+- (IBAction)goLocation:(UIButton *)sender {
+    if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
+        AddWatchViewController *addWatch = [[AddWatchViewController alloc]init];
+        [self.navigationController pushViewController:addWatch animated:YES];
+        
+        [MBProgressHUD showError:@"请先绑定设备" toView:addWatch.view];
+    } else {
+        LocationViewController *location = [LocationViewController new];
+        [self.navigationController pushViewController:location animated:YES];
+        
+    }
+}
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];

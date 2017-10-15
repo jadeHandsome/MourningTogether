@@ -12,10 +12,12 @@
 @property (weak, nonatomic) IBOutlet UIView *phoneView;
 @property (weak, nonatomic) IBOutlet UIView *codeView;
 @property (weak, nonatomic) IBOutlet UIView *pwdView;
+@property (weak, nonatomic) IBOutlet UIView *repeatPwdView;
 @property (weak, nonatomic) IBOutlet UIView *nextView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
+@property (weak, nonatomic) IBOutlet UITextField *repeatPwdField;
 @property (weak, nonatomic) IBOutlet UIView *codeContainer;
 @property (weak, nonatomic) IBOutlet UIButton *NextBtn;
 @property (nonatomic, strong) HYTimerButton *codeBtn;
@@ -37,6 +39,7 @@
     [self.pwdView.layer addCircleBoardWithRadius:SIZEHEIGHT * 0.07 / 2 boardColor:nil boardWidth:0];
     [self.nextView.layer addCircleBoardWithRadius:SIZEHEIGHT * 0.077 / 2 boardColor:nil boardWidth:0];
     [self.codeContainer.layer addCircleBoardWithRadius:SIZEHEIGHT * 0.044 / 2 boardColor:nil boardWidth:0];
+    [self.repeatPwdView.layer addCircleBoardWithRadius:SIZEHEIGHT * 0.07 / 2 boardColor:nil boardWidth:0];
     if(self.type == VC_TYPE_REGISTER){
         [self.NextBtn setTitle:@"注册" forState:UIControlStateNormal];
     }
@@ -82,7 +85,12 @@
     if([self cheakPhoneNumber:self.phoneTextField.text]){
         if(self.codeTextField.text && self.codeTextField.text.length == 6){
             if([self cheakPwd:self.pwdTextField.text]){
-                [self request];
+                if ([self cheakPwd:self.repeatPwdField.text] && self.repeatPwdField.text == self.pwdTextField.text) {
+                    [self request];
+                }
+                else{
+                    [self showHUDWithText:@"两次密码不一致!"];
+                }
             }
             else{
                 [self showHUDWithText:@"密码格式错误!"];

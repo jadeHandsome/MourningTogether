@@ -55,7 +55,7 @@
     LRViewBorderRadius(self.addBtn, 10, 0, [UIColor clearColor]);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addAction:)];
     self.topConstraint.constant = navHight + 70;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, navHight, SIZEWIDTH, SIZEWIDTH - navHight)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, navHight, SIZEWIDTH, SIZEHEIGHT - navHight)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 255.0f;
@@ -87,7 +87,7 @@
         cell.onlineLabel.hidden = NO;
     }
     cell.titleLabel.text = DeviceInfo.deviceName;
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:DeviceInfo.deviceCover] placeholderImage:[UIImage imageNamed:@"云医引导页-2"]];
+    cell.image.image = [UIImage imageNamed:@"云医引导页-2"];
     cell.block = ^(){
         DeleteDeviceViewController *deleteVC = [DeleteDeviceViewController new];
         [self.navigationController pushViewController:deleteVC animated:YES];
