@@ -49,10 +49,11 @@
         make.bottom.equalTo(self.mas_bottom);
         make.top.equalTo(nameLabel.mas_bottom);
         make.height.equalTo(nameLabel.mas_height);
+        make.right.equalTo(self.mas_right).with.offset(-10);
     }];
     IDLabel.textColor = LRRGBColor(145, 145, 145);
     IDLabel.text = [NSString stringWithFormat:@"ID：%@",dic[@"deviceId"]];
-    
+    IDLabel.font = [UIFont systemFontOfSize:14];
     UIView *linView = [[UIView alloc]init];
     [self addSubview:linView];
     [linView mas_makeConstraints:^(MASConstraintMaker *make) {
