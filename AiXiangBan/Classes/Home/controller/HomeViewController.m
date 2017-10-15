@@ -23,7 +23,8 @@
 
 #import "AddAddressViewController.h"
 #import "AddWatchViewController.h"
-@interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import <MessageUI/MessageUI.h>
+@interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -216,12 +217,43 @@
 }
 
 - (IBAction)goToLook:(UITapGestureRecognizer *)sender {
-    [EZOPENSDK setAccessToken:@"at.4xf125v181nleffl2fz3tsq5an3p0p0t-5q4l72bmgs-1mnvuch-ouitoyzzm"];
-    LookViewController *lookVC = [LookViewController new];
-    [self.navigationController pushViewController:lookVC animated:YES];
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/ys/getAccessToken.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            NSString *accessToken = showdata[@"accessToken"];
+            [EZOPENSDK setAccessToken:accessToken];
+            LookViewController *lookVC = [LookViewController new];
+            lookVC.elderId = self.curretOlder[@"elderId"];
+            [self.navigationController pushViewController:lookVC animated:YES];
+        }
+    }];
+    
 }
 - (IBAction)goToCall:(UITapGestureRecognizer *)sender {
     CallPushView *view = [[NSBundle mainBundle] loadNibNamed:@"CallPushView" owner:self options:nil].firstObject;
+    view.headImage.image = self.headImage.image;
+    view.nameLabel.text = self.curretOlder[@"elderName"];
+    view.phoneLabel.text = self.curretOlder[@"mobile"];
+    if ([self.curretOlder[@"mobile"] isEqualToString:@""]) {
+        view.phoneImage.image = IMAGE_NAMED(@"孝相伴-27");
+        view.phoneBtn.enabled = NO;
+    }
+    view.watchLabel.text = self.curretOlder[@"devPhone"];
+    if ([self.curretOlder[@"devPhone"] isEqualToString:@""]) {
+        view.watchImage.image = IMAGE_NAMED(@"孝相伴-28");
+        view.watchBtn.enabled = NO;
+    }
+    view.block = ^(NSInteger type) {
+        NSString *tel = @"";
+        if (type == 1) {
+            tel = self.curretOlder[@"mobile"];
+        }
+        else{
+            tel = self.curretOlder[@"devPhone"];
+        }
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel//:%@",tel]]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel//:%@",tel]]];
+        }
+    };
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:view];
 }
@@ -258,10 +290,56 @@
     self.alarmView.hidden = YES;
 }
 - (IBAction)rateAction:(UIButton *)sender {
-    
 }
 - (IBAction)sendMessage:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"发送问候语给%@",self.curretOlder[@"elderName"]] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"雄鸡报晓，精彩一天登场" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openMessage:@"雄鸡报晓，精彩一天登场"];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"三伏高温易疲惫，午间偷空小个睡" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openMessage:@"三伏高温易疲惫，午间偷空小个睡"];
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"健康像棵树，多晒晒阳光" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openMessage:@"健康像棵树，多晒晒阳光"];
+    }];
+    UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alert addAction:action1];
+    [alert addAction:action2];
+    [alert addAction:action3];
+    [alert addAction:action4];
+    [self.navigationController presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)openMessage:(NSString *)content{
+    MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
+    // 设置短信内容
+    vc.body = content;
+    // 设置收件人列表
+    vc.recipients = @[self.curretOlder[@"mobile"]];  // 号码数组
+    vc.navigationBar.tintColor = ColorRgbValue(0x1cb9cf);
+    // 设置代理
+    vc.messageComposeDelegate = self;
+    // 显示控制器
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result
+{
+    // 关闭短信界面
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    if(result == MessageComposeResultCancelled) {
+        NSLog(@"取消发送");
+    } else if(result == MessageComposeResultSent) {
+        NSLog(@"已经发出");
+        [self showHUDWithText:@"发送成功"];
+    } else {
+        NSLog(@"发送失败");
+    }
+}
+
+
+
 - (IBAction)goLocation:(UIButton *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
         AddWatchViewController *addWatch = [[AddWatchViewController alloc]init];

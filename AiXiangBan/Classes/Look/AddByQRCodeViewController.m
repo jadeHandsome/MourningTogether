@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "EZQRView.h"
 #import "AddbyViewController.h"
-#import "CheakPhoneViewController.h"
+
 @interface AddByQRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate>{
     AVAuthorizationStatus authStatus;
 }
@@ -172,16 +172,21 @@
 
 - (void)checkQRCode:(NSString *)strQRcode
 {
-    NSArray *arrString = [strQRcode componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    CheakPhoneViewController *cheakVC = [CheakPhoneViewController new];
-    [self.navigationController pushViewController:cheakVC animated:YES];
-//    if(arrString.count >= 2)
-//    {
-//
-//    } else {
-//        [self showHUDWithText:@"不支持的二维码类型，转用手动输入"];
-//        [self performSelector:@selector(goByHand) withObject:nil afterDelay:1];
-//    }
+    //萤石
+    if (self.deviceType == 2) {
+        NSArray *arrString = [strQRcode componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        
+        if(arrString.count >= 2)
+        {
+            AddbyViewController *addVC = [AddbyViewController new];
+            addVC.deviceSerialNo = arrString[1];
+            addVC.deviceVerifyCode = arrString[2];
+            [self.navigationController pushViewController:addVC animated:YES];
+        } else {
+            [self showHUDWithText:@"不支持的二维码类型，转用手动输入"];
+            [self performSelector:@selector(goByHand) withObject:nil afterDelay:1];
+        }
+    }
 }
 
 //动画

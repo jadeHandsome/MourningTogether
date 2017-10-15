@@ -53,13 +53,13 @@
                                             <rect key="frame" x="1" y="17" width="155.5" height="80"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2P-ae-sKn">
-                                                    <rect key="frame" x="28" y="63" width="100" height="17"/>
+                                                    <rect key="frame" x="53" y="63" width="50" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="孝相伴-26" translatesAutoresizingMaskIntoConstraints="NO" id="Tzu-zc-O7N">
-                                                    <rect key="frame" x="28" y="0.0" width="100" height="50"/>
+                                                    <rect key="frame" x="53" y="0.0" width="50" height="50"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,18 +72,25 @@
                                                 <constraint firstItem="X2P-ae-sKn" firstAttribute="top" secondItem="Tzu-zc-O7N" secondAttribute="bottom" constant="13" id="nLw-s8-FkZ"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4s-E5-uIX">
+                                            <rect key="frame" x="0.0" y="0.0" width="157.5" height="114"/>
+                                            <connections>
+                                                <action selector="phoneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="8hN-IK-hoZ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="F3o-vs-QJe" firstAttribute="centerY" secondItem="2Pf-s4-WI3" secondAttribute="centerY" id="3EC-I9-owb"/>
                                         <constraint firstItem="F3o-vs-QJe" firstAttribute="leading" secondItem="2Pf-s4-WI3" secondAttribute="leading" constant="1" id="8IX-7v-arS"/>
+                                        <constraint firstItem="M4s-E5-uIX" firstAttribute="top" secondItem="2Pf-s4-WI3" secondAttribute="top" id="D9w-9i-Xud"/>
                                         <constraint firstAttribute="trailing" secondItem="F3o-vs-QJe" secondAttribute="trailing" constant="1" id="J73-z1-ijB"/>
                                         <constraint firstItem="F3o-vs-QJe" firstAttribute="height" secondItem="2Pf-s4-WI3" secondAttribute="height" multiplier="0.7" id="RM7-cz-KUx"/>
+                                        <constraint firstItem="M4s-E5-uIX" firstAttribute="leading" secondItem="2Pf-s4-WI3" secondAttribute="leading" id="Vcx-Ox-Ga4"/>
+                                        <constraint firstAttribute="bottom" secondItem="M4s-E5-uIX" secondAttribute="bottom" id="k4x-Er-zsC"/>
+                                        <constraint firstAttribute="trailing" secondItem="M4s-E5-uIX" secondAttribute="trailing" id="zph-e5-Bf6"/>
                                     </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="vkl-Jg-14H" appends="YES" id="yv7-XM-Uwi"/>
-                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlQ-SN-lH3">
                                     <rect key="frame" x="157.5" y="0.0" width="157.5" height="114.5"/>
@@ -92,13 +99,13 @@
                                             <rect key="frame" x="0.5" y="17.5" width="155.5" height="79.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0G-pS-4rf">
-                                                    <rect key="frame" x="28" y="62.5" width="100" height="17"/>
+                                                    <rect key="frame" x="53" y="62.5" width="50" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="孝相伴-25" translatesAutoresizingMaskIntoConstraints="NO" id="RVj-ea-VxU">
-                                                    <rect key="frame" x="28" y="0.0" width="100" height="49.5"/>
+                                                    <rect key="frame" x="53" y="0.0" width="50" height="49.5"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,18 +118,25 @@
                                                 <constraint firstItem="s0G-pS-4rf" firstAttribute="top" secondItem="RVj-ea-VxU" secondAttribute="bottom" constant="13" id="uzb-NX-LfQ"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPd-Iu-bRO">
+                                            <rect key="frame" x="0.0" y="0.0" width="157.5" height="115"/>
+                                            <connections>
+                                                <action selector="watchAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="CWk-iH-2fK"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <gestureRecognizers/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="fPd-Iu-bRO" secondAttribute="bottom" id="DBJ-ub-Bbk"/>
                                         <constraint firstItem="PkG-8E-4ty" firstAttribute="leading" secondItem="XlQ-SN-lH3" secondAttribute="leading" constant="1" id="JDB-C8-TqX"/>
+                                        <constraint firstAttribute="trailing" secondItem="fPd-Iu-bRO" secondAttribute="trailing" id="KtF-rE-fg6"/>
                                         <constraint firstAttribute="trailing" secondItem="PkG-8E-4ty" secondAttribute="trailing" constant="1" id="UKz-fy-e4y"/>
+                                        <constraint firstItem="fPd-Iu-bRO" firstAttribute="top" secondItem="XlQ-SN-lH3" secondAttribute="top" id="elV-vz-Dhn"/>
                                         <constraint firstItem="PkG-8E-4ty" firstAttribute="height" secondItem="XlQ-SN-lH3" secondAttribute="height" multiplier="0.7" id="hjA-iD-iqW"/>
                                         <constraint firstItem="PkG-8E-4ty" firstAttribute="centerY" secondItem="XlQ-SN-lH3" secondAttribute="centerY" id="trn-ox-lV2"/>
+                                        <constraint firstItem="fPd-Iu-bRO" firstAttribute="leading" secondItem="XlQ-SN-lH3" secondAttribute="leading" id="uuW-eW-m9k"/>
                                     </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="jXL-fO-shQ" appends="YES" id="dhR-4P-pi2"/>
-                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rk-lp-aEU">
                                     <rect key="frame" x="0.0" y="0.0" width="315" height="0.5"/>
@@ -191,29 +205,21 @@
                 <outlet property="centerView" destination="SaR-ey-X65" id="tvo-z5-wyV"/>
                 <outlet property="headImage" destination="5hn-Sy-fRD" id="voe-Wd-PB8"/>
                 <outlet property="nameLabel" destination="qun-qF-tra" id="1Mw-14-ZfL"/>
+                <outlet property="phoneBtn" destination="M4s-E5-uIX" id="cES-VS-90H"/>
                 <outlet property="phoneImage" destination="Tzu-zc-O7N" id="Jzk-Ux-V9o"/>
                 <outlet property="phoneLabel" destination="X2P-ae-sKn" id="Wws-QN-VsH"/>
                 <outlet property="phoneView" destination="2Pf-s4-WI3" id="peP-lC-cMc"/>
+                <outlet property="watchBtn" destination="fPd-Iu-bRO" id="R4E-TT-4Mh"/>
                 <outlet property="watchImage" destination="RVj-ea-VxU" id="mJZ-n7-D5E"/>
                 <outlet property="watchLabel" destination="s0G-pS-4rf" id="1Vg-3e-LPz"/>
                 <outlet property="watchView" destination="XlQ-SN-lH3" id="Sqh-xA-hls"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
-        <tapGestureRecognizer id="jXL-fO-shQ">
-            <connections>
-                <action selector="watchAction:" destination="iN0-l3-epB" id="Baw-Wx-XF0"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="vkl-Jg-14H">
-            <connections>
-                <action selector="phoneAction:" destination="iN0-l3-epB" id="9A7-x1-gCZ"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="孝相伴-14" width="50" height="50"/>
-        <image name="孝相伴-25" width="100" height="100"/>
-        <image name="孝相伴-26" width="100" height="100"/>
+        <image name="孝相伴-14" width="25" height="25"/>
+        <image name="孝相伴-25" width="50" height="50"/>
+        <image name="孝相伴-26" width="50" height="50"/>
     </resources>
 </document>
