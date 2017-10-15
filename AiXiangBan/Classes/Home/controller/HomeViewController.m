@@ -63,6 +63,7 @@
         self.alarmDetail.text = [NSString stringWithFormat:@"警报：%@",curretOlder[@"emergencyTime"]];
         
     }
+    [KRUserInfo sharedKRUserInfo].elderId = curretOlder[@"elderId"];
     if (curretOlder[@"devPhone"]) {
         [KRUserInfo sharedKRUserInfo].deviceId = curretOlder[@"devPhone"];
     } else {

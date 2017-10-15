@@ -160,6 +160,7 @@
 		1AA2E0CB1F907ECF00AA185F /* RailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CA1F907ECF00AA185F /* RailViewController.m */; };
 		1AA2E0CE1F90854300AA185F /* CustomSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CD1F90854300AA185F /* CustomSliderView.m */; };
 		1AA2E0D01F90855100AA185F /* CustomSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2E0CF1F90855100AA185F /* CustomSliderView.xib */; };
+		1ABB66FC1F93B370004A217A /* AddRobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB66FB1F93B370004A217A /* AddRobotViewController.m */; };
 		1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */; };
 		1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F881F89F40700A6AE55 /* AddAddressView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
@@ -544,6 +545,8 @@
 		1AA2E0CC1F90854300AA185F /* CustomSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSliderView.h; sourceTree = "<group>"; };
 		1AA2E0CD1F90854300AA185F /* CustomSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSliderView.m; sourceTree = "<group>"; };
 		1AA2E0CF1F90855100AA185F /* CustomSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSliderView.xib; sourceTree = "<group>"; };
+		1ABB66FA1F93B370004A217A /* AddRobotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRobotViewController.h; sourceTree = "<group>"; };
+		1ABB66FB1F93B370004A217A /* AddRobotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRobotViewController.m; sourceTree = "<group>"; };
 		1AE01F841F89F37B00A6AE55 /* AddAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
 		1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
 		1AE01F871F89F40700A6AE55 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
@@ -933,6 +936,8 @@
 				1A9A84FA1F88A7950003B9E1 /* RobotViewController.m */,
 				1A0B54241F91FBC5009A1B12 /* ControllRobotViewController.h */,
 				1A0B54251F91FBC5009A1B12 /* ControllRobotViewController.m */,
+				1ABB66FA1F93B370004A217A /* AddRobotViewController.h */,
+				1ABB66FB1F93B370004A217A /* AddRobotViewController.m */,
 			);
 			path = Robot;
 			sourceTree = "<group>";
@@ -1637,6 +1642,7 @@
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
+				1ABB66FC1F93B370004A217A /* AddRobotViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A676A141F8BA733001BD32A /* AddTendView.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,

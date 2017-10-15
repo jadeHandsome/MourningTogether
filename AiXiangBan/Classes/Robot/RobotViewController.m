@@ -8,39 +8,31 @@
 
 #import "RobotViewController.h"
 #import "RobotView.h"
-#import "SocketTool.h"
 #import "ControllRobotViewController.h"
-@interface RobotViewController ()<TcpManagerDelegate>
+#import "AddRobotViewController.h"
+@interface RobotViewController ()
 @property (nonatomic, strong) UIScrollView *mainScroll;
 @property (nonatomic, strong) NSArray *allRobot;//附近的所有机器人
-@property (nonatomic, strong) SocketTool *sockManager;
 @end
 
 @implementation RobotViewController
-- (SocketTool *)sockManager {
-    if (!_sockManager) {
-       
-    }
-    return _sockManager;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"附近机器人";
+    self.navigationItem.title = @"机器人列表";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     
-    _sockManager = [SocketTool Share];
-    _sockManager.delegate = self;
-    if (![_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil]) {
-        
-        NSLog(@"fail to connect");
-        
-    }
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStyleDone target:self action:@selector(add)];
     
     
     
 //    self.allRobot = @[@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"}];
     [self getRobotInfo];
     
+}
+- (void)add {
+    AddRobotViewController *add = [[AddRobotViewController alloc]init];
+    [self.navigationController pushViewController:add animated:YES];
 }
 - (void)getRobotInfo {
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/device/getDeviceList.do" params:@{@"deviceType":@"3",@"offset":@"0",@"size":@"20"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
@@ -53,7 +45,7 @@
     }];
 }
 - (void)viewWillAppear:(BOOL)animated {
-    [_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
+    
 }
 - (void)setUP {
     if (self.allRobot.count == 0) {
@@ -125,50 +117,26 @@
         temp = infoView;
     }
     
-    UIButton *search = [[UIButton alloc]init];
-    [self.view addSubview:search];
-    [search mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).with.offset(10);
-        make.right.equalTo(self.view.mas_right).with.offset(-10);
-        make.height.equalTo(@45);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
-    }];
-    [search setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    search.backgroundColor = LRRGBColor(31, 174, 198);
-    [search setTitle:@"搜索" forState:UIControlStateNormal];
-    LRViewBorderRadius(search, 5, 0, [UIColor clearColor]);
-    [search addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *search = [[UIButton alloc]init];
+//    [self.view addSubview:search];
+//    [search mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left).with.offset(10);
+//        make.right.equalTo(self.view.mas_right).with.offset(-10);
+//        make.height.equalTo(@45);
+//        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
+//    }];
+//    [search setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    search.backgroundColor = LRRGBColor(31, 174, 198);
+//    [search setTitle:@"搜索" forState:UIControlStateNormal];
+//    LRViewBorderRadius(search, 5, 0, [UIColor clearColor]);
+//    [search addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
 
 }
-- (void)searchClick {
-    NSString *longConnect = @"groupcode=xxs&version=01&type=01&cmdid=01000001&transationid=00000001&sn=SM123456789123456789&reserved=0000&length=0100";
-    NSData   *data  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [self.sockManager.asyncsocket writeData:data withTimeout:3 tag:1];
-    
-    [self.sockManager.asyncsocket readDataWithTimeout:30 tag:2];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma -- TcpManagerDelegate
-//获取到数据
-- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-    NSLog(@"获取完成");
-}
-//写入数据
-- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
-    NSLog(@"写入完成");
-}
-//链接成功
-- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
-    NSLog(@"链接成功了");
-}
-//断开链接
 
-- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
-    NSLog(@"断开链接了");
-}
 
 @end
