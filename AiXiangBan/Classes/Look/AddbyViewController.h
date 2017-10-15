@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface AddbyViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *deviceSerialNo;
+@property (nonatomic, strong) NSString *deviceVerifyCode;
+@property (nonatomic, assign) NSInteger deviceType;
 @end

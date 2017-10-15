@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^callBlock)(NSInteger);
 @interface CallPushView : UIView
 @property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
@@ -19,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *phoneView;
 @property (weak, nonatomic) IBOutlet UIView *watchView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
-
+@property (weak, nonatomic) IBOutlet UIButton *phoneBtn;
+@property (weak, nonatomic) IBOutlet UIButton *watchBtn;
+@property (nonatomic, strong) callBlock block;
 @end

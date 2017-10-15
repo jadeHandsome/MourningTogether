@@ -17,10 +17,16 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSMutableArray *data;
 @end
 
 @implementation LookViewController
+- (NSMutableArray *)data{
+    if (!_data) {
+        _data = [NSMutableArray array];
+    }
+    return _data;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,22 +38,53 @@
 //获取设备数据
 - (void)requestData{
     [self showLoadingHUD];
-    [EZOPENSDK getDeviceList:0 pageSize:20 completion:^(NSArray *deviceList, NSInteger totalCount, NSError *error) {
-        [self hideHUD];
-        self.data = deviceList;
-        if(deviceList.count){
-            self.tableView.hidden = NO;
-            self.containerView.hidden = YES;
-            self.view.backgroundColor = COLOR(242, 242, 242, 1);
-            [self.tableView reloadData];
+//    [EZOPENSDK getDeviceList:0 pageSize:20 completion:^(NSArray *deviceList, NSInteger totalCount, NSError *error) {
+//        [self hideHUD];
+//        self.data = deviceList;
+//        if(deviceList.count){
+//            self.tableView.hidden = NO;
+//            self.containerView.hidden = YES;
+//            self.view.backgroundColor = COLOR(242, 242, 242, 1);
+//            [self.tableView reloadData];
+//        }
+//        else{
+//            self.tableView.hidden = YES;
+//            self.containerView.hidden = NO;
+//            self.view.backgroundColor = [UIColor whiteColor];
+//        }
+//        
+//    }];
+    NSDictionary *params = @{@"elderId":self.elderId,@"offset":@0,@"size":@10};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"getElderDeviceList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            NSArray *list = showdata[@"deviceList"];
+            NSDictionary *d;
+            for (int i = 0; i < list.count; i++) {
+                if ([list[i][@"deviceType"] integerValue] == 2) {
+                    d = list[i];
+                    break;
+                }
+                else if (i == list.count - 1){
+                    return ;
+                }
+            }
+            [EZOPENSDK getDeviceInfo:d[@"deviceSerialNo"] completion:^(EZDeviceInfo *deviceInfo, NSError *error) {
+                [self.data addObject:deviceInfo];
+                if(self.data.count){
+                    self.tableView.hidden = NO;
+                    self.containerView.hidden = YES;
+                    self.view.backgroundColor = COLOR(242, 242, 242, 1);
+                    [self.tableView reloadData];
+                    }
+                    else{
+                    self.tableView.hidden = YES;
+                    self.containerView.hidden = NO;
+                    self.view.backgroundColor = [UIColor whiteColor];
+                }
+            }];
         }
-        else{
-            self.tableView.hidden = YES;
-            self.containerView.hidden = NO;
-            self.view.backgroundColor = [UIColor whiteColor];
-        }
-        
     }];
+    
 }
 
 - (void)setUp{

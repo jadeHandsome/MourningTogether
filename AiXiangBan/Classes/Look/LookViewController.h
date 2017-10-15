@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface LookViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *elderId;
 @end

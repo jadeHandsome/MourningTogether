@@ -45,9 +45,11 @@
     [self.centerView.layer addAnimation:group forKey:@"group"];
 }
 
-- (IBAction)watchAction:(UITapGestureRecognizer *)sender {
+- (IBAction)watchAction:(UIButton *)sender {
+    self.block(1);
 }
-- (IBAction)phoneAction:(UITapGestureRecognizer *)sender {
+- (IBAction)phoneAction:(UIButton *)sender {
+    self.block(2);
 }
 
 @end
