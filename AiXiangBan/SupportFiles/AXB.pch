@@ -19,6 +19,9 @@
 #import "KRUserInfo.h"
 #define EZOPENSDK [EZOpenSDK class]
 #define SharedUserInfo [KRUserInfo sharedKRUserInfo]
+
+#define ADD_DEVICE_SUCCESS @"AddDeviceSuccess"
+#define FIX_DEVICE_NAME @"FIX_DEVICE_NAME"
 /**
  定义输出
  

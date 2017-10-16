@@ -86,10 +86,7 @@
             }
         }
         else{
-            CheakPhoneViewController *cheakPhone = [CheakPhoneViewController new];
-            cheakPhone.deviceType = self.deviceType;
-            cheakPhone.deviceSerialNo = self.texifield.text;
-            [self.navigationController pushViewController:cheakPhone animated:YES];
+            [self addAction];
         }
     }
     else{
@@ -101,26 +98,39 @@
 {
     if (!error)
     {
-        CheakPhoneViewController *cheakPhone = [CheakPhoneViewController new];
-        cheakPhone.deviceType = self.deviceType;
-        cheakPhone.deviceVerifyCode = self.deviceVerifyCode;
-        cheakPhone.deviceSerialNo = self.texifield.text;
-        [self.navigationController pushViewController:cheakPhone animated:YES];
-        return;
+        [self addAction];
     }
-    if (error.code == 105002) {
+    if (error.code == 400036) {
         UIAlertView *retryAlertView = [[UIAlertView alloc] initWithTitle:@"验证码错误" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重试", nil];
         retryAlertView.tag = 0xbb;
         [retryAlertView show];
     }
-    else if (error.code == 105000)
+    else if (error.code == 120017 || error.code == 120029)
     {
-        [self showLoadingHUDWithText:@"设备已被自己添加"];
+        [self showHUDWithText:@"设备已被自己添加"];
     }
-    else if (error.code == 105001)
+    else if (error.code == 120022 || error.code == 120024)
     {
-        [self showLoadingHUDWithText:@"设备已被别人添加"];
+        [self showHUDWithText:@"设备已被别人添加"];
     }
+    else{
+        [self showHUDWithText:[NSString stringWithFormat:@"添加失败%ld",error.code]];
+    }
+}
+
+- (void)addAction{
+    NSMutableDictionary *params = @{@"deviceSerialNo":self.texifield.text,@"deviceName":self.texifield.text,@"deviceType":@(self.deviceType),@"devicePassword":@"",@"mobile":[KRUserInfo sharedKRUserInfo].mobile,@"elderId":[KRUserInfo sharedKRUserInfo].elderId,@"validateCode":@""}.mutableCopy;
+    if (self.deviceType == 2) {
+        params[@"validateCode"] = self.deviceVerifyCode;
+    }
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/addDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:ADD_DEVICE_SUCCESS object:nil];
+            NSInteger count = self.navigationController.viewControllers.count - 3;
+            UIViewController *viewCtl = self.navigationController.viewControllers[count];
+            [self.navigationController popToViewController:viewCtl animated:YES];
+        }
+    }];
 }
 
 #pragma mark - UIAlertViewDelgate Methods
@@ -129,7 +139,7 @@
 {
     if (alertView.tag == 0xaa && buttonIndex == 1)
     {
-        self.deviceSerialNo = [alertView textFieldAtIndex:0].text;
+        self.deviceVerifyCode = [alertView textFieldAtIndex:0].text;
         
         [self showLoadingHUDWithText:@"添加中,请稍后..."];
         [EZOPENSDK addDevice:self.texifield.text

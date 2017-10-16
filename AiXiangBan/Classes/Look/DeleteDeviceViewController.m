@@ -27,8 +27,14 @@
 }
 
 - (void)setUp{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fixName:) name:FIX_DEVICE_NAME object:nil];
     self.topConstraint.constant = navHight + 10;
+    self.nameLabel.text = self.deviceName;
     LRViewBorderRadius(self.deleteBtn, 10, 0, [UIColor whiteColor]);
+}
+
+- (void)fixName:(NSNotification*)sender{
+    self.nameLabel.text = (NSString *)sender.object;
 }
 
 - (IBAction)deleteDevice:(UIButton *)sender {
@@ -37,8 +43,15 @@
         NSDictionary *params = @{@"deviceId":self.deviceId};
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/deleteDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
             if (showdata) {
-                self.block();
-                [self.navigationController popViewControllerAnimated:YES];
+                [EZOPENSDK deleteDevice:self.deviceSerialNo completion:^(NSError *error) {
+                    if (!error) {
+                        self.block();
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                    else{
+                        [self showHUDWithText:[NSString stringWithFormat:@"删除失败%ld",error.code]];
+                    }
+                }];
             }
         }];
     }];
@@ -53,9 +66,7 @@
     SetDeviceNameViewController *setNameVC = [SetDeviceNameViewController new];
     setNameVC.deviceId = self.deviceId;
     setNameVC.devicePower = self.devicePower;
-    setNameVC.block = ^(NSString *name) {
-        self.nameLabel.text = name;
-    };
+    setNameVC.deviceName = self.deviceName;
     [self.navigationController pushViewController:setNameVC animated:YES];
 }
 

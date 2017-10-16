@@ -33,7 +33,6 @@
                 <outlet property="playerView" destination="1ON-O2-XOc" id="YfD-v0-zRV"/>
                 <outlet property="qualityBtn" destination="VGJ-KR-0uW" id="EJG-3q-LuQ"/>
                 <outlet property="qualityView" destination="QKg-3h-l6t" id="lAB-cq-1wM"/>
-                <outlet property="recordView" destination="DIt-Ww-oDJ" id="vv0-wG-FlS"/>
                 <outlet property="rightConstraint" destination="fWn-Kc-Q0F" id="Vrk-lH-WS3"/>
                 <outlet property="screenshotBtn" destination="1nz-tq-9x9" id="q7C-py-YVj"/>
                 <outlet property="screenshotImage" destination="vcJ-7e-aBQ" id="cP0-eO-YsX"/>
@@ -90,38 +89,9 @@
                                 <constraint firstItem="pQ7-lE-qC7" firstAttribute="centerY" secondItem="Qgq-X0-i91" secondAttribute="centerY" id="z85-yz-IzO"/>
                             </constraints>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIt-Ww-oDJ">
-                            <rect key="frame" x="142.5" y="20" width="70" height="23"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代-76" translatesAutoresizingMaskIntoConstraints="NO" id="6iH-Gv-kWd">
-                                    <rect key="frame" x="5" y="4" width="10" height="15"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="15" id="aml-aD-HGx"/>
-                                        <constraint firstAttribute="width" constant="10" id="qm0-7J-OtM"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录像中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-q7-RuU">
-                                    <rect key="frame" x="20" y="3.5" width="43" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstItem="6iH-Gv-kWd" firstAttribute="leading" secondItem="DIt-Ww-oDJ" secondAttribute="leading" constant="5" id="6Tr-iY-G1q"/>
-                                <constraint firstItem="6iH-Gv-kWd" firstAttribute="centerY" secondItem="DIt-Ww-oDJ" secondAttribute="centerY" id="Dak-K5-5yP"/>
-                                <constraint firstItem="ga4-q7-RuU" firstAttribute="leading" secondItem="6iH-Gv-kWd" secondAttribute="trailing" constant="5" id="I8s-BJ-Rwj"/>
-                                <constraint firstItem="ga4-q7-RuU" firstAttribute="centerY" secondItem="DIt-Ww-oDJ" secondAttribute="centerY" id="Sud-c6-gnJ"/>
-                                <constraint firstAttribute="height" constant="23" id="epk-HX-acp"/>
-                                <constraint firstAttribute="width" constant="70" id="irv-tL-WYE"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="DIt-Ww-oDJ" firstAttribute="centerX" secondItem="1ON-O2-XOc" secondAttribute="centerX" id="I8S-ZQ-6hw"/>
-                        <constraint firstItem="DIt-Ww-oDJ" firstAttribute="top" secondItem="1ON-O2-XOc" secondAttribute="top" constant="20" id="deu-aR-KTk"/>
                         <constraint firstAttribute="bottom" secondItem="Qgq-X0-i91" secondAttribute="bottom" constant="10" id="ugx-fI-7No"/>
                         <constraint firstItem="Qgq-X0-i91" firstAttribute="leading" secondItem="1ON-O2-XOc" secondAttribute="leading" constant="15" id="yai-0R-QKg"/>
                     </constraints>
@@ -130,7 +100,7 @@
                     <rect key="frame" x="10" y="294" width="355" height="35"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100kb/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6O-qd-a0d">
-                            <rect key="frame" x="193.5" y="9.5" width="51.5" height="17"/>
+                            <rect key="frame" x="193" y="9.5" width="52" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -637,7 +607,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3T4-aF-yg8">
                             <rect key="frame" x="82.5" y="87" width="189" height="189"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代-68" translatesAutoresizingMaskIntoConstraints="NO" id="xi2-Mh-t72">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代-681" translatesAutoresizingMaskIntoConstraints="NO" id="xi2-Mh-t72">
                                     <rect key="frame" x="0.0" y="0.0" width="189" height="189"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对讲中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu9-NI-97G">
@@ -817,8 +787,7 @@
         <image name="云医时代-58" width="31" height="31"/>
         <image name="云医时代-65" width="8" height="13"/>
         <image name="云医时代-67" width="12" height="12"/>
-        <image name="云医时代-68" width="125" height="125"/>
-        <image name="云医时代-76" width="21" height="21"/>
+        <image name="云医时代-681" width="125" height="125"/>
         <image name="云医时代2-18" width="29" height="31"/>
         <image name="云医时代2-6" width="31" height="31"/>
         <image name="云医时代2-7" width="15" height="15"/>

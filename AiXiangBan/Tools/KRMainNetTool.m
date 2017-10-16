@@ -104,7 +104,7 @@ singleton_implementation(KRMainNetTool)
         //网络请求失败，隐藏HUD，服务器响应失败。网络问题 或者服务器崩溃
         //[waitView hideBubble];
         [HUD hideAnimated:YES];
-        [MBProgressHUD showError:@"网络错误"];
+        [MBProgressHUD showError:@"网络错误" toView:waitView];
         //[waitView showErrorWithTitle:@"网络错误" autoCloseTime:2];
         complet(nil,@"网络错误");
     }];

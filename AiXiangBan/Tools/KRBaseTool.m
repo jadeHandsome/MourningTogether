@@ -692,11 +692,11 @@ singleton_implementation(KRBaseTool)
     
 }
 + (void)setIOSX:(UIScrollView *)vc {
-    if (@available(iOS 11.0, *)) {
-        vc.contentInsetAdjustmentBehavior =UIScrollViewContentInsetAdjustmentNever;
-        vc.contentInset =UIEdgeInsetsMake(navHight,0,64,0);//64和49自己看效果，是否应该改成0
-        vc.scrollIndicatorInsets = vc.contentInset;
-    }
+//    if (@available(iOS 11.0, *)) {
+//        vc.contentInsetAdjustmentBehavior =UIScrollViewContentInsetAdjustmentNever;
+//        vc.contentInset =UIEdgeInsetsMake(navHight,0,64,0);//64和49自己看效果，是否应该改成0
+//        vc.scrollIndicatorInsets = vc.contentInset;
+//    }
 }
 + (NSString *)timeStringFromFormat:(NSString *)dateFormate withDate:(NSDate *)date{
     NSDateFormatter *formater = [[NSDateFormatter alloc]init];

@@ -12,6 +12,7 @@
 #import "DeleteDeviceViewController.h"
 #import "LiveLookViewController.h"
 #import "UIImageView+WebCache.h"
+#import "AllLookDeviceViewController.h"
 @interface LookViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -36,9 +37,13 @@
     [self setUp];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 //获取设备数据
 - (void)requestData{
-    [self showLoadingHUD];
 //    [EZOPENSDK getDeviceList:0 pageSize:20 completion:^(NSArray *deviceList, NSInteger totalCount, NSError *error) {
 //        [self hideHUD];
 //        self.data = deviceList;
@@ -56,8 +61,8 @@
 //        
 //    }];
     NSDictionary *params = @{@"elderId":[KRUserInfo sharedKRUserInfo].elderId ,@"offset":@0,@"size":@10};
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"getElderDeviceList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
-        if (showdata) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/family/getElderDeviceList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if ([showdata[@"deviceList"] count]) {
             NSArray *list = showdata[@"deviceList"];
             for (int i = 0; i < list.count; i++) {
                 if ([list[i][@"deviceType"] integerValue] == 2) {
@@ -73,7 +78,6 @@
                 if(self.data.count){
                     self.tableView.hidden = NO;
                     self.containerView.hidden = YES;
-                    self.view.backgroundColor = COLOR(242, 242, 242, 1);
                     [self.tableView reloadData];
                     }
                     else{
@@ -88,7 +92,8 @@
 }
 
 - (void)setUp{
-    self.containerView.hidden = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:ADD_DEVICE_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestData) name:FIX_DEVICE_NAME object:nil];
     LRViewBorderRadius(self.addBtn, 10, 0, [UIColor clearColor]);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addAction:)];
     self.topConstraint.constant = navHight + 70;
@@ -123,11 +128,14 @@
     else{
         cell.onlineLabel.hidden = NO;
     }
-    cell.titleLabel.text = DeviceInfo.deviceName;
+    cell.titleLabel.text = self.dic[@"deviceName"];
     cell.image.image = [UIImage imageNamed:@"云医引导页-2"];
     cell.block = ^(){
         DeleteDeviceViewController *deleteVC = [DeleteDeviceViewController new];
         deleteVC.deviceId = self.dic[@"deviceId"];
+        deleteVC.deviceName = self.dic[@"deviceName"];
+        deleteVC.devicePower = self.dic[@"devicePower"];
+        deleteVC.deviceSerialNo = self.dic[@"deviceSerialNo"];
         deleteVC.block = ^{
             self.tableView.hidden = YES;
             self.containerView.hidden = NO;
@@ -138,28 +146,36 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    LiveLookViewController *LiveVC = [LiveLookViewController new];
-    LiveVC.deviceInfo = self.data[indexPath.row];
-    [self.navigationController pushViewController:LiveVC animated:YES];
+    EZDeviceInfo *deviceInfo = self.data[indexPath.row];
+    if (deviceInfo.status == 1) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        LiveLookViewController *LiveVC = [LiveLookViewController new];
+        LiveVC.deviceInfo = deviceInfo;
+        [self.navigationController pushViewController:LiveVC animated:YES];
+    }
 }
 
 - (IBAction)addAction:(UIButton *)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"添加新设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        AddByQRCodeViewController *QRCodeVC = [AddByQRCodeViewController new];
-        [self.navigationController pushViewController:QRCodeVC animated:YES];
-    }];
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"添加原来已有的设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    [alert addAction:action1];
-    [alert addAction:action2];
-    [alert addAction:action3];
-    [self.navigationController presentViewController:alert animated:YES completion:nil];
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"添加新设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        AddByQRCodeViewController *QRCodeVC = [AddByQRCodeViewController new];
+//        [self.navigationController pushViewController:QRCodeVC animated:YES];
+//    }];
+//    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"添加原来已有的设备" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        AllLookDeviceViewController *all = [AllLookDeviceViewController new];
+//        [self.navigationController pushViewController:all animated:YES];
+//
+//    }];
+//    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//
+//    }];
+//    [alert addAction:action1];
+//    [alert addAction:action2];
+//    [alert addAction:action3];
+//    [self.navigationController presentViewController:alert animated:YES completion:nil];
+    AddByQRCodeViewController *QRCodeVC = [AddByQRCodeViewController new];
+    QRCodeVC.deviceType = 2;
+    [self.navigationController pushViewController:QRCodeVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

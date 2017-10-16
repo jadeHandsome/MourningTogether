@@ -64,6 +64,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *PTBottom;
 @property (weak, nonatomic) IBOutlet UIButton *PTLeft;
 @property (weak, nonatomic) IBOutlet UILabel *talkdisplay;
+@property (nonatomic, assign) BOOL isRecording;
 @end
 
 
@@ -436,11 +437,11 @@
 - (void)player:(EZPlayer *)player didReceivedDataLength:(NSInteger)dataLength
 {
     CGFloat value = dataLength/1024.0;
-    NSString *fromatStr = @"%.1f KB/s";
+    NSString *fromatStr = [NSString stringWithFormat:@"%.1f KB/s",value];
     if (value > 1024)
     {
         value = value/1024;
-        fromatStr = @"%.1f MB/s";
+        fromatStr = [NSString stringWithFormat:@"%.1f MB/s",value];
     }
     self.speedLabel.text = fromatStr;
 }
@@ -582,8 +583,9 @@
 //录像
 - (void)videoRecord{
     //结束本地录像
-    if(self.videoBtn.selected)
+    if(self.isRecording)
     {
+        self.isRecording = NO;
         self.recordView.hidden = YES;
         [_player stopLocalRecord];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -594,12 +596,13 @@
     }
     else
     {
+        self.isRecording = YES;
         self.recordView.hidden = NO;
         //开始本地录像
         NSString *path = @"/OpenSDK/EzvizLocalRecord";
         NSArray * docdirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString * docdir = [docdirs objectAtIndex:0];
-        
+
         NSString * configFilePath = [docdir stringByAppendingPathComponent:path];
         if(![[NSFileManager defaultManager] fileExistsAtPath:configFilePath]){
             NSError *error = nil;
@@ -612,7 +615,7 @@
         dateformatter.dateFormat = @"yyyyMMddHHmmssSSS";
         _filePath = [NSString stringWithFormat:@"%@/%@.mov",configFilePath,[dateformatter stringFromDate:[NSDate date]]];
         _fileData = [NSMutableData new];
-        
+
         __weak __typeof(self) weakSelf = self;
         [_player startLocalRecord:^(NSData *data) {
             if (!data || !weakSelf.fileData) {
@@ -621,7 +624,7 @@
             [weakSelf.fileData appendData:data];
         }];
     }
-    self.videoBtn.selected = !self.videoBtn.selected;
+
 }
 - (IBAction)talkPressed:(UIButton *)sender {
     if (!_isPressed)
@@ -648,8 +651,8 @@
     self.shotText.textColor = ColorRgbValue(0x989898);
     self.screenshotText.textColor = ColorRgbValue(0x989898);
     self.videoText.textColor = ColorRgbValue(0x989898);
-    self.PTZBtn.enabled = YES;
-    self.voiceBtn.enabled = YES;
+    self.PTZBtn.enabled = NO;
+    self.voiceBtn.enabled = NO;
     self.shotBtn.enabled = NO;
     self.screenshotBtn.enabled = NO;
     self.videoBtn.enabled = NO;

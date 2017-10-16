@@ -22,6 +22,7 @@
     self.topConstraint.constant = navHight + 10;
     self.navigationItem.title = @"修改设备名";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+    self.textField.text = self.deviceName;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -30,7 +31,7 @@
         NSDictionary *params = @{@"deviceId":self.deviceId,@"deviceName":self.textField.text,@"devicePower":@1};
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/setDeviceName.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
             if (showdata) {
-                self.block(self.textField.text);
+                [[NSNotificationCenter defaultCenter] postNotificationName:FIX_DEVICE_NAME object:self.textField.text];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
