@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void (^DidSetName)(NSString *);
 @interface SetDeviceNameViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *deviceId;
+@property (nonatomic, strong) DidSetName block;
+@property (nonatomic, strong) NSString *devicePower;
 @end

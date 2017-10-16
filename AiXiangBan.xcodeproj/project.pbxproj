@@ -47,6 +47,9 @@
 		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
 		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
 		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
+		11C82BB71F93C2790097A938 /* AllLookDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C82BB61F93C2790097A938 /* AllLookDeviceViewController.m */; };
+		11C82BBB1F93C58C0097A938 /* AllDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C82BB91F93C58C0097A938 /* AllDeviceCell.m */; };
+		11C82BBC1F93C58C0097A938 /* AllDeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C82BBA1F93C58C0097A938 /* AllDeviceCell.xib */; };
 		11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3EA1F85159D005B3577 /* AppDelegate.m */; };
 		11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D3F21F85159D005B3577 /* Assets.xcassets */; };
 		11C9D3F91F85159D005B3577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3F81F85159D005B3577 /* main.m */; };
@@ -242,6 +245,11 @@
 		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		11B2532A1F8668D100994575 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		11B2532B1F8668D100994575 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		11C82BB51F93C2790097A938 /* AllLookDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllLookDeviceViewController.h; sourceTree = "<group>"; };
+		11C82BB61F93C2790097A938 /* AllLookDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllLookDeviceViewController.m; sourceTree = "<group>"; };
+		11C82BB81F93C58C0097A938 /* AllDeviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllDeviceCell.h; sourceTree = "<group>"; };
+		11C82BB91F93C58C0097A938 /* AllDeviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllDeviceCell.m; sourceTree = "<group>"; };
+		11C82BBA1F93C58C0097A938 /* AllDeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllDeviceCell.xib; sourceTree = "<group>"; };
 		11C9D3E61F85159D005B3577 /* AiXiangBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiXiangBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C9D3E91F85159D005B3577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11C9D3EA1F85159D005B3577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1204,6 +1212,8 @@
 				1A4E9C611F8E1AFE007D6832 /* SetDeviceNameViewController.h */,
 				1A4E9C621F8E1AFE007D6832 /* SetDeviceNameViewController.m */,
 				1A4E9C631F8E1AFE007D6832 /* SetDeviceNameViewController.xib */,
+				11C82BB51F93C2790097A938 /* AllLookDeviceViewController.h */,
+				11C82BB61F93C2790097A938 /* AllLookDeviceViewController.m */,
 				1A4E9C641F8E1AFE007D6832 /* views */,
 			);
 			path = Look;
@@ -1225,6 +1235,9 @@
 				1A4E9C6F1F8E1AFE007D6832 /* LookCell.h */,
 				1A4E9C701F8E1AFE007D6832 /* LookCell.m */,
 				1A4E9C711F8E1AFE007D6832 /* LookCell.xib */,
+				11C82BB81F93C58C0097A938 /* AllDeviceCell.h */,
+				11C82BB91F93C58C0097A938 /* AllDeviceCell.m */,
+				11C82BBA1F93C58C0097A938 /* AllDeviceCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1509,6 +1522,7 @@
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
 				1A4E9C811F8E1C44007D6832 /* DeleteDeviceViewController.xib in Resources */,
+				11C82BBC1F93C58C0097A938 /* AllDeviceCell.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
 				118035381F8F043F0067CCA6 /* BillDetailViewController.xib in Resources */,
 				1A9A84F71F88A6B90003B9E1 /* ZHLSB.storyboard in Resources */,
@@ -1602,6 +1616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A0A0F51F8B24DF009AADC6 /* UIView+XLJExternFrame.m in Sources */,
+				11C82BBB1F93C58C0097A938 /* AllDeviceCell.m in Sources */,
 				11A0A0F61F8B24DF009AADC6 /* XLJCollectionViewCell.m in Sources */,
 				11A0A0F71F8B24DF009AADC6 /* XLJExButton.m in Sources */,
 				11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */,
@@ -1662,6 +1677,7 @@
 				11C9D3F91F85159D005B3577 /* main.m in Sources */,
 				1A9A850F1F88B8060003B9E1 /* TYTabPagerController.m in Sources */,
 				1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */,
+				11C82BB71F93C2790097A938 /* AllLookDeviceViewController.m in Sources */,
 				1A9A84EE1F886FDB0003B9E1 /* SettingViewController.m in Sources */,
 				1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */,
 				1A9A84FB1F88A7950003B9E1 /* RobotViewController.m in Sources */,

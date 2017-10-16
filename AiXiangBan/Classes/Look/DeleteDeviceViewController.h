@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void (^DidDeleteBlock)(void);
 @interface DeleteDeviceViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *deviceId;
+@property (nonatomic, strong) NSString *devicePower;
+@property (nonatomic, strong) DidDeleteBlock block;
 @end

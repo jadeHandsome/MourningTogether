@@ -222,7 +222,6 @@
             NSString *accessToken = showdata[@"accessToken"];
             [EZOPENSDK setAccessToken:accessToken];
             LookViewController *lookVC = [LookViewController new];
-            lookVC.elderId = self.curretOlder[@"elderId"];
             [self.navigationController pushViewController:lookVC animated:YES];
         }
     }];

@@ -7,7 +7,7 @@
 //
 
 #import "AddbyViewController.h"
-
+#import "CheakPhoneViewController.h"
 @interface AddbyViewController ()
 @property (nonatomic, strong) UITextField *texifield;
 @end
@@ -85,6 +85,12 @@
                 [alertView show];
             }
         }
+        else{
+            CheakPhoneViewController *cheakPhone = [CheakPhoneViewController new];
+            cheakPhone.deviceType = self.deviceType;
+            cheakPhone.deviceSerialNo = self.texifield.text;
+            [self.navigationController pushViewController:cheakPhone animated:YES];
+        }
     }
     else{
         [self showHUDWithText:@"设备号不能为空"];
@@ -95,7 +101,11 @@
 {
     if (!error)
     {
-        
+        CheakPhoneViewController *cheakPhone = [CheakPhoneViewController new];
+        cheakPhone.deviceType = self.deviceType;
+        cheakPhone.deviceVerifyCode = self.deviceVerifyCode;
+        cheakPhone.deviceSerialNo = self.texifield.text;
+        [self.navigationController pushViewController:cheakPhone animated:YES];
         return;
     }
     if (error.code == 105002) {

@@ -34,7 +34,13 @@
 - (IBAction)deleteDevice:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否解绑该设备" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+        NSDictionary *params = @{@"deviceId":self.deviceId};
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/deleteDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata) {
+                self.block();
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -45,6 +51,11 @@
 }
 - (IBAction)setDeviceName:(UITapGestureRecognizer *)sender {
     SetDeviceNameViewController *setNameVC = [SetDeviceNameViewController new];
+    setNameVC.deviceId = self.deviceId;
+    setNameVC.devicePower = self.devicePower;
+    setNameVC.block = ^(NSString *name) {
+        self.nameLabel.text = name;
+    };
     [self.navigationController pushViewController:setNameVC animated:YES];
 }
 
