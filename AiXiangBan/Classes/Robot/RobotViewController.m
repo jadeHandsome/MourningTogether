@@ -81,6 +81,7 @@
         [infoView setUpWithDic:self.allRobot[i] withClickHandle:^(id responseObject) {
             NSLog(@"%@",responseObject);
             ControllRobotViewController *ct = [ControllRobotViewController new];
+            ct.robotId = responseObject[@"deviceSerialNo"];
             [weakSelf.navigationController pushViewController:ct animated:YES];
         }];
 //        [RobotView setUpWithDic:self.allRobot[i] withClickHandle:^{

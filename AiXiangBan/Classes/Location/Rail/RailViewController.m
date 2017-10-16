@@ -88,10 +88,12 @@
 //        fenceLongitude
 //        fenceLatitude
 //        fenceSize
-        self.value = [showdata[@"fenceSize"] floatValue];
+        self.value = [showdata[@"fenceSize"] floatValue] * 1000;
+        self.slider.vaule = self.value;
+        [self.slider setUpV];
         self.railCenter = CLLocationCoordinate2DMake( [showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
         
-        CGFloat r = [showdata[@"fenceSize"] floatValue];
+        CGFloat r = [showdata[@"fenceSize"] floatValue] * 1000;
         [_mapView removeOverlay:self.circle];
         
         self.circle = [MACircle circleWithCenterCoordinate:self.railCenter radius:r];

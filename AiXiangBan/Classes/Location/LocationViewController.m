@@ -48,7 +48,7 @@
             return ;
         }
         CLLocationCoordinate2D location = CLLocationCoordinate2DMake( [showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
-        CGFloat r = [showdata[@"fenceSize"] floatValue];
+        CGFloat r = [showdata[@"fenceSize"] floatValue]*1000;
         [_mapView removeOverlay:circle];
         
         
