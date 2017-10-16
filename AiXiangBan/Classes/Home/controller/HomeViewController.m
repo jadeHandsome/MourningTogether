@@ -246,14 +246,14 @@
     }
     view.block = ^(NSInteger type) {
         NSString *tel = @"";
-        if (type == 1) {
+        if (type == 2) {
             tel = self.curretOlder[@"mobile"];
         }
         else{
             tel = self.curretOlder[@"devPhone"];
         }
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel//:%@",tel]]]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel//:%@",tel]]];
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",tel]]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",tel]]];
         }
     };
     UIWindow *window = [UIApplication sharedApplication].keyWindow;

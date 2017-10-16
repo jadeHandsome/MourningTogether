@@ -75,10 +75,9 @@
         authStatus == AVAuthorizationStatusRestricted)
     {
         self.view.backgroundColor = [UIColor whiteColor];
-        self.indicator.hidden = YES;
         return;
     }
-    [self.indicator startAnimating];
+    [self showLoadingHUDWithText:@""];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -98,8 +97,7 @@
     CGRect cropRect = CGRectMake(25, (SIZEHEIGHT - SIZEWIDTH + 50) / 2 - navHight - 30, SIZEWIDTH - 50,SIZEWIDTH - 50);
     [_output setRectOfInterest:CGRectMake(cropRect.origin.y/screenHeight, cropRect.origin.x/screenWidth, cropRect.size.height/screenHeight, cropRect.size.width/screenWidth)];
     [self addLineAnimation];
-    [self.indicator stopAnimating];
-    self.indicator.hidden = YES;
+    [self hideHUD];
     self.QRView.hidden = NO;
 }
 
