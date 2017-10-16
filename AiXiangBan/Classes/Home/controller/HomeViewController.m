@@ -173,6 +173,9 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.messageBth.hidden = YES;
+    self.hartRateBtn.hidden = YES;
+    self.locationBtn.hidden = YES;
     if (indexPath.row == self.linkmanArr.count) {
         AddAddressViewController *add = [[AddAddressViewController alloc]init];
         add.type = 1;
@@ -227,7 +230,6 @@
             NSString *accessToken = showdata[@"accessToken"];
             [EZOPENSDK setAccessToken:accessToken];
             LookViewController *lookVC = [LookViewController new];
-            lookVC.elderId = self.curretOlder[@"elderId"];
             [self.navigationController pushViewController:lookVC animated:YES];
         }
     }];
@@ -287,9 +289,15 @@
     [self.navigationController pushViewController:robot animated:YES];
 }
 - (IBAction)headTap:(UITapGestureRecognizer *)sender {
-    self.hartRateBtn.hidden = !self.hartRateBtn.hidden;
     self.messageBth.hidden = !self.messageBth.hidden;
+    self.hartRateBtn.hidden = !self.hartRateBtn.hidden;
     self.locationBtn.hidden = !self.locationBtn.hidden;
+    if (!self.hartRateBtn.hidden) {
+        self.hartRateBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
+    }
+    if (!self.locationBtn.hidden) {
+        self.locationBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
+    }
 }
 - (IBAction)closeAlarm:(UIButton *)sender {
     self.alarmView.hidden = YES;

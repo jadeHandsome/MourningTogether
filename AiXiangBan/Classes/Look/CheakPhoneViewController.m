@@ -31,6 +31,7 @@
 
 - (void)setUp{
     self.topConstraint.constant = navHight + 10;
+    self.phoneLabel.text = [KRUserInfo sharedKRUserInfo].mobile;
     LRViewBorderRadius(self.topView, 10, 0, [UIColor whiteColor]);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(next)];
 }
@@ -56,7 +57,12 @@
 }
 
 - (void)next{
-    
+    if (self.textField.text) {
+        
+    }
+    else{
+        [self showHUDWithText:@"验证码不能为空"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

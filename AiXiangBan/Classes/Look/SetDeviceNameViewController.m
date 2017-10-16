@@ -20,13 +20,25 @@
     [super viewDidLoad];
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     self.topConstraint.constant = navHight + 10;
-    self.navigationItem.title = @"设备名";
+    self.navigationItem.title = @"修改设备名";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+    self.textField.text = self.deviceName;
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)save{
-    
+    if (self.textField.text) {
+        NSDictionary *params = @{@"deviceId":self.deviceId,@"deviceName":self.textField.text,@"devicePower":@1};
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/setDeviceName.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if (showdata) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:FIX_DEVICE_NAME object:self.textField.text];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }
+    else{
+        [self showHUDWithText:@"设备名不能为空"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

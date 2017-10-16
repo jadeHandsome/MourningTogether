@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface SetDeviceNameViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *deviceId;
+@property (nonatomic, strong) NSString *devicePower;
+@property (nonatomic, strong) NSString *deviceName;
 @end

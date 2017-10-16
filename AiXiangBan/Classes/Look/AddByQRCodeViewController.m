@@ -181,11 +181,18 @@
             AddbyViewController *addVC = [AddbyViewController new];
             addVC.deviceSerialNo = arrString[1];
             addVC.deviceVerifyCode = arrString[2];
+            addVC.deviceType = self.deviceType;
             [self.navigationController pushViewController:addVC animated:YES];
         } else {
             [self showHUDWithText:@"不支持的二维码类型，转用手动输入"];
             [self performSelector:@selector(goByHand) withObject:nil afterDelay:1];
         }
+    }
+    else{
+        AddbyViewController *addVC = [AddbyViewController new];
+        addVC.deviceSerialNo = strQRcode;
+        addVC.deviceType = self.deviceType;
+        [self.navigationController pushViewController:addVC animated:YES];
     }
 }
 
@@ -210,6 +217,7 @@
 
 - (void)goByHand{
     AddbyViewController *byHandVC = [AddbyViewController new];
+    byHandVC.deviceType = 2;
     [self.navigationController pushViewController:byHandVC animated:YES];
 }
 
