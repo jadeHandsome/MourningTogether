@@ -90,15 +90,11 @@
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
     dateFormater.dateFormat = @"yyyy/MM/dd EEEE";
-    NSString *tempStr = @"";
+    
     NSString *dateStr = [dateFormater stringFromDate:date];
-    NSDictionary *weekArray = @{@"Monday":@"星期一",@"Tuesday":@"星期二",@"Wednesday":@"星期三",@"Thursday":@"星期四",@"Friday":@"星期五",@"Saturday":@"星期六",@"Sunday":@"星期天"};
-    for (NSString *str in weekArray.allKeys) {
-        if ([dateStr containsString:str]) {
-            tempStr = [dateStr stringByReplacingOccurrencesOfString:str withString:weekArray[str]];
-        }
-    }
-    dateLabel.text = tempStr;
+
+    dateLabel.text = dateStr;
+
     dateLabel.textColor = LRRGBColor(29, 185, 207);
     dateLabel.font = [UIFont systemFontOfSize:15];
     UIView *titleView = [[UIView alloc]init];
@@ -160,15 +156,8 @@
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
     dateFormater.dateFormat = @"yyyy/MM/dd EEEE";
     NSString *dateStr = [dateFormater stringFromDate:lastDay];
-    NSString *temp = @"";
-    NSDictionary *weekArray = @{@"Monday":@"星期一",@"Tuesday":@"星期二",@"Wednesday":@"星期三",@"Thursday":@"星期四",@"Friday":@"星期五",@"Saturday":@"星期六",@"Sunday":@"星期天"};
-    for (NSString *str in weekArray.allKeys) {
-        if ([dateStr containsString:str]) {
-            temp = [dateStr stringByReplacingOccurrencesOfString:str withString:weekArray[str]];
-            //[dateStr stringByReplacingOccurrencesOfString:weekArray[str] withString:str];
-        }
-    }
-    self.datelabel.text = temp;
+    
+    self.datelabel.text = dateStr;
     
     [self.view layoutIfNeeded];
     __weak typeof(self) weakSelf = self;

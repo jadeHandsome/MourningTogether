@@ -50,8 +50,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.value = 500;
+    self.navigationItem.title = @"设置围栏";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    [self setUP];
     [self setUP];
     [self getData];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(saveClick)];
@@ -62,8 +62,8 @@
     param[@"deviceId"] = [KRUserInfo sharedKRUserInfo].deviceId;
     param[@"longitude"] = @(self.railCenter.longitude);
     param[@"latitude"] = @(self.railCenter.latitude);
-    param[@"size"] = @((int)self.value/1000);
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/device/setFenceInfo.do" params:@{@"deviceId":[KRUserInfo sharedKRUserInfo].deviceId} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    param[@"size"] = @((int)self.value/1000.0);
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/device/setFenceInfo.do" params:param withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
@@ -94,8 +94,6 @@
         self.railCenter = CLLocationCoordinate2DMake( [showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
         
         CGFloat r = [showdata[@"fenceSize"] floatValue] * 1000;
-        [_mapView removeOverlay:self.circle];
-        
         self.circle = [MACircle circleWithCenterCoordinate:self.railCenter radius:r];
         self.anno  = [[TRAnnotation alloc] init];
         self.anno.coordinate = CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]);
@@ -303,6 +301,19 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma -- locationDelegae
+- (MAOverlayRenderer *)mapView:(MAMapView *)mapView rendererForOverlay:(id <MAOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MACircle class]])
+    {
+        MACircleRenderer *circleRenderer = [[MACircleRenderer alloc] initWithCircle:overlay];
+        
+        circleRenderer.lineWidth    = 5.f;
+        circleRenderer.strokeColor  = [UIColor colorWithRed:132.0/255 green:235.0/255 blue:245.0/255 alpha:0.8];
+        circleRenderer.fillColor    = [UIColor colorWithRed:132.0/255 green:235.0/255 blue:245.0/255 alpha:0.5];
+        return circleRenderer;
+    }
+    return nil;
+}
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
     

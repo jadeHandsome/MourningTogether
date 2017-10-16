@@ -91,6 +91,7 @@
     
 }
 - (void)setUpV {
+    self.moveCenter.constant = 0;
     self.meterLabel.text = [NSString stringWithFormat:@"%.0fM",self.vaule];
     CGFloat x = (self.vaule - 500)/9500 * self.frame.size.width;
     CGFloat f = x - self.frame.size.width * 0.5;
@@ -100,6 +101,7 @@
     } else if (self.moveCenter.constant > self.frame.size.width * 0.5) {
         self.moveCenter.constant = self.frame.size.width * 0.5;
     }
+    [self layoutIfNeeded];
 }
 
 /*
