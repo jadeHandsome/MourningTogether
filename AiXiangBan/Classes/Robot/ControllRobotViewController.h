@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ControllRobotViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *robotId;
 @end

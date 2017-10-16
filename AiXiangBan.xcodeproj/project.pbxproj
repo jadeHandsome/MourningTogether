@@ -127,6 +127,8 @@
 		1A676A171F8BA86F001BD32A /* TendOldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A161F8BA86F001BD32A /* TendOldView.m */; };
 		1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A191F8BAF30001BD32A /* ImageCenterButton.m */; };
 		1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A676A1C1F8BB115001BD32A /* AddTendViewController.m */; };
+		1A75A69F1F94609800B2D7CE /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A75A69E1F94609800B2D7CE /* AliyunPlayerSDK.framework */; };
+		1A75A6A01F94609800B2D7CE /* AliyunPlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A75A69E1F94609800B2D7CE /* AliyunPlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A7919431F8F097B003917A2 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919421F8F097A003917A2 /* AMapFoundationKit.framework */; };
 		1A7919451F8F0998003917A2 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919441F8F0998003917A2 /* AMapLocationKit.framework */; };
 		1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7919461F8F09AE003917A2 /* AMapSearchKit.framework */; };
@@ -185,6 +187,20 @@
 			remoteInfo = AiXiangBan;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A75A6A11F94609800B2D7CE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A75A6A01F94609800B2D7CE /* AliyunPlayerSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		11599C391F87CC790005D9ED /* UIView+BorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
@@ -483,6 +499,9 @@
 		1A676A191F8BAF30001BD32A /* ImageCenterButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCenterButton.m; sourceTree = "<group>"; };
 		1A676A1B1F8BB115001BD32A /* AddTendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTendViewController.h; sourceTree = "<group>"; };
 		1A676A1C1F8BB115001BD32A /* AddTendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTendViewController.m; sourceTree = "<group>"; };
+		1A75A69C1F94607F00B2D7CE /* AliyunPlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunPlayerSDK.framework; sourceTree = "<group>"; };
+		1A75A69D1F94608000B2D7CE /* AliyunPlayerSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AliyunPlayerSDKBundle.bundle; sourceTree = "<group>"; };
+		1A75A69E1F94609800B2D7CE /* AliyunPlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunPlayerSDK.framework; sourceTree = "<group>"; };
 		1A7919421F8F097A003917A2 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = "Pods/AMapFoundation-NO-IDFA/AMapFoundationKit.framework"; sourceTree = "<group>"; };
 		1A7919441F8F0998003917A2 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapLocationKit.framework; path = "Pods/AMapLocation-NO-IDFA/AMapLocationKit.framework"; sourceTree = "<group>"; };
 		1A7919461F8F09AE003917A2 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = "Pods/AMapSearch-NO-IDFA/AMapSearchKit.framework"; sourceTree = "<group>"; };
@@ -580,6 +599,7 @@
 				11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */,
 				1A7919471F8F09AE003917A2 /* AMapSearchKit.framework in Frameworks */,
 				11A0A0851F8A177C009AADC6 /* AVFoundation.framework in Frameworks */,
+				1A75A69F1F94609800B2D7CE /* AliyunPlayerSDK.framework in Frameworks */,
 				11D401BC1F8E12780096F67B /* libc++.tbd in Frameworks */,
 				11A0A08F1F8A17B5009AADC6 /* libstdc++.6.0.9.tbd in Frameworks */,
 				11D401BA1F8E12670096F67B /* libiconv.2.4.0.tbd in Frameworks */,
@@ -677,6 +697,9 @@
 		11C9D3DD1F85159D005B3577 = {
 			isa = PBXGroup;
 			children = (
+				1A75A69C1F94607F00B2D7CE /* AliyunPlayerSDK.framework */,
+				1A75A69E1F94609800B2D7CE /* AliyunPlayerSDK.framework */,
+				1A75A69D1F94608000B2D7CE /* AliyunPlayerSDKBundle.bundle */,
 				11C9D3E81F85159D005B3577 /* AiXiangBan */,
 				11C9D4011F85159D005B3577 /* AiXiangBanTests */,
 				11C9D40C1F85159D005B3577 /* AiXiangBanUITests */,
@@ -1415,6 +1438,7 @@
 				11C9D3E41F85159D005B3577 /* Resources */,
 				1825D5B4BC59CD6405F85FDE /* [CP] Embed Pods Frameworks */,
 				BD8E03E1D3FDAFEB9FEBB404 /* [CP] Copy Pods Resources */,
+				1A75A6A11F94609800B2D7CE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1862,13 +1886,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
 					"$(PROJECT_DIR)/Pods/AMapLocation-NO-IDFA",
 					"$(PROJECT_DIR)/Pods/AMapSearch-NO-IDFA",
 					"$(PROJECT_DIR)/Pods/AMap3DMap-NO-IDFA",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1909,13 +1934,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
 					"$(PROJECT_DIR)/Pods/AMapLocation-NO-IDFA",
 					"$(PROJECT_DIR)/Pods/AMapSearch-NO-IDFA",
 					"$(PROJECT_DIR)/Pods/AMap3DMap-NO-IDFA",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = AiXiangBan/SupportFiles/AXB.pch;
 				HEADER_SEARCH_PATHS = (

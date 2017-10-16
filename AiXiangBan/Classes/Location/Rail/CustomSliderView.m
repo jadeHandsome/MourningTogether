@@ -68,7 +68,7 @@
         
         lastPoint = point;
         
-        CGFloat meter = (100000 - 500) * (point.x/self.frame.size.width) + 500;
+        CGFloat meter = (10000 - 500) * (point.x/self.frame.size.width) + 500;
         
         
         if (self.moveCenter.constant < -self.frame.size.width * 0.5) {
@@ -76,7 +76,7 @@
             meter = 500;
         } else if (self.moveCenter.constant > self.frame.size.width * 0.5) {
             self.moveCenter.constant = self.frame.size.width * 0.5;
-            meter = 100000;
+            meter = 10000;
         }
         self.vaule = meter;
         self.meterLabel.text = [NSString stringWithFormat:@"%.0fM",meter];
@@ -91,8 +91,9 @@
     
 }
 - (void)setUpV {
+    self.moveCenter.constant = 0;
     self.meterLabel.text = [NSString stringWithFormat:@"%.0fM",self.vaule];
-    CGFloat x = (self.vaule - 500)/99500 * self.frame.size.width;
+    CGFloat x = (self.vaule - 500)/9500 * self.frame.size.width;
     CGFloat f = x - self.frame.size.width * 0.5;
     self.moveCenter.constant += f;
     if (self.moveCenter.constant < -self.frame.size.width * 0.5) {
@@ -100,6 +101,7 @@
     } else if (self.moveCenter.constant > self.frame.size.width * 0.5) {
         self.moveCenter.constant = self.frame.size.width * 0.5;
     }
+    [self layoutIfNeeded];
 }
 
 /*
