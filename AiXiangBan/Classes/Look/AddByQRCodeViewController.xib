@@ -14,7 +14,6 @@
                 <outlet property="LineConstraint" destination="buE-l8-BIt" id="gnB-k7-1XY"/>
                 <outlet property="QRView" destination="Aov-hl-GCk" id="lC3-Bh-8QC"/>
                 <outlet property="buyHandBtn" destination="LMF-e1-AZ7" id="OW3-H4-8xT"/>
-                <outlet property="indicator" destination="iR4-An-kcC" id="qRg-c8-La2"/>
                 <outlet property="lineImageView" destination="Rgc-vT-r04" id="tqq-zr-vtw"/>
                 <outlet property="topConstraint" destination="Cp9-qi-18r" id="tfM-bF-vrD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -48,10 +47,6 @@
                                 <constraint firstAttribute="height" constant="6" id="UHk-vS-0oh"/>
                             </constraints>
                         </imageView>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iR4-An-kcC">
-                            <rect key="frame" x="177" y="291" width="20" height="20"/>
-                            <color key="color" red="0.10980392160000001" green="0.72549019609999998" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
-                        </activityIndicatorView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将二维码放入框内，自动扫描" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOA-2E-Cbm">
                             <rect key="frame" x="0.0" y="478.5" width="375" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -68,10 +63,8 @@
                         <constraint firstAttribute="trailing" secondItem="LMF-e1-AZ7" secondAttribute="trailing" constant="10" id="J5m-3Z-Tmc"/>
                         <constraint firstAttribute="trailing" secondItem="jOA-2E-Cbm" secondAttribute="trailing" id="T3y-zE-tEc"/>
                         <constraint firstItem="LMF-e1-AZ7" firstAttribute="top" secondItem="jOA-2E-Cbm" secondAttribute="bottom" constant="50" id="UAV-El-Hsf"/>
-                        <constraint firstItem="iR4-An-kcC" firstAttribute="centerY" secondItem="Aov-hl-GCk" secondAttribute="centerY" id="b3e-BM-Baj"/>
                         <constraint firstItem="Rgc-vT-r04" firstAttribute="leading" secondItem="Aov-hl-GCk" secondAttribute="leading" constant="25" id="baH-Z9-Izf"/>
                         <constraint firstItem="Rgc-vT-r04" firstAttribute="top" secondItem="Aov-hl-GCk" secondAttribute="top" constant="100" id="buE-l8-BIt"/>
-                        <constraint firstItem="iR4-An-kcC" firstAttribute="centerX" secondItem="Aov-hl-GCk" secondAttribute="centerX" id="fZ1-D4-anv"/>
                     </constraints>
                 </view>
             </subviews>
@@ -85,6 +78,6 @@
         </view>
     </objects>
     <resources>
-        <image name="云医时代-36" width="560" height="12"/>
+        <image name="云医时代-36" width="280" height="6"/>
     </resources>
 </document>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,6 +33,7 @@
                 <outlet property="playerView" destination="1ON-O2-XOc" id="YfD-v0-zRV"/>
                 <outlet property="qualityBtn" destination="VGJ-KR-0uW" id="EJG-3q-LuQ"/>
                 <outlet property="qualityView" destination="QKg-3h-l6t" id="lAB-cq-1wM"/>
+                <outlet property="recordView" destination="3gg-Ts-tbt" id="qof-Jk-L4G"/>
                 <outlet property="rightConstraint" destination="fWn-Kc-Q0F" id="Vrk-lH-WS3"/>
                 <outlet property="screenshotBtn" destination="1nz-tq-9x9" id="q7C-py-YVj"/>
                 <outlet property="screenshotImage" destination="vcJ-7e-aBQ" id="cP0-eO-YsX"/>
@@ -50,6 +51,7 @@
                 <outlet property="voiceBtn" destination="g3B-bP-5DH" id="RTZ-F7-5er"/>
                 <outlet property="voiceControlBtn" destination="ai8-tg-EAP" id="nFE-CO-DT4"/>
                 <outlet property="voiceImage" destination="xrt-9Q-KN0" id="Y23-Uy-etw"/>
+                <outlet property="voicePressBtn" destination="8Cs-jw-ZrW" id="wQb-sE-O5q"/>
                 <outlet property="voiceText" destination="ZNg-jK-H1A" id="uqi-Wp-Lty"/>
                 <outlet property="voideImage" destination="Xtr-b1-W2c" id="ZBc-9I-40k"/>
             </connections>
@@ -89,18 +91,47 @@
                                 <constraint firstItem="pQ7-lE-qC7" firstAttribute="centerY" secondItem="Qgq-X0-i91" secondAttribute="centerY" id="z85-yz-IzO"/>
                             </constraints>
                         </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gg-Ts-tbt">
+                            <rect key="frame" x="142.5" y="20" width="70" height="23"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代-76" translatesAutoresizingMaskIntoConstraints="NO" id="5Zg-AY-d4j">
+                                    <rect key="frame" x="5" y="4" width="10" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="DPh-Bo-2X6"/>
+                                        <constraint firstAttribute="width" constant="10" id="Xqk-cC-RcN"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录制中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q22-gl-YQ7">
+                                    <rect key="frame" x="20" y="3.5" width="43" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="Q22-gl-YQ7" firstAttribute="centerY" secondItem="3gg-Ts-tbt" secondAttribute="centerY" id="9Je-ab-d92"/>
+                                <constraint firstItem="5Zg-AY-d4j" firstAttribute="leading" secondItem="3gg-Ts-tbt" secondAttribute="leading" constant="5" id="GXc-dk-Cvs"/>
+                                <constraint firstAttribute="width" constant="70" id="Gnw-CI-vZ9"/>
+                                <constraint firstAttribute="height" constant="23" id="QkQ-r0-diB"/>
+                                <constraint firstItem="Q22-gl-YQ7" firstAttribute="leading" secondItem="5Zg-AY-d4j" secondAttribute="trailing" constant="5" id="kHi-S7-zmt"/>
+                                <constraint firstItem="5Zg-AY-d4j" firstAttribute="centerY" secondItem="3gg-Ts-tbt" secondAttribute="centerY" id="mq3-s6-TRq"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="3gg-Ts-tbt" firstAttribute="top" secondItem="1ON-O2-XOc" secondAttribute="top" constant="20" id="Q6n-mq-jq1"/>
                         <constraint firstAttribute="bottom" secondItem="Qgq-X0-i91" secondAttribute="bottom" constant="10" id="ugx-fI-7No"/>
+                        <constraint firstItem="3gg-Ts-tbt" firstAttribute="centerX" secondItem="1ON-O2-XOc" secondAttribute="centerX" id="y15-PR-lLH"/>
                         <constraint firstItem="Qgq-X0-i91" firstAttribute="leading" secondItem="1ON-O2-XOc" secondAttribute="leading" constant="15" id="yai-0R-QKg"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLR-1m-8A8">
                     <rect key="frame" x="10" y="294" width="355" height="35"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100kb/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6O-qd-a0d">
-                            <rect key="frame" x="193" y="9.5" width="52" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0kb/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6O-qd-a0d">
+                            <rect key="frame" x="208.5" y="9.5" width="36.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -788,6 +819,7 @@
         <image name="云医时代-65" width="8" height="13"/>
         <image name="云医时代-67" width="12" height="12"/>
         <image name="云医时代-681" width="125" height="125"/>
+        <image name="云医时代-76" width="21" height="21"/>
         <image name="云医时代2-18" width="29" height="31"/>
         <image name="云医时代2-6" width="31" height="31"/>
         <image name="云医时代2-7" width="15" height="15"/>

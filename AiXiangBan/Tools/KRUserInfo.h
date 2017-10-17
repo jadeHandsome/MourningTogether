@@ -46,7 +46,6 @@ singleton_interface(KRUserInfo)
 @property (nonatomic, strong) NSString *deviceId;
 @property (nonatomic, strong) NSString *balance;
 @property (nonatomic, strong) NSString *elderId;
-
 //@property (nonatomic, strong) NSString *u_realname;
 //@property (nonatomic, strong) NSString *u_qq;
 //@property (nonatomic, strong) NSString *u_email;

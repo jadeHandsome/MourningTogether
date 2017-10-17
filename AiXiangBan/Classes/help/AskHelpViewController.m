@@ -15,92 +15,78 @@
 @property (nonatomic, strong) NSMutableArray *guardianArr;
 @property (nonatomic, strong) NSMutableArray *neighborArr;
 @property (nonatomic, strong) NSMutableArray *communityArr;
-@property (nonatomic, strong) NSMutableArray *elderArray;
+@property (nonatomic, strong) NSMutableArray *oldArr;
 @end
 
 @implementation AskHelpViewController
-- (NSMutableArray *)guardianArr {
+
+- (NSMutableArray *)guardianArr{
     if (!_guardianArr) {
         _guardianArr = [NSMutableArray array];
     }
     return _guardianArr;
 }
-- (NSMutableArray *)neighborArr {
+
+- (NSMutableArray *)neighborArr{
     if (!_neighborArr) {
         _neighborArr = [NSMutableArray array];
     }
     return _neighborArr;
 }
-- (NSMutableArray *)communityArr {
+
+- (NSMutableArray *)communityArr{
     if (!_communityArr) {
         _communityArr = [NSMutableArray array];
     }
     return _communityArr;
 }
-- (NSMutableArray *)elderArray {
-    if (!_elderArray) {
-        _elderArray = [NSMutableArray array];
-        
+
+- (NSMutableArray *)oldArr{
+    if (!_oldArr) {
+        _oldArr = [NSMutableArray array];
     }
-    return _elderArray;
+    return _oldArr;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"紧急求助";
-    self.jinjiArr = @[@"急救",@"报警",@"火警"];
-    
-    [self getData];
-
+    self.jinjiArr = @[@{@"title":@"报警",@"number":@"110"},@{@"title":@"火警",@"number":@"119"},@{@"title":@"医院",@"number":@"120"}];
+    [self requestData];
+    // Do any additional setup after loading the view from its nib.
 }
-- (void)getData {
-    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"mgr/emergency/getEmergencyContactList.do" params:@{@"elderId":[KRUserInfo sharedKRUserInfo].elderId} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
-        if (showdata == nil) {
-            return ;
-        }
-        
-        for (NSDictionary *dic in showdata[@"contactList"]) {
-            NSInteger type = [dic[@"type"] integerValue];
-            switch (type) {
-                case 1:
-                {
-                    //监护人
+
+- (void)requestData{
+    NSDictionary *params = @{@"elderId":SharedUserInfo.elderId};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/emergency/getEmergencyContactList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if ([showdata[@"contactList"] count]) {
+            for (NSDictionary *dic in showdata[@"contactList"]) {
+                if ([dic[@"type"] integerValue] == 1) {
                     [self.guardianArr addObject:dic];
                 }
-                    break;
-                case 2:
-                {
-                    //亲属邻里
+                else if ([dic[@"type"] integerValue] == 2){
                     [self.neighborArr addObject:dic];
                 }
-                    break;
-                case 3:
-                {
-                    //老人
-                    [self.elderArray addObject:dic];
-                }
-                    break;
-                case 4:
-                {
-                    //社区工作人员
+                else if ([dic[@"type"] integerValue] == 4){
                     [self.communityArr addObject:dic];
                 }
-                    break;
-                    
-                default:
-                    break;
+                else if ([dic[@"type"] integerValue] == 3){
+                    [self.oldArr addObject:dic];
+                }
             }
-            
+            [self setUp];
         }
-        [self setUp];
-        }];
-    
-        
+        else{
+            [self setUp];
+        }
+    }];
 }
+
+
 - (void)setUp{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, navHight, SIZEWIDTH, SIZEHEIGHT - navHight)];
     self.scrollView.backgroundColor = COLOR(240, 240, 240, 1);
     [self.view addSubview:self.scrollView];
-    self.scrollView.contentSize = CGSizeMake(SIZEWIDTH,50 + (self.jinjiArr.count + self.guardianArr.count + self.neighborArr.count + self.communityArr.count + 3) * 45);
     UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10, 10, SIZEWIDTH - 20, 135)];
     LRViewBorderRadius(view1, 10, 0, [UIColor clearColor]);
     view1.backgroundColor = [UIColor whiteColor];
@@ -116,23 +102,25 @@
     view3.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:view3];
     
-    UIView *view4 =  [[UIView alloc] initWithFrame:CGRectMake(10, view3.height + view3.y + 10, SIZEWIDTH - 20, (self.communityArr.count + 1) * 45)];
+    UIView *view5 =  [[UIView alloc] initWithFrame:CGRectMake(10, view3.height + view3.y + 10, SIZEWIDTH - 20, (self.oldArr.count + 1) * 45)];
+    LRViewBorderRadius(view5, 10, 0, [UIColor clearColor]);
+    view5.backgroundColor = [UIColor whiteColor];
+    [self.scrollView addSubview:view5];
+    
+    UIView *view4 =  [[UIView alloc] initWithFrame:CGRectMake(10, view5.height + view5.y + 10, SIZEWIDTH - 20, (self.communityArr.count + 1) * 45)];
     LRViewBorderRadius(view4, 10, 0, [UIColor clearColor]);
     view4.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:view4];
     
-    UIView *view5 =  [[UIView alloc] initWithFrame:CGRectMake(10, view4.height + view4.y + 10, SIZEWIDTH - 20, (self.elderArray.count + 1) * 45)];
-    LRViewBorderRadius(view5, 10, 0, [UIColor clearColor]);
-    view5.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:view5];
-    NSArray *jinjiArrayPhone = @[@"120",@"110",@"119"];
+    
+    
     for (int i = 0 ; i < self.jinjiArr.count; i++) {
         AskHelpCell *cell = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
         cell.delegate = self;
         [cell changeCell2];
         cell.y = 45 * i ;
-        cell.nameLabel.text = self.jinjiArr[i];
-        cell.numLabel.text = jinjiArrayPhone[i];
+        cell.nameLabel.text = self.jinjiArr[i][@"title"];
+        cell.numLabel.text = self.jinjiArr[i][@"number"];
         [view1 addSubview:cell];
     }
     
@@ -158,15 +146,27 @@
         AskHelpCell *cell = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
         cell.delegate = self;
         cell.y = 45 + 45 * i ;
-        
         cell.nameLabel.text = self.neighborArr[i][@"name"];
         cell.numLabel.text = self.neighborArr[i][@"mobile"];
         [view3 addSubview:cell];
     }
     
+    AskHelpCell *cell5 = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
+    [cell5 changeCell1];
+    cell5.nameLabel.text = @"老人";
+    [view5 addSubview:cell5];
+    for (int i = 0 ; i < self.oldArr.count; i++) {
+        AskHelpCell *cell = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
+        cell.delegate = self;
+        cell.y = 45 + 45 * i ;
+        cell.nameLabel.text = self.oldArr[i][@"name"];
+        cell.numLabel.text = self.oldArr[i][@"mobile"];
+        [view5 addSubview:cell];
+    }
+    
     AskHelpCell *cell4 = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
     [cell4 changeCell1];
-    cell4.nameLabel.text = @"社区工作人员";
+    cell4.nameLabel.text = @"社区";
     [view4 addSubview:cell4];
     for (int i = 0 ; i < self.communityArr.count; i++) {
         AskHelpCell *cell = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
@@ -176,18 +176,8 @@
         cell.numLabel.text = self.communityArr[i][@"mobile"];
         [view4 addSubview:cell];
     }
-    AskHelpCell *cell5 = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
-    [cell5 changeCell1];
-    cell5.nameLabel.text = @"老人";
-    [view5 addSubview:cell5];
-    for (int i = 0 ; i < self.elderArray.count; i++) {
-        AskHelpCell *cell = [[NSBundle mainBundle] loadNibNamed:@"AskHelpCell" owner:self options:nil].firstObject;
-        cell.delegate = self;
-        cell.y = 45 + 45 * i ;
-        cell.nameLabel.text = self.elderArray[i][@"name"];
-        cell.numLabel.text = self.elderArray[i][@"mobile"];
-        [view5 addSubview:cell];
-    }
+    
+    
 }
 
 - (void)click:(NSString *)type num:(NSString *)num{
