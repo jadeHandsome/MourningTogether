@@ -86,6 +86,7 @@
 - (void)setUp{
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, navHight, SIZEWIDTH, SIZEHEIGHT - navHight)];
     self.scrollView.backgroundColor = COLOR(240, 240, 240, 1);
+    self.scrollView.contentSize = CGSizeMake(SIZEWIDTH,60 + (self.jinjiArr.count + self.guardianArr.count + self.neighborArr.count + self.communityArr.count + self.oldArr.count + 4) * 45);
     [self.view addSubview:self.scrollView];
     UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(10, 10, SIZEWIDTH - 20, 135)];
     LRViewBorderRadius(view1, 10, 0, [UIColor clearColor]);
