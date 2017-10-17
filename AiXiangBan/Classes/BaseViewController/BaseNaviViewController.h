@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseNaviViewController : UINavigationController
-@property (nonatomic , assign) UIInterfaceOrientation interfaceOrientation;
-@property (nonatomic , assign) UIInterfaceOrientationMask interfaceOrientationMask;
+
 @end

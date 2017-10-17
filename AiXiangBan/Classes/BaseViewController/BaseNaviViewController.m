@@ -37,21 +37,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - - orientation
-//设置是否允许自动旋转
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-//设置支持的屏幕旋转方向
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return self.interfaceOrientationMask;
-}
-
-//设置presentation方式展示的屏幕方向
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return self.interfaceOrientation;
-}
 
 
 /*

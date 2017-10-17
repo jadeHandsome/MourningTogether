@@ -328,15 +328,6 @@
 }
 
 - (void)openMessage:(NSString *)content{
-    //强制旋转竖屏
-    [self forceOrientationPortrait];
-    BaseNaviViewController *navi = (BaseNaviViewController *)self.navigationController;
-    navi.interfaceOrientation = UIInterfaceOrientationPortrait;
-    navi.interfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
-    //设置屏幕的转向为竖屏
-    [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
-    //刷新
-    [UIViewController attemptRotationToDeviceOrientation];
     MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
     // 设置短信内容
     vc.body = content;
@@ -346,15 +337,6 @@
     vc.messageComposeDelegate = self;
     // 显示控制器
     [self presentViewController:vc animated:YES completion:nil];
-}
-
-//强制竖屏
-- (void)forceOrientationPortrait
-{
-    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    appdelegate.isForcePortrait=YES;
-    appdelegate.isForceLandscape=NO;
-    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result

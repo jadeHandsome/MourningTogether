@@ -132,18 +132,13 @@
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     
-//    if(self.isFull){
-//        return UIInterfaceOrientationMaskAllButUpsideDown;
-//    }
-//    else{
-//        return UIInterfaceOrientationMaskPortrait;
-//    }
-    if (self.isForceLandscape) {
-        return UIInterfaceOrientationMaskLandscape;
-    }else if (self.isForcePortrait){
+    if(self.isFull){
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    else{
         return UIInterfaceOrientationMaskPortrait;
     }
-    return UIInterfaceOrientationMaskPortrait;
+
     
     
 }
