@@ -40,26 +40,13 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+}
+-(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 //获取设备数据
 - (void)requestData{
-//    [EZOPENSDK getDeviceList:0 pageSize:20 completion:^(NSArray *deviceList, NSInteger totalCount, NSError *error) {
-//        [self hideHUD];
-//        self.data = deviceList;
-//        if(deviceList.count){
-//            self.tableView.hidden = NO;
-//            self.containerView.hidden = YES;
-//            self.view.backgroundColor = COLOR(242, 242, 242, 1);
-//            [self.tableView reloadData];
-//        }
-//        else{
-//            self.tableView.hidden = YES;
-//            self.containerView.hidden = NO;
-//            self.view.backgroundColor = [UIColor whiteColor];
-//        }
-//        
-//    }];
+    [self.data removeAllObjects];
     NSDictionary *params = @{@"elderId":[KRUserInfo sharedKRUserInfo].elderId ,@"offset":@0,@"size":@10};
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/family/getElderDeviceList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if ([showdata[@"deviceList"] count]) {
@@ -106,6 +93,7 @@
     self.tableView.rowHeight = 255.0f;
     self.tableView.backgroundColor = COLOR(242, 242, 241, 1);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [KRBaseTool tableViewAddRefreshHeader:self.tableView withTarget:self refreshingAction:@selector(requestData)];
     self.tableView.hidden = YES;
     [self.view addSubview:self.tableView];
 }

@@ -14,6 +14,7 @@
 		11599C471F87DE6D0005D9ED /* pullView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C461F87DE6D0005D9ED /* pullView.xib */; };
 		11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */; };
 		11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */; };
+		117949F21F961DB70017BA99 /* HeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117949F11F961DB70017BA99 /* HeartRateViewController.m */; };
 		118035371F8F043F0067CCA6 /* BillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118035351F8F043F0067CCA6 /* BillDetailViewController.m */; };
 		118035381F8F043F0067CCA6 /* BillDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118035361F8F043F0067CCA6 /* BillDetailViewController.xib */; };
 		1188E9761F904B2300E4EB27 /* CallCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9701F904B2200E4EB27 /* CallCardCell.m */; };
@@ -217,6 +218,8 @@
 		11599C481F87E8AC0005D9ED /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
 		11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		117949F01F961DB70017BA99 /* HeartRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateViewController.h; sourceTree = "<group>"; };
+		117949F11F961DB70017BA99 /* HeartRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateViewController.m; sourceTree = "<group>"; };
 		118035341F8F043F0067CCA6 /* BillDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailViewController.h; sourceTree = "<group>"; };
 		118035351F8F043F0067CCA6 /* BillDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillDetailViewController.m; sourceTree = "<group>"; };
 		118035361F8F043F0067CCA6 /* BillDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailViewController.xib; sourceTree = "<group>"; };
@@ -668,6 +671,15 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		117949EF1F961D930017BA99 /* heartRate */ = {
+			isa = PBXGroup;
+			children = (
+				117949F01F961DB70017BA99 /* HeartRateViewController.h */,
+				117949F11F961DB70017BA99 /* HeartRateViewController.m */,
+			);
+			path = heartRate;
+			sourceTree = "<group>";
+		};
 		11A0A0EC1F8B23C2009AADC6 /* newFeatures */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,12 +787,12 @@
 		11C9D41C1F851D27005B3577 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				117949EF1F961D930017BA99 /* heartRate */,
 				1A4E9C4F1F8E1AFE007D6832 /* Look */,
 				11E09F6B1F88D5CD004A2BCC /* Service */,
 				11C9D4311F85257E005B3577 /* Robot */,
 				11C9D4301F852574005B3577 /* Location */,
 				11C9D42F1F852538005B3577 /* Help */,
-				11C9D42E1F852524005B3577 /* Call */,
 				11C9D42B1F8524E6005B3577 /* TendGroup */,
 				11C9D42A1F8524B5005B3577 /* Alarm */,
 				11C9D4291F852490005B3577 /* AddressBook */,
@@ -928,13 +940,6 @@
 				1A24E67D1F95AE4D00D61952 /* ChooseDeviceViewController.m */,
 			);
 			path = TendGroup;
-			sourceTree = "<group>";
-		};
-		11C9D42E1F852524005B3577 /* Call */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Call;
 			sourceTree = "<group>";
 		};
 		11C9D42F1F852538005B3577 /* Help */ = {
@@ -1711,6 +1716,7 @@
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
 				11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */,
 				1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */,
+				117949F21F961DB70017BA99 /* HeartRateViewController.m in Sources */,
 				1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */,
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
@@ -1904,7 +1910,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -1952,7 +1958,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",

@@ -27,9 +27,7 @@
 
 #import "NoWatchViewController.h"
 
-#import "BaseNaviViewController.h"
-#import "AppDelegate.h"
-
+#import "HeartRateViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -314,6 +312,8 @@
     self.alarmView.hidden = YES;
 }
 - (IBAction)rateAction:(UIButton *)sender {
+    HeartRateViewController *rate = [HeartRateViewController new];
+    [self.navigationController pushViewController:rate animated:YES];
 }
 - (IBAction)sendMessage:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"发送问候语给%@",self.curretOlder[@"elderName"]] preferredStyle:UIAlertControllerStyleAlert];
