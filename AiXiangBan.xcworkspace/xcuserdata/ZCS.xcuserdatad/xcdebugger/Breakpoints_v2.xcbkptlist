@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AiXiangBan/Classes/Look/LiveLookViewController.m"
-            timestampString = "529913028.19175"
+            timestampString = "529917367.914079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-config"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
+            landmarkName = "-willRotateToInterfaceOrientation:duration:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

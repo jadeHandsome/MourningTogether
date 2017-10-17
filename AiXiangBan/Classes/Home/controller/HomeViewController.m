@@ -24,6 +24,8 @@
 #import "AddAddressViewController.h"
 #import "AddWatchViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "BaseNaviViewController.h"
+#import "AppDelegate.h"
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -79,7 +81,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"首页";
+    self.title = @"";
     [self adjustFrame];
     [self configCollectionView];
     [self.myHeadImage sd_setImageWithURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].headImgUrl] placeholderImage:_zhanweiImageData];
@@ -326,22 +328,38 @@
 }
 
 - (void)openMessage:(NSString *)content{
+    //强制旋转竖屏
+    [self forceOrientationPortrait];
+    BaseNaviViewController *navi = (BaseNaviViewController *)self.navigationController;
+    navi.interfaceOrientation = UIInterfaceOrientationPortrait;
+    navi.interfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
+    //设置屏幕的转向为竖屏
+    [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
+    //刷新
+    [UIViewController attemptRotationToDeviceOrientation];
     MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
     // 设置短信内容
     vc.body = content;
     // 设置收件人列表
     vc.recipients = @[self.curretOlder[@"mobile"]];  // 号码数组
-    vc.navigationBar.tintColor = ColorRgbValue(0x1cb9cf);
     // 设置代理
     vc.messageComposeDelegate = self;
     // 显示控制器
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+//强制竖屏
+- (void)forceOrientationPortrait
+{
+    AppDelegate *appdelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegate.isForcePortrait=YES;
+    appdelegate.isForceLandscape=NO;
+    [appdelegate application:[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:self.view.window];
+}
+
 - (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result
 {
     // 关闭短信界面
-    [controller dismissViewControllerAnimated:YES completion:nil];
     if(result == MessageComposeResultCancelled) {
         NSLog(@"取消发送");
     } else if(result == MessageComposeResultSent) {
@@ -350,6 +368,7 @@
     } else {
         NSLog(@"发送失败");
     }
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 
