@@ -97,4 +97,7 @@ typedef void (^responseObjectBlock)(id responseObject);
 #pragma mark-------------适配ios11
 + (void)setIOSX:(UIScrollView *)vc;
 + (NSString *)timeStringFromFormat:(NSString *)dateFormate withDate:(NSDate *)date;
++ (NSArray *)getDeviceDataWithElderId:(NSString *)elderId andHomeId:(NSString *)homeId;
++ (void)saveDeviceDataWith:(NSArray *)deviceArray andElderId:(NSString *)elderId andHomeId:(NSString *)homeId;
++ (void)setDevice;
 @end

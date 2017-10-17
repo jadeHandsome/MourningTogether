@@ -7,7 +7,6 @@
 //
 
 #import "AddTendView.h"
-#import "TendOldView.h"
 #import "ImageCenterButton.h"
 #import "UIButton+WebCache.h"
 @implementation AddTendView
@@ -36,8 +35,15 @@
     if ([tendDic[@"title"] isEqualToString:@"老人"]) {
         UIView *temp = line;
         CGSize size = [UIImage imageNamed:@"云医时代1-100"].size;
+        __weak typeof(self) weakSelf = self;
         for (int i = 0; i < [tendDic[@"child"] count]; i ++) {
             TendOldView *old = [[TendOldView alloc]init];
+            
+            old.block = ^(NSInteger type, NSString *elderId,NSInteger has) {
+                if (weakSelf.btnBlock) {
+                    weakSelf.btnBlock(type, elderId,has);
+                }
+            };
             [self addSubview:old];
             [old mas_makeConstraints:^(MASConstraintMaker *make) {
                 if (i == 0) {
@@ -47,8 +53,9 @@
                 }
                 make.left.equalTo(self.mas_left);
                 make.right.equalTo(self.mas_right);
-                LRLog(@"%@",@(size.height + 20 + 55 + ([tendDic[@"child"][i][@"equipment"] count]/3 + 1) * 15 + [tendDic[@"child"][i][@"equipment"] count]/3 * 20));
-                make.height.equalTo(@(size.height + 55 + ([tendDic[@"child"][i][@"equipment"] count]/3 + 1) * 15 + [tendDic[@"child"][i][@"equipment"] count]/3 * 20));
+                LRLog(@"%@",@(size.height + 20 + 55 + (([tendDic[@"child"][i][@"equipment"] count] + 2)/3) * 15 + [tendDic[@"child"][i][@"equipment"] count]/3 * 20));
+                make.height.equalTo(@(size.height + 55 + (([tendDic[@"child"][i][@"equipment"] count] + 2)/3) * 15 + ([tendDic[@"child"][i][@"equipment"] count]+2)/3 * 20
+                                 + 20));
             }];
             [old setOldDataWith:tendDic[@"child"][i]];
             UIView *line1 = [[UIView alloc]init];

@@ -85,7 +85,7 @@
         make.centerY.equalTo(self.mas_centerY);
     }];
     [selectBtn setImage:[UIImage imageNamed:@"云医时代1-10"] forState:UIControlStateNormal];
-    [selectBtn setImage:[UIImage imageNamed:@"云医时代1-03"] forState:UIControlStateDisabled];
+    [selectBtn setImage:[UIImage imageNamed:@"云医时代1-3"] forState:UIControlStateDisabled];
     [selectBtn setImage:[UIImage imageNamed:@"云医时代1-97"] forState:UIControlStateSelected];
     if (self.isAdd) {
         selectBtn.hidden = NO;

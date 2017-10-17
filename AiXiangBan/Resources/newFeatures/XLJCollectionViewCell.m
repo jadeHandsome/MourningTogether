@@ -22,7 +22,8 @@
         
         UIImageView *tempImageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
         _imageView = tempImageView;
-        
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.clipsToBounds = YES;
         [self.contentView addSubview:_imageView];
     }
     

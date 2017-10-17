@@ -9,6 +9,11 @@
 #import "AddTendViewController.h"
 #import "AddTendView.h"
 #import "ChooseOlderViewController.h"
+#import "ChooseDeviceViewController.h"
+#import "RobotViewController.h"
+#import "LocationViewController.h"
+#import "NoWatchViewController.h"
+#import "LookViewController.h"
 @interface AddTendViewController ()
 
 @property (nonatomic, strong) UIScrollView *mainScroll;
@@ -39,34 +44,72 @@
         self.myData = [showdata copy];
         NSMutableArray *eq = [NSMutableArray array];
         for (NSDictionary *dic in showdata[@"familyElderList"]) {
-            NSMutableDictionary *mut = [NSMutableDictionary dictionary];
-            mut[@"equipment"] = @[@{@"eqName":@"位置",@"eqImage":@"云医时代1-89"},@{@"eqName":@"看看",@"eqImage":@"云医时代1-85"},@{@"eqName":@"机器人",@"eqImage":@"云医时代1-87"},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖检测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾报警",@"eqImage":@"云医时代1-90"}];
-            mut[@"oldDic"] = dic;
-            [eq addObject:mut];
-        }
-        NSMutableDictionary *old = [NSMutableDictionary dictionary];
-        old[@"title"] = @"老人";
-        old[@"child"] = [eq copy];
-        
-        NSMutableArray *lookMan = [NSMutableArray array];
-        NSMutableArray *qinqiMan = [NSMutableArray array];
-        for (NSDictionary *dic in showdata[@"familyOtherList"]) {
-            if ([dic[@"contactType"] integerValue] == 1) {
-                [lookMan addObject:dic];
-            } else {
-                [qinqiMan addObject:dic];
-            }
+            
+            [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"mgr/family/getElderDeviceList.do" params:@{@"elderId":dic[@"familyElderId"],@"offset":@0,@"size":@20} withModel:nil complateHandle:^(id showdata1, NSString *error) {
+                if (showdata1 == nil) {
+                    return ;
+                }
+                NSMutableDictionary *mut = [NSMutableDictionary dictionary];
+                NSArray *device = [KRBaseTool getDeviceDataWithElderId:dic[@"familyElderId"] andHomeId:self.famliID];
+                NSString *look = @"云医时代1-85";
+                NSString *robot = @"云医时代1-87";
+                NSString *location = @"云医时代1-89";
+                mut[@"hasLoc"] = @0;
+                mut[@"hasLook"] = @0;
+                mut[@"hasRobot"] = @0;
+                for (NSDictionary *subDic in showdata1[@"deviceList"]) {
+                    if ([subDic[@"deviceType"] integerValue] == 1) {
+                        location = @"云医时代1-93";
+                        mut[@"hasLoc"] = subDic[@"deviceSerialNo"];
+                    }
+                    if ([subDic[@"deviceType"] integerValue] == 2) {
+                        look = @"云医时代1-91";
+                        mut[@"hasLook"] = @1;
+                        
+                    }
+                    if ([subDic[@"deviceType"] integerValue] == 2) {
+                        robot = @"云医时代1-92";
+                        mut[@"hasRobot"] = @1;
+                    }
+                }
+                
+                if (!device) {
+                    device = @[@{@"eqName":@"位置",@"eqImage":location},@{@"eqName":@"看看",@"eqImage":look},@{@"eqName":@"机器人",robot:@"云医时代1-87"},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖检测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾报警",@"eqImage":@"云医时代1-90"}];
+                }
+                mut[@"equipment"] = device;
+                mut[@"oldDic"] = dic;
+                [eq addObject:mut];
+                if (eq.count == [showdata[@"familyElderList"] count]) {
+                    NSMutableDictionary *old = [NSMutableDictionary dictionary];
+                    old[@"title"] = @"老人";
+                    old[@"child"] = [eq copy];
+                    
+                    NSMutableArray *lookMan = [NSMutableArray array];
+                    NSMutableArray *qinqiMan = [NSMutableArray array];
+                    for (NSDictionary *dic in showdata[@"familyOtherList"]) {
+                        if ([dic[@"contactType"] integerValue] == 1) {
+                            [lookMan addObject:dic];
+                        } else {
+                            [qinqiMan addObject:dic];
+                        }
+                        
+                    }
+                    NSMutableDictionary *lookDic = [NSMutableDictionary dictionary];
+                    lookDic[@"title"] = @"监护人";
+                    lookDic[@"child"] = [lookMan copy];
+                    
+                    NSMutableDictionary *qinqiDic = [NSMutableDictionary dictionary];
+                    qinqiDic[@"title"] = @"亲属邻里";
+                    qinqiDic[@"child"] = [qinqiMan copy];
+                    self.alltend = @[old,lookDic,qinqiDic];
+                    [self setUp];
+                }
+            }];
+            
+            
             
         }
-        NSMutableDictionary *lookDic = [NSMutableDictionary dictionary];
-        lookDic[@"title"] = @"监护人";
-        lookDic[@"child"] = [lookMan copy];
         
-        NSMutableDictionary *qinqiDic = [NSMutableDictionary dictionary];
-        qinqiDic[@"title"] = @"亲属邻里";
-        qinqiDic[@"child"] = [qinqiMan copy];
-        self.alltend = @[old,lookDic,qinqiDic];
-        [self setUp];
     }];
 }
 - (void)setUp {
@@ -91,7 +134,7 @@
             CGFloat h = 0;
             CGSize size = [UIImage imageNamed:@"云医时代1-100"].size;
             for (int j = 0; j < [self.alltend[0][@"child"] count]; j ++) {
-                h += size.height + 20 + 55 + ([self.alltend[0][@"child"][j][@"equipment"] count]/3 + 1) * 15 + [self.alltend[0][@"child"][j][@"equipment"] count]/3 * 20;
+                h += size.height + 20 + 55 + (([self.alltend[0][@"child"][j][@"equipment"] count] + 2)/3) * 15 + (2 + [self.alltend[0][@"child"][j][@"equipment"] count])/3 * 20 + 20 ;
             }
             height = 90 + h;
             self.mainScroll.contentSize = CGSizeMake(0, 40 + 2 * 115 + h + 90 + 65);
@@ -121,6 +164,33 @@
             [weakSelf.navigationController pushViewController:choose animated:YES];
             
         };
+        tend.btnBlock = ^(NSInteger type, NSString *elderId,NSInteger has) {
+            switch (type) {
+                case 1:
+                {
+                    [weakSelf addDeviceWith:elderId];
+                }
+                    break;
+                case 2:
+                {
+                    [weakSelf gotoLocation:elderId has:has];
+                }
+                    break;
+                case 3:
+                {
+                    [weakSelf gotoLook:elderId has:has];
+                }
+                    break;
+                case 4:
+                {
+                    [weakSelf gotoRobot:elderId has:has];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        };
         temp = tend;
         
     }
@@ -139,6 +209,43 @@
     [deletBtn addTarget:self action:@selector(delectClick) forControlEvents:UIControlEventTouchUpInside];
     
     
+}
+//添加设备
+- (void)addDeviceWith:(NSString *)elderId {
+    ChooseDeviceViewController *dev = [[ChooseDeviceViewController alloc]init];
+    dev.familyId = self.famliID;
+    dev.elderId = elderId;
+    [self.navigationController pushViewController:dev animated:YES];
+}
+//去位置
+- (void)gotoLocation:(NSString *)elderId has:(NSInteger)has{
+    NSLog(@"去位置");
+    [[KRUserInfo sharedKRUserInfo] setElderId:elderId];
+    if (has) {
+        LocationViewController *loc = [[LocationViewController alloc]init];
+        [[KRUserInfo sharedKRUserInfo] setDeviceId:[NSString stringWithFormat:@"%ld",has]];
+        [self.navigationController pushViewController:loc animated:YES];
+    } else {
+        NoWatchViewController *no = [[NoWatchViewController alloc]init];
+        
+        [self.navigationController pushViewController:no animated:YES];
+    }
+    
+}
+//去看看
+- (void)gotoLook:(NSString *)elderId  has:(NSInteger)has{
+    NSLog(@"去看看");
+    [[KRUserInfo sharedKRUserInfo] setElderId:elderId];
+    LookViewController *look = [[LookViewController alloc]init];
+    [self.navigationController pushViewController:look animated:YES];
+    
+}
+//去机器人
+- (void)gotoRobot:(NSString *)elderId  has:(NSInteger)has{
+    NSLog(@"去机器人");
+    [[KRUserInfo sharedKRUserInfo] setElderId:elderId];
+    RobotViewController *robot = [[RobotViewController alloc]init];
+    [self.navigationController pushViewController:robot animated:YES];
 }
 //删除
 - (void)delectClick {

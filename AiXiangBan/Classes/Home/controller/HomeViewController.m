@@ -22,10 +22,14 @@
 #import "LocationViewController.h"
 
 #import "AddAddressViewController.h"
-#import "AddWatchViewController.h"
+
 #import <MessageUI/MessageUI.h>
+
+#import "NoWatchViewController.h"
+
 #import "BaseNaviViewController.h"
 #import "AppDelegate.h"
+
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -48,7 +52,9 @@
 @end
 
 @implementation HomeViewController
-
+{
+    NSDictionary *tempOlder;
+}
 - (NSMutableArray *)linkmanArr{
     if(_linkmanArr == nil){
         _linkmanArr = [NSMutableArray array];
@@ -57,6 +63,7 @@
 }
 - (void)setCurretOlder:(NSDictionary *)curretOlder {
     _curretOlder = curretOlder;
+    tempOlder = curretOlder;
     self.nameLabel.text = curretOlder[@"elderName"];
     self.detailLabel.text = curretOlder[@"nickname"];
     if (![curretOlder[@"emergency"] integerValue]) {
@@ -105,6 +112,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self getHomeData];
     [self hideNaviBar];
+    self.curretOlder = tempOlder;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
@@ -273,10 +281,10 @@
 }
 - (IBAction)goToLocation:(UITapGestureRecognizer *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
-        AddWatchViewController *addWatch = [[AddWatchViewController alloc]init];
-        [self.navigationController pushViewController:addWatch animated:YES];
         
-        [MBProgressHUD showError:@"请先绑定设备" toView:addWatch.view];
+        NoWatchViewController *nows = [[NoWatchViewController alloc]init];
+        [self.navigationController pushViewController:nows animated:YES];
+        [MBProgressHUD showError:@"请先绑定设备" toView:nows.view];
     } else {
         LocationViewController *location = [LocationViewController new];
         [self.navigationController pushViewController:location animated:YES];
@@ -357,10 +365,10 @@
 
 - (IBAction)goLocation:(UIButton *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
-        AddWatchViewController *addWatch = [[AddWatchViewController alloc]init];
-        [self.navigationController pushViewController:addWatch animated:YES];
-        
-        [MBProgressHUD showError:@"请先绑定设备" toView:addWatch.view];
+       
+        NoWatchViewController *no = [[NoWatchViewController alloc]init];
+        [self.navigationController pushViewController:no animated:YES];
+        [MBProgressHUD showError:@"请先绑定设备" toView:no.view];
     } else {
         LocationViewController *location = [LocationViewController new];
         [self.navigationController pushViewController:location animated:YES];

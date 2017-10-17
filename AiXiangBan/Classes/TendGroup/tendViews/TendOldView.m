@@ -8,9 +8,15 @@
 
 #import "TendOldView.h"
 
+@interface TendOldView()
+@property (nonatomic, strong) NSString *elderId;
+
+@property (nonatomic, strong) NSDictionary *myData;
+@end
 @implementation TendOldView
 
 - (void)setOldDataWith:(NSDictionary *)dic {
+    self.myData = [dic copy];
     UIImageView *headImage = [[UIImageView alloc]init];
     [self addSubview:headImage];
     [headImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -20,6 +26,7 @@
         make.height.equalTo(@55);
     }];
     [headImage sd_setImageWithURL:[NSURL URLWithString:dic[@"oldDic"][@"headImgUrl"]] placeholderImage:_zhanweiImageData];
+    LRViewBorderRadius(headImage, 27.5, 0, [UIColor clearColor]);
     UIView *temp = headImage;
     
     UILabel *oldLabel = [[UILabel alloc]init];
@@ -31,6 +38,7 @@
         make.centerY.equalTo(temp.mas_centerY);
     }];
     oldLabel.text = dic[@"oldDic"][@"familyElderName"];
+    self.elderId = dic[@"oldDic"][@"familyElderId"];
     oldLabel.textColor = [UIColor blackColor];
     oldLabel.font = [UIFont systemFontOfSize:16];
     temp = self;
@@ -74,7 +82,17 @@
         if (i % 3 == 2) {
             tempEq = subView;
         }
+        if ([dic[@"equipment"][i][@"eqName"] isEqualToString:@"位置"]) {
+            subView.tag = 100;
+        } else if ([dic[@"equipment"][i][@"eqName"] isEqualToString:@"看看"]) {
+            subView.tag = 200;
+        } else if ([dic[@"equipment"][i][@"eqName"] isEqualToString:@"机器人"]) {
+            subView.tag = 300;
+        }
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
+        [subView addGestureRecognizer:tap];
         temp = subView;
+        
     }
     UIButton *moreEq = [[UIButton alloc]init];
     [self addSubview:moreEq];
@@ -83,10 +101,31 @@
         make.left.equalTo(self.mas_left).with.offset(10);
         
     }];
+    [moreEq addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     [moreEq setTitleColor:LRRGBColor(200, 200, 200) forState:UIControlStateNormal];
     [moreEq setTitle:@" 更多设备" forState:UIControlStateNormal];
     [moreEq setImage:[UIImage imageNamed:@"云医时代1-100"] forState:UIControlStateNormal];
     
+}
+- (void)click:(id)sender {
+    if ([sender isKindOfClass:[UIButton class]]) {
+        //添加设备
+        if (self.block) {
+            self.block(1, self.elderId,false);
+        }
+    } else {
+        UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender ;
+        if (tap.view.tag == 100) {
+            //位置
+            self.block(2, self.elderId,[self.myData[@"hasLoc"] integerValue]);
+        } else if (tap.view.tag == 200) {
+            //看看
+            self.block(3, self.elderId,[self.myData[@"hasLook"] integerValue]);
+        } else if (tap.view.tag == 300) {
+            //机器人
+            self.block(4, self.elderId,[self.myData[@"hasRobot"] integerValue]);
+        }
+    }
 }
 
 @end
