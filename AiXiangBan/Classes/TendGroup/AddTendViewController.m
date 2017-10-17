@@ -67,14 +67,14 @@
                         mut[@"hasLook"] = @1;
                         
                     }
-                    if ([subDic[@"deviceType"] integerValue] == 2) {
+                    if ([subDic[@"deviceType"] integerValue] == 3) {
                         robot = @"云医时代1-92";
                         mut[@"hasRobot"] = @1;
                     }
                 }
                 
                 if (!device) {
-                    device = @[@{@"eqName":@"位置",@"eqImage":location},@{@"eqName":@"看看",@"eqImage":look},@{@"eqName":@"机器人",robot:@"云医时代1-87"},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖检测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾报警",@"eqImage":@"云医时代1-90"}];
+                    device = @[@{@"eqName":@"位置",@"eqImage":location},@{@"eqName":@"看看",@"eqImage":look},@{@"eqName":@"机器人",@"eqImage":robot},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖检测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾报警",@"eqImage":@"云医时代1-90"}];
                 }
                 mut[@"equipment"] = device;
                 mut[@"oldDic"] = dic;

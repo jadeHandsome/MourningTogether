@@ -141,7 +141,10 @@
         {
             titleStr = @"年龄";
             UITextField *textField = [[UITextField alloc]init];
-            textField.text = [NSString stringWithFormat:@"%@",param[@"age"]];
+            if (param[@"age"]) {
+                textField.text = [NSString stringWithFormat:@"%@",param[@"age"]];
+            }
+            
             textField.tag = 5;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
@@ -193,7 +196,7 @@
             break;
         case 7:
         {
-            titleStr = @"地址";
+            titleStr = @"所在地区";
             UIImageView *right = [[UIImageView alloc]init];
             [self addSubview:right];
             [right mas_makeConstraints:^(MASConstraintMaker *make) {

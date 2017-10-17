@@ -27,9 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    if (!self.oldDic) {
+    //if (!self.oldDic) {
        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(finish)];
-    }
+    //}
     
     if (self.type == 1) {
         typeCount = 11;
@@ -208,7 +208,7 @@
                 [MBProgressHUD showSuccess:@"删除成功"];
             }];
         } else {
-            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/deleteOther.do" params:@{@"elderId":self.oldDic[@"otherId"]} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/deleteOther.do" params:@{@"otherId":self.oldDic[@"otherId"]} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
                 if (showdata == nil) {
                     return ;
                 }

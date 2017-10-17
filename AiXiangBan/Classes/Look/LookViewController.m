@@ -74,7 +74,10 @@
                 }
             }
             [EZOPENSDK getDeviceInfo:self.dic[@"deviceSerialNo"] completion:^(EZDeviceInfo *deviceInfo, NSError *error) {
-                [self.data addObject:deviceInfo];
+                if (deviceInfo) {
+                    [self.data addObject:deviceInfo];
+                }
+                
                 if(self.data.count){
                     self.tableView.hidden = NO;
                     self.containerView.hidden = YES;
