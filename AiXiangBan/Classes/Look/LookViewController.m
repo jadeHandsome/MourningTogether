@@ -147,12 +147,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     EZDeviceInfo *deviceInfo = self.data[indexPath.row];
-    if (deviceInfo.status == 1) {
+//    if (deviceInfo.status == 1) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         LiveLookViewController *LiveVC = [LiveLookViewController new];
         LiveVC.deviceInfo = deviceInfo;
+        LiveVC.accessToken = self.accessToken;
         [self.navigationController pushViewController:LiveVC animated:YES];
-    }
+//    }
 }
 
 - (IBAction)addAction:(UIButton *)sender {

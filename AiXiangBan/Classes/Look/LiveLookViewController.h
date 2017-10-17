@@ -10,4 +10,5 @@
 
 @interface LiveLookViewController : BaseViewController
 @property (nonatomic, strong) EZDeviceInfo *deviceInfo;
+@property (nonatomic, strong) NSString *accessToken;
 @end

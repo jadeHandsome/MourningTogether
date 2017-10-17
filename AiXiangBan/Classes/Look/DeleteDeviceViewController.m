@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"解除绑定";
+    self.navigationItem.title = @"删除设备";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     [self setUp];
     // Do any additional setup after loading the view from its nib.

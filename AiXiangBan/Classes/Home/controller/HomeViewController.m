@@ -230,6 +230,7 @@
             NSString *accessToken = showdata[@"accessToken"];
             [EZOPENSDK setAccessToken:accessToken];
             LookViewController *lookVC = [LookViewController new];
+            lookVC.accessToken = showdata[@"accessToken"];
             [self.navigationController pushViewController:lookVC animated:YES];
         }
     }];

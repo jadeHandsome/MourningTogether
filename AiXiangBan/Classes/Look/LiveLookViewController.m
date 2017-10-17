@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "EZPlayer.h"
 #import "HIKLoadView.h"
+#import "AFNetworking.h"
 @interface LiveLookViewController ()<EZPlayerDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
@@ -65,11 +66,21 @@
 @property (weak, nonatomic) IBOutlet UIButton *PTLeft;
 @property (weak, nonatomic) IBOutlet UILabel *talkdisplay;
 @property (nonatomic, assign) BOOL isRecording;
+@property (nonatomic, assign) int camareEnable;
+@property (weak, nonatomic) IBOutlet UIButton *voicePressBtn;
+@property (nonatomic, strong) NSString *cheakCode;
 @end
 
 
 
 @implementation LiveLookViewController
+
+- (void)dealloc
+{
+    NSLog(@"%@ dealloc", self.class);
+    [EZOPENSDK releasePlayer:_player];
+    [EZOPENSDK releasePlayer:_talkPlayer];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,7 +108,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    if(self.videoBtn.selected)
+    if(self.isRecording)
     {
         [_player stopLocalRecord];
         [self.fileData writeToFile:_filePath atomically:YES];
@@ -117,9 +128,11 @@
     self.topConstraint.constant = navHight + 10;
     self.bottomConstraint.constant = SIZEHEIGHT - navHight - 10 - 220;
     LRViewBorderRadius(self.vioceView, 11.5, 0, [UIColor clearColor]);
+    LRViewBorderRadius(self.recordView, 11.5, 0, [UIColor clearColor]);
 }
 
 - (void)config{
+    self.camareEnable = 1;
     if (self.deviceInfo.status == 2) {
         [self showHUDWithText:@"设备不在线"];
     }
@@ -128,7 +141,7 @@
     self.cameraInfo = self.deviceInfo.cameraInfo[0];
     self.player = [EZOPENSDK createPlayerWithDeviceSerial:_cameraInfo.deviceSerial cameraNo:_cameraInfo.cameraNo];
     self.talkPlayer = [EZOPENSDK createPlayerWithDeviceSerial:_cameraInfo.deviceSerial cameraNo:_cameraInfo.cameraNo];
-    //        _player = [EZOPENSDK createPlayerWithDeviceSerial:info.deviceSerial cameraNo:info.cameraNo streamType:1];
+
     if (_cameraInfo.videoLevel == 2)
     {
         [self.qualityBtn setTitle:@"高清" forState:UIControlStateNormal];
@@ -140,6 +153,14 @@
     else
     {
         [self.qualityBtn setTitle:@"流畅" forState:UIControlStateNormal];
+    }
+    
+    if (self.deviceInfo.isEncrypt) {
+        NSString *verifyCode = [self getFromDefaultsWithKey:@"VerifyCodeDic"][self.deviceInfo.deviceSerial];
+        if (verifyCode) {
+            [_player setPlayVerifyCode:verifyCode];
+            [_talkPlayer setPlayVerifyCode:verifyCode];
+        }
     }
     
     if(!_loadingView)
@@ -224,7 +245,7 @@
     }
 }
 - (IBAction)changeQuality:(UIButton *)sender {
-    if(self.qualityBtn.selected)
+    if(!self.qualityView.hidden)
     {
         self.qualityView.hidden = YES;
     }
@@ -234,12 +255,10 @@
         //停留5s以后隐藏视频质量View.
         [self performSelector:@selector(hideQualityView) withObject:nil afterDelay:2.0f];
     }
-    self.qualityBtn.selected = !self.qualityBtn.selected;
 }
 
 - (void)hideQualityView
 {
-    self.qualityBtn.selected = NO;
     self.qualityView.hidden = YES;
 }
 
@@ -315,9 +334,11 @@
                 if (self.deviceInfo.isSupportTalk) {
                     if (self.deviceInfo.isSupportTalk != 1 && self.deviceInfo.isSupportTalk != 3)
                     {
+                        self.voicePressBtn.enabled = NO;
                         return;
                     }
                     if (self.deviceInfo.isSupportTalk == 3) {
+                        self.voicePressBtn.enabled = YES;
                         self.talkdisplay.text = @"轻点后说话";
                     }
                     self.bottomVoiceView.hidden = NO;
@@ -331,6 +352,7 @@
                 break;
             case 202:
                 //镜头
+                [self setCameraStatus];
                 break;
             case 203:
                 //截图
@@ -353,6 +375,38 @@
     }
 }
 
+- (void)setCameraStatus{
+    int enable = self.camareEnable == 1 ? 0 : 1;
+    NSDictionary *params = @{@"accessToken":self.accessToken,@"deviceSerial":self.deviceInfo.deviceSerial,@"enable":@(enable),@"channelNo":@(self.cameraInfo.cameraNo)};
+    __block MBProgressHUD *HUD;
+    HUD = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    UIView *cusTome = [[UIView alloc]init];
+    cusTome.backgroundColor = [UIColor blackColor];
+    HUD.customView = cusTome;
+    HUD.removeFromSuperViewOnHide = YES;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 10.f;
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:@"https://open.ys7.com/api/lapp/device/scene/switch/set" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //请求成功，隐藏HUD并销毁
+        [HUD hideAnimated:YES];
+        NSDictionary *response = nil;
+        if ([responseObject isKindOfClass:[NSData class]]) {
+            response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        } else {
+            response = responseObject;
+        }
+        if ([response[@"code"] isEqualToString:@"200"]) {
+            [MBProgressHUD showError:[NSString stringWithFormat:@"摄像头%@成功",enable == 1?@"开启":@"关闭"] toView:self.view];
+            self.camareEnable = !self.camareEnable;
+        }
+        else{
+            [MBProgressHUD showError:@"操作失败" toView:self.view];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD showError:@"网络异常" toView:self.view];
+    }];
+}
 
 
 - (IBAction)closeVoice:(UIButton *)sender {
@@ -464,7 +518,7 @@
         [_player startRealPlay];
         return;
     }
-    
+    self.bottomVoiceView.hidden = YES;
     [self showHUDWithText:[NSString stringWithFormat:@"播放失败%d", (int)error.code]];
     [self.loadingView stopSquareClockwiseAnimation];
 }
@@ -473,6 +527,13 @@
 {
     if (messageCode == PLAYER_REALPLAY_START)
     {
+        if (self.cheakCode) {
+            NSMutableDictionary *VerifyCodeDic = [NSMutableDictionary dictionaryWithDictionary:[self getFromDefaultsWithKey:@"VerifyCodeDic"]];
+            if (![[VerifyCodeDic allKeys] containsObject:self.deviceInfo.deviceSerial]) {
+                VerifyCodeDic[self.deviceInfo.deviceSerial] = self.cheakCode;
+                [self saveToUserDefaultsWithKey:@"VerifyCodeDic" Value:VerifyCodeDic];
+            }
+        }
         [self able];
         [self.loadingView stopSquareClockwiseAnimation];
         _isPlaying = YES;
@@ -487,6 +548,7 @@
         self.isStartingTalk = NO;
         self.bottomVoiceView.hidden = NO;
         self.vioceView.hidden = NO;
+        [self.playerView bringSubviewToFront:self.vioceView];
     }
     else if (messageCode == PLAYER_VOICE_TALK_END)
     {
@@ -531,6 +593,7 @@
         if (buttonIndex == 1)
         {
             NSString *checkCode = [alertView textFieldAtIndex:0].text;
+            self.cheakCode = checkCode;
             if (!self.isStartingTalk)
             {
                 [self.player setPlayVerifyCode:checkCode];
@@ -598,6 +661,7 @@
     {
         self.isRecording = YES;
         self.recordView.hidden = NO;
+        [self.playerView bringSubviewToFront:self.recordView];
         //开始本地录像
         NSString *path = @"/OpenSDK/EzvizLocalRecord";
         NSArray * docdirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

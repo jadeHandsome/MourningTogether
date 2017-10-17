@@ -185,22 +185,22 @@
     }
     isPlaye = YES;
     __weak typeof(self) weakSelf = self;
-    if (@available(iOS 10.0, *)) {
-        countTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            loadCount ++;
-            if (loadCount >= 10) {
-                [timer invalidate];
-                weakSelf.progressView.hidden = YES;
-                [hud hideAnimated:YES];
-                isPlaye = NO;
-                [self showHUDWithText:@"请求超时"];
-                loadCount = 0;
-            }
-            
-        }];
-    } else {
-        // Fallback on earlier versions
-    }
+//    if (@available(iOS 10.0, *)) {
+//        countTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//            loadCount ++;
+//            if (loadCount >= 10) {
+//                [timer invalidate];
+//                weakSelf.progressView.hidden = YES;
+//                [hud hideAnimated:YES];
+//                isPlaye = NO;
+//                [self showHUDWithText:@"请求超时"];
+//                loadCount = 0;
+//            }
+//            
+//        }];
+//    } else {
+//        // Fallback on earlier versions
+//    }
     hud  = [MBProgressHUD showMessage:@"正在开启" toView:self.view.window];
     self.progressView.hidden = NO;
     [self showHUDWithText:@"正在开启"];
