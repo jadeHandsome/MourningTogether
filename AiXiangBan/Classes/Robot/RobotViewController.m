@@ -27,7 +27,7 @@
     
     
 //    self.allRobot = @[@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"}];
-    [self getRobotInfo];
+    
     
 }
 - (void)add {
@@ -58,9 +58,12 @@
     }];
 }
 - (void)viewWillAppear:(BOOL)animated {
-    
+    [self getRobotInfo];
 }
 - (void)setUP {
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
     if (self.allRobot.count == 0) {
         UILabel *nullLabel = [[UILabel alloc]init];
         [self.view addSubview:nullLabel];

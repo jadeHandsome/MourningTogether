@@ -21,10 +21,20 @@
 @property (nonatomic, strong) UIScrollView *oldScr;
 @property (nonatomic, strong) UIScrollView *jianhuScr;
 @property (nonatomic, strong) UIScrollView *qinQScr;
+@property (nonatomic, strong) NSString *searchStr;
+@property (nonatomic, assign) NSInteger type;
 @end
 
 @implementation AddressBookViewController
-
+{
+    NSArray *tempArray;
+}
+- (void)setSearchStr:(NSString *)searchStr {
+    _searchStr = searchStr;
+    
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.sortArray = @[@"老人",@"监护人",@"亲属邻里"];
@@ -32,6 +42,7 @@
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代1-27"] style:UIBarButtonItemStyleDone target:self action:@selector(addClick)];
+    self.type = 1;
     [self setUpPage];
     
     //[self setUpScro];
@@ -67,6 +78,9 @@
     
     [self.navigationController pushViewController:add animated:YES];
 }
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+}
 - (void)setUpPage {
     UIView *titleView = [[UIView alloc]init];
     _titleView = titleView;
@@ -81,6 +95,7 @@
     UIView *temp = titleView;
     for (int i = 0; i < 3; i ++) {
         UIButton *titleBtn = [[UIButton alloc]init];
+        
         [titleView addSubview:titleBtn];
         [titleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             if (i == 0) {
@@ -210,12 +225,15 @@
         subS.contentSize = CGSizeMake(0, [self.dataArray[i] count] * 60);
         if (i == 0) {
             _oldScr = subS;
+            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getOldManData)];
             [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getOldManData)];
         } else if (i == 1) {
             _jianhuScr = subS;
+            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getJianhuData)];
             [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getJianhuData)];
         } else {
             _qinQScr = subS;
+            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getQinQiData)];
             [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getQinQiData)];
         }
         
@@ -232,6 +250,18 @@
         UIView *bottomTemp = secondView;
         for (int j = 0; j < [self.dataArray[i] count]; j ++) {
             AddressView *address = [[AddressView alloc]init];
+            if (self.searchStr.length > 0) {
+                if (self.type == 1) {
+                    
+                    if (![self.dataArray[i][j][@"elderName"] containsString:self.searchStr]) {
+                        return;
+                    }
+                } else {
+                    if (![self.dataArray[i][j][@"otherName"] containsString:self.searchStr]) {
+                        return;
+                    }
+                }
+            }
             [secondView addSubview:address];
             [address mas_makeConstraints:^(MASConstraintMaker *make) {
                 if (j == 0) {
@@ -283,15 +313,19 @@
 }
 #pragma -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
     if (scrollView.contentOffset.x / SCREEN_WIDTH == 0.0) {
         UIButton *btn = [self.titleView viewWithTag:100];
         [self titleClick:btn];
+        self.type = 1;
     } else if (scrollView.contentOffset.x / SCREEN_WIDTH == 1.0) {
         UIButton *btn = [self.titleView viewWithTag:101];
         [self titleClick:btn];
+        self.type = 2;
     } else if (scrollView.contentOffset.x / SCREEN_WIDTH == 2.0) {
         UIButton *btn = [self.titleView viewWithTag:102];
         [self titleClick:btn];
+        self.type = 3;
     }
 }
 #pragma -- 获取所有数据

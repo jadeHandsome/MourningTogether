@@ -91,7 +91,7 @@
     self.title = @"";
     [self adjustFrame];
     [self configCollectionView];
-    [self.myHeadImage sd_setImageWithURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].headImgUrl] placeholderImage:_zhanweiImageData];
+    
     LRViewBorderRadius(self.myHeadImage, 12.5, 0, [UIColor clearColor]);
     // Do any additional setup after loading the view from its nib.
 }
@@ -104,7 +104,7 @@
         self.linkmanArr = [showdata[@"elderList"] mutableCopy];
         if (!self.curretOlder && [showdata[@"elderList"] count] > 0) {
             self.curretOlder = showdata[@"elderList"][0];
-        }
+        } 
         [self.collectionView reloadData];
         
     }];
@@ -113,6 +113,7 @@
     [self getHomeData];
     [self hideNaviBar];
     self.curretOlder = tempOlder;
+    [self.myHeadImage sd_setImageWithURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].headImgUrl] placeholderImage:_zhanweiImageData];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
