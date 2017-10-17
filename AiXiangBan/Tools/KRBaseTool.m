@@ -704,4 +704,91 @@ singleton_implementation(KRBaseTool)
     return [formater stringFromDate:date];
     
 }
++ (NSArray *)getDeviceDataWithElderId:(NSString *)elderId andHomeId:(NSString *)homeId {
+    NSString *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).lastObject;
+    NSMutableArray *deviceArray = [[NSArray arrayWithContentsOfFile:[path stringByAppendingPathComponent:@"device.plist"]] mutableCopy];
+    for (NSDictionary *member in deviceArray) {
+        if ([member[@"id"] isEqualToString:[KRUserInfo sharedKRUserInfo].memberId]) {
+            for (NSDictionary *dic in member[@"homes"]) {
+                if ([dic[@"id"] isEqualToString:homeId]) {
+                    for (NSDictionary *elder in dic[@"elders"]) {
+                        return elder[@"devices"];
+                    }
+                }
+            }
+        }
+    }
+    return nil;
+    
+}
++ (void)saveDeviceDataWith:(NSArray *)deviceArray andElderId:(NSString *)elderId andHomeId:(NSString *)homeId{
+    NSString *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).lastObject;
+    NSMutableArray *array = [[NSArray arrayWithContentsOfFile:[path stringByAppendingPathComponent:@"device.plist"]] mutableCopy];
+    
+    NSMutableArray *tempArray = [NSMutableArray array];
+    BOOL hasMember = false;
+    for (NSDictionary *dic in array) {
+        
+        NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
+        if ([dic[@"id"] isEqualToString:[KRUserInfo sharedKRUserInfo].memberId]) {
+            hasMember = YES;
+            NSMutableArray *homes = [dic[@"homes"] mutableCopy];
+            tempDic[@"id"] = dic[@"id"];
+            NSMutableArray *tempHome = [NSMutableArray array];
+            BOOL haseHome = false;
+            
+            for (NSDictionary *home in homes) {
+                
+                
+                if ([home[@"id"] isEqualToString:homeId]) {
+                    haseHome = YES;
+                    NSMutableArray *elderIds = [NSMutableArray array];
+                    NSMutableDictionary *tempElder = [NSMutableDictionary dictionary];
+                    BOOL haseElder = false;
+                    
+                    for (NSDictionary *elder in home[@"elders"]) {
+                        if ([elder[@"id"] isEqualToString:elderId]) {
+                            haseElder = YES;
+                            tempElder[@"devices"] = deviceArray;
+                            tempElder[@"id"] = elder[@"id"];
+                            [elderIds addObject:tempElder];
+                        } else {
+                            [elderIds addObject:elder];
+                        }
+                    }
+                    if (!haseElder) {
+                        [elderIds addObject:@{@"id":elderId,@"devices":deviceArray}];
+                    }
+                    
+                    [tempHome addObject:@{@"id":homeId,@"elders":elderIds}];
+                    
+                    
+                } else {
+                    [tempHome addObject:home];
+                }
+                
+            }
+            if (!haseHome) {
+                [tempHome addObject:@{@"id":homeId,@"elders":@[@{@"id":elderId,@"devices":deviceArray}]}];
+                
+            }
+            tempDic[@"homes"] = tempHome;
+            [tempArray addObject:tempDic];
+        } else {
+            [tempArray addObject:dic];
+        }
+        
+    }
+    if (!hasMember) {
+        NSDictionary *device = @{@"id":[KRUserInfo sharedKRUserInfo].memberId,@"homes":@[@{@"id":homeId,@"elders":@[@{@"id":elderId,@"devices":deviceArray}]}]};
+        [tempArray addObject:device];
+    }
+    [tempArray writeToFile:[path stringByAppendingPathComponent:@"device.plist"] atomically:YES];
+}
++ (void)setDevice {
+    NSString *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).lastObject;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[path stringByAppendingPathComponent:@"device.plist"]]) {
+        [[NSFileManager defaultManager] createFileAtPath:@"device.plist" contents:nil attributes:nil];
+    }
+}
 @end

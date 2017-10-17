@@ -10,6 +10,7 @@
 #import "TendView.h"
 #import "AddTendViewController.h"
 #import "ChooseOlderViewController.h"
+
 @interface TendViewController ()
 @property (nonatomic, strong) NSMutableArray *alltend;//所有群组的数组
 @property (nonatomic, strong) UIScrollView *mainScroll;
@@ -65,6 +66,7 @@
             self.view.backgroundColor = LRRGBAColor(255, 255, 255, 1);
             [self setUpZero];
         } else {
+            
             self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStyleDone target:self action:@selector(addBtnClick)];
             [self setUP];

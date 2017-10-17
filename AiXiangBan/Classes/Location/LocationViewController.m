@@ -13,6 +13,7 @@
 #import "RailViewController.h"
 #import "TRAnnotation.h"
 #import "TrackViewController.h"
+
 @interface LocationViewController ()<MAMapViewDelegate,AMapLocationManagerDelegate>
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapLocationManager *locationManager;

@@ -81,7 +81,7 @@
         if (!self.oldData) {
             NSString *typeStr = @"";
             for (NSDictionary *dic in self.chooseData) {
-                typeStr = [[@"id" stringByAppendingString:dic[@"elderId"]] stringByAppendingString:@"-type3"];
+                typeStr = [[@"" stringByAppendingString:dic[@"elderId"]] stringByAppendingString:@"-3"];
             }
             [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"mgr/family/addFamily.do" params:@{@"idTypes":typeStr} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
                 if (showdata == nil) {
@@ -93,10 +93,20 @@
             NSMutableString *typeStr = [NSMutableString string];
             for (NSDictionary *dic in self.chooseData) {
                 if ([self.chooseData indexOfObject:dic] == self.chooseData.count - 1) {
-                    [typeStr appendString:dic[@"familyElderId"]];
+                    if (self.isDelet) {
+                        [typeStr appendString:dic[@"familyElderId"]];
+                    } else {
+                        [typeStr appendString:dic[@"elderId"]];
+                    }
+                    
                     
                 } else {
-                    [typeStr appendString:[dic[@"familyElderId"] stringByAppendingString:@","]];
+                    if (self.isDelet ) {
+                        [typeStr appendString:[dic[@"familyElderId"] stringByAppendingString:@","]];
+                    } else {
+                        [typeStr appendString:[dic[@"elderId"] stringByAppendingString:@","]];
+                    }
+                    
                     
                 }
                 
@@ -125,10 +135,19 @@
         NSMutableString *typeStr = [NSMutableString string];
         for (NSDictionary *dic in self.chooseData) {
             if ([self.chooseData indexOfObject:dic] == self.chooseData.count - 1) {
-                [typeStr appendString:dic[@"familyOtherId"]];
+                if (self.isDelet) {
+                    [typeStr appendString:dic[@"familyOtherId"]];
+                } else {
+                    [typeStr appendString:dic[@"otherId"]];
+                }
                 
             } else {
-                [typeStr appendString:[dic[@"familyOtherId"] stringByAppendingString:@","]];
+                if (self.isDelet) {
+                    [typeStr appendString:[dic[@"familyOtherId"] stringByAppendingString:@","]];
+                } else {
+                    [typeStr appendString:[dic[@"otherId"] stringByAppendingString:@","]];
+                }
+                
                 
             }
         }
@@ -170,15 +189,21 @@
         subS.backgroundColor = [UIColor clearColor];
         _myScroll = subS;
         subS.contentSize = CGSizeMake(0, [self.dataArray count] * 60);
-        if (self.type == 0) {
+        if (self.type == 1) {
+            if (!self.isDelet) {
+                [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getOldManData)];
+            }
             
-            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getOldManData)];
-        } else if (self.type == 1) {
+        } else if (self.type == 2) {
+            if (!self.isDelet) {
+                [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getJianhuData)];
+            }
             
-            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getJianhuData)];
         } else {
+            if (!self.isDelet) {
+                [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getQinQiData)];
+            }
             
-            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getQinQiData)];
         }
         
         UIView *secondView = [[UIView alloc]init];
@@ -203,12 +228,15 @@
                     }
                 }
             } else {
-                NSArray *array = self.oldData[@"familyOtherList"] ;
-                for (NSDictionary *dic in array) {
-                    if ([dic[@"familyOtherId"] isEqualToString:self.dataArray[j][@"otherId"] ]) {
-                        address.isChoose = YES;
+                if (!self.isDelet) {
+                    NSArray *array = self.oldData[@"familyOtherList"] ;
+                    for (NSDictionary *dic in array) {
+                        if ([dic[@"familyOtherId"] isEqualToString:self.dataArray[j][@"otherId"] ]) {
+                            address.isChoose = YES;
+                        }
                     }
                 }
+                
             }
             address.isAdd = YES;
             [address mas_makeConstraints:^(MASConstraintMaker *make) {

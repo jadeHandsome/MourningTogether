@@ -97,6 +97,9 @@
 		1A24A9251F9366E10069E3B8 /* RoailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A24A9241F9366E10069E3B8 /* RoailView.xib */; };
 		1A24A92B1F939F090069E3B8 /* YHMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A9291F939F090069E3B8 /* YHMath.m */; };
 		1A24A92E1F93ACDA0069E3B8 /* YHArcSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A92D1F93ACDA0069E3B8 /* YHArcSlider.m */; };
+		1A24E67E1F95AE4D00D61952 /* ChooseDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24E67D1F95AE4D00D61952 /* ChooseDeviceViewController.m */; };
+		1A24E6811F95AE7A00D61952 /* ChooseDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24E6801F95AE7A00D61952 /* ChooseDeviceView.m */; };
+		1A24E6841F95DF6B00D61952 /* NoWatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24E6831F95DF6B00D61952 /* NoWatchViewController.m */; };
 		1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */; };
 		1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C261F8DA79A007D6832 /* HealthyTypeView.m */; };
 		1A4E9C2D1F8DDB87007D6832 /* ArearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C2C1F8DDB87007D6832 /* ArearViewController.m */; };
@@ -445,6 +448,12 @@
 		1A24A9291F939F090069E3B8 /* YHMath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHMath.m; sourceTree = "<group>"; };
 		1A24A92C1F93ACDA0069E3B8 /* YHArcSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHArcSlider.h; sourceTree = "<group>"; };
 		1A24A92D1F93ACDA0069E3B8 /* YHArcSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHArcSlider.m; sourceTree = "<group>"; };
+		1A24E67C1F95AE4D00D61952 /* ChooseDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseDeviceViewController.h; sourceTree = "<group>"; };
+		1A24E67D1F95AE4D00D61952 /* ChooseDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseDeviceViewController.m; sourceTree = "<group>"; };
+		1A24E67F1F95AE7A00D61952 /* ChooseDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseDeviceView.h; sourceTree = "<group>"; };
+		1A24E6801F95AE7A00D61952 /* ChooseDeviceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseDeviceView.m; sourceTree = "<group>"; };
+		1A24E6821F95DF6B00D61952 /* NoWatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoWatchViewController.h; sourceTree = "<group>"; };
+		1A24E6831F95DF6B00D61952 /* NoWatchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoWatchViewController.m; sourceTree = "<group>"; };
 		1A4E9C221F8DA6D0007D6832 /* HealthyTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeViewController.h; sourceTree = "<group>"; };
 		1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthyTypeViewController.m; sourceTree = "<group>"; };
 		1A4E9C251F8DA79A007D6832 /* HealthyTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeView.h; sourceTree = "<group>"; };
@@ -915,6 +924,8 @@
 				1A676A1C1F8BB115001BD32A /* AddTendViewController.m */,
 				1A0B541E1F91B198009A1B12 /* ChooseOlderViewController.h */,
 				1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */,
+				1A24E67C1F95AE4D00D61952 /* ChooseDeviceViewController.h */,
+				1A24E67D1F95AE4D00D61952 /* ChooseDeviceViewController.m */,
 			);
 			path = TendGroup;
 			sourceTree = "<group>";
@@ -1274,6 +1285,8 @@
 				1A676A131F8BA733001BD32A /* AddTendView.m */,
 				1A676A151F8BA86F001BD32A /* TendOldView.h */,
 				1A676A161F8BA86F001BD32A /* TendOldView.m */,
+				1A24E67F1F95AE7A00D61952 /* ChooseDeviceView.h */,
+				1A24E6801F95AE7A00D61952 /* ChooseDeviceView.m */,
 			);
 			path = tendViews;
 			sourceTree = "<group>";
@@ -1286,6 +1299,8 @@
 				1A7919541F8F3B92003917A2 /* WatchXixunViewController.h */,
 				1A7919551F8F3B92003917A2 /* WatchXixunViewController.m */,
 				1A7919561F8F3B92003917A2 /* WatchXixunViewController.xib */,
+				1A24E6821F95DF6B00D61952 /* NoWatchViewController.h */,
+				1A24E6831F95DF6B00D61952 /* NoWatchViewController.m */,
 			);
 			path = AddWatch;
 			sourceTree = "<group>";
@@ -1678,6 +1693,7 @@
 				1188E9811F904BCA00E4EB27 /* CallCardViewController.m in Sources */,
 				1A4E9C741F8E1B0B007D6832 /* CheakPhoneViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
+				1A24E67E1F95AE4D00D61952 /* ChooseDeviceViewController.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
@@ -1713,6 +1729,7 @@
 				1A4E9C721F8E1B06007D6832 /* AddByQRCodeViewController.m in Sources */,
 				1A676A0D1F8B1DBE001BD32A /* TendViewController.m in Sources */,
 				1A9A85101F88B8090003B9E1 /* TYTabTitleViewCell.m in Sources */,
+				1A24E6811F95AE7A00D61952 /* ChooseDeviceView.m in Sources */,
 				1A676A171F8BA86F001BD32A /* TendOldView.m in Sources */,
 				1AA2E0C71F90533700AA185F /* KRCustomAnnotationView.m in Sources */,
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
@@ -1738,6 +1755,7 @@
 				1A7919501F8F31A2003917A2 /* AddWatchViewController.m in Sources */,
 				1A0B54201F91B198009A1B12 /* ChooseOlderViewController.m in Sources */,
 				1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */,
+				1A24E6841F95DF6B00D61952 /* NoWatchViewController.m in Sources */,
 				1AA2E0CB1F907ECF00AA185F /* RailViewController.m in Sources */,
 				1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */,
 			);

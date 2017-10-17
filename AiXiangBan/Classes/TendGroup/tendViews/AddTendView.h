@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TendOldView.h"
 typedef void(^ADD_CLICKWITH)(NSInteger tag,BOOL isAdd);
 @interface AddTendView : UIView
 @property (nonatomic, copy) ADD_CLICKWITH block;
+@property (nonatomic, copy) BTNS_CLICK btnBlock;
 - (void)setAddTendWith:(NSDictionary *)tendDic;
 @end

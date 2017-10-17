@@ -40,7 +40,20 @@
             return ;
         }
         NSLog(@"%@",showdata);
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSDictionary *dic in showdata[@"deviceList"]) {
+            if (self.elderId) {
+                if ([dic[@""] isEqualToString:self.elderId]) {
+                    [array addObject:dic];
+                }
+            } else {
+                if ([dic[@""] isEqualToString:[KRUserInfo sharedKRUserInfo].elderId]) {
+                    [array addObject:dic];
+                }
+            }
+        }
         self.allRobot = [showdata[@"deviceList"] copy];
+        
         [self setUP];
     }];
 }
@@ -57,7 +70,7 @@
             make.top.equalTo(self.view.mas_top).with.offset(navHight);
             make.bottom.equalTo(self.view.mas_bottom).with.offset(-50);
         }];
-        nullLabel.text = @"附近找不到机器人";
+        nullLabel.text = @"暂无机器人";
         nullLabel.textAlignment = NSTextAlignmentCenter;
         nullLabel.textColor = LRRGBColor(143, 143, 143);
         //return;
