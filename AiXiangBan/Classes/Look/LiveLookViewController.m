@@ -636,7 +636,9 @@
                    action:EZPTZActionStart
                     speed:2
                    result:^(NSError *error) {
-                       [self showHUDWithText:[NSString stringWithFormat:@"控制失败%d", (int)error.code]];
+                       if (error) {
+                           [self showHUDWithText:[NSString stringWithFormat:@"控制失败%d", (int)error.code]];
+                       }
                    }];
     
 }

@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AiXiangBan/Classes/Look/LiveLookViewController.m"
-            timestampString = "529919251.469808"
+            filePath = "AiXiangBan/Classes/Look/LookViewController.m"
+            timestampString = "529935070.612892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "-enterFullScreen:"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AiXiangBan/Classes/Look/DeleteDeviceViewController.m"
+            timestampString = "529935086.077293"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-deleteDevice:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

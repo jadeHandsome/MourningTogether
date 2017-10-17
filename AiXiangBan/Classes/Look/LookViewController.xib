@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +25,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kev-OW-ezy">
                     <rect key="frame" x="0.0" y="134" width="320" height="434"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xwv-Ux-XkE">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代1-99" translatesAutoresizingMaskIntoConstraints="NO" id="xwv-Ux-XkE">
                             <rect key="frame" x="85" y="0.0" width="150" height="150"/>
-                            <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="5JK-pn-GnV"/>
                                 <constraint firstAttribute="height" constant="150" id="R6e-ru-wkX"/>
@@ -75,4 +75,7 @@
             <point key="canvasLocation" x="323" y="307"/>
         </view>
     </objects>
+    <resources>
+        <image name="云医时代1-99" width="140" height="140"/>
+    </resources>
 </document>

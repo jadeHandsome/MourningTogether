@@ -42,16 +42,24 @@
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         NSDictionary *params = @{@"deviceId":self.deviceId};
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/deleteDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+//            if (showdata) {
+//                [EZOPENSDK deleteDevice:self.deviceSerialNo completion:^(NSError *error) {
+//                    if (!error) {
+//                        self.block();
+//                        [self.navigationController popViewControllerAnimated:YES];
+//                    }
+//                    else{
+//                        [self showHUDWithText:[NSString stringWithFormat:@"删除失败%ld",error.code]];
+//                    }
+//                }];
+                
+//            }
             if (showdata) {
-                [EZOPENSDK deleteDevice:self.deviceSerialNo completion:^(NSError *error) {
-                    if (!error) {
-                        self.block();
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }
-                    else{
-                        [self showHUDWithText:[NSString stringWithFormat:@"删除失败%ld",error.code]];
-                    }
-                }];
+                self.block();
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else{
+                [self showHUDWithText:[NSString stringWithFormat:@"删除失败%@",error]];
             }
         }];
     }];
