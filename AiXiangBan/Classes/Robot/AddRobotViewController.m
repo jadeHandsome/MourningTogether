@@ -84,24 +84,6 @@
             NSLog(@"%@",responseObject);
             //附近的搜索过后添加
         }];
-        //        [RobotView setUpWithDic:self.allRobot[i] withClickHandle:^{
-        //            LRLog(@"点了第%d个",i);
-        //            AboutUsViewController *about = [[AboutUsViewController alloc]init];
-        //            if (i == 0) {
-        //                about.title = @"关于我们";
-        //                [self.navigationController pushViewController:about animated:YES];
-        //
-        //            } else if (i == 1) {
-        //                about.title = @"服务协议";
-        //                [self.navigationController pushViewController:about animated:YES];
-        //            } else if (i == 3) {
-        //                //修改密码
-        //                ReparePwsViewController *repare = [[ReparePwsViewController alloc]init];
-        //                [self.navigationController pushViewController:repare animated:YES];
-        //            }
-        //
-        //
-        //        }];
         [centerView addSubview:infoView];
         [infoView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(centerView.mas_right);

@@ -41,9 +41,20 @@
     self.socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     [self.socket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
     self.view.backgroundColor = [UIColor blackColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(comeHome:) name:@"UIApplicationDidEnterBackgroundNotification" object:nil];
+
     loadCount = 0;
     
 }
+- (void)comeHome:(UIApplication *)application {
+    NSLog(@"进入后台");
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    NSLog(@"程序被杀死");
+    [self closeLive];
+}
+
 - (void)setProgressViewData {
     self.progressView = [[UIView alloc]init];
     self.progressView.backgroundColor = [UIColor grayColor];
@@ -220,6 +231,7 @@
 }
 
 - (void)pop {
+    [self closeLive];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
@@ -249,6 +261,7 @@
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     app.isFull = NO;
     [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
+    [self closeLive];
 }
 
 
@@ -286,6 +299,8 @@
 //获取到数据
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     NSLog(@"获取完成");
+    NSString *recevied = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",recevied);
     //开启成功
     if (tag == 1) {
         NSString *recevied = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
@@ -295,10 +310,12 @@
             if ([str containsString:@"reserved"]) {
                 if ([str containsString:@"0001"]) {
                     //有人控制 只能观看
-                    
+                    [hud hideAnimated:YES];
+                    self.progressView.hidden = YES;
                     self.directionView.hidden = YES;
                     self.railView.hidden = YES;
-                    [self beginLive];
+                    [self.mediaPlayer prepareToPlay:[NSURL URLWithString:[LIVE_URL stringByAppendingString:_robotId]]];
+                    [self.mediaPlayer play];
                 } else if ([str containsString:@"0000"]) {
                     //正常
                     
@@ -365,6 +382,7 @@
 -(void)OnVideoError:(NSNotification *)notification
 {
     NSLog(@"播放出错");
+    //[self.mediaPlayer play];
     //AliVcMovieErrorCode error_code = player.errorcode;
 }
 //写入数据
@@ -424,12 +442,12 @@
 }
 //头左
 - (void)headMoveLeft {
-    NSString *params = [self setPostProtocolWithCmid:@"00000005" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"00000005" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:9];
 }
 //头右
 - (void)headMoveRight {
-    NSString *params = [self setPostProtocolWithCmid:@"00000003" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"00000003" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:10];
 }
 //停止移动
