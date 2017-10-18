@@ -8,6 +8,7 @@
 
 #import "VideoViewController.h"
 #import "VideoTableViewCell.h"
+#import "VideoPlayViewController.h"
 @interface VideoViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UITextField *textfield;
@@ -21,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"看看";
+    self.navigationItem.title = @"养生";
     self.pageNum = 1;
     [self setUp];
     [self requestData];
@@ -30,7 +31,7 @@
 }
 
 - (void)requestData{
-    NSDictionary *params = @{@"Action":@"ListMedia",@"PageSize":@(10),@"PageNumber":@(self.pageNum)};
+    NSDictionary *params = @{@"Action":@"SearchMedia",@"PageSize":@(10),@"PageNumber":@(self.pageNum)};
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/vod/media/searchMedia.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [self.tableView.mj_header endRefreshing];
         if ([showdata[@"MediaList"][@"Media"] count]) {
@@ -61,6 +62,17 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *params = @{@"Action":@"QueryMediaList",@"MediaIds":self.data[indexPath.row][@"MediaId"],@"IncludePlayList":@"true"};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/vod/media/queryMediaList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata[@"PlayUrl"]) {
+            VideoPlayViewController *player = [VideoPlayViewController new];
+            player.URL = showdata[@"PlayUrl"];
+            player.mediaId = self.data[indexPath.row][@"MediaId"];
+            [self.navigationController pushViewController:player animated:YES];
+        }
+    }];
+}
 
 - (void)setUp{
     self.topConstraint.constant = navHight + 10;

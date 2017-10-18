@@ -74,6 +74,7 @@
 		11D401BE1F8E12830096F67B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BD1F8E12830096F67B /* OpenAL.framework */; };
 		11D401C01F8E128F0096F67B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401BF1F8E128F0096F67B /* GLKit.framework */; };
 		11D401C21F8E129B0096F67B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D401C11F8E129B0096F67B /* VideoToolbox.framework */; };
+		11D62C941F973AE7004DA583 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D62C931F973AE7004DA583 /* CommentCell.m */; };
 		11E09F601F88D02C004A2BCC /* AskHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5A1F88CF1D004A2BCC /* AskHelpViewController.m */; };
 		11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */; };
 		11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E09F581F88CF1D004A2BCC /* AskHelpCell.m */; };
@@ -415,6 +416,8 @@
 		11D401FD1F8E19430096F67B /* EZStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStorageInfo.h; sourceTree = "<group>"; };
 		11D401FE1F8E19430096F67B /* EZUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZUserInfo.h; sourceTree = "<group>"; };
 		11D401FF1F8E19430096F67B /* EZVideoQualityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZVideoQualityInfo.h; sourceTree = "<group>"; };
+		11D62C921F973AE7004DA583 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		11D62C931F973AE7004DA583 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		11E09F571F88CF1D004A2BCC /* AskHelpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskHelpCell.h; sourceTree = "<group>"; };
 		11E09F581F88CF1D004A2BCC /* AskHelpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskHelpCell.m; sourceTree = "<group>"; };
 		11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskHelpCell.xib; sourceTree = "<group>"; };
@@ -1166,6 +1169,8 @@
 				1176E9201F96603000CAD826 /* VideoTableViewCell.h */,
 				1176E9211F96603000CAD826 /* VideoTableViewCell.m */,
 				1176E9221F96603000CAD826 /* VideoTableViewCell.xib */,
+				11D62C921F973AE7004DA583 /* CommentCell.h */,
+				11D62C931F973AE7004DA583 /* CommentCell.m */,
 			);
 			name = Views;
 			path = AiXiangBan/Classes/help/Views;
@@ -1725,6 +1730,7 @@
 				1188E9811F904BCA00E4EB27 /* CallCardViewController.m in Sources */,
 				1A4E9C741F8E1B0B007D6832 /* CheakPhoneViewController.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
+				11D62C941F973AE7004DA583 /* CommentCell.m in Sources */,
 				1A24E67E1F95AE4D00D61952 /* ChooseDeviceViewController.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
 				1176E9231F96603000CAD826 /* VideoTableViewCell.m in Sources */,

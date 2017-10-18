@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface VideoPlayViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *URL;
+@property (nonatomic, strong) NSString *mediaId;
 @end

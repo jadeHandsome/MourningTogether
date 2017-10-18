@@ -31,7 +31,7 @@
     self.navigationItem.title = @"缴费记录";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     self.nowCount = 0;
-    self.everyCount = 20;
+    self.everyCount = 10;
     [self requestData];
     [self setUp];
     // Do any additional setup after loading the view.
