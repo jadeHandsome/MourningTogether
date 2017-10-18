@@ -97,7 +97,7 @@
         self.circle = [MACircle circleWithCenterCoordinate:self.railCenter radius:r];
         self.anno  = [[TRAnnotation alloc] init];
         self.anno.coordinate = CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]);
-        self.anno.image = [UIImage imageNamed:@"云医时代-75"];
+        self.anno.image = [self returnSmallImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].imageUrl]]] andSize:CGSizeMake(50, 50)];
         [self.mapView addAnnotation:self.anno];
         [self.mapView addOverlay:self.circle];
         [self.mapView setCenterCoordinate:self.railCenter animated:YES];
@@ -121,6 +121,19 @@
         }];
         
     }];
+}
+- (UIImage *)returnSmallImage:(UIImage *)oldImage andSize:(CGSize)size{
+    CGRect rect = CGRectMake(0, 0, 0, 0);
+    rect.size = size;
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(1.5, 1.5, 35, 35) cornerRadius:17.5];
+    [path addClip];
+    [oldImage drawInRect:CGRectMake(1.5, 1.5, 35 , 35)];
+    UIImage *nowImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return nowImage;
+    
 }
 - (void)setUP {
     UIView *titleView = [[UIView alloc]init];

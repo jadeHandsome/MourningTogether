@@ -265,6 +265,7 @@
     NSLog(@"去机器人");
     [[KRUserInfo sharedKRUserInfo] setElderId:elderId];
     RobotViewController *robot = [[RobotViewController alloc]init];
+    robot.elderId = elderId;
     [self.navigationController pushViewController:robot animated:YES];
 }
 //删除

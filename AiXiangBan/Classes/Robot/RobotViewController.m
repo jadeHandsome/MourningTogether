@@ -34,11 +34,6 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStyleDone target:self action:@selector(add)];
     
-    
-    
-//    self.allRobot = @[@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"},@{@"name":@"小胖",@"ID":@"SM1234215"}];
-    
-    
 }
 - (void)viewDidAppear:(BOOL)animated {
     _contentScr.contentOffset = CGPointMake(0, 0);
@@ -53,20 +48,26 @@
             return ;
         }
         NSLog(@"%@",showdata);
-       // NSMutableArray *array = [NSMutableArray array];
-//        for (NSDictionary *dic in showdata[@"deviceList"]) {
-//            if (self.elderId) {
-//                if ([dic[@""] isEqualToString:self.elderId]) {
-//                    [array addObject:dic];
-//                }
-//            } else {
-//                if ([dic[@""] isEqualToString:[KRUserInfo sharedKRUserInfo].elderId]) {
-//                    [array addObject:dic];
-//                }
-//            }
-//        }
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSDictionary *dic in showdata[@"deviceList"]) {
+            if (self.elderId) {
+                if ([dic[@"elderId"] isEqualToString:self.elderId]) {
+                    if ([dic[@"devicePower"] integerValue] == 1) {
+                        [array addObject:dic];
+                    }
+                    
+                }
+            } else {
+                if ([dic[@"elderId"] isEqualToString:[KRUserInfo sharedKRUserInfo].elderId]) {
+                    if ([dic[@"devicePower"] integerValue] == 1) {
+                        [array addObject:dic];
+                    }
+                    
+                }
+            }
+        }
         
-        [self.allRobot addObjectsFromArray:showdata[@"deviceList"]];
+        [self.allRobot addObjectsFromArray:array];
         
         [self setUP];
     }];

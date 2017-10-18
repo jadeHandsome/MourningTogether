@@ -326,7 +326,7 @@
                 self.progressView.hidden = YES;
                 if ([str containsString:@"1000"]) {
                     //推流成功
-                    
+                    NSLog(@"推流成功");
                     [self.mediaPlayer prepareToPlay:[NSURL URLWithString:[LIVE_URL stringByAppendingString:_robotId]]];
                     [self.mediaPlayer play];
                 } else if ([str containsString:@"2000"]) {
@@ -335,7 +335,7 @@
                     
                 } else if ([str containsString:@"3000"]) {
                     //失败
-                    
+                    NSLog(@"推流失败");
                     [self showHUDWithText:@"机器人推流失败"];
                     
                 }
@@ -350,6 +350,7 @@
 }
 //开始直播
 - (void)beginLive {
+    NSLog(@"开启视屏流");
    NSString *param = [self setPostProtocolWithCmid:@"00000013" andSn:nil andParams:nil];
     [self sendMessageWith:param andtag:13];
     
