@@ -60,10 +60,10 @@
 @property (nonatomic, copy) NSString *filePath;
 @property (nonatomic, strong) HIKLoadView *loadingView;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
-@property (weak, nonatomic) IBOutlet UIButton *PTTop;
-@property (weak, nonatomic) IBOutlet UIButton *PTRight;
-@property (weak, nonatomic) IBOutlet UIButton *PTBottom;
-@property (weak, nonatomic) IBOutlet UIButton *PTLeft;
+@property (weak, nonatomic) IBOutlet UIView *PTTop;
+@property (weak, nonatomic) IBOutlet UIView *PTRight;
+@property (weak, nonatomic) IBOutlet UIView *PTBottom;
+@property (weak, nonatomic) IBOutlet UIView *PTLeft;
 @property (weak, nonatomic) IBOutlet UILabel *talkdisplay;
 @property (nonatomic, assign) BOOL isRecording;
 @property (nonatomic, assign) int camareEnable;
@@ -129,6 +129,16 @@
     self.bottomConstraint.constant = SIZEHEIGHT - navHight - 10 - 220;
     LRViewBorderRadius(self.vioceView, 11.5, 0, [UIColor clearColor]);
     LRViewBorderRadius(self.recordView, 11.5, 0, [UIColor clearColor]);
+    [self addLongPress:self.PTTop];
+    [self addLongPress:self.PTLeft];
+    [self addLongPress:self.PTRight];
+    [self addLongPress:self.PTBottom];
+}
+
+- (void)addLongPress:(UIView *)view{
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(PTControlling:)];
+    longPress.minimumPressDuration = 0.1;
+    [view addGestureRecognizer:longPress];
 }
 
 - (void)config{
@@ -204,14 +214,14 @@
         if(_isPlaying)
         {
             [_player stopRealPlay];
-            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
+            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代2-7") forState:UIControlStateNormal];
             [self disenable];
             self.playerControlBtn.enabled = YES;
         }
         else
         {
             [_player startRealPlay];
-            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代2-7") forState:UIControlStateNormal];
+            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
             
             [self.loadingView startSquareClcokwiseAnimation];
         }
@@ -535,6 +545,7 @@
             }
         }
         [self able];
+        [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
         [self.loadingView stopSquareClockwiseAnimation];
         _isPlaying = YES;
         if (!_isOpenSound)
@@ -643,7 +654,62 @@
     
 }
 
-
+- (void)PTControlling:(UILongPressGestureRecognizer *)sender{
+    EZPTZCommand command;
+    switch (sender.view.tag) {
+        case 30:
+            command = EZPTZCommandUp;
+            break;
+        case 31:
+            command = EZPTZCommandRight;
+            break;
+        case 32:
+            command = EZPTZCommandDown;
+            break;
+        case 33:
+            command = EZPTZCommandLeft;
+            break;
+        default:
+            break;
+    }
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        EZCameraInfo *cameraInfo = [self.deviceInfo.cameraInfo firstObject];
+        [EZOPENSDK controlPTZ:cameraInfo.deviceSerial
+                     cameraNo:cameraInfo.cameraNo
+                      command:command
+                       action:EZPTZActionStart
+                        speed:2
+                       result:^(NSError *error) {
+                           if (error) {
+                               if (error.code == 160002) {
+                                [self showHUDWithText:@"已经到最顶部"];
+                               }
+                               if (error.code == 160003) {
+                                   [self showHUDWithText:@"已经到最底部"];
+                               }
+                               if (error.code == 160004) {
+                                   [self showHUDWithText:@"已经到最左部"];
+                               }
+                               if (error.code == 160005) {
+                                   [self showHUDWithText:@"已经到最右部"];
+                               }
+                           }
+                       }];
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded){
+        EZCameraInfo *cameraInfo = [self.deviceInfo.cameraInfo firstObject];
+        [EZOPENSDK controlPTZ:cameraInfo.deviceSerial
+                     cameraNo:cameraInfo.cameraNo
+                      command:command
+                       action:EZPTZActionStop
+                        speed:2
+                       result:^(NSError *error) {
+                           if (error) {
+                               [self showHUDWithText:[NSString stringWithFormat:@"控制失败%d", (int)error.code]];
+                           }
+                       }];
+    }
+}
 
 //录像
 - (void)videoRecord{

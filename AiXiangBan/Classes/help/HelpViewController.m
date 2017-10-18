@@ -10,6 +10,7 @@
 #import "QYSource.h"
 #import "QYSessionViewController.h"
 #import "QYSDK.h"
+#import "VideoViewController.h"
 @interface HelpViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
 
@@ -46,6 +47,8 @@
 }
 
 - (IBAction)yangsheng:(UITapGestureRecognizer *)sender {
+    VideoViewController *video = [VideoViewController new];
+    [self.navigationController pushViewController:video animated:YES];
 }
 - (IBAction)yiliao:(UITapGestureRecognizer *)sender {
     QYSource *source = [[QYSource alloc] init];
