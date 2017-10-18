@@ -20,20 +20,20 @@
     UIImageView *headImage = [[UIImageView alloc]init];
     [self addSubview:headImage];
     [headImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left);
-        make.top.equalTo(self.mas_top);
-        make.width.equalTo(@55);
-        make.height.equalTo(@55);
+        make.left.equalTo(self.mas_left).with.offset(10);
+        make.top.equalTo(self.mas_top).with.offset(7.5);
+        make.width.equalTo(@40);
+        make.height.equalTo(@40);
     }];
     [headImage sd_setImageWithURL:[NSURL URLWithString:dic[@"oldDic"][@"headImgUrl"]] placeholderImage:_zhanweiImageData];
-    LRViewBorderRadius(headImage, 27.5, 0, [UIColor clearColor]);
+    LRViewBorderRadius(headImage, 20, 0, [UIColor clearColor]);
     UIView *temp = headImage;
     
     UILabel *oldLabel = [[UILabel alloc]init];
     [self addSubview:oldLabel];
     [oldLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.left.equalTo(temp.mas_right);
+        make.left.equalTo(temp.mas_right).with.offset(10);
         
         make.centerY.equalTo(temp.mas_centerY);
     }];
@@ -55,7 +55,7 @@
             
             make.height.equalTo(@15);
             if (tempEq == headImage) {
-                make.top.equalTo(tempEq.mas_bottom).with.offset(20);
+                make.top.equalTo(tempEq.mas_bottom).with.offset(27.5);
             } else {
                make.top.equalTo(tempEq.mas_bottom).with.offset(20);
             }

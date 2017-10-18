@@ -23,8 +23,12 @@
     [super viewDidLoad];
     self.navigationItem.title = @"添加手表";
     self.sortArray = @[@"二维码",@"输入IMEI号"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFinish) name:ADD_DEVICE_SUCCESS object:nil];
     [self setUP];
     [self setScro];
+}
+- (void)addFinish {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)setScro {
     
@@ -152,6 +156,7 @@
     contentView.backgroundColor = [UIColor whiteColor];
     
     UITextField *infotext = [[UITextField alloc]init];
+    infotext.keyboardType = UIKeyboardTypeNumberPad;
     _inpuText = infotext;
     [contentView addSubview:infotext];
     [infotext mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -177,6 +182,13 @@
 }
 - (void)netStep {
     //输入imei后下一步
+    NSMutableDictionary *params = @{@"deviceSerialNo":self.inpuText.text,@"deviceName":@"手表",@"deviceType":@(1),@"devicePassword":@"",@"mobile":[KRUserInfo sharedKRUserInfo].mobile,@"elderId":[KRUserInfo sharedKRUserInfo].elderId,@"validateCode":@""}.mutableCopy;
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/addDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
 }
 - (void)setUP {
     UIView *titleView = [[UIView alloc]init];

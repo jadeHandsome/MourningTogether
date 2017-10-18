@@ -227,6 +227,9 @@
                         address.isChoose = YES;
                     }
                 }
+                if ([self.dataArray[j][@"flag"] integerValue]) {
+                    address.userInteractionEnabled = NO;
+                }
             } else {
                 if (!self.isDelet) {
                     NSArray *array = self.oldData[@"familyOtherList"] ;
@@ -268,10 +271,9 @@
 #pragma -- 获取所有数据
 //获取老人数据
 - (void)getOldManData {
-    NSInteger count = 0;
-    if (self.dataArray.count > 0) {
-        count = [self.dataArray[0] count];
-    }
+    
+    NSInteger  count = [self.dataArray count];
+    
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/elder/getElderList.do" params:@{@"offset":@(count),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [self.myScroll.mj_footer endRefreshing];
         if (showdata == nil) {
@@ -280,17 +282,16 @@
         if ([showdata[@"elderList"] count] == 0 && count == 0) {
             self.dataArray = [NSMutableArray array];
         } else {
-            self.dataArray = [showdata[@"elderList"] mutableCopy];
+          [self.dataArray addObjectsFromArray:showdata[@"elderList"]];
         }
         [self setUp];
     }];
 }
 //获取监护人数据
 - (void)getJianhuData {
-    NSInteger count = 0;
-    if (self.dataArray.count > 1) {
-        count = [self.dataArray[1] count];
-    }
+    
+    NSInteger  count = [self.dataArray count];
+    
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"1"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [self.myScroll.mj_footer endRefreshing];
         if (showdata == nil) {
@@ -299,17 +300,17 @@
         if ([showdata[@"otherList"] count] == 0 && count == 0) {
             self.dataArray = [NSMutableArray array];
         } else {
-            self.dataArray = [showdata[@"otherList"] mutableCopy];
+            [self.dataArray addObjectsFromArray:showdata[@"otherList"]];
+            
         }
         [self setUp];
     }];
 }
 //获取亲属邻里数据
 - (void)getQinQiData {
-    NSInteger count = 0;
-    if (self.dataArray.count > 2) {
-        count = [self.dataArray[2] count];
-    }
+    
+      NSInteger  count = [self.dataArray count];
+    
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"2"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         [self.myScroll.mj_footer endRefreshing];
         if (showdata == nil) {
@@ -319,7 +320,7 @@
         if ([showdata[@"otherList"] count] == 0 && count == 0) {
             self.dataArray = [NSMutableArray array];
         } else {
-            self.dataArray = [showdata[@"otherList"] mutableCopy];
+            [self.dataArray addObjectsFromArray:showdata[@"otherList"]];
         }
         [self setUp];
     }];

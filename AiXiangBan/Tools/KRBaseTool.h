@@ -100,4 +100,5 @@ typedef void (^responseObjectBlock)(id responseObject);
 + (NSArray *)getDeviceDataWithElderId:(NSString *)elderId andHomeId:(NSString *)homeId;
 + (void)saveDeviceDataWith:(NSArray *)deviceArray andElderId:(NSString *)elderId andHomeId:(NSString *)homeId;
 + (void)setDevice;
++ (NSString *)timeWithTimeIntervalString:(NSString *)timeString;
 @end

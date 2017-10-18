@@ -75,6 +75,26 @@
                 
                 if (!device) {
                     device = @[@{@"eqName":@"位置",@"eqImage":location},@{@"eqName":@"看看",@"eqImage":look},@{@"eqName":@"机器人",@"eqImage":robot},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖检测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾报警",@"eqImage":@"云医时代1-90"}];
+                } else {
+                    
+                    NSMutableArray *tempArray = [NSMutableArray array];
+                    for (NSDictionary *subDevice in device) {
+                        if ([subDevice[@"eqName"] isEqualToString:@"位置"]) {
+                            [tempArray addObject:@{@"eqName":@"位置",@"eqImage":location}];
+                            continue;
+                        }
+                        if ([subDevice[@"eqName"] isEqualToString:@"看看"]) {
+                            [tempArray addObject:@{@"eqName":@"看看",@"eqImage":look}];
+                            continue;
+                        }
+                        if ([subDevice[@"eqName"] isEqualToString:@"机器人"]) {
+                            [tempArray addObject:@{@"eqName":@"机器人",@"eqImage":robot}];
+                            continue;
+                        }
+                        [tempArray addObject:subDevice];
+                        
+                    }
+                    device = [tempArray copy];
                 }
                 mut[@"equipment"] = device;
                 mut[@"oldDic"] = dic;

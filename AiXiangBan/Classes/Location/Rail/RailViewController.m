@@ -113,7 +113,7 @@
                 NSLog(@"%f----%f", pl.location.coordinate.latitude, pl.location.coordinate.longitude);
                 //self.currentname = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
                 NSLog(@"%@", pl.name);
-                self.locationLabel.text = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
+                self.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pl.locality,pl.subLocality,pl.name];
                 //            self.addressTV.text = pl.name;
                 //            self.latitudeTF.text = @(pl.location.coordinate.latitude).stringValue;
                 //            self.longitudeTF.text = @(pl.location.coordinate.longitude).stringValue;
@@ -285,7 +285,7 @@
             NSLog(@"%f----%f", pl.location.coordinate.latitude, pl.location.coordinate.longitude);
             //self.currentname = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
             NSLog(@"%@", pl.name);
-            self.locationLabel.text = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
+            self.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pl.locality,pl.subLocality,pl.name];
             //            self.addressTV.text = pl.name;
             //            self.latitudeTF.text = @(pl.location.coordinate.latitude).stringValue;
             //            self.longitudeTF.text = @(pl.location.coordinate.longitude).stringValue;

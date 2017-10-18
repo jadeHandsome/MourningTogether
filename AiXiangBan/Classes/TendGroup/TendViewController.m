@@ -17,6 +17,9 @@
 @end
 
 @implementation TendViewController
+{
+    NSInteger refreshCount;
+}
 - (NSMutableArray *)alltend {
     if (!_alltend) {
         _alltend = [NSMutableArray array];
@@ -26,22 +29,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"看护群组";
-    
+    refreshCount = 0;
     
 }
 - (void)viewWillAppear:(BOOL)animated {
+    refreshCount = 0;
+    [self loadData];
+    //[self getTendGropData];
+}
+- (void)loadData {
+    refreshCount = 0;
+    [self getTendGropData];
+}
+- (void)loadMoreData {
+    refreshCount = self.alltend.count;
     [self getTendGropData];
 }
 //获取群组数据
 - (void)getTendGropData {
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/family/getFamilyList.do" params:@{@"offset":@(self.alltend.count),@"size":@20} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/family/getFamilyList.do" params:@{@"offset":@(refreshCount),@"size":@20} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
-        if (self.alltend.count > 0) {
+        
+        if (refreshCount != 0) {
             NSMutableArray *listArray = [NSMutableArray array];
             
             for (NSDictionary *dic in showdata[@"familyList"]) {
+                if ([dic[@"familyId"] isEqualToString:@"3941de33c5ef4900b201b14a7a39758f"]) {
+                    continue;
+                }
                 NSMutableDictionary *param = [NSMutableDictionary dictionary];
                 param[@"old"] = dic[@"familyElderList"];
                 param[@"child"] = dic[@"familyOtherList"];
@@ -53,6 +70,9 @@
             NSMutableArray *listArray = [NSMutableArray array];
             
             for (NSDictionary *dic in showdata[@"familyList"]) {
+                if ([dic[@"familyId"] isEqualToString:@"3941de33c5ef4900b201b14a7a39758f"]) {
+                    continue;
+                }
                 NSMutableDictionary *param = [NSMutableDictionary dictionary];
                 param[@"old"] = dic[@"familyElderList"];
                 param[@"child"] = dic[@"familyOtherList"];
@@ -124,6 +144,8 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     self.mainScroll.contentSize = CGSizeMake(0, 126 * self.alltend.count);
+    [KRBaseTool tableViewAddRefreshFooter:self.mainScroll withTarget:self refreshingAction:@selector(loadMoreData)];
+    [KRBaseTool tableViewAddRefreshHeader:self.mainScroll withTarget:self refreshingAction:@selector(loadData)];
     UIView *temp = self.mainScroll;
     for (int i = 0; i < self.alltend.count; i ++) {
         TendView *tend = [[TendView alloc]init];

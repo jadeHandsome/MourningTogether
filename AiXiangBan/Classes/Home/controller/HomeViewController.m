@@ -76,12 +76,15 @@
         for (NSDictionary *dic in curretOlder[@"deviceList"]) {
             if ([dic[@"deviceType"] integerValue] == 1) {
                 [KRUserInfo sharedKRUserInfo].deviceId = dic[@"deviceSn"];
+                [KRUserInfo sharedKRUserInfo].deviceSn = dic[@"deviceId"];
+                
             }
         }
         
     } else {
         [KRUserInfo sharedKRUserInfo].deviceId = nil;
     }
+    [KRUserInfo sharedKRUserInfo].imageUrl = self.curretOlder[@"headImgUrl"];
     [self.headImage sd_setImageWithURL:[NSURL URLWithString:self.curretOlder[@"headImgUrl"]] placeholderImage:_zhanweiImageData];
 }
 - (void)viewDidLoad {

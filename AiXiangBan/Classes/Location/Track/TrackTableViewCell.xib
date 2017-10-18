@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="KGk-i7-Jjw" customClass="TrackTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="323" height="102.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-A4-qdS">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="102.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8l-DM-0I3">
+                                <rect key="frame" x="19" y="0.0" width="2" height="102.5"/>
+                                <color key="backgroundColor" red="0.79217743873596191" green="0.79217988252639771" blue="0.79218530654907227" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="vc2-jd-8cf"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代-77" translatesAutoresizingMaskIntoConstraints="NO" id="cXa-UQ-yN7">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="102.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cXa-UQ-yN7" firstAttribute="top" secondItem="QXv-A4-qdS" secondAttribute="top" id="0oq-uo-rUr"/>
+                            <constraint firstAttribute="trailing" secondItem="cXa-UQ-yN7" secondAttribute="trailing" id="2uj-wf-m58"/>
+                            <constraint firstAttribute="bottom" secondItem="cXa-UQ-yN7" secondAttribute="bottom" id="Hc4-MR-CT5"/>
+                            <constraint firstAttribute="bottom" secondItem="H8l-DM-0I3" secondAttribute="bottom" id="IBw-oJ-lHH"/>
+                            <constraint firstItem="H8l-DM-0I3" firstAttribute="top" secondItem="QXv-A4-qdS" secondAttribute="top" id="MS7-iH-8dE"/>
+                            <constraint firstItem="cXa-UQ-yN7" firstAttribute="leading" secondItem="QXv-A4-qdS" secondAttribute="leading" id="Ulh-4a-RtX"/>
+                            <constraint firstAttribute="width" constant="40" id="Y1b-SC-xYa"/>
+                            <constraint firstItem="H8l-DM-0I3" firstAttribute="centerX" secondItem="QXv-A4-qdS" secondAttribute="centerX" id="yH8-PO-Hx8"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精确范围：500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na0-BO-YRa">
+                        <rect key="frame" x="50" y="51.5" width="263" height="51"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.5726015567779541" green="0.57260334491729736" blue="0.57260739803314209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内景区 13.13" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwz-c5-ORn">
+                        <rect key="frame" x="50" y="15.5" width="255" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.5726015567779541" green="0.57260334491729736" blue="0.57260739803314209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bwz-c5-ORn" firstAttribute="leading" secondItem="QXv-A4-qdS" secondAttribute="trailing" constant="10" id="Hhf-ae-SpU"/>
+                    <constraint firstItem="QXv-A4-qdS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NXL-37-aNp"/>
+                    <constraint firstAttribute="bottom" secondItem="QXv-A4-qdS" secondAttribute="bottom" id="Oad-jz-Nsv"/>
+                    <constraint firstItem="QXv-A4-qdS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XSY-EE-JQa"/>
+                    <constraint firstItem="na0-BO-YRa" firstAttribute="leading" secondItem="QXv-A4-qdS" secondAttribute="trailing" constant="10" id="cJD-03-3Fm"/>
+                    <constraint firstAttribute="trailing" secondItem="na0-BO-YRa" secondAttribute="trailing" constant="10" id="dGW-Nn-PsI"/>
+                    <constraint firstAttribute="bottom" secondItem="na0-BO-YRa" secondAttribute="bottom" id="eAR-ox-zgg"/>
+                    <constraint firstItem="na0-BO-YRa" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.5" id="fgV-yw-dFC"/>
+                    <constraint firstItem="na0-BO-YRa" firstAttribute="top" secondItem="bwz-c5-ORn" secondAttribute="bottom" id="h88-qh-aVN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bwz-c5-ORn" secondAttribute="trailing" constant="10" id="meU-Be-207"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomlabel" destination="na0-BO-YRa" id="ego-M9-zpe"/>
+                <outlet property="contenImage" destination="cXa-UQ-yN7" id="muq-z5-1Y7"/>
+                <outlet property="topLabel" destination="bwz-c5-ORn" id="GBN-Qh-0a1"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="87.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="云医时代-77" width="20" height="20"/>
+    </resources>
+</document>

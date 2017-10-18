@@ -188,7 +188,7 @@
     if (@available(iOS 10.0, *)) {
         countTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
             loadCount ++;
-            if (loadCount >= 10) {
+            if (loadCount >= 60) {
                 [timer invalidate];
                 weakSelf.progressView.hidden = YES;
                 [hud hideAnimated:YES];

@@ -28,6 +28,9 @@
 @implementation AddressBookViewController
 {
     NSArray *tempArray;
+    NSInteger olderNum;
+    NSInteger jianhuNum;
+    NSInteger qinqiNum;
 }
 - (void)setSearchStr:(NSString *)searchStr {
     _searchStr = searchStr;
@@ -48,9 +51,12 @@
     //[self setUpScro];
 }
 - (void)viewWillAppear:(BOOL)animated {
-    [self getOldManData];
-    [self getJianhuData];
-    [self getQinQiData];
+    olderNum = 0;
+    jianhuNum = 0;
+    qinqiNum = 0;
+    [self getOld];
+    [self getJianhu];
+    [self getQinqi];
 }
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
@@ -180,8 +186,10 @@
     for (UIView *sub in self.bottomScro.subviews) {
         [sub removeFromSuperview];
     }
+    if (!self.bottomScro) {
+        self.bottomScro = [[UIScrollView alloc]init];
+    }
     
-    self.bottomScro = [[UIScrollView alloc]init];
     
     
     [self.view addSubview:self.bottomScro];
@@ -225,16 +233,16 @@
         subS.contentSize = CGSizeMake(0, [self.dataArray[i] count] * 60);
         if (i == 0) {
             _oldScr = subS;
-            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getOldManData)];
-            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getOldManData)];
+            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getOld)];
+            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getOldMore)];
         } else if (i == 1) {
             _jianhuScr = subS;
-            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getJianhuData)];
-            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getJianhuData)];
+            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getJianhu)];
+            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getJinhuMore)];
         } else {
             _qinQScr = subS;
-            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getQinQiData)];
-            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getQinQiData)];
+            [KRBaseTool tableViewAddRefreshHeader:subS withTarget:self refreshingAction:@selector(getQinqi)];
+            [KRBaseTool tableViewAddRefreshFooter:subS withTarget:self refreshingAction:@selector(getMoreQinqi)];
         }
         
         UIView *secondView = [[UIView alloc]init];
@@ -298,18 +306,6 @@
         temp = subView;
     }
     
-    NSInteger type = 1;
-    
-    for (UIView *sub in self.titleView.subviews) {
-        if ([sub isKindOfClass:[UIButton class]]) {
-            UIButton *btn = (UIButton *)sub;
-            if (btn.selected) {
-                type = btn.tag - 99;
-                
-            }
-        }
-    }
-    self.bottomScro.contentOffset = CGPointMake(SCREEN_WIDTH * (type - 1), 0);
 }
 #pragma -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -330,18 +326,26 @@
 }
 #pragma -- 获取所有数据
 //获取老人数据
-- (void)getOldManData {
-    NSInteger count = 0;
-    if (self.dataArray.count > 0) {
-        count = [self.dataArray[0] count];
+- (void)getOldMore {
+    
+    if (self.dataArray.count > 2) {
+        olderNum  = [self.dataArray[0] count];
     }
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/elder/getElderList.do" params:@{@"offset":@(count),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [self getOldManData];
+}
+- (void)getOld {
+    olderNum = 0;
+    [self getOldManData];
+}
+- (void)getOldManData {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/elder/getElderList.do" params:@{@"offset":@(olderNum),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [_oldScr.mj_footer endRefreshing];
         [_oldScr.mj_footer endRefreshing];
         if (showdata == nil) {
             return ;
         }
-        if ([showdata[@"elderList"] count] == 0 && count == 0) {
-            self.dataArray[0] = [NSMutableArray array];
+        if (olderNum == 0) {
+            self.dataArray[0] = [showdata[@"elderList"] mutableCopy];
         } else {
             [self.dataArray[0] addObjectsFromArray:showdata[@"elderList"]];
         }
@@ -349,18 +353,26 @@
     }];
 }
 //获取监护人数据
-- (void)getJianhuData {
-    NSInteger count = 0;
-    if (self.dataArray.count > 1) {
-        count = [self.dataArray[1] count];
+- (void)getJinhuMore {
+    
+    if (self.dataArray.count > 2) {
+        jianhuNum  = [self.dataArray[1] count];
     }
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"1"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [self getJianhuData];
+}
+- (void)getJianhu {
+    jianhuNum = 0;
+    [self getJianhuData];
+}
+- (void)getJianhuData {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(jianhuNum),@"size":@10,@"contactType":@"1"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [_oldScr.mj_footer endRefreshing];
         [_jianhuScr.mj_footer endRefreshing];
         if (showdata == nil) {
             return ;
         }
-        if ([showdata[@"otherList"] count] == 0 && count == 0) {
-            self.dataArray[1] = [NSMutableArray array];
+        if (jianhuNum == 0) {
+            self.dataArray[1] = [showdata[@"otherList"] mutableCopy];
         } else {
             [self.dataArray[1] addObjectsFromArray:showdata[@"otherList"]];
         }
@@ -368,19 +380,30 @@
     }];
 }
 //获取亲属邻里数据
-- (void)getQinQiData {
-    NSInteger count = 0;
+- (void)getMoreQinqi {
+    
     if (self.dataArray.count > 2) {
-        count = [self.dataArray[2] count];
+        qinqiNum = [self.dataArray[2] count];
     }
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(count),@"size":@10,@"contactType":@"2"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [self getQinQiData];
+}
+- (void)getQinqi {
+    qinqiNum = 0;
+    [self getQinQiData];
+}
+- (void)getQinQiData {
+    
+    
+    
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/contacts/other/getOtherList.do" params:@{@"offset":@(qinqiNum),@"size":@10,@"contactType":@"2"} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [_oldScr.mj_footer endRefreshing];
         [_qinQScr.mj_footer endRefreshing];
         if (showdata == nil) {
             return ;
         }
        
-        if ([showdata[@"otherList"] count] == 0 && count == 0) {
-             self.dataArray[2] = [NSMutableArray array];
+        if (qinqiNum == 0) {
+             self.dataArray[2] = [showdata[@"otherList"] mutableCopy];
         } else {
              [self.dataArray[2] addObjectsFromArray:showdata[@"otherList"]];
         }

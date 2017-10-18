@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HealthyTypeView : UIView
+@property (nonatomic, assign) BOOL canChooseMore;
 - (void)setHealthWith:(NSDictionary *)item andParam:(NSMutableArray *)paramArray;
 @end

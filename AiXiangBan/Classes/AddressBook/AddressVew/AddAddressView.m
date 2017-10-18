@@ -46,20 +46,23 @@
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
-            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(title.mas_right).with.offset(10);
-                make.centerY.equalTo(self.mas_centerY);
-                make.height.equalTo(@30);
-                
-                
-            }];
             UIButton *address = [[UIButton alloc]init];
             [self addSubview:address];
             [address mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.equalTo(self.mas_right).with.offset(-10);
                 make.centerY.equalTo(self.mas_centerY);
-                make.left.equalTo(textField.mas_right).with.offset(10);
+                make.width.equalTo(@40);
+                //make.left.equalTo(textField.mas_right).with.offset(10);
             }];
+            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(title.mas_right).with.offset(10);
+                make.centerY.equalTo(self.mas_centerY);
+                make.height.equalTo(@30);
+                make.right.equalTo(address.mas_left).with.offset(-10);
+                make.width.equalTo(@200);
+                
+            }];
+            
             [address addTarget:self action:@selector(chooseAdd) forControlEvents:UIControlEventTouchUpInside];
             [address setImage:[UIImage imageNamed:@"云医时代1-60"] forState:UIControlStateNormal];
         }
@@ -68,6 +71,7 @@
         {
             titleStr = @"手机";
             UITextField *textField = [[UITextField alloc]init];
+            textField.keyboardType = UIKeyboardTypePhonePad;
             textField.text = param[@"mobile"];
             textField.tag = 2;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -144,7 +148,7 @@
             if (param[@"age"]) {
                 textField.text = [NSString stringWithFormat:@"%@",param[@"age"]];
             }
-            
+            textField.keyboardType = UIKeyboardTypeNumberPad;
             textField.tag = 5;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
@@ -182,6 +186,7 @@
             UITextField *textField = [[UITextField alloc]init];
             textField.text = param[@"idCard"];
             textField.tag = 4;
+            textField.keyboardType = UIKeyboardTypeNumberPad;
             [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
             textField.textAlignment = NSTextAlignmentRight;
             [self addSubview:textField];
