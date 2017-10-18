@@ -113,7 +113,8 @@
     {
         [self showHUDWithText:@"设备已被别人添加"];
     }
-    else{
+    else if (error.code != 0)
+    {
         [self showHUDWithText:[NSString stringWithFormat:@"添加失败%ld",error.code]];
     }
 }
@@ -123,6 +124,7 @@
     if (self.deviceType == 2) {
         params[@"validateCode"] = self.deviceVerifyCode;
     }
+    [self hideHUD];
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/addDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
             [[NSNotificationCenter defaultCenter] postNotificationName:ADD_DEVICE_SUCCESS object:nil];

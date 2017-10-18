@@ -39,7 +39,7 @@
 }
 
 - (IBAction)deleteDevice:(UIButton *)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否解绑该设备" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否删除该设备" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         NSDictionary *params = @{@"deviceId":self.deviceId};
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/deleteDevice.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
