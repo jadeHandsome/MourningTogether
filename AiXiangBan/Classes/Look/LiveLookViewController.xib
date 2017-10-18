@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,10 +13,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LiveLookViewController">
             <connections>
-                <outlet property="PTBottom" destination="djc-LW-eol" id="oOY-xo-ryC"/>
-                <outlet property="PTLeft" destination="Bbu-LF-baG" id="Bpr-Bm-BPZ"/>
-                <outlet property="PTRight" destination="Fx0-PN-vVk" id="HYO-cv-xC8"/>
-                <outlet property="PTTop" destination="k6M-mn-EnJ" id="LQy-Yl-ob7"/>
+                <outlet property="PTBottom" destination="l8u-U8-Mol" id="2g9-7P-9FK"/>
+                <outlet property="PTLeft" destination="6WM-Gu-gtc" id="Q6o-LZ-vYL"/>
+                <outlet property="PTRight" destination="Dqu-8j-Kjc" id="E01-7r-dhv"/>
+                <outlet property="PTTop" destination="tJF-iT-rzH" id="D0y-Vc-arr"/>
                 <outlet property="PTZBtn" destination="Fdp-oa-66y" id="cFM-DU-rRu"/>
                 <outlet property="PTZCenterView" destination="ubk-BC-dVJ" id="uV5-F2-Q4i"/>
                 <outlet property="PTZImage" destination="hZt-mP-UOt" id="Cbc-6e-bri"/>
@@ -714,59 +714,51 @@
                                         <constraint firstAttribute="height" constant="186" id="O9n-4v-Qps"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" tag="500" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6M-mn-EnJ">
+                                <view tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJF-iT-rzH">
                                     <rect key="frame" x="152" y="26" width="50" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="OFy-pc-0vQ"/>
-                                        <constraint firstAttribute="width" constant="50" id="mjo-RI-74A"/>
+                                        <constraint firstAttribute="height" constant="50" id="NqB-zG-DGT"/>
+                                        <constraint firstAttribute="width" constant="50" id="PKB-Ks-vxd"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="PTControl:" destination="-1" eventType="touchUpInside" id="dEY-BV-TSg"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx0-PN-vVk">
+                                </view>
+                                <view tag="31" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqu-8j-Kjc">
                                     <rect key="frame" x="220.5" y="94" width="50" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="dES-kB-jrY"/>
-                                        <constraint firstAttribute="height" constant="50" id="xR6-YY-myX"/>
+                                        <constraint firstAttribute="width" constant="50" id="9MF-O4-YsY"/>
+                                        <constraint firstAttribute="height" constant="50" id="rJY-EK-p3m"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="PTControl:" destination="-1" eventType="touchUpInside" id="nyC-uB-kr5"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djc-LW-eol">
+                                </view>
+                                <view tag="32" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8u-U8-Mol">
                                     <rect key="frame" x="152.5" y="162" width="50" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="ski-Fb-psn"/>
-                                        <constraint firstAttribute="width" constant="50" id="xAe-ta-leK"/>
+                                        <constraint firstAttribute="width" constant="50" id="Lvi-q3-aSp"/>
+                                        <constraint firstAttribute="height" constant="50" id="bAW-od-ez0"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="PTControl:" destination="-1" eventType="touchUpInside" id="XcF-k8-Cbs"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbu-LF-baG">
+                                </view>
+                                <view tag="33" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WM-Gu-gtc">
                                     <rect key="frame" x="84.5" y="94" width="50" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="7vp-Je-V9M"/>
-                                        <constraint firstAttribute="width" constant="50" id="oy8-aV-b1a"/>
+                                        <constraint firstAttribute="height" constant="50" id="Ndt-ay-3I9"/>
+                                        <constraint firstAttribute="width" constant="50" id="iEG-Tq-tD0"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="PTControl:" destination="-1" eventType="touchUpInside" id="LUO-x2-Ccj"/>
-                                    </connections>
-                                </button>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Fx0-PN-vVk" firstAttribute="trailing" secondItem="KOb-Yb-GCS" secondAttribute="trailing" id="BjM-cY-3al"/>
+                                <constraint firstItem="l8u-U8-Mol" firstAttribute="bottom" secondItem="KOb-Yb-GCS" secondAttribute="bottom" id="4gM-3m-IRL"/>
+                                <constraint firstItem="Dqu-8j-Kjc" firstAttribute="trailing" secondItem="KOb-Yb-GCS" secondAttribute="trailing" id="Hwj-yI-FuB"/>
                                 <constraint firstItem="KOb-Yb-GCS" firstAttribute="centerX" secondItem="ubk-BC-dVJ" secondAttribute="centerX" id="M5b-jm-7qg"/>
-                                <constraint firstItem="Fx0-PN-vVk" firstAttribute="centerY" secondItem="KOb-Yb-GCS" secondAttribute="centerY" id="Prr-Ne-n7a"/>
+                                <constraint firstItem="KOb-Yb-GCS" firstAttribute="leading" secondItem="6WM-Gu-gtc" secondAttribute="leading" id="NIp-Ts-LYI"/>
+                                <constraint firstItem="tJF-iT-rzH" firstAttribute="centerX" secondItem="KOb-Yb-GCS" secondAttribute="centerX" id="Q1r-wg-Scc"/>
                                 <constraint firstItem="KOb-Yb-GCS" firstAttribute="centerY" secondItem="ubk-BC-dVJ" secondAttribute="centerY" constant="-20" id="Y7v-o7-Qun"/>
-                                <constraint firstItem="djc-LW-eol" firstAttribute="bottom" secondItem="KOb-Yb-GCS" secondAttribute="bottom" id="cxb-q4-XNu"/>
-                                <constraint firstItem="Bbu-LF-baG" firstAttribute="leading" secondItem="KOb-Yb-GCS" secondAttribute="leading" id="iCi-rK-mrX"/>
-                                <constraint firstItem="Bbu-LF-baG" firstAttribute="centerY" secondItem="KOb-Yb-GCS" secondAttribute="centerY" id="kOq-QJ-HgJ"/>
-                                <constraint firstItem="k6M-mn-EnJ" firstAttribute="centerX" secondItem="KOb-Yb-GCS" secondAttribute="centerX" id="nY6-7G-fZO"/>
-                                <constraint firstItem="djc-LW-eol" firstAttribute="centerX" secondItem="KOb-Yb-GCS" secondAttribute="centerX" id="vDg-ec-3Lo"/>
-                                <constraint firstItem="k6M-mn-EnJ" firstAttribute="top" secondItem="KOb-Yb-GCS" secondAttribute="top" id="vfu-Iq-T7X"/>
+                                <constraint firstItem="KOb-Yb-GCS" firstAttribute="top" secondItem="tJF-iT-rzH" secondAttribute="top" id="hIt-OL-ysl"/>
+                                <constraint firstItem="l8u-U8-Mol" firstAttribute="centerX" secondItem="KOb-Yb-GCS" secondAttribute="centerX" id="rFn-BA-ja4"/>
+                                <constraint firstItem="KOb-Yb-GCS" firstAttribute="centerY" secondItem="6WM-Gu-gtc" secondAttribute="centerY" id="wBM-f1-DE5"/>
+                                <constraint firstItem="Dqu-8j-Kjc" firstAttribute="centerY" secondItem="KOb-Yb-GCS" secondAttribute="centerY" id="y4v-f6-ZoD"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -807,7 +799,7 @@
                 <constraint firstAttribute="bottom" secondItem="McG-BM-ed5" secondAttribute="bottom" constant="10" id="rFH-bX-S4S"/>
                 <constraint firstItem="VGJ-KR-0uW" firstAttribute="trailing" secondItem="QKg-3h-l6t" secondAttribute="trailing" id="uS6-r4-rlN"/>
             </constraints>
-            <point key="canvasLocation" x="322.5" y="234.5"/>
+            <point key="canvasLocation" x="174" y="168"/>
         </view>
     </objects>
     <resources>

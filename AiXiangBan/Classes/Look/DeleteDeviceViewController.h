@@ -12,6 +12,6 @@ typedef void (^DidDeleteBlock)(void);
 @property (nonatomic, strong) NSString *deviceId;
 @property (nonatomic, strong) NSString *devicePower;
 @property (nonatomic, strong) DidDeleteBlock block;
-@property (nonatomic, strong) NSString *deviceName;
+@property (nonatomic, strong) NSString *Name;
 @property (nonatomic, strong) NSString *deviceSerialNo;
 @end

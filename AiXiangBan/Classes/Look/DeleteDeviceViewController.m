@@ -29,7 +29,8 @@
 - (void)setUp{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fixName:) name:FIX_DEVICE_NAME object:nil];
     self.topConstraint.constant = navHight + 10;
-    self.nameLabel.text = self.deviceName;
+    self.nameLabel.text = self.Name;
+    LRViewBorderRadius(self.topView, 10, 0, [UIColor whiteColor]);
     LRViewBorderRadius(self.deleteBtn, 10, 0, [UIColor whiteColor]);
 }
 
@@ -74,7 +75,7 @@
     SetDeviceNameViewController *setNameVC = [SetDeviceNameViewController new];
     setNameVC.deviceId = self.deviceId;
     setNameVC.devicePower = self.devicePower;
-    setNameVC.deviceName = self.deviceName;
+    setNameVC.deviceName = self.Name;
     [self.navigationController pushViewController:setNameVC animated:YES];
 }
 

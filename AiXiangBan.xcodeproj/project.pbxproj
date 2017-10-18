@@ -14,6 +14,10 @@
 		11599C471F87DE6D0005D9ED /* pullView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C461F87DE6D0005D9ED /* pullView.xib */; };
 		11599C4B1F87E8AC0005D9ED /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */; };
 		11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */; };
+		1176E9231F96603000CAD826 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1176E9211F96603000CAD826 /* VideoTableViewCell.m */; };
+		1176E9241F96603000CAD826 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1176E9221F96603000CAD826 /* VideoTableViewCell.xib */; };
+		1176E93F1F96648500CAD826 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1176E93D1F96648500CAD826 /* VideoPlayViewController.m */; };
+		1176E9401F96648500CAD826 /* VideoPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1176E93E1F96648500CAD826 /* VideoPlayViewController.xib */; };
 		117949F21F961DB70017BA99 /* HeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117949F11F961DB70017BA99 /* HeartRateViewController.m */; };
 		118035371F8F043F0067CCA6 /* BillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118035351F8F043F0067CCA6 /* BillDetailViewController.m */; };
 		118035381F8F043F0067CCA6 /* BillDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118035361F8F043F0067CCA6 /* BillDetailViewController.xib */; };
@@ -51,6 +55,8 @@
 		11C82BB71F93C2790097A938 /* AllLookDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C82BB61F93C2790097A938 /* AllLookDeviceViewController.m */; };
 		11C82BBB1F93C58C0097A938 /* AllDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C82BB91F93C58C0097A938 /* AllDeviceCell.m */; };
 		11C82BBC1F93C58C0097A938 /* AllDeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C82BBA1F93C58C0097A938 /* AllDeviceCell.xib */; };
+		11C874F51F96560500D43B17 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C874F31F96560500D43B17 /* VideoViewController.m */; };
+		11C874F61F96560500D43B17 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C874F41F96560500D43B17 /* VideoViewController.xib */; };
 		11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3EA1F85159D005B3577 /* AppDelegate.m */; };
 		11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D3F21F85159D005B3577 /* Assets.xcassets */; };
 		11C9D3F91F85159D005B3577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3F81F85159D005B3577 /* main.m */; };
@@ -218,6 +224,12 @@
 		11599C481F87E8AC0005D9ED /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		11599C491F87E8AC0005D9ED /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
 		11599C4A1F87E8AC0005D9ED /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		1176E9201F96603000CAD826 /* VideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
+		1176E9211F96603000CAD826 /* VideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		1176E9221F96603000CAD826 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		1176E93C1F96648500CAD826 /* VideoPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VideoPlayViewController.h; path = AiXiangBan/Classes/help/VideoPlayViewController.h; sourceTree = SOURCE_ROOT; };
+		1176E93D1F96648500CAD826 /* VideoPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VideoPlayViewController.m; path = AiXiangBan/Classes/help/VideoPlayViewController.m; sourceTree = SOURCE_ROOT; };
+		1176E93E1F96648500CAD826 /* VideoPlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VideoPlayViewController.xib; path = AiXiangBan/Classes/help/VideoPlayViewController.xib; sourceTree = SOURCE_ROOT; };
 		117949F01F961DB70017BA99 /* HeartRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateViewController.h; sourceTree = "<group>"; };
 		117949F11F961DB70017BA99 /* HeartRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateViewController.m; sourceTree = "<group>"; };
 		118035341F8F043F0067CCA6 /* BillDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailViewController.h; sourceTree = "<group>"; };
@@ -272,6 +284,9 @@
 		11C82BB81F93C58C0097A938 /* AllDeviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllDeviceCell.h; sourceTree = "<group>"; };
 		11C82BB91F93C58C0097A938 /* AllDeviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllDeviceCell.m; sourceTree = "<group>"; };
 		11C82BBA1F93C58C0097A938 /* AllDeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllDeviceCell.xib; sourceTree = "<group>"; };
+		11C874F21F96560500D43B17 /* VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		11C874F31F96560500D43B17 /* VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		11C874F41F96560500D43B17 /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		11C9D3E61F85159D005B3577 /* AiXiangBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiXiangBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C9D3E91F85159D005B3577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		11C9D3EA1F85159D005B3577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -951,6 +966,12 @@
 				11E09F5D1F88CF1D004A2BCC /* HelpViewController.h */,
 				11E09F5E1F88CF1D004A2BCC /* HelpViewController.m */,
 				11E09F5F1F88CF1E004A2BCC /* HelpViewController.xib */,
+				11C874F21F96560500D43B17 /* VideoViewController.h */,
+				11C874F31F96560500D43B17 /* VideoViewController.m */,
+				11C874F41F96560500D43B17 /* VideoViewController.xib */,
+				1176E93C1F96648500CAD826 /* VideoPlayViewController.h */,
+				1176E93D1F96648500CAD826 /* VideoPlayViewController.m */,
+				1176E93E1F96648500CAD826 /* VideoPlayViewController.xib */,
 				11E09F561F88CF1D004A2BCC /* Views */,
 			);
 			path = Help;
@@ -1142,6 +1163,9 @@
 				11E09F571F88CF1D004A2BCC /* AskHelpCell.h */,
 				11E09F581F88CF1D004A2BCC /* AskHelpCell.m */,
 				11E09F591F88CF1D004A2BCC /* AskHelpCell.xib */,
+				1176E9201F96603000CAD826 /* VideoTableViewCell.h */,
+				1176E9211F96603000CAD826 /* VideoTableViewCell.m */,
+				1176E9221F96603000CAD826 /* VideoTableViewCell.xib */,
 			);
 			name = Views;
 			path = AiXiangBan/Classes/help/Views;
@@ -1562,6 +1586,7 @@
 				1188E9781F904B2C00E4EB27 /* CallCardCell.xib in Resources */,
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
 				11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */,
+				1176E9241F96603000CAD826 /* VideoTableViewCell.xib in Resources */,
 				1AA2E0D01F90855100AA185F /* CustomSliderView.xib in Resources */,
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
@@ -1575,11 +1600,13 @@
 				1A4E9C831F8E1C4A007D6832 /* LookViewController.xib in Resources */,
 				11E09F7B1F88E989004A2BCC /* RechargeCell.xib in Resources */,
 				1A4E9C821F8E1C47007D6832 /* LiveLookViewController.xib in Resources */,
+				11C874F61F96560500D43B17 /* VideoViewController.xib in Resources */,
 				1A7919581F8F3B92003917A2 /* WatchXixunViewController.xib in Resources */,
 				11E09F631F88D16E004A2BCC /* AskHelpCell.xib in Resources */,
 				11E09F801F88F82E004A2BCC /* ConfirmViewController.xib in Resources */,
 				11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */,
 				11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */,
+				1176E9401F96648500CAD826 /* VideoPlayViewController.xib in Resources */,
 				1188E9861F9053C800E4EB27 /* CallCardDetailViewController.xib in Resources */,
 				1A24A9201F9338930069E3B8 /* ControllView.xib in Resources */,
 				11599C4C1F87E8AC0005D9ED /* HomeCollectionViewCell.xib in Resources */,
@@ -1700,11 +1727,13 @@
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				1A24E67E1F95AE4D00D61952 /* ChooseDeviceViewController.m in Sources */,
 				11937D731F86807500C809C9 /* UIView+EX.m in Sources */,
+				1176E9231F96603000CAD826 /* VideoTableViewCell.m in Sources */,
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				1ABB66FC1F93B370004A217A /* AddRobotViewController.m in Sources */,
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A676A141F8BA733001BD32A /* AddTendView.m in Sources */,
+				11C874F51F96560500D43B17 /* VideoViewController.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
 				1A4E9C7E1F8E1B2B007D6832 /* LookCell.m in Sources */,
 				1A4E9C791F8E1B1B007D6832 /* EZQRView.m in Sources */,
@@ -1713,6 +1742,7 @@
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
 				1AA2E0C61F90533700AA185F /* KRCustomView.m in Sources */,
 				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
+				1176E93F1F96648500CAD826 /* VideoPlayViewController.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
 				11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */,
 				1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */,

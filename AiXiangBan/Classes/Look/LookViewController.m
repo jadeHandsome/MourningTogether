@@ -49,6 +49,7 @@
     [self.data removeAllObjects];
     NSDictionary *params = @{@"elderId":[KRUserInfo sharedKRUserInfo].elderId ,@"offset":@0,@"size":@10};
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/family/getElderDeviceList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        [self.tableView.mj_header endRefreshing];
         if ([showdata[@"deviceList"] count]) {
             NSArray *list = showdata[@"deviceList"];
             for (int i = 0; i < list.count; i++) {
@@ -124,7 +125,8 @@
     cell.block = ^(){
         DeleteDeviceViewController *deleteVC = [DeleteDeviceViewController new];
         deleteVC.deviceId = self.dic[@"deviceId"];
-        deleteVC.deviceName = self.dic[@"deviceName"];
+        deleteVC.Name = self.dic[@"deviceName"];
+        NSLog(@"%@-%@",deleteVC.Name,self.dic[@"deviceName"]);
         deleteVC.devicePower = self.dic[@"devicePower"];
         deleteVC.deviceSerialNo = self.dic[@"deviceSerialNo"];
         deleteVC.block = ^{
@@ -138,13 +140,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     EZDeviceInfo *deviceInfo = self.data[indexPath.row];
-//    if (deviceInfo.status == 1) {
+    if (deviceInfo.status == 1) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         LiveLookViewController *LiveVC = [LiveLookViewController new];
         LiveVC.deviceInfo = deviceInfo;
         LiveVC.accessToken = self.accessToken;
         [self.navigationController pushViewController:LiveVC animated:YES];
-//    }
+    }
 }
 
 - (IBAction)addAction:(UIButton *)sender {
