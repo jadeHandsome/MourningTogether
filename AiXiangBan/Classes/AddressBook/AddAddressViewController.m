@@ -95,7 +95,14 @@
         } else {
             path = @"/mgr/contacts/other/addOther.do";
         }
-        [[KRMainNetTool sharedKRMainNetTool] upLoadData:path params:self.param andData:@[self.param[@"image"]] waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        NSArray *image = nil;
+        if (self.param[@"image"]) {
+            image = @[self.param[@"image"]];
+        }
+        if (self) {
+            image = @[@{@"name":@"headImgUrl",@"data":UIImageJPEGRepresentation(_zhanweiImageData, 1)}];
+        }
+        [[KRMainNetTool sharedKRMainNetTool] upLoadData:path params:self.param andData:image waitView:self.view complateHandle:^(id showdata, NSString *error) {
             if (showdata == nil) {
                 return ;
             }

@@ -96,6 +96,9 @@
             make.right.equalTo(self.view.mas_right).with.offset(-10);
             make.height.equalTo(@(40 + [UIScreen mainScreen].bounds.size.width * 0.3 * 0.38 * ([self.allItems[i][@"items"] count] + 2)/3 + 20 * (([self.allItems[i][@"items"] count] + 2)/3)));
         }];
+        if (i == 0) {
+            type.canChooseMore = YES;
+        }
         h += 40 + [UIScreen mainScreen].bounds.size.width * 0.3 * 0.38 * ([self.allItems[i][@"items"] count] + 2)/3 + 20 * (([self.allItems[i][@"items"] count] + 2)/3);
         [type setHealthWith:self.allItems[i] andParam:self.paramArray];
         temp = type;

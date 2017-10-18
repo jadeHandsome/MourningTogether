@@ -9,15 +9,28 @@
 #import "TrackViewController.h"
 #import <MAMapKit/MAMapKit.h>
 #import "TRAnnotation.h"
+#import "TrackListViewController.h"
 @interface TrackViewController ()<MAMapViewDelegate>
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) NSMutableDictionary *param;
 @property (nonatomic, strong) UILabel *datelabel;
+@property (nonatomic, strong) NSMutableArray *allPoint;
+
 @end
 
 @implementation TrackViewController
+{
+    NSInteger count;
+}
+- (NSMutableArray *)allPoint {
+    if (!_allPoint) {
+        _allPoint = [NSMutableArray array];
+        
+    }
+    return _allPoint;
+}
 - (NSMutableDictionary *)param {
     if (!_param) {
         _param = [NSMutableDictionary dictionary];
@@ -26,32 +39,56 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"足迹";
+    self.navigationItem.title = @"轨迹";
+    count = 0;
     [self setUp];
     [self setUpMap];
+    self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
+    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:[NSDate date]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-78"] style:UIBarButtonItemStyleDone target:self action:@selector(showTab)];
     [self loadData];
+    //[self setUpTab];
+}
+- (void)showTab {
+    TrackListViewController *list = [[TrackListViewController alloc]init];
+    [self.navigationController pushViewController:list animated:YES];
 }
 - (void)loadData {
-    self.param[@"offset"] = @0;
-    self.param[@"size"] = @20;
-    self.param[@"deviceId"] = [KRUserInfo sharedKRUserInfo].deviceId;
+    count += self.allPoint.count;
+    self.param[@"offset"] = @(count);
+    self.param[@"size"] = @(30);
+    self.param[@"deviceId"] = [KRUserInfo sharedKRUserInfo].deviceSn;
     [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"/device/getFootmarkList.do" params:self.param withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
-        NSLog(@"%@",showdata);
+        
         NSArray *list = showdata[@"footmarkList"];
         [self.mapView removeAnnotations:self.mapView.annotations];
+        NSMutableArray *annos = [NSMutableArray array];
         for (NSDictionary *dic in list) {
             TRAnnotation *pointAnnotation  = [[TRAnnotation alloc] init];
-            pointAnnotation.coordinate = CLLocationCoordinate2DMake([dic[@"latitude"] doubleValue], [dic[@"longitude"] doubleValue]);
+            pointAnnotation.coordinate = CLLocationCoordinate2DMake([dic[@"footmarkLatitude"] doubleValue], [dic[@"footmarkLongitude"] doubleValue]);
             pointAnnotation.image = [UIImage imageNamed:@"云医时代-75"];
-            [self.mapView addAnnotation:pointAnnotation];
+            pointAnnotation.anTag = [list indexOfObject:dic];
+            [annos addObject:pointAnnotation];
+            
         }
-        if (list.count > 0) {
-            NSDictionary *dic = list.firstObject;
-            [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([dic[@"latitude"] doubleValue], [dic[@"longitude"] doubleValue]) animated:YES];
+        [self.allPoint addObjectsFromArray:annos];
+        if ([showdata[@"footmarkList"] count] == 0) {
+            
+            [self.mapView addAnnotations:self.allPoint];
+            if (self.allPoint.count > 0) {
+                TRAnnotation *dic = self.allPoint.firstObject;
+                [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(dic.coordinate.latitude , dic.coordinate.longitude) animated:YES];
+            }
+            NSLog(@"%ld",self.allPoint.count);
+        } else {
+            [self loadData];
         }
+        
+        
+        
         
     }];
 }
@@ -168,15 +205,14 @@
         
     } completion:^(BOOL finished) {
         [sender setSelected:YES];
-        self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyy-MM-dd" withDate:lastDay];
-        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyy-MM-dd" withDate:lastDay];
+        [self.allPoint removeAllObjects];
+        self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:lastDay];
         [weakSelf loadData];
     }];
     
 }
-- (void)titleClick {
-    
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -199,21 +235,33 @@
                                                           reuseIdentifier:reuseIndetifier];
         }
         TRAnnotation *anno = (TRAnnotation *)annotation;
-        annotationView.image = anno.image;
+        annotationView.image = [self addNumImages:anno.image andText:[NSString stringWithFormat:@"%ld",anno.anTag]];
         
         
         return annotationView;
     }
     return nil;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIImage *)addNumImages:(UIImage *)oldImageView andText:(NSString *)text{
+    UIGraphicsBeginImageContext(CGSizeMake(25, 30));
+    [oldImageView drawInRect:CGRectMake(0, 0, 25, 30)];
+    CGRect rect = CGRectMake(0, 0, 25, 30);
+    
+    UILabel *textLabel = [[UILabel alloc] init];
+    textLabel.font = [UIFont systemFontOfSize:13];
+    NSString *str = text;
+    textLabel.text = str;
+    textLabel.numberOfLines = 1;//根据最大行数需求来设置
+    textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    CGSize maximumLabelSize = CGSizeMake(100, 9999);//labelsize的最大值
+    CGSize expectSize = [textLabel sizeThatFits:maximumLabelSize];
+    //关键语句
+    rect.origin.x = 12.5 - (expectSize.width * 0.5);
+    rect.origin.y = 15 - (expectSize.height * 0.5) - 3;
+    [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
-*/
 
 @end

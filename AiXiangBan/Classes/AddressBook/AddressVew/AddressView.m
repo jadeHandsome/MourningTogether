@@ -62,7 +62,14 @@
         make.top.equalTo(nameLabel.mas_bottom);
         make.height.equalTo(nameLabel.mas_height);
     }];
-    IDLabel.textColor = LRRGBColor(145, 145, 145);
+    if (self.userInteractionEnabled) {
+        IDLabel.textColor = LRRGBColor(145, 145, 145);
+        nameLabel.textColor = [UIColor blackColor];
+    } else {
+        IDLabel.textColor = LRRGBColor(200, 200, 200);
+        nameLabel.textColor = LRRGBColor(145, 145, 145);
+    }
+    
     IDLabel.text = [NSString stringWithFormat:@"%@",dic[@"mobile"]];
     
     UIView *linView = [[UIView alloc]init];
@@ -97,6 +104,23 @@
     [self addGestureRecognizer:tap];
     [tap addTarget:self action:@selector(click)];
     
+    UILabel *statuLabel = [[UILabel alloc]init];
+    [self addSubview:statuLabel];
+    [statuLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.mas_right).with.offset(-10);
+        make.centerY.equalTo(self.mas_centerY);
+    }];
+    statuLabel.textColor = ColorRgbValue(0x1cb9cf);
+    statuLabel.text = @"未验证";
+    if (dic[@"valid"]) {
+        if ([dic[@"valid"] integerValue]) {
+            statuLabel.hidden = NO;
+        } else {
+            statuLabel.hidden = YES;
+        }
+    } else {
+        statuLabel.hidden = YES;
+    }
     
 }
 - (void)click {

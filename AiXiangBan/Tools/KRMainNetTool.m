@@ -159,8 +159,12 @@ singleton_implementation(KRMainNetTool)
             if ([self.isShow isEqualToString:@"1"]) {
                 //[waitView hideBubble];
             }
+            if (response[@"responseParams"]) {
+                complet(response[@"responseParams"],nil);
+            } else {
+                complet(@"修改成功",nil);
+            }
             
-            complet(@"修改成功",nil);
         } else if ([num longLongValue] == 6) {
             //登录失效
             [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"isLogin"];

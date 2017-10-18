@@ -61,20 +61,26 @@
     self.backgroundColor = [UIColor whiteColor];
 }
 - (void)btnClick:(UIButton *)sender {
-    for (UIView *sub in self.btnView.subviews) {
-        if ([sub isKindOfClass:[UIButton class]]) {
-            UIButton *btn = (UIButton *)sub;
-            [btn setSelected:NO];
-            btn.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-            
+    if (!self.canChooseMore) {
+        for (UIView *sub in self.btnView.subviews) {
+            if ([sub isKindOfClass:[UIButton class]]) {
+                UIButton *btn = (UIButton *)sub;
+                [btn setSelected:NO];
+                btn.backgroundColor = LRRGBAColor(242, 242, 242, 1);
+                
+            }
         }
     }
+    
     [sender setSelected:YES];
-    for (NSDictionary *dic in self.paramArray) {
-        if ([dic[@"healthType"] isEqualToString:self.item[@"items"][sender.tag - 321][@"healthType"] ]) {
-            [self.paramArray removeObject:dic];
+    if (!self.canChooseMore) {
+        for (NSDictionary *dic in self.paramArray) {
+            if ([dic[@"healthType"] isEqualToString:self.item[@"items"][sender.tag - 321][@"healthType"] ]) {
+                [self.paramArray removeObject:dic];
+            }
         }
     }
+    
     [self.paramArray addObject:self.item[@"items"][sender.tag - 321]];
     sender.backgroundColor = LRRGBColor(85, 183, 204);
 }
