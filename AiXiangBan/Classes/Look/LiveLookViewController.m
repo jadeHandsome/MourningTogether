@@ -214,14 +214,14 @@
         if(_isPlaying)
         {
             [_player stopRealPlay];
-            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
+            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代2-7") forState:UIControlStateNormal];
             [self disenable];
             self.playerControlBtn.enabled = YES;
         }
         else
         {
             [_player startRealPlay];
-            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代2-7") forState:UIControlStateNormal];
+            [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
             
             [self.loadingView startSquareClcokwiseAnimation];
         }
@@ -545,6 +545,7 @@
             }
         }
         [self able];
+        [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代-66") forState:UIControlStateNormal];
         [self.loadingView stopSquareClockwiseAnimation];
         _isPlaying = YES;
         if (!_isOpenSound)
