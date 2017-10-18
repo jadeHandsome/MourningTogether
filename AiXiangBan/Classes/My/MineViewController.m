@@ -246,6 +246,7 @@
         if (showdata == nil) {
             return ;
         }
+        [KRUserInfo sharedKRUserInfo].headImgUrl = showdata[@"headImgUrl"];
         [self loadData];
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
