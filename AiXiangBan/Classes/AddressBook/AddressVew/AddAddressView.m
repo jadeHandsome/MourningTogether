@@ -213,13 +213,15 @@
             UILabel *chooseLabel = [[UILabel alloc]init];
             [self addSubview:chooseLabel];
             _chooselabel = chooseLabel;
-            _chooselabel.hidden = YES;
             [chooseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.equalTo(right.mas_left).with.offset(-10);
                 make.centerY.equalTo(right.mas_centerY);
             }];
             chooseLabel.textColor = LRRGBColor(85, 183, 204);
-            chooseLabel.text = @"已选";
+            if (param[@"address"]) {
+                chooseLabel.text = param[@"address"];
+            }
+            
             UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
             [self addGestureRecognizer:tap];
             [tap addTarget:self action:@selector(addressClick)];
@@ -299,20 +301,6 @@
         case 11:
         {
             titleStr = @"社区工作人员";
-//            UITextField *textField = [[UITextField alloc]init];
-//            textField.text = param[@"communityWorker"];
-//            //textField.text = param[@"healthIds"];
-//            textField.tag = 5;
-//            [textField addTarget:self action:@selector(textFielDidChange:) forControlEvents:UIControlEventEditingChanged];
-//            textField.textAlignment = NSTextAlignmentRight;
-//            [self addSubview:textField];
-//            [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(title.mas_right).with.offset(10);
-//                make.centerY.equalTo(self.mas_centerY);
-//                make.height.equalTo(@30);
-//                make.right.equalTo(self.mas_right).with.offset(-10);
-//
-//            }];
             UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
             [self addGestureRecognizer:tap];
             [tap addTarget:self action:@selector(commuitClick)];
@@ -354,19 +342,7 @@
         _chooselabel.text = result;
         _chooselabel.hidden = NO;
     };
-//    health.block = ^(NSString *paramArray) {
-//        NSMutableString *heath = [NSMutableString string];
-//        for (NSDictionary *dic in paramArray) {
-//            if ([paramArray indexOfObject:dic] < paramArray.count - 1) {
-//                [heath appendString:[dic[@"healthId"] stringByAppendingString:@","]];
-//            } else {
-//                [heath appendString:dic[@"healthId"]];
-//            }
-//        }
-//        self.param[@"healthIds"] = heath;
-//        _chooselabel.hidden = NO;
-//
-//    };
+
     
     
     [self.superVc.navigationController pushViewController:health animated:YES];

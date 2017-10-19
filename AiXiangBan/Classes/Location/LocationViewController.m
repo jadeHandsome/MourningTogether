@@ -82,22 +82,15 @@
 - (void)setUPMap {
     
     _mapView = [[MAMapView alloc] init];
-    _mapView.showsUserLocation = YES;
+    //_mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
-    
-    
-
-//    self.mapView.showsUserLocation = YES;
-//    _mapView.logoCenter = CGPointMake(0, 0);
-//    [_mapView setUserTrackingMode:MAUserTrackingModeNone animated:YES];
-    ///把地图添加至view
-    //_mapView.mapType = MAMapTypeSatellite;
     _mapView.delegate = self;
     
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate = self;
+    
     [self.locationManager startUpdatingLocation];
-    [self.mapView setZoomLevel:12 animated:YES];
+    [self.mapView setZoomLevel:14 animated:YES];
     [self.view addSubview:_mapView];
     [_mapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);

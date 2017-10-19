@@ -110,13 +110,39 @@
             
             if(error == nil)
             {
-                NSLog(@"%f----%f", pl.location.coordinate.latitude, pl.location.coordinate.longitude);
-                //self.currentname = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
-                NSLog(@"%@", pl.name);
-                self.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pl.locality,pl.subLocality,pl.name];
-                //            self.addressTV.text = pl.name;
-                //            self.latitudeTF.text = @(pl.location.coordinate.latitude).stringValue;
-                //            self.longitudeTF.text = @(pl.location.coordinate.longitude).stringValue;
+                NSString *administrativeArea = @"";
+                
+                if (pl.administrativeArea) {
+                    administrativeArea = pl.administrativeArea;
+                }
+                NSString *locality = @"";
+                
+                if (pl.locality) {
+                    locality = pl.locality;
+                }
+                
+                NSString *subLocality = @"";
+                
+                if (pl.subLocality) {
+                    subLocality = pl.subLocality;
+                }
+                NSString *subThoroughfare = @"";
+                
+                if (pl.subThoroughfare) {
+                    subThoroughfare = pl.subThoroughfare;
+                }
+                NSString *thoroughfare = @"";
+                
+                if (pl.thoroughfare) {
+                    thoroughfare = pl.thoroughfare;
+                }
+                NSString *name = @"";
+                
+                if (pl.name) {
+                    name = pl.name;
+                }
+                
+                self.locationLabel.text = [NSString stringWithFormat:@"%@%@%@%@%@%@",administrativeArea,locality,subLocality,subThoroughfare,thoroughfare,name];
             }
         }];
         
@@ -259,9 +285,9 @@
     }];
     
     _mapView = [[MAMapView alloc] init];
-    _mapView.showsUserLocation = YES;
+    //_mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
-    [self.mapView setZoomLevel:12 animated:YES];
+    [self.mapView setZoomLevel:14 animated:YES];
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     
@@ -296,12 +322,39 @@
         if(error == nil)
         {
             NSLog(@"%f----%f", pl.location.coordinate.latitude, pl.location.coordinate.longitude);
-            //self.currentname = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
-            NSLog(@"%@", pl.name);
-            self.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pl.locality,pl.subLocality,pl.name];
-            //            self.addressTV.text = pl.name;
-            //            self.latitudeTF.text = @(pl.location.coordinate.latitude).stringValue;
-            //            self.longitudeTF.text = @(pl.location.coordinate.longitude).stringValue;
+            NSString *administrativeArea = @"";
+            
+            if (pl.administrativeArea) {
+                administrativeArea = pl.administrativeArea;
+            }
+            NSString *locality = @"";
+          
+            if (pl.locality) {
+                locality = pl.locality;
+            }
+            
+            NSString *subLocality = @"";
+            
+            if (pl.subLocality) {
+                subLocality = pl.subLocality;
+            }
+            NSString *subThoroughfare = @"";
+            
+            if (pl.subThoroughfare) {
+                subThoroughfare = pl.subThoroughfare;
+            }
+            NSString *thoroughfare = @"";
+            
+            if (pl.thoroughfare) {
+                thoroughfare = pl.thoroughfare;
+            }
+            NSString *name = @"";
+            
+            if (pl.name) {
+                name = pl.name;
+            }
+            
+            self.locationLabel.text = [NSString stringWithFormat:@"%@%@%@%@%@%@",administrativeArea,locality,subLocality,subThoroughfare,thoroughfare,name];
         }
     }];
     //[self setLocationWithLatitude:touchMapCoordinate.latitude AndLongitude:touchMapCoordinate.longitude];
@@ -351,14 +404,6 @@
     }
     return nil;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

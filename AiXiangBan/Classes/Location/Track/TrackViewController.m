@@ -76,7 +76,6 @@
         }
         [self.allPoint addObjectsFromArray:annos];
         if ([showdata[@"footmarkList"] count] == 0) {
-            
             [self.mapView addAnnotations:self.allPoint];
             if (self.allPoint.count > 0) {
                 TRAnnotation *dic = self.allPoint.firstObject;
@@ -206,6 +205,7 @@
     } completion:^(BOOL finished) {
         [sender setSelected:YES];
         [self.allPoint removeAllObjects];
+        count = 0;
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
         self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:lastDay];
         [weakSelf loadData];

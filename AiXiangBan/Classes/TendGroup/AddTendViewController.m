@@ -74,7 +74,7 @@
                 }
                 
                 if (!device) {
-                    device = @[@{@"eqName":@"位置",@"eqImage":location},@{@"eqName":@"看看",@"eqImage":look},@{@"eqName":@"机器人",@"eqImage":robot},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖检测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾报警",@"eqImage":@"云医时代1-90"}];
+                    device = @[@{@"eqName":@"位置",@"eqImage":location},@{@"eqName":@"看看",@"eqImage":look},@{@"eqName":@"机器人",@"eqImage":robot},@{@"eqName":@"闯入检测",@"eqImage":@"云医时代1-86"},@{@"eqName":@"血糖监测",@"eqImage":@"云医时代1-88"},@{@"eqName":@"烟雾警报",@"eqImage":@"云医时代1-90"}];
                 } else {
                     
                     NSMutableArray *tempArray = [NSMutableArray array];
@@ -96,7 +96,9 @@
                     }
                     device = [tempArray copy];
                 }
-                mut[@"equipment"] = device;
+                
+                
+                mut[@"equipment"] = [self sortArray:device];
                 mut[@"oldDic"] = dic;
                 [eq addObject:mut];
                 if (eq.count == [showdata[@"familyElderList"] count]) {
@@ -131,6 +133,19 @@
         }
         
     }];
+}
+- (NSArray *)sortArray:(NSArray *)deviceArray {
+    NSArray *strArray = @[@"位置",@"看看",@"机器人",@"闯入检测",@"血糖监测",@"烟雾警报"];
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (NSString *dic in strArray) {
+        for (NSDictionary *deviSub in deviceArray) {
+            if ([deviSub[@"eqName"] isEqualToString:dic]) {
+                [tempArray addObject:deviSub];
+            }
+        }
+        
+    }
+    return [tempArray copy];
 }
 - (void)setUp {
     for (UIView *sub in self.view.subviews) {

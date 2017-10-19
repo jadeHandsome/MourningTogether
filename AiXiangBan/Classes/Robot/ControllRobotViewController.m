@@ -345,8 +345,8 @@
                 if ([str containsString:@"1000"]) {
                     //推流成功
                     NSLog(@"推流成功");
-                    [self.mediaPlayer prepareToPlay:[NSURL URLWithString:[LIVE_URL stringByAppendingString:_robotId]]];
-                    [self.mediaPlayer play];
+                    [self performSelector:@selector(openMedil) withObject:nil afterDelay:2];
+                    
                 } else if ([str containsString:@"2000"]) {
                     //断流成功
                     
@@ -365,6 +365,10 @@
     
     
    
+}
+- (void)openMedil {
+    [self.mediaPlayer prepareToPlay:[NSURL URLWithString:[LIVE_URL stringByAppendingString:_robotId]]];
+    [self.mediaPlayer play];
 }
 //开始直播
 - (void)beginLive {

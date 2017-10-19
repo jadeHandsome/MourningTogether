@@ -13,6 +13,8 @@
 @property (nonatomic, strong) UIScrollView *myScroll;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSMutableArray *chooseData;
+@property (nonatomic, strong) UIView *mainView;
+@property (nonatomic, strong) NSString *searchStr;
 @end
 
 @implementation ChooseOlderViewController
@@ -27,6 +29,53 @@
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchStr = searchBar.text;
+}
+- (void)setSearchStr:(NSString *)searchStr {
+    _searchStr = searchStr;
+    [self setLayout:searchStr];
+   
+    
+}
+- (void)setLayout:(NSString *)searchStr {
+    [self reset];
+    if (searchStr.length == 0) {
+        return;
+    }
+    NSArray *array = [self.dataArray copy];
+    if (self.type == 1) {
+        for (NSDictionary *dic in array) {
+            if (![dic[@"elderName"] containsString:searchStr] && ![dic[@"mobile"] containsString:searchStr]) {
+                NSInteger index = [array indexOfObject:dic] + 1000;
+                AddressView *add = [self.mainView viewWithTag:index];
+                [add mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@0);
+                }];
+            }
+        }
+    } else {
+        for (NSDictionary *dic in array) {
+            if (![dic[@"otherName"] containsString:searchStr] && ![dic[@"mobile"] containsString:searchStr]) {
+                NSInteger index = [array indexOfObject:dic] + 1000;
+                AddressView *add = [self.mainView viewWithTag:index];
+                [add mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@0);
+                }];
+            }
+        }
+    }
+}
+- (void)reset {
+    for (UIView *sub in self.mainView.subviews) {
+        if ([sub isKindOfClass:[AddressView class]]) {
+            AddressView *add = (AddressView *)sub;
+            [add mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@60);
+            }];
+        }
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -207,6 +256,7 @@
         }
         
         UIView *secondView = [[UIView alloc]init];
+    self.mainView = secondView;
         secondView.backgroundColor = [UIColor whiteColor];
         [subS addSubview:secondView];
         LRViewBorderRadius(secondView, 5, 0, [UIColor clearColor]);
@@ -219,6 +269,7 @@
         UIView *bottomTemp = secondView;
         for (int j = 0; j < [self.dataArray count]; j ++) {
             AddressView *address = [[AddressView alloc]init];
+            address.tag = j + 1000;
             [secondView addSubview:address];
             if (self.type == 1 && !self.isDelet) {
                 NSArray *array = self.oldData[@"familyElderList"] ;
