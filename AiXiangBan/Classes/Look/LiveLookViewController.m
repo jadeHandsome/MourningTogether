@@ -66,7 +66,6 @@
 @property (weak, nonatomic) IBOutlet UIView *PTLeft;
 @property (weak, nonatomic) IBOutlet UILabel *talkdisplay;
 @property (nonatomic, assign) BOOL isRecording;
-@property (nonatomic, assign) int camareEnable;
 @property (weak, nonatomic) IBOutlet UIButton *voicePressBtn;
 @property (nonatomic, strong) NSString *cheakCode;
 @end
@@ -110,9 +109,7 @@
     [super viewWillAppear:YES];
     if(self.isRecording)
     {
-        [_player stopLocalRecord];
-        [self.fileData writeToFile:_filePath atomically:YES];
-        [self saveRecordToPhotosAlbum:_filePath];
+       [self videoRecord];
     }
     
     [_player stopRealPlay];
@@ -142,7 +139,6 @@
 }
 
 - (void)config{
-    self.camareEnable = 1;
     if (self.deviceInfo.status == 2) {
         [self showHUDWithText:@"设备不在线"];
     }
@@ -213,6 +209,10 @@
     else{
         if(_isPlaying)
         {
+            if(self.isRecording)
+            {
+                [self videoRecord];
+            }
             [_player stopRealPlay];
             [self.playerControlBtn setImage:IMAGE_NAMED(@"云医时代2-7") forState:UIControlStateNormal];
             [self disenable];
@@ -347,6 +347,9 @@
                         self.voicePressBtn.enabled = NO;
                         return;
                     }
+                    if (self.deviceInfo.isSupportTalk == 1) {
+                        self.voicePressBtn.enabled = NO;
+                    }
                     if (self.deviceInfo.isSupportTalk == 3) {
                         self.voicePressBtn.enabled = YES;
                         self.talkdisplay.text = @"轻点后说话";
@@ -386,20 +389,12 @@
 }
 
 - (void)setCameraStatus{
-    int enable = self.camareEnable == 1 ? 0 : 1;
-    NSDictionary *params = @{@"accessToken":self.accessToken,@"deviceSerial":self.deviceInfo.deviceSerial,@"enable":@(enable),@"channelNo":@(self.cameraInfo.cameraNo)};
-    __block MBProgressHUD *HUD;
-    HUD = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    UIView *cusTome = [[UIView alloc]init];
-    cusTome.backgroundColor = [UIColor blackColor];
-    HUD.customView = cusTome;
-    HUD.removeFromSuperViewOnHide = YES;
+    [self showLoadingHUDWithText:nil];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 10.f;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager POST:@"https://open.ys7.com/api/lapp/device/scene/switch/set" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //请求成功，隐藏HUD并销毁
-        [HUD hideAnimated:YES];
+    NSDictionary *params = @{@"accessToken":self.accessToken,@"deviceSerial":self.deviceInfo.deviceSerial};
+    [manager POST:@"https://open.ys7.com/api/lapp/device/scene/switch/status" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *response = nil;
         if ([responseObject isKindOfClass:[NSData class]]) {
             response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -407,14 +402,31 @@
             response = responseObject;
         }
         if ([response[@"code"] isEqualToString:@"200"]) {
-            [MBProgressHUD showError:[NSString stringWithFormat:@"摄像头%@成功",enable == 1?@"开启":@"关闭"] toView:self.view];
-            self.camareEnable = !self.camareEnable;
+            int enable = [response[@"data"][@"enable"] integerValue] == 1 ? 0 : 1;
+            NSDictionary *params1 = @{@"accessToken":self.accessToken,@"deviceSerial":self.deviceInfo.deviceSerial,@"enable":@(enable),@"channelNo":@(self.cameraInfo.cameraNo)};
+            [manager POST:@"https://open.ys7.com/api/lapp/device/scene/switch/set" parameters:params1 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSDictionary *response1 = nil;
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    response1 = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                } else {
+                    response1 = responseObject;
+                }
+                if ([response1[@"code"] isEqualToString:@"200"]) {
+                    [self showHUDWithText:@"操作成功"];
+                }
+                else{
+                    [self showHUDWithText:@"操作失败"];
+                }
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [self showHUDWithText:@"网络异常"];
+            }];
         }
         else{
-            [MBProgressHUD showError:@"操作失败" toView:self.view];
+            [self showHUDWithText:@"获取摄像头状态失败"];
         }
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD showError:@"网络异常" toView:self.view];
+        [self showHUDWithText:@"网络异常"];
     }];
 }
 
@@ -537,6 +549,9 @@
 {
     if (messageCode == PLAYER_REALPLAY_START)
     {
+        if (self.isRecording) {
+            [self videoRecord];
+        }
         if (self.cheakCode) {
             NSMutableDictionary *VerifyCodeDic = [NSMutableDictionary dictionaryWithDictionary:[self getFromDefaultsWithKey:@"VerifyCodeDic"]];
             if (![[VerifyCodeDic allKeys] containsObject:self.deviceInfo.deviceSerial]) {

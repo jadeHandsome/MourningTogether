@@ -37,6 +37,7 @@
     UITextField *textField = [[UITextField alloc] init];
     textField.font = [UIFont systemFontOfSize:16];
     textField.placeholder = @"请输入序列号";
+    textField.keyboardType = UIKeyboardTypeNumberPad;
     [view addSubview:textField];
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view).with.offset(10);
@@ -100,7 +101,7 @@
     {
         [self addAction];
     }
-    if (error.code == 400036) {
+    if (error.code == 120010) {
         UIAlertView *retryAlertView = [[UIAlertView alloc] initWithTitle:@"验证码错误" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重试", nil];
         retryAlertView.tag = 0xbb;
         [retryAlertView show];
