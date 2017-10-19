@@ -59,7 +59,10 @@
         pointAnnotation.image = [self returnSmallImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].imageUrl]]] andSize:CGSizeMake(50, 50)];
         [self.mapView removeOverlay:circle];
         [self.mapView removeAnnotation:pointAnnotation];
-        
+        TRAnnotation *anno = [[TRAnnotation alloc]init];
+        anno.image = [UIImage imageNamed:@"loc"];
+        anno.coordinate = location;
+        [self.mapView addAnnotation:anno];
         [self.mapView addAnnotation:pointAnnotation];
         [self.mapView addOverlay:circle];
         [self.mapView setCenterCoordinate:location animated:YES];

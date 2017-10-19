@@ -13,9 +13,14 @@
 #import "TRAnnotation.h"
 #import "AskHelpViewController.h"
 #import "UIImage+Gif.h"
-@interface AlarmDetailViewController ()<MAMapViewDelegate>
+#import "AlarmDetailViews.h"
+@interface AlarmDetailViewController ()<MAMapViewDelegate,UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *mainScroll;
 @property (nonatomic, strong) MAMapView *mapView;
+@property (nonatomic, strong) UIImageView *headImageView;
+@property (nonatomic, strong) NSDictionary *myData;
+@property (nonatomic, strong) UIView *centerView;
+@property (nonatomic, strong) UIView *lineView;
 @end
 
 @implementation AlarmDetailViewController
@@ -28,12 +33,25 @@
     [self setUp];
     [self loadData];
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y > 20) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+            [self.navigationController.navigationBar setShadowImage:nil];
+        }];
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+            [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+        }];
+    }
+}
 - (void)loadData {
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyInfo.do" params:@{@"emergencyId":self.alarmId} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
-
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:showdata[@"elderHeadUrl"]] placeholderImage:_zhanweiImageData];
         CLLocationCoordinate2D location = CLLocationCoordinate2DMake( [showdata[@"latitude"] doubleValue],[showdata[@"longitude"] doubleValue]);
         
         
@@ -42,9 +60,31 @@
         TRAnnotation *pointAnnotation  = [[TRAnnotation alloc] init];
         pointAnnotation.coordinate = location;
         pointAnnotation.image = [UIImage imageNamed:@"云医时代-75"];
-        
+        self.myData = [showdata copy];
         [self.mapView addAnnotation:pointAnnotation];
         [self.mapView setCenterCoordinate:location animated:YES];
+        UIView *temp = _centerView;
+        for (int i = 0; i < [showdata[@"contactList"] count]; i ++) {
+            AlarmDetailViews *detail = [[[NSBundle mainBundle]loadNibNamed:@"AlarmDetailViews" owner:self options:nil]firstObject];
+            [self.mainScroll addSubview:detail];
+            [detail setUpWithDic:showdata[@"contactList"][i]];
+            [detail mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.top.equalTo(temp.mas_bottom);
+                make.right.equalTo(self.view.mas_right);
+                make.left.equalTo(self.view.mas_left);
+                make.height.equalTo(@80);
+            }];
+            temp = detail;
+        }
+        CGFloat f = [self.myData[@"list"] count] * 80;
+        if (f == 0) {
+            f = 160;
+        }
+        self.mainScroll.contentSize = CGSizeMake(0, navHight + 20 + 400 + f + 1 + 370 - navHight);
+        [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_centerView.mas_bottom).with.offset(f);
+        }];
     }];
 }
 - (void)pop {
@@ -58,8 +98,13 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
+
 - (void)setUp {
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
     self.mainScroll = [[UIScrollView alloc]init];
+    self.mainScroll.delegate = self;
     [self.view addSubview:self.mainScroll];
     [self.mainScroll mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).with.offset(-navHight);
@@ -78,6 +123,7 @@
     }];
     
     UIView *centerView = [[UIView alloc]init];
+    _centerView = centerView;
     centerView.backgroundColor = [UIColor whiteColor];
     [self.mainScroll addSubview:centerView];
     [centerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -94,8 +140,7 @@
     headImage.animationDuration = 1;
     headImage.animationRepeatCount = 100000;
     [headImage startAnimating];
-    
-    
+
     [centerView addSubview:headImage];
     [self.view bringSubviewToFront:headImage];
     [headImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,6 +149,16 @@
         make.right.equalTo(centerView.mas_right);
         make.height.equalTo(@260);
     }];
+    UIImageView *headImageView = [[UIImageView alloc]init];
+    _headImageView = headImageView;
+    [centerView addSubview:headImageView];
+    [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(headImage.mas_centerX);
+        make.centerY.equalTo(headImage.mas_centerY);
+        make.height.equalTo(@90);
+        make.width.equalTo(@90);
+    }];
+    LRViewBorderRadius(headImageView, 45, 0, [UIColor clearColor]);
     UIView *line = [[UIView alloc]init];
     [centerView addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -157,8 +212,11 @@
         
     
     };
+    
+    
     UIView *line2 = [[UIView alloc]init];
     [self.mainScroll addSubview:line2];
+    _lineView = line2;
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(centerView.mas_bottom).with.offset(160);
         make.left.equalTo(self.view.mas_left);
@@ -175,7 +233,7 @@
         make.top.equalTo(line2.mas_bottom);
         
     }];
-    self.mainScroll.contentSize = CGSizeMake(0, navHight + 20 + 400 + 160 + 1 + 370 - navHight);
+    
     UILabel *label = [[UILabel alloc]init];
     label.text = @"下拉查看位置>>";
     label.font = [UIFont systemFontOfSize:15];

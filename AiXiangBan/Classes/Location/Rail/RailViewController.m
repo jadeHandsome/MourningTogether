@@ -24,6 +24,7 @@
 @property (nonatomic, strong) MACircle *circle;
 @property (nonatomic, strong) CLGeocoder *geoC;
 @property (nonatomic, strong) TRAnnotation *anno;
+@property (nonatomic, strong) TRAnnotation *anno1;
 @end
 
 @implementation RailViewController
@@ -98,6 +99,10 @@
         self.anno  = [[TRAnnotation alloc] init];
         self.anno.coordinate = CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]);
         self.anno.image = [self returnSmallImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].imageUrl]]] andSize:CGSizeMake(50, 50)];
+        self.anno1 = [[TRAnnotation alloc]init];
+        self.anno1.image = [UIImage imageNamed:@"loc"];
+        self.anno1.coordinate = CLLocationCoordinate2DMake( [showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
+        [self.mapView addAnnotation:self.anno1];
         [self.mapView addAnnotation:self.anno];
         [self.mapView addOverlay:self.circle];
         [self.mapView setCenterCoordinate:self.railCenter animated:YES];
@@ -303,17 +308,17 @@
     
 }
 - (void)longPress:(UITapGestureRecognizer *)tap {
-    [_mapView removeAnnotation:self.anno];
+    [_mapView removeAnnotation:self.anno1];
     //坐标转换
     CGPoint touchPoint = [tap locationInView:_mapView];
     CLLocationCoordinate2D touchMapCoordinate =
     [_mapView convertPoint:touchPoint toCoordinateFromView:_mapView];
     self.railCenter = touchMapCoordinate;
-    self.anno.coordinate = touchMapCoordinate;
+    self.anno1.coordinate = touchMapCoordinate;
     
     //_pointAnnotation.title = @"设置名字";
     
-    [_mapView addAnnotation:self.anno];
+    [_mapView addAnnotation:self.anno1];
     CLLocation *locations = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
     
     [self.geoC reverseGeocodeLocation:locations completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {

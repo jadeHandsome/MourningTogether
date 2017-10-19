@@ -39,15 +39,44 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
-    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:[NSDate date]];
+    
+   
+   
+//    self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
+//    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:[NSDate date]];
     count = 0;
     [self setUp];
     [self setUpTab];
     self.navigationController.navigationItem.title = @"足迹";
-    [self loadD];
+    
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    UIButton *sender = [self.titleView viewWithTag:self.currentDay];
+    NSDate *lastDay = [NSDate dateWithTimeInterval:-24*60*60 * (self.currentDay - 100) sinceDate:[NSDate date]];//前一天
+    //NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 sinceDate:date];//后一天
+    NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
+    dateFormater.dateFormat = @"yyyy/MM/dd EEEE";
+    NSString *dateStr = [dateFormater stringFromDate:lastDay];
+    
+    self.datelabel.text = dateStr;
+    
+    
+    [self.view layoutIfNeeded];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.2 animations:^{
+        [_bottomLine mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_titleView.mas_left).with.offset((SCREEN_WIDTH - 2)/7 * (sender.tag - 100));
+        }];
+        
+    } completion:^(BOOL finished) {
+        [sender setSelected:YES];
+        [self.allPoint removeAllObjects];
+        self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:lastDay];
+        [weakSelf loadD];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -188,7 +217,7 @@
         [self.allPoint removeAllObjects];
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
         self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:lastDay];
-        [weakSelf loadData];
+        [weakSelf loadD];
     }];
     
 }

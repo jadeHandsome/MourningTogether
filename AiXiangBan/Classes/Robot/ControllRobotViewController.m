@@ -430,23 +430,23 @@
 }
 //向前走
 - (void)goAhead {
-    NSString *params = [self setPostProtocolWithCmid:@"00000009" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"00000009" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:4];
    
 }
 //向后走
 - (void)goBack {
-    NSString *params = [self setPostProtocolWithCmid:@"0000000B" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"0000000B" andSn:nil andParams:@"&speed=0"];
    [self sendMessageWith:params andtag:5];
 }
 //向左走
 - (void)goLeft {
-    NSString *params = [self setPostProtocolWithCmid:@"0000000D" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"0000000D" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:6];
 }
 //向右走
 - (void)goRight {
-    NSString *params = [self setPostProtocolWithCmid:@"0000000F" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"0000000F" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:7];
 }
 //旋转角度
@@ -456,7 +456,7 @@
 }
 //头左
 - (void)headMoveLeft {
-    NSString *params = [self setPostProtocolWithCmid:@"00000005" andSn:nil andParams:@"&speed=0"];
+    NSString *params = [self setPostProtocolWithCmid:@"00000001" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:9];
 }
 //头右

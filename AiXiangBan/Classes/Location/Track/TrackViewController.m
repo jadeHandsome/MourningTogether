@@ -50,11 +50,20 @@
     //[self setUpTab];
 }
 - (void)showTab {
+    NSInteger tag = 0;
+    for (UIButton *btn in self.titleView.subviews) {
+        if ([btn isKindOfClass:[UIButton class]]) {
+            if (btn.selected) {
+                tag = btn.tag;
+            }
+        }
+    }
     TrackListViewController *list = [[TrackListViewController alloc]init];
+    list.currentDay = tag;
     [self.navigationController pushViewController:list animated:YES];
 }
 - (void)loadData {
-    count += self.allPoint.count;
+    count = self.allPoint.count;
     self.param[@"offset"] = @(count);
     self.param[@"size"] = @(30);
     self.param[@"deviceId"] = [KRUserInfo sharedKRUserInfo].deviceSn;
@@ -76,6 +85,9 @@
         }
         [self.allPoint addObjectsFromArray:annos];
         if ([showdata[@"footmarkList"] count] == 0) {
+            for (int i = 0; i < self.allPoint.count; i ++) {
+                ((TRAnnotation *)self.allPoint[i]).anTag = i + 1;
+            }
             [self.mapView addAnnotations:self.allPoint];
             if (self.allPoint.count > 0) {
                 TRAnnotation *dic = self.allPoint.firstObject;
@@ -243,9 +255,9 @@
     return nil;
 }
 - (UIImage *)addNumImages:(UIImage *)oldImageView andText:(NSString *)text{
-    UIGraphicsBeginImageContext(CGSizeMake(25, 30));
-    [oldImageView drawInRect:CGRectMake(0, 0, 25, 30)];
-    CGRect rect = CGRectMake(0, 0, 25, 30);
+    UIGraphicsBeginImageContext(CGSizeMake(30, 30));
+    [oldImageView drawInRect:CGRectMake(0, 0, 30, 30)];
+    CGRect rect = CGRectMake(0, 0, 30, 30);
     
     UILabel *textLabel = [[UILabel alloc] init];
     textLabel.font = [UIFont systemFontOfSize:13];
@@ -256,7 +268,7 @@
     CGSize maximumLabelSize = CGSizeMake(100, 9999);//labelsize的最大值
     CGSize expectSize = [textLabel sizeThatFits:maximumLabelSize];
     //关键语句
-    rect.origin.x = 12.5 - (expectSize.width * 0.5);
+    rect.origin.x = 15 - (expectSize.width * 0.5);
     rect.origin.y = 15 - (expectSize.height * 0.5) - 3;
     [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

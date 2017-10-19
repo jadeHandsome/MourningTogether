@@ -56,28 +56,31 @@
                 [add mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@0);
                 }];
+                add.hidden = YES;
             }
         }
     } else if (self.type == 2) {
         NSArray *array = [self.dataArray[1] copy];
         for (NSDictionary *dic in array) {
             if (![dic[@"otherName"] containsString:search] && ![dic[@"mobile"] containsString:search]) {
-                NSInteger index = [array indexOfObject:dic];
+                NSInteger index = [array indexOfObject:dic] + 1000;
                 AddressView *add = [self.jianhuView viewWithTag:index];
                 [add mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@0);
                 }];
+                add.hidden = YES;
             }
         }
     } else {
         NSArray *array = [self.dataArray[2] copy];
         for (NSDictionary *dic in array) {
             if (![dic[@"otherName"] containsString:search] && ![dic[@"mobile"] containsString:search]) {
-                NSInteger index = [array indexOfObject:dic];
+                NSInteger index = [array indexOfObject:dic] + 1000;
                 AddressView *add = [self.qinqiView viewWithTag:index];
                 [add mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@0);
                 }];
+                add.hidden = YES;
             }
         }
     }
@@ -90,6 +93,7 @@
             [add mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@60);
             }];
+            add.hidden = NO;
         }
     }
     for (UIView *sub in self.qinqiView.subviews) {
@@ -98,6 +102,7 @@
             [add mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@60);
             }];
+            add.hidden = NO;
         }
     }
     for (UIView *sub in self.jianhuView.subviews) {
@@ -106,6 +111,7 @@
             [add mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@60);
             }];
+            add.hidden = NO;
         }
     }
 }
@@ -246,6 +252,7 @@
             make.left.equalTo(_titleView.mas_left).with.offset((SCREEN_WIDTH - 2)*0.3333 * (sender.tag - 100));
         }];
         self.bottomScro.contentOffset = CGPointMake(SCREEN_WIDTH * (sender.tag - 100), 0);
+        self.type = sender.tag - 99;
     } completion:^(BOOL finished) {
         [sender setSelected:YES];
     }];

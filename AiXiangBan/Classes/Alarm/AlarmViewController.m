@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"警报";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    [self loadData];
+    [self loadD];
 }
 - (void)loadData {
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(count),@"size":@30} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {

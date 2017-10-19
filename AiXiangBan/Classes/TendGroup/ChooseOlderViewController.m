@@ -53,6 +53,7 @@
                 [add mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@0);
                 }];
+                add.hidden = YES;
             }
         }
     } else {
@@ -63,6 +64,7 @@
                 [add mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.height.equalTo(@0);
                 }];
+                add.hidden = YES;
             }
         }
     }
@@ -74,6 +76,7 @@
             [add mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@60);
             }];
+            add.hidden = NO;
         }
     }
 }
