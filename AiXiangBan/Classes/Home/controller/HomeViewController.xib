@@ -71,7 +71,7 @@
                                         <constraint firstAttribute="width" constant="25" id="R5O-JM-xML"/>
                                         <constraint firstAttribute="height" constant="25" id="VaB-dB-nIv"/>
                                     </constraints>
-                                    <state key="normal" image="孝相伴-16"/>
+                                    <state key="normal" image="孝相伴-18"/>
                                     <connections>
                                         <action selector="goToAlarm:" destination="-1" eventType="touchUpInside" id="dBj-0t-nVc"/>
                                     </connections>
@@ -577,8 +577,8 @@
         <image name="孝相伴-13" width="30" height="25"/>
         <image name="孝相伴-14" width="25" height="25"/>
         <image name="孝相伴-15" width="20" height="20"/>
-        <image name="孝相伴-16" width="20" height="20"/>
         <image name="孝相伴-17" width="20" height="20"/>
+        <image name="孝相伴-18" width="20" height="20"/>
         <image name="孝相伴-19" width="32" height="32"/>
         <image name="孝相伴-201" width="32" height="32"/>
         <image name="孝相伴-21" width="32" height="32"/>

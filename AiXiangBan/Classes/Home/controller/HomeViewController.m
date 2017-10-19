@@ -28,6 +28,9 @@
 #import "NoWatchViewController.h"
 
 #import "HeartRateViewController.h"
+
+#import "AlarmViewController.h"
+
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
 @property (weak, nonatomic) IBOutlet UIButton *alarmBtn;
@@ -207,6 +210,8 @@
     [self.navigationController pushViewController:address animated:YES];
 }
 - (IBAction)goToAlarm:(UIButton *)sender {
+    AlarmViewController *alarm = [[AlarmViewController alloc]init];
+    [self.navigationController pushViewController:alarm animated:YES];
 }
 - (IBAction)goToGroup:(UIButton *)sender {
     UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH, SIZEHEIGHT)];

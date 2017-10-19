@@ -792,12 +792,15 @@ singleton_implementation(KRBaseTool)
     }
 }
 + (NSString *)timeWithTimeIntervalString:(NSString *)timeString {
+    return [self timeWithTimeIntervalString:timeString andFormate:@"HH:mm:ss"];
+}
++ (NSString *)timeWithTimeIntervalString:(NSString *)timeString andFormate:(NSString *)format {
     // 格式化时间
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"HH:mm:ss"];
+    [formatter setDateFormat:format];
     
     // 毫秒值转化为秒
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]];

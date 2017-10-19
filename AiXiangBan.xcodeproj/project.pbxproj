@@ -99,6 +99,12 @@
 		1A0B54201F91B198009A1B12 /* ChooseOlderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B541F1F91B198009A1B12 /* ChooseOlderViewController.m */; };
 		1A0B54231F91FAC3009A1B12 /* SocketTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B54221F91FAC3009A1B12 /* SocketTool.m */; };
 		1A0B54261F91FBC5009A1B12 /* ControllRobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B54251F91FBC5009A1B12 /* ControllRobotViewController.m */; };
+		1A12838F1F98314F00200A3D /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A12838E1F98314F00200A3D /* AlarmViewController.m */; };
+		1A1283931F98316E00200A3D /* AlarmView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1283921F98316E00200A3D /* AlarmView.m */; };
+		1A1283961F983D6200200A3D /* AlarmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1283951F983D6200200A3D /* AlarmDetailViewController.m */; };
+		1A1283991F98403300200A3D /* AlarmBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1283981F98403300200A3D /* AlarmBtnView.m */; };
+		1A12839B1F98403C00200A3D /* AlarmBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A12839A1F98403C00200A3D /* AlarmBtnView.xib */; };
+		1A12839F1F98541500200A3D /* NSString+LocaString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A12839E1F98541500200A3D /* NSString+LocaString.m */; };
 		1A24A91E1F9338880069E3B8 /* ControllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A91D1F9338880069E3B8 /* ControllView.m */; };
 		1A24A9201F9338930069E3B8 /* ControllView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A24A91F1F9338930069E3B8 /* ControllView.xib */; };
 		1A24A9231F9366D30069E3B8 /* RoailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A24A9221F9366D30069E3B8 /* RoailView.m */; };
@@ -462,6 +468,17 @@
 		1A0B54221F91FAC3009A1B12 /* SocketTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketTool.m; sourceTree = "<group>"; };
 		1A0B54241F91FBC5009A1B12 /* ControllRobotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllRobotViewController.h; sourceTree = "<group>"; };
 		1A0B54251F91FBC5009A1B12 /* ControllRobotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllRobotViewController.m; sourceTree = "<group>"; };
+		1A12838D1F98314F00200A3D /* AlarmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
+		1A12838E1F98314F00200A3D /* AlarmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
+		1A1283911F98316E00200A3D /* AlarmView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmView.h; sourceTree = "<group>"; };
+		1A1283921F98316E00200A3D /* AlarmView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmView.m; sourceTree = "<group>"; };
+		1A1283941F983D6200200A3D /* AlarmDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmDetailViewController.h; sourceTree = "<group>"; };
+		1A1283951F983D6200200A3D /* AlarmDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmDetailViewController.m; sourceTree = "<group>"; };
+		1A1283971F98403300200A3D /* AlarmBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmBtnView.h; sourceTree = "<group>"; };
+		1A1283981F98403300200A3D /* AlarmBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmBtnView.m; sourceTree = "<group>"; };
+		1A12839A1F98403C00200A3D /* AlarmBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmBtnView.xib; sourceTree = "<group>"; };
+		1A12839D1F98541500200A3D /* NSString+LocaString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+LocaString.h"; sourceTree = "<group>"; };
+		1A12839E1F98541500200A3D /* NSString+LocaString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+LocaString.m"; sourceTree = "<group>"; };
 		1A24A91C1F9338880069E3B8 /* ControllView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllView.h; sourceTree = "<group>"; };
 		1A24A91D1F9338880069E3B8 /* ControllView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllView.m; sourceTree = "<group>"; };
 		1A24A91F1F9338930069E3B8 /* ControllView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControllView.xib; sourceTree = "<group>"; };
@@ -865,6 +882,8 @@
 				11C9D41F1F851DE7005B3577 /* NetWorkManager */,
 				1A0B54211F91FAC3009A1B12 /* SocketTool.h */,
 				1A0B54221F91FAC3009A1B12 /* SocketTool.m */,
+				1A12839D1F98541500200A3D /* NSString+LocaString.h */,
+				1A12839E1F98541500200A3D /* NSString+LocaString.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -948,6 +967,11 @@
 		11C9D42A1F8524B5005B3577 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1A1283901F98315F00200A3D /* VIews */,
+				1A12838D1F98314F00200A3D /* AlarmViewController.h */,
+				1A12838E1F98314F00200A3D /* AlarmViewController.m */,
+				1A1283941F983D6200200A3D /* AlarmDetailViewController.h */,
+				1A1283951F983D6200200A3D /* AlarmDetailViewController.m */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -1243,6 +1267,18 @@
 				1AB5251F1F972B05003FC5E3 /* TrackListViewController.m */,
 			);
 			path = Track;
+			sourceTree = "<group>";
+		};
+		1A1283901F98315F00200A3D /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				1A1283911F98316E00200A3D /* AlarmView.h */,
+				1A1283921F98316E00200A3D /* AlarmView.m */,
+				1A1283971F98403300200A3D /* AlarmBtnView.h */,
+				1A1283981F98403300200A3D /* AlarmBtnView.m */,
+				1A12839A1F98403C00200A3D /* AlarmBtnView.xib */,
+			);
+			path = VIews;
 			sourceTree = "<group>";
 		};
 		1A4E9C211F8DA6BF007D6832 /* HealthyType */ = {
@@ -1606,6 +1642,7 @@
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
 				11E09F641F88D172004A2BCC /* HelpViewController.xib in Resources */,
 				1176E9241F96603000CAD826 /* VideoTableViewCell.xib in Resources */,
+				1A12839B1F98403C00200A3D /* AlarmBtnView.xib in Resources */,
 				1AA2E0D01F90855100AA185F /* CustomSliderView.xib in Resources */,
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
@@ -1735,6 +1772,7 @@
 				1A0B541D1F919978009A1B12 /* TrackViewController.m in Sources */,
 				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
+				1A1283991F98403300200A3D /* AlarmBtnView.m in Sources */,
 				1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */,
@@ -1745,6 +1783,7 @@
 				1A4E9C7B1F8E1B22007D6832 /* HIKLoadView.m in Sources */,
 				1188E9811F904BCA00E4EB27 /* CallCardViewController.m in Sources */,
 				1A4E9C741F8E1B0B007D6832 /* CheakPhoneViewController.m in Sources */,
+				1A12839F1F98541500200A3D /* NSString+LocaString.m in Sources */,
 				1A9A84FE1F88A8200003B9E1 /* RobotView.m in Sources */,
 				11D62C941F973AE7004DA583 /* CommentCell.m in Sources */,
 				1A24E67E1F95AE4D00D61952 /* ChooseDeviceViewController.m in Sources */,
@@ -1756,6 +1795,7 @@
 				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A676A141F8BA733001BD32A /* AddTendView.m in Sources */,
 				11C874F51F96560500D43B17 /* VideoViewController.m in Sources */,
+				1A1283961F983D6200200A3D /* AlarmDetailViewController.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
 				1A4E9C7E1F8E1B2B007D6832 /* LookCell.m in Sources */,
 				1A4E9C791F8E1B1B007D6832 /* EZQRView.m in Sources */,
@@ -1765,6 +1805,7 @@
 				1AA2E0C61F90533700AA185F /* KRCustomView.m in Sources */,
 				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
 				1176E93F1F96648500CAD826 /* VideoPlayViewController.m in Sources */,
+				1A12838F1F98314F00200A3D /* AlarmViewController.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
 				11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */,
 				1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */,
@@ -1807,6 +1848,7 @@
 				1A0B54231F91FAC3009A1B12 /* SocketTool.m in Sources */,
 				1A9A85141F88D5B20003B9E1 /* AddressView.m in Sources */,
 				11C9D3EB1F85159D005B3577 /* AppDelegate.m in Sources */,
+				1A1283931F98316E00200A3D /* AlarmView.m in Sources */,
 				1A24A9231F9366D30069E3B8 /* RoailView.m in Sources */,
 				1A9A84F11F88771B0003B9E1 /* AboutUsViewController.m in Sources */,
 				1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */,
@@ -1962,7 +2004,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -2010,7 +2052,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",

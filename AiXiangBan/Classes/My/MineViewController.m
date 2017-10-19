@@ -27,7 +27,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-//    self.allData = @[@{@"isImage":@"1",@"title":@"头像",@"right":@""},@{@"isImage":@"0",@"title":@"姓名",@"right":@"周春仕"},@{@"isImage":@"0",@"title":@"电话",@"right":@"18888888888"},@{@"isImage":@"0",@"title":@"性别",@"right":@"女"},@{@"isImage":@"0",@"title":@"年龄",@"right":@"80"},@{@"isImage":@"0",@"title":@"体重",@"right":@"80KG"},@{@"isImage":@"0",@"title":@"身高",@"right":@"188"}];
     
     [self loadData];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-53"] style:UIBarButtonItemStyleDone target:self action:@selector(settingClick)];

@@ -15,6 +15,7 @@
 #import <AliyunPlayerSDK/AliyunPlayerSDK.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "GCDAsyncSocket.h"
+
 #define LIVE_URL  @"rtmp://live.xxb99.cn/xxb/"
 @interface ControllRobotViewController ()<GCDAsyncSocketDelegate>
 @property (nonatomic, strong) SocketTool *sockManager;

@@ -17,6 +17,7 @@
 #import "EZDeviceInfo.h"
 #import "EZCameraInfo.h"
 #import "KRUserInfo.h"
+#import "NSString+LocaString.h"
 #define EZOPENSDK [EZOpenSDK class]
 #define SharedUserInfo [KRUserInfo sharedKRUserInfo]
 
