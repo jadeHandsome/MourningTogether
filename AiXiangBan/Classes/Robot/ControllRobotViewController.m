@@ -265,6 +265,11 @@
     [self closeLive];
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 
 
 - (NSString *)setPostProtocolWithCmid:(NSString *)cmid andSn:(NSString *)sn andParams:(NSString *)params {
