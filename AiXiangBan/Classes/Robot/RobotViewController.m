@@ -103,11 +103,11 @@
         make.right.equalTo(self.view.mas_right);
         make.top.equalTo(self.view.mas_top).with.offset(navHight);
     }];
-    CGFloat f = 55 * self.allRobot.count;
-    if (f < SCREENH_HEIGHT - navHight) {
-        f = SCREENH_HEIGHT - navHight;
-    }
-    contentScr.contentSize = CGSizeMake(0, f);
+//    CGFloat f = 55 * self.allRobot.count;
+//    if (f < SCREENH_HEIGHT - navHight) {
+//        f = SCREENH_HEIGHT - navHight*2;
+//    }
+    contentScr.contentSize = CGSizeMake(0, 55 * self.allRobot.count);
     _contentScr = contentScr;
     [KRBaseTool tableViewAddRefreshHeader:contentScr withTarget:self refreshingAction:@selector(loadR)];
     [KRBaseTool tableViewAddRefreshFooter:contentScr withTarget:self refreshingAction:@selector(loadmore)];
@@ -149,6 +149,7 @@
     
 
 }
+
 - (void)loadR {
     count = 0;
     [self.allRobot removeAllObjects];

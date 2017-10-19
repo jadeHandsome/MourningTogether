@@ -90,6 +90,7 @@
         make.left.equalTo(self.view.mas_left).with.offset(10);
         make.top.equalTo(self.view.mas_top).with.offset(20);
         make.width.equalTo(@100);
+        make.height.equalTo(@30);
     }];
     [popBtn setImage:[UIImage imageNamed:@"云医时代1-22"] forState:UIControlStateNormal];
     [popBtn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
