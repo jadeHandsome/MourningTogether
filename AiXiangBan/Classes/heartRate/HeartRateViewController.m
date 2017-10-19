@@ -9,7 +9,7 @@
 #import "HeartRateViewController.h"
 
 @interface HeartRateViewController ()
-
+@property (nonatomic, assign) NSInteger nowCount;
 @end
 
 @implementation HeartRateViewController
@@ -17,13 +17,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"心率";
-    
+    self.nowCount = 0;
+    [self requestData];
     // Do any additional setup after loading the view.
 }
 
 - (void)requestData{
-    NSDictionary *params = @{};
-    [KRMainNetTool sharedKRMainNetTool];
+    NSString *beginTime = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
+    NSString *endTime = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:[NSDate date]];
+    NSDictionary *params = @{@"deviceId":[KRUserInfo sharedKRUserInfo].deviceSn,@"beginTime":beginTime,@"endTime":endTime,@"offset":@(self.nowCount),@"size":@(30)};
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/device/getHeartList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata) {
+            for (NSDictionary *dic in showdata[@"heartList"]) {
+                NSString * timeStampString = dic[@"heartTime"];
+                NSTimeInterval _interval = [timeStampString doubleValue] / 1000.0;
+                NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
+                NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+                [objDateformat setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
+                NSLog(@"%@", [objDateformat stringFromDate: date]);
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

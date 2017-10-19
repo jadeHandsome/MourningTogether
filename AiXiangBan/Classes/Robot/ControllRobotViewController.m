@@ -279,7 +279,7 @@
     return YES;
 }
 - (BOOL)shouldAutorotate{
-    return NO;
+    return YES;
 }
 
 #pragma -- TcpManagerDelegate

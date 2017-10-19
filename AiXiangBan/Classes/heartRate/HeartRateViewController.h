@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface HeartRateViewController : BaseViewController
-@property (nonatomic, strong) NSString *deviceId;
+
 @end
