@@ -39,6 +39,7 @@
     [self setUpMeid];
     [self setUp];
     [self setProgressViewData];
+    
     self.socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     [self.socket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
     self.view.backgroundColor = [UIColor blackColor];
@@ -244,6 +245,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     app.isFull = YES;
@@ -258,6 +260,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     app.isFull = NO;
