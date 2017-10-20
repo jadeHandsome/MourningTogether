@@ -31,6 +31,9 @@
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     [self loadD];
 }
+-(void)viewDidAppear:(BOOL)animated {
+    self.mainScroll.contentOffset = CGPointMake(0, 0);
+}
 - (void)loadData {
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(count),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {

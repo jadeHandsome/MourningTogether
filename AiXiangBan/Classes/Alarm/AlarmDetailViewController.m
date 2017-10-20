@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    self.navigationItem.title = @"紧急报警";
+    self.navigationItem.title = @"";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
     [self setUp];
     [self loadData];
@@ -45,6 +45,9 @@
             [self.navigationController.navigationBar setShadowImage:[UIImage new]];
         }];
     }
+}
+- (void)viewDidAppear:(BOOL)animated {
+    self.mainScroll.contentOffset = CGPointMake(0, 0);
 }
 - (void)loadData {
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyInfo.do" params:@{@"emergencyId":self.alarmId} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
@@ -266,8 +269,14 @@
     }];
 }
 - (void)goCall {
-    AskHelpViewController *ask = [[AskHelpViewController alloc]init];
-    [self.navigationController pushViewController:ask animated:YES];
+    [[KRMainNetTool sharedKRMainNetTool]sendRequstWith:@"mgr/emergency/getEmergencyContactList.do" params:@{@"elderId":self.myData[@"elderId"]} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        AskHelpViewController *ask = [[AskHelpViewController alloc]init];
+        [self.navigationController pushViewController:ask animated:YES];
+    }];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

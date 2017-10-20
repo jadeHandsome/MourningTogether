@@ -65,7 +65,7 @@
         [self.mapView addAnnotation:anno];
         [self.mapView addAnnotation:pointAnnotation];
         [self.mapView addOverlay:circle];
-        [self.mapView setCenterCoordinate:location animated:YES];
+        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]) animated:YES];
         NSLog(@"%@",showdata);
     }];
 }

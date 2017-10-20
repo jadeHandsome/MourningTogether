@@ -10,20 +10,20 @@
 #import "ZFPlayer.h"
 #import "IQKeyboardManager.h"
 #import "CommentCell.h"
-@interface VideoPlayViewController ()<UIWebViewDelegate,ZFPlayerDelegate,UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface VideoPlayViewController ()<UIWebViewDelegate,ZFPlayerViewDelagate,UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,ZFPlayerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @property (weak, nonatomic) IBOutlet UIView *playerFatherView;
 @property (strong, nonatomic) ZFPlayerView *playerView;
-@property (nonatomic, strong) ZFPlayerModel *playerModel;
+@property (nonatomic, strong) ZFPlayerItem *playerModel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomHeight;
 @property (nonatomic, assign) NSInteger nowCount;
-
+@property (nonatomic, strong) ZFPlayer *player;
 @property (nonatomic, strong) NSMutableArray *data;
 @end
 
@@ -80,17 +80,24 @@
 
 - (void)setUp{
     self.topConstraint.constant = navHight;
-    self.playerModel                  = [[ZFPlayerModel alloc] init];
+    self.playerModel                  = [[ZFPlayerItem alloc] init];
     self.playerModel.videoURL         = [NSURL URLWithString:self.URL];
-    self.playerModel.fatherView       = self.playerFatherView;
-    self.playerView = [[ZFPlayerView alloc] init];
-    [self.playerView playerControlView:nil playerModel:self.playerModel];
+    //self.playerModel.fatherView       = self.playerFatherView;
+   
+    //self.playerView = [[ZFPlayerView alloc] init];
+   
+    //[self.playerView playerControlView:nil playerModel:self.playerModel];
     // 设置代理
-    self.playerView.delegate = self;
-    self.playerView.playerLayerGravity = ZFPlayerLayerGravityResize;
+    //self.playerView.delegate = self;
+    //self.playerView.playerLayerView = self.playerFatherView;
+    
+    ZFPlayer *player = [ZFPlayer zf_playerWithView:self.playerFatherView delegate:self];
+    self.player = player;
+    self.player.rootVC = self;
+    [player zf_setPlayerItem:self.playerModel];
     // 打开预览图
-    self.playerView.hasPreviewView = YES;
-    [self.playerView autoPlayTheVideo];
+    //self.playerView.hasPreviewView = YES;
+    //[self.playerView autoPlayTheVideo];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     LRViewBorderRadius(self.textView, 5, 1, [UIColor grayColor]);

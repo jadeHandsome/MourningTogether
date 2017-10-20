@@ -105,7 +105,7 @@
         [self.mapView addAnnotation:self.anno1];
         [self.mapView addAnnotation:self.anno];
         [self.mapView addOverlay:self.circle];
-        [self.mapView setCenterCoordinate:self.railCenter animated:YES];
+        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]) animated:YES];
         
         
         CLLocation *locations = [[CLLocation alloc] initWithLatitude:self.railCenter.latitude longitude:self.railCenter.longitude];

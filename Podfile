@@ -13,5 +13,4 @@ target ‘AiXiangBan’ do
   pod ‘AMapSearch-NO-IDFA’
   pod ‘AMapLocation-NO-IDFA’
   pod ‘CocoaAsyncSocket’
-  pod 'ZFPlayer'
 end
