@@ -12,6 +12,7 @@
 @property (nonatomic, assign) NSInteger nowCount;
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) NSMutableArray *xArr;
+@property (nonatomic, strong) NSMutableArray *realXArr;
 @property (nonatomic, strong) NSMutableArray *yArr;
 @property (nonatomic, strong) NSMutableArray *pointArr;
 @property (nonatomic, assign) NSInteger yMax;
@@ -40,6 +41,13 @@
         _xArr = [NSMutableArray array];
     }
     return _xArr;
+}
+
+- (NSMutableArray *)realXArr{
+    if (!_realXArr) {
+        _realXArr = [NSMutableArray array];
+    }
+    return _realXArr;
 }
 
 - (NSMutableArray *)yArr{
@@ -80,17 +88,21 @@
             self.yMax = [showdata[@"maxHeart"] integerValue];
             self.yMin = [showdata[@"minHeart"] integerValue];
             [self.data addObjectsFromArray:showdata[@"heartList"]];
-//            self.nowCount += 30;
+            self.nowCount += 30;
+//            [self requestData];
             if (self.bottomView.hidden) {
                 self.bottomView.hidden = NO;
                 self.averNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"aveHeart"] integerValue]];
                 self.minNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"minHeart"] integerValue]];
                 self.maxNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"maxHeart"] integerValue]];
-                self.minTime.text = [showdata[@"minHeartDate"] substringWithRange:NSMakeRange(10, 6)];
-                self.maxTime.text = [showdata[@"maxHeartDate"] substringWithRange:NSMakeRange(10, 6)];
+                self.minTime.text = [NSString stringWithFormat:@"(%@)",[showdata[@"minHeartDate"] substringWithRange:NSMakeRange(10, 6)]];
+                self.maxTime.text = [NSString stringWithFormat:@"(%@)",[showdata[@"maxHeartDate"] substringWithRange:NSMakeRange(10, 6)]];
                 self.timeLabel.text = [showdata[@"maxHeartDate"] substringToIndex:10];
             }
             [self math];
+        }
+        else{
+            
         }
     }];
 }
@@ -107,10 +119,15 @@
     NSTimeInterval maxInterval = [maxStr doubleValue] / 1000.0;
     NSDate *maxData = [NSDate dateWithTimeIntervalSince1970:maxInterval];
     NSString *xMax = [[objDateformat stringFromDate:maxData] substringToIndex:2];
-    for (int i = 0; i < [xMax integerValue] - [xMin integerValue]; i++) {
+    for (int i = 0; i < [xMax integerValue] - [xMin integerValue] + 2; i++) {
         [self.xArr addObject:[NSString stringWithFormat:@"%ld",[xMin integerValue]+i]];
     }
-    
+    for (int i = 0; i < self.xArr.count - 1; i ++ ) {
+        for (int j = 0; j < 6; j ++) {
+            [self.realXArr addObject:[NSString stringWithFormat:@"%@:%d0",self.xArr[i],j]];
+        }
+    }
+    [self.realXArr addObject:[NSString stringWithFormat:@"%@:00",[self.xArr lastObject]]];
     self.yArr = @[@"0",@"20",@"40",@"60",@"80",@"100",@"120",@"140",@"160",@"180",@"200"].mutableCopy;
     
     for (NSDictionary *dic in self.data) {
@@ -120,7 +137,7 @@
         NSString *time = [objDateformat stringFromDate:Data];
         NSInteger hour = [[time substringToIndex:2] integerValue];
         NSInteger mm = [[time substringWithRange:NSMakeRange(3, 2)] integerValue];
-        CGFloat x = hour - [xMin integerValue] + mm / 60.0;
+        CGFloat x = (hour - [xMin integerValue]) * 6 + mm / 10.0;
         CGFloat y = [dic[@"heart"] integerValue] / 20.0;
         CGPoint point = CGPointMake(x, y);
         [self.pointArr addObject:[NSValue valueWithCGPoint:point]];
@@ -134,7 +151,7 @@
 - (void)addLineView{
     self.scrollView.hidden = NO;
     lineView *line = [[lineView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH * 2, SIZEHEIGHT * 0.5)];
-    line.xArr = self.xArr;
+    line.xArr = self.realXArr;
     line.yArr = self.yArr;
     line.dataArr = self.pointArr;
     line.backgroundColor = [UIColor whiteColor];

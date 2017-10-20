@@ -26,7 +26,7 @@
     float fdistance_left_frame = 30.0;                    // 左侧X轴距离边框的宽度，用于绘制文本
     float fdistance_top_frame = 15.0;                  // 上侧Y轴距离边框的宽度
     float fdistance_bottom_frame = 15.0;                  // 左侧Y轴距离边框的宽度
-    float fdistance_right_frame = 10.0;                   // 左侧X轴距离边框的宽度
+    float fdistance_right_frame = 30.0;                   // 左侧X轴距离边框的宽度
     float fdraw_line_height = rect.size.height - fdistance_bottom_frame - fdistance_top_frame;  // 绘制坐标的高度
     float fdraw_line_width = rect.size.width - fdistance_left_frame
     - fdistance_right_frame;  // 绘制坐标的宽度
@@ -58,11 +58,11 @@
         float x_text_left_certer = left_bottom_x;
         float x_text_rect_left = x_text_left_certer + x_unit_distance_scale - 3;
         float x_text_rect_top = left_bottom_y + 2;
-        float x_text_rect_width = 15;
+        float x_text_rect_width = 40;
         // +10 -10 ，给文字20个像素的宽度
         float x_text_rect_height = 16;
         
-        CGRect x_axis_rect = CGRectMake(x_text_rect_left, x_text_rect_top, x_text_rect_width, x_text_rect_height);
+        CGRect x_axis_rect = CGRectMake(x_text_rect_left-15, x_text_rect_top, x_text_rect_width, x_text_rect_height);
         
         CGContextSetLineWidth(context, 1.0);
         CGContextSetRGBFillColor (context, 0.5, 0.5, 0.5, 0.5);
@@ -171,17 +171,20 @@
 
     // 开始边框圆点
     CGContextSetLineDash(context, 0.0,NULL, 0);
-    CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 0.5);//画笔线的颜色
-    CGContextSetLineWidth(context, 1.0);//线的宽度
+//    CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 0.5);//画笔线的颜色
+    [COLOR(255, 0, 0, 0.5) set];
+//    CGContextSetLineWidth(context, 1.0);//线的宽度
     for (int i = 0; i < self.dataArr.count; i ++) {
         CGPoint point = [self.dataArr[i] CGPointValue];
         CGFloat x = point.x;
         CGFloat y = point.y;             // 坐标轴原点
-
-        CGContextAddArc(context, left_bottom_x + x * x_unit_scale, left_bottom_y - y * y_unit_scale, 1, 0, 2 * PI, 0); //添加一个圆
+        CGContextMoveToPoint(context, left_bottom_x + x * x_unit_scale, left_bottom_y - y * y_unit_scale);
+        CGContextAddArc(context, left_bottom_x + x * x_unit_scale, left_bottom_y - y * y_unit_scale, 2, 0, 2 * PI, 0); //添加一个圆
 
     }
-    CGContextDrawPath(context, kCGPathStroke); //绘制路径
+//    CGContextDrawPath(context, kCGPathStroke); //绘制路径
+    
+    CGContextFillPath(context);
     
     
     
