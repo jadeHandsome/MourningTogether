@@ -38,6 +38,19 @@
         make.centerY.equalTo(temp.mas_centerY);
     }];
     oldLabel.text = dic[@"oldDic"][@"familyElderName"];
+    
+    UIButton *resetBtn = [[UIButton alloc]init];
+    [self addSubview:resetBtn];
+    [resetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(oldLabel.mas_centerY);
+        make.right.equalTo(self.mas_right).with.offset(-40);
+    }];
+    [resetBtn setTitle:@"重置SOS号码" forState:UIControlStateNormal];
+    [resetBtn setTitleColor:LRRGBColor(136, 136, 136) forState:UIControlStateNormal];
+    if (![self.myData[@"hasLoc"] integerValue]) {
+        resetBtn.hidden = YES;
+    }
+    [resetBtn addTarget:self action:@selector(resetClick) forControlEvents:UIControlEventTouchUpInside];
     self.elderId = dic[@"oldDic"][@"familyElderId"];
     oldLabel.textColor = [UIColor blackColor];
     oldLabel.font = [UIFont systemFontOfSize:16];
@@ -125,6 +138,12 @@
             //机器人
             self.block(4, self.elderId,[self.myData[@"hasRobot"] integerValue]);
         }
+    }
+}
+- (void)resetClick {
+    //重置SOS
+    if (self.block) {
+        self.block(5, self.elderId, [self.myData[@"hasLoc"] integerValue]);
     }
 }
 

@@ -116,7 +116,7 @@
                                         <constraint firstAttribute="height" constant="30" id="hCA-JY-TFN"/>
                                         <constraint firstAttribute="width" constant="30" id="zf6-9r-eVh"/>
                                     </constraints>
-                                    <state key="normal" image="back"/>
+                                    <state key="normal" image="云医时代-67"/>
                                     <connections>
                                         <action selector="closeAlarm:" destination="-1" eventType="touchUpInside" id="hvE-Fa-ZO5"/>
                                     </connections>
@@ -570,7 +570,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="back" width="20" height="38"/>
+        <image name="云医时代-67" width="12" height="12"/>
         <image name="孝相伴-10" width="30" height="25"/>
         <image name="孝相伴-11" width="30" height="25"/>
         <image name="孝相伴-12" width="30" height="25"/>

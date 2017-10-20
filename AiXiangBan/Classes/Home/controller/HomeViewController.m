@@ -30,6 +30,7 @@
 #import "heartRateController.h"
 
 #import "AlarmViewController.h"
+#import "AddWatchsViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *naviTop;
@@ -64,6 +65,7 @@
 }
 - (void)setCurretOlder:(NSDictionary *)curretOlder {
     _curretOlder = curretOlder;
+    [KRUserInfo sharedKRUserInfo].currentElder = _curretOlder;
     tempOlder = curretOlder;
     self.nameLabel.text = curretOlder[@"elderName"];
     self.detailLabel.text = curretOlder[@"nickname"];
@@ -71,7 +73,7 @@
         //self.alarmDetail.text = @"";
         self.alarmView.hidden = YES;
     } else {
-        self.alarmDetail.text = [NSString stringWithFormat:@"警报：%@",curretOlder[@"emergencyTime"]];
+        self.alarmDetail.text = [NSString stringWithFormat:@"警报：XX条老人使用添加手表报警"];
         
     }
     [KRUserInfo sharedKRUserInfo].elderId = curretOlder[@"elderId"];
@@ -94,10 +96,28 @@
     [super viewDidLoad];
     self.title = @"";
     [self adjustFrame];
-    
-    
+    [self getAlarm];
+    [self configCollectionView];
     LRViewBorderRadius(self.myHeadImage, 12.5, 0, [UIColor clearColor]);
     // Do any additional setup after loading the view from its nib.
+}
+- (void)getAlarm {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(0),@"size":@30} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        BOOL has = false;
+        for (NSDictionary *dic in showdata[@"emergencyList"]) {
+            if ([dic[@"status"] integerValue] == 1 || [dic[@"status"] integerValue] == 2 || [dic[@"status"] integerValue] == 4) {
+                has = YES;
+            }
+        }
+        if (has) {
+            [self.alarmBtn setImage:[UIImage imageNamed:@"孝相伴-16"] forState:UIControlStateNormal];
+        } else {
+            [self.alarmBtn setImage:[UIImage imageNamed:@"孝相伴-18"] forState:UIControlStateNormal];
+        }
+    }];
 }
 //获取首页数据
 - (void)getHomeData {
@@ -124,7 +144,7 @@
 
 
 - (void)viewDidAppear:(BOOL)animated{
-    [self configCollectionView];
+    //
     [super viewDidAppear:YES];
     
 }
@@ -291,10 +311,10 @@
 }
 - (IBAction)goToLocation:(UITapGestureRecognizer *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
-        
+        [self showNoWatch];
 //        NoWatchViewController *nows = [[NoWatchViewController alloc]init];
 //        [self.navigationController pushViewController:nows animated:YES];
-        [MBProgressHUD showError:@"暂未绑定设备" toView:self.view];
+        //[MBProgressHUD showError:@"暂未绑定设备" toView:self.view];
     } else {
         LocationViewController *location = [LocationViewController new];
         [self.navigationController pushViewController:location animated:YES];
@@ -316,9 +336,12 @@
     if (!self.hartRateBtn.hidden) {
         self.hartRateBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
     }
-    if (!self.locationBtn.hidden) {
-        self.locationBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
-    }
+    //if (!self.locationBtn.hidden) {
+        NSString *image = [self.curretOlder[@"devPhone"] length] > 0 ? @"孝相伴-21" :@"孝相伴-40";
+    //}
+        [self.locationBtn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+       // self.locationBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
+    //}
 }
 - (IBAction)closeAlarm:(UIButton *)sender {
     self.alarmView.hidden = YES;
@@ -377,15 +400,31 @@
 
 - (IBAction)goLocation:(UIButton *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
-       
-        NoWatchViewController *no = [[NoWatchViewController alloc]init];
-        [self.navigationController pushViewController:no animated:YES];
-        [MBProgressHUD showError:@"请先绑定设备" toView:no.view];
+        [self showNoWatch];
+//        NoWatchViewController *no = [[NoWatchViewController alloc]init];
+//        [self.navigationController pushViewController:no animated:YES];
+//        [MBProgressHUD showError:@"请先绑定设备" toView:no.view];
     } else {
         LocationViewController *location = [LocationViewController new];
         [self.navigationController pushViewController:location animated:YES];
         
     }
+}
+- (void)showNoWatch {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"设备信息" message:@"当前没有添加设备，是否添加？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //去新的绑定页面
+        AddWatchsViewController *add = [[AddWatchsViewController alloc]init];
+        [self.navigationController pushViewController:add animated:YES];
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+   
+    [alert addAction:action1];
+    [alert addAction:action2];
+    
+    [self.navigationController presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

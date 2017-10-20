@@ -7,9 +7,9 @@
 //
 
 #import "VideoPlayViewController.h"
-#import "ZFPlayer.h"
 #import "IQKeyboardManager.h"
 #import "CommentCell.h"
+#import "ZFPlayer.h"
 @interface VideoPlayViewController ()<UIWebViewDelegate,ZFPlayerDelegate,UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;

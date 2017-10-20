@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddWatchsViewController">
+            <connections>
+                <outlet property="deviceOnlyTextField" destination="LKa-2b-3Qs" id="0yM-0U-28S"/>
+                <outlet property="devieceSnTextField" destination="ffX-Q8-JJa" id="H6t-fB-qfc"/>
+                <outlet property="phoneNumTextFeild" destination="qeN-qi-PGs" id="9O4-Ip-2SO"/>
+                <outlet property="scondView" destination="qsx-sn-sha" id="fKy-gt-6AH"/>
+                <outlet property="sureBtn" destination="6Vl-uA-bBb" id="t0V-SP-BmJ"/>
+                <outlet property="thirdView" destination="ydL-Xg-Eqg" id="ZRF-Mo-OE2"/>
+                <outlet property="topCont" destination="iCk-5f-W12" id="Ia9-9x-Mo4"/>
+                <outlet property="topView" destination="QTh-M5-1ul" id="nSq-ub-r4o"/>
+                <outlet property="view" destination="wCD-QR-yM2" id="qJ9-BY-v2Y"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wCD-QR-yM2">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTh-M5-1ul">
+                    <rect key="frame" x="10" y="100" width="355" height="45"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入设备序列号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-Q8-JJa">
+                            <rect key="frame" x="10" y="0.0" width="335" height="45"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ffX-Q8-JJa" secondAttribute="bottom" id="0Wn-Kq-8Zy"/>
+                        <constraint firstItem="ffX-Q8-JJa" firstAttribute="leading" secondItem="QTh-M5-1ul" secondAttribute="leading" constant="10" id="D98-Dg-fSq"/>
+                        <constraint firstAttribute="height" constant="45" id="ffv-F3-nVc"/>
+                        <constraint firstItem="ffX-Q8-JJa" firstAttribute="top" secondItem="QTh-M5-1ul" secondAttribute="top" id="frz-fa-tMS"/>
+                        <constraint firstAttribute="trailing" secondItem="ffX-Q8-JJa" secondAttribute="trailing" constant="10" id="nsb-az-oUv"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsx-sn-sha">
+                    <rect key="frame" x="10" y="155" width="355" height="45"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入20位字符的SIM卡唯一标识" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LKa-2b-3Qs">
+                            <rect key="frame" x="10" y="0.0" width="335" height="45"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="LKa-2b-3Qs" firstAttribute="top" secondItem="qsx-sn-sha" secondAttribute="top" id="7dO-2v-EX4"/>
+                        <constraint firstAttribute="trailing" secondItem="LKa-2b-3Qs" secondAttribute="trailing" constant="10" id="Ius-MD-5vN"/>
+                        <constraint firstAttribute="height" constant="45" id="Ywa-fj-AzB"/>
+                        <constraint firstAttribute="bottom" secondItem="LKa-2b-3Qs" secondAttribute="bottom" id="s8D-rg-A8H"/>
+                        <constraint firstItem="LKa-2b-3Qs" firstAttribute="leading" secondItem="qsx-sn-sha" secondAttribute="leading" constant="10" id="yXj-1f-Bgr"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIM唯一标识号格式 8986061601004907464N" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDE-82-alw">
+                    <rect key="frame" x="15" y="210" width="170" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="ynm-aV-po8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.60396951440000002" green="0.60397142169999996" blue="0.60397565360000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydL-Xg-Eqg">
+                    <rect key="frame" x="10" y="265" width="355" height="45"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入SIM卡手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qeN-qi-PGs">
+                            <rect key="frame" x="10" y="0.0" width="335" height="45"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="qeN-qi-PGs" firstAttribute="leading" secondItem="ydL-Xg-Eqg" secondAttribute="leading" constant="10" id="0fE-ev-bn9"/>
+                        <constraint firstAttribute="height" constant="45" id="Ahq-Pd-CiB"/>
+                        <constraint firstAttribute="trailing" secondItem="qeN-qi-PGs" secondAttribute="trailing" constant="10" id="ixo-Sm-g4w"/>
+                        <constraint firstAttribute="bottom" secondItem="qeN-qi-PGs" secondAttribute="bottom" id="paG-2o-RLO"/>
+                        <constraint firstItem="qeN-qi-PGs" firstAttribute="top" secondItem="ydL-Xg-Eqg" secondAttribute="top" id="vKu-oG-TjM"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vl-uA-bBb">
+                    <rect key="frame" x="10" y="612" width="355" height="45"/>
+                    <color key="backgroundColor" red="0.32290482520000002" green="0.67279583220000005" blue="0.74906897539999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="vgZ-pD-6a3"/>
+                    </constraints>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="sureBtnClick:" destination="-1" eventType="touchUpInside" id="OIv-Q0-4kS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="QTh-M5-1ul" secondAttribute="trailing" constant="10" id="01F-8e-XE9"/>
+                <constraint firstAttribute="trailing" secondItem="qsx-sn-sha" secondAttribute="trailing" constant="10" id="233-L1-sV0"/>
+                <constraint firstItem="sDE-82-alw" firstAttribute="leading" secondItem="wCD-QR-yM2" secondAttribute="leading" constant="15" id="9pL-aG-sHx"/>
+                <constraint firstItem="sDE-82-alw" firstAttribute="top" secondItem="qsx-sn-sha" secondAttribute="bottom" constant="10" id="FPX-Et-c41"/>
+                <constraint firstItem="qsx-sn-sha" firstAttribute="top" secondItem="QTh-M5-1ul" secondAttribute="bottom" constant="10" id="QLn-CK-BRS"/>
+                <constraint firstItem="6Vl-uA-bBb" firstAttribute="leading" secondItem="wCD-QR-yM2" secondAttribute="leading" constant="10" id="SWg-vN-5f0"/>
+                <constraint firstItem="qsx-sn-sha" firstAttribute="leading" secondItem="wCD-QR-yM2" secondAttribute="leading" constant="10" id="TUC-Xr-yBh"/>
+                <constraint firstAttribute="trailing" secondItem="6Vl-uA-bBb" secondAttribute="trailing" constant="10" id="dEP-Tz-LBx"/>
+                <constraint firstAttribute="trailing" secondItem="ydL-Xg-Eqg" secondAttribute="trailing" constant="10" id="gpn-FY-ERb"/>
+                <constraint firstItem="QTh-M5-1ul" firstAttribute="top" secondItem="wCD-QR-yM2" secondAttribute="top" constant="100" id="iCk-5f-W12"/>
+                <constraint firstItem="ydL-Xg-Eqg" firstAttribute="leading" secondItem="wCD-QR-yM2" secondAttribute="leading" constant="10" id="nec-ls-OLd"/>
+                <constraint firstItem="QTh-M5-1ul" firstAttribute="leading" secondItem="wCD-QR-yM2" secondAttribute="leading" constant="10" id="p27-k5-dof"/>
+                <constraint firstItem="ydL-Xg-Eqg" firstAttribute="top" secondItem="sDE-82-alw" secondAttribute="bottom" constant="10" id="uGH-Rt-cjP"/>
+                <constraint firstAttribute="bottom" secondItem="6Vl-uA-bBb" secondAttribute="bottom" constant="10" id="zqv-U6-lkR"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

@@ -291,7 +291,7 @@
     
     _mapView = [[MAMapView alloc] init];
     //_mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    //_mapView.userTrackingMode = MAUserTrackingModeFollow;
     [self.mapView setZoomLevel:14 animated:YES];
     _mapView.delegate = self;
     [self.view addSubview:_mapView];

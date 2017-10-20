@@ -14,6 +14,7 @@
 #import "LocationViewController.h"
 #import "NoWatchViewController.h"
 #import "LookViewController.h"
+#import "RestSosViewController.h"
 @interface AddTendViewController ()
 
 @property (nonatomic, strong) UIScrollView *mainScroll;
@@ -221,6 +222,10 @@
                     [weakSelf gotoRobot:elderId has:has];
                 }
                     break;
+                case 5:
+                {
+                    [weakSelf setReset:elderId has:has];
+                }
                     
                 default:
                     break;
@@ -282,6 +287,12 @@
     RobotViewController *robot = [[RobotViewController alloc]init];
     robot.elderId = elderId;
     [self.navigationController pushViewController:robot animated:YES];
+}
+//去重置SOS
+- (void)setReset:(NSString *)elderId has:(NSInteger)has {
+    RestSosViewController *reset = [[RestSosViewController alloc]init];;
+    reset.deviceId = [NSString stringWithFormat:@"%ld",has];
+    [self.navigationController pushViewController:reset animated:YES];
 }
 //删除
 - (void)delectClick {
