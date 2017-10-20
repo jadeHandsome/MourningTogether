@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1105C16E1F989EE600A46333 /* lineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1105C16D1F989EE600A46333 /* lineView.m */; };
 		11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */; };
 		11599C401F87D09B0005D9ED /* CallPushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3F1F87D09B0005D9ED /* CallPushView.m */; };
 		11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C411F87D0C10005D9ED /* CallPushView.xib */; };
@@ -223,6 +224,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1105C16C1F989EE600A46333 /* lineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lineView.h; sourceTree = "<group>"; };
+		1105C16D1F989EE600A46333 /* lineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lineView.m; sourceTree = "<group>"; };
 		11599C391F87CC790005D9ED /* UIView+BorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
 		11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BorderLine.m"; sourceTree = "<group>"; };
 		11599C3E1F87D09B0005D9ED /* CallPushView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallPushView.h; sourceTree = "<group>"; };
@@ -688,6 +691,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1105C16B1F989E0400A46333 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1105C16C1F989EE600A46333 /* lineView.h */,
+				1105C16D1F989EE600A46333 /* lineView.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		11599C3C1F87D05C0005D9ED /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -717,6 +729,7 @@
 		117949EF1F961D930017BA99 /* heartRate */ = {
 			isa = PBXGroup;
 			children = (
+				1105C16B1F989E0400A46333 /* views */,
 				117949F01F961DB70017BA99 /* HeartRateViewController.h */,
 				117949F11F961DB70017BA99 /* HeartRateViewController.m */,
 			);
@@ -1773,6 +1786,7 @@
 				11E09F741F88E141004A2BCC /* RechargeViewController.m in Sources */,
 				1A9A84E01F878F2E0003B9E1 /* MBProgressHUD+KR.m in Sources */,
 				1A1283991F98403300200A3D /* AlarmBtnView.m in Sources */,
+				1105C16E1F989EE600A46333 /* lineView.m in Sources */,
 				1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */,
