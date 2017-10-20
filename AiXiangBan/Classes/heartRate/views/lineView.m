@@ -152,46 +152,36 @@
     }
     CGContextStrokePath(context);
     
-//    // 开始绘制曲线图
-//    CGContextSetLineDash(context, 0.0,NULL, 0);            // 还原画笔
-//    CGContextSetLineWidth(context,1.0);                    // 设置为实线画笔
-//    CGContextSetRGBStrokeColor(context, 1.0, 0, 0, 0.5);   // 线条颜色
-//
-//    for (int a = 0; a < self.xArr.count; a++)
-//    {
-//        // Y轴日期倒着遍历，这里数据也倒着遍历
-//        float fdata = [[self.xArr objectAtIndex: self.xArr.count-1 - a] floatValue];
-//        CGPoint data_point = CGPointMake(point_origin.x + a * y_unit_scale, point_origin.y - fdata * x_unit_scale);                                 // 坐标轴原点
-//
-//        if (0 == a)
-//        {
-//            CGContextMoveToPoint(context, data_point.x, data_point.y);
-//        }
-//        else
-//        {
-//            CGContextAddLineToPoint(context, data_point.x, data_point.y);
-//        }
-//        NSLog(@"%zi == (%f, %f)", a, data_point.x, data_point.y);
-//
-//    }
-//    CGContextStrokePath(context);
-//
-//    // 开始边框圆点
-//    CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);//画笔线的颜色
-//    CGContextSetLineWidth(context, 2.0);//线的宽度
-//    //void CGContextAddArc(CGContextRef c,CGFloat x, CGFloat y,CGFloat radius,CGFloat startAngle,CGFloat endAngle, int clockwise)1弧度＝180°/π （≈57.3°） 度＝弧度×180°/π 360°＝360×π/180 ＝2π 弧度
-//    // x,y为圆点坐标，radius半径，startAngle为开始的弧度，endAngle为 结束的弧度，clockwise 0为顺时针，1为逆时针。
-//
-//    for (int a = 0; a < self.xArr.count; a++)
-//    {
-//        // Y轴日期倒着遍历，这里数据也倒着遍历
-//        float fdata = [[self.xArr objectAtIndex: self.xArr.count-1 - a] floatValue];
-//        CGPoint data_point = CGPointMake(point_origin.x + a * y_unit_scale, point_origin.y - fdata * x_unit_scale);                                 // 坐标轴原点
-//
-//        CGContextAddArc(context, data_point.x, data_point.y, 1, 0, 2 * PI, 0); //添加一个圆
-//
-//    }
-//    CGContextDrawPath(context, kCGPathStroke); //绘制路径
+    // 开始绘制曲线图
+    CGContextSetLineDash(context, 0.0,NULL, 0);            // 还原画笔
+    CGContextSetLineWidth(context,1.0);                    // 设置为实线画笔
+    CGContextSetRGBStrokeColor(context, 1.0, 0, 0, 0.5);   // 线条颜色
+    for (int i = 0; i < self.dataArr.count; i ++) {
+        CGPoint point = [self.dataArr[i] CGPointValue];
+        CGFloat x = point.x;
+        CGFloat y = point.y;
+        if (i == 0) {
+            CGContextMoveToPoint(context,left_bottom_x + x * x_unit_scale ,left_bottom_y - y * y_unit_scale);
+        }
+        else{
+            CGContextAddLineToPoint(context,left_bottom_x + x * x_unit_scale,left_bottom_y - y * y_unit_scale);
+        }
+    }
+    CGContextStrokePath(context);
+
+    // 开始边框圆点
+    CGContextSetLineDash(context, 0.0,NULL, 0);
+    CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 0.5);//画笔线的颜色
+    CGContextSetLineWidth(context, 1.0);//线的宽度
+    for (int i = 0; i < self.dataArr.count; i ++) {
+        CGPoint point = [self.dataArr[i] CGPointValue];
+        CGFloat x = point.x;
+        CGFloat y = point.y;             // 坐标轴原点
+
+        CGContextAddArc(context, left_bottom_x + x * x_unit_scale, left_bottom_y - y * y_unit_scale, 1, 0, 2 * PI, 0); //添加一个圆
+
+    }
+    CGContextDrawPath(context, kCGPathStroke); //绘制路径
     
     
     

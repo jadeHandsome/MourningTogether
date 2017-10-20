@@ -134,6 +134,7 @@
 		1A3863871F99A2680046411B /* ZFFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A38636F1F99A0EA0046411B /* ZFFullScreenViewController.m */; };
 		1A3863881F99A26B0046411B /* ZFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3863721F99A0EA0046411B /* ZFUtilities.m */; };
 		1A3863891F99A26E0046411B /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3863751F99A0EA0046411B /* ZFPlayerView.m */; };
+		1A38638B1F99AC4A0046411B /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A38638A1F99AC310046411B /* IJKMediaFramework.framework */; };
 		1A4E9C241F8DA6D0007D6832 /* HealthyTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */; };
 		1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C261F8DA79A007D6832 /* HealthyTypeView.m */; };
 		1A4E9C2D1F8DDB87007D6832 /* ArearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9C2C1F8DDB87007D6832 /* ArearViewController.m */; };
@@ -557,6 +558,7 @@
 		1A3863721F99A0EA0046411B /* ZFUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZFUtilities.m; sourceTree = "<group>"; };
 		1A3863741F99A0EA0046411B /* ZFPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZFPlayerView.h; sourceTree = "<group>"; };
 		1A3863751F99A0EA0046411B /* ZFPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
+		1A38638A1F99AC310046411B /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		1A4E9C221F8DA6D0007D6832 /* HealthyTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeViewController.h; sourceTree = "<group>"; };
 		1A4E9C231F8DA6D0007D6832 /* HealthyTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthyTypeViewController.m; sourceTree = "<group>"; };
 		1A4E9C251F8DA79A007D6832 /* HealthyTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthyTypeView.h; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A38638B1F99AC4A0046411B /* IJKMediaFramework.framework in Frameworks */,
 				11A0A0831F8A1773009AADC6 /* SystemConfiguration.framework in Frameworks */,
 				11A0A0811F8A176A009AADC6 /* MobileCoreServices.framework in Frameworks */,
 				1A7919451F8F0998003917A2 /* AMapLocationKit.framework in Frameworks */,
@@ -837,6 +840,7 @@
 		11C9D3DD1F85159D005B3577 = {
 			isa = PBXGroup;
 			children = (
+				1A38638A1F99AC310046411B /* IJKMediaFramework.framework */,
 				1A75A69C1F94607F00B2D7CE /* AliyunPlayerSDK.framework */,
 				1A75A69E1F94609800B2D7CE /* AliyunPlayerSDK.framework */,
 				1A75A69D1F94608000B2D7CE /* AliyunPlayerSDKBundle.bundle */,
