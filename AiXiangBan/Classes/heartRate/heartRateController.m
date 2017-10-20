@@ -117,6 +117,16 @@
     self.yArr = @[@"0",@"20",@"40",@"60",@"80",@"100",@"120",@"140",@"160",@"180",@"200"].mutableCopy;
     
     for (NSDictionary *dic in self.data) {
+        NSString * Str = dic[@"heartTime"];
+        NSTimeInterval Interval = [Str doubleValue] / 1000.0;
+        NSDate *Data = [NSDate dateWithTimeIntervalSince1970:Interval];
+        NSString *time = [objDateformat stringFromDate:Data];
+        NSInteger hour = [[time substringToIndex:2] integerValue];
+        NSInteger mm = [[time substringWithRange:NSMakeRange(3, 2)] integerValue];
+        CGFloat x = hour - [xMin integerValue] + mm / 60.0;
+        CGFloat y = [dic[@"heart"] integerValue] / 20.0;
+        CGPoint point = CGPointMake(x, y);
+        [self.pointArr addObject:[NSValue valueWithCGPoint:point]];
     }
     
     [self addLineView];
@@ -129,6 +139,7 @@
     lineView *line = [[lineView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH * 2, SIZEHEIGHT * 0.5)];
     line.xArr = self.xArr;
     line.yArr = self.yArr;
+    line.dataArr = self.pointArr;
     line.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:line];
     
