@@ -71,6 +71,7 @@
         //self.alarmDetail.text = @"";
         self.alarmView.hidden = YES;
     } else {
+        self.alarmView.hidden = NO;
         self.alarmDetail.text = [NSString stringWithFormat:@"警报：%@",curretOlder[@"emergencyTime"]];
         
     }

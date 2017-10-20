@@ -7,7 +7,6 @@
 //
 
 #import "ControllRobotViewController.h"
-#import "SocketTool.h"
 #import "AppDelegate.h"
 #import "BaseNaviViewController.h"
 #import "ControllView.h"
@@ -18,7 +17,6 @@
 
 #define LIVE_URL  @"rtmp://live.xxb99.cn/xxb/"
 @interface ControllRobotViewController ()<GCDAsyncSocketDelegate>
-@property (nonatomic, strong) SocketTool *sockManager;
 @property (nonatomic, strong) ControllView *controllView;
 @property (nonatomic, strong) GCDAsyncSocket *socket;
 @property (nonatomic, strong) AliVcMediaPlayer* mediaPlayer;
@@ -70,6 +68,7 @@
     self.progressView.hidden = YES;
 }
 - (void)setUpMeid {
+    
     self.mediaPlayer = [[AliVcMediaPlayer alloc] init];
     [self.mediaPlayer create:self.view];
     
@@ -83,6 +82,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(OnVideoError:) name:AliVcMediaPlayerPlaybackErrorNotification object:nil];
 }
+
 - (void)setUp {
     UIButton *popBtn = [[UIButton alloc]init];
     [self.view addSubview:popBtn];
@@ -123,41 +123,42 @@
     self.controllView = cont;
     self.directionView = cont;
     [self.view addSubview:cont];
+    __weak typeof(self) weakSelf = self;
     cont.block = ^(NSInteger tag) {
         switch (tag) {
             case 1:
             {
                 //向前
                 NSLog(@"向前");
-                [self goAhead];
+                [weakSelf goAhead];
             }
                 break;
             case 2:
             {
                 //向后
                 NSLog(@"向后");
-                [self goBack];
+                [weakSelf goBack];
             }
                 break;
             case 3:
             {
                 //向左
                 NSLog(@"向左");
-                [self goLeft];
+                [weakSelf goLeft];
             }
                 break;
             case 4:
             {
                 //向右
                 NSLog(@"向右");
-                [self goRight];
+                [weakSelf goRight];
             }
                 break;
             case 5:
             {
                 //暂停
                 NSLog(@"暂停");
-                [self stopMove];
+                [weakSelf stopMove];
             }
                 break;
                 
@@ -179,9 +180,9 @@
     rail.block = ^(CGFloat f) {
       //改变角度
         if (f < 0) {
-            [self headMoveLeft];
+            [weakSelf headMoveLeft];
         } else {
-            [self headMoveRight];
+            [weakSelf headMoveRight];
         }
     };
     [rail mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -217,7 +218,7 @@
     }
     hud  = [MBProgressHUD showMessage:@"正在开启" toView:self.view.window];
     self.progressView.hidden = NO;
-    [self showHUDWithText:@"正在开启"];
+    //[self showHUDWithText:@"正在开启"];
     [self logIn];
     
 }
@@ -227,6 +228,8 @@
       [self showHUDWithText:@"已经关闭，无需重复关闭"];
         return;
     }
+    hud  = [MBProgressHUD showMessage:@"正在关闭" toView:self.view.window];
+    self.progressView.hidden = NO;
     isPlaye = NO;
     [self closeLive];
     
@@ -234,8 +237,17 @@
 }
 
 - (void)pop {
-    [self closeLive];
+//    [self closeLive];
+//
+//    [self.mediaPlayer stop];
+//    self.mediaPlayer = nil;
+//    for (UIView *sub in self.view.subviews) {
+//        [sub removeFromSuperview];
+//    }
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)dealloc {
+    NSLog(@"控制界面消失");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -261,12 +273,24 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [self.mediaPlayer destroy];
+    self.mediaPlayer = nil;
+    self.socket.delegate = nil;
+    [self.socket disconnect];
+    self.socket = nil;
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [countTimer invalidate];
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
+    
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     app.isFull = NO;
     [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
     [self closeLive];
+    
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
@@ -309,8 +333,7 @@
 //获取到数据
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     NSLog(@"获取完成");
-    NSString *recevied = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",recevied);
+    NSLog(@"%ld",tag);
     //开启成功
     if (tag == 1) {
         NSString *recevied = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
@@ -368,6 +391,12 @@
                 }
             }
         }
+    } else if (tag == 3) {
+        NSLog(@"关闭流的通知");
+        [hud hideAnimated:YES];
+        self.progressView.hidden = YES;
+        NSString *recevied = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",recevied);
     }
     
     //NSDictionary *data = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -406,12 +435,17 @@
 //链接成功
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
     NSLog(@"链接成功了");
+    if (isPlaye) {
+        [self logIn];
+    }
+    
 }
 //断开链接
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     NSLog(@"断开链接了");
     [self.socket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
+    
 }
 //登录
 - (void)logIn {
@@ -425,6 +459,7 @@
 }
 //关闭直播
 - (void)closeLive {
+    
     NSString *params = [self setPostProtocolWithCmid:@"00000015" andSn:nil andParams:nil];
     [self sendMessageWith:params andtag:3];
 }
