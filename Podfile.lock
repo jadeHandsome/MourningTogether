@@ -30,6 +30,8 @@ PODS:
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
+  - ZFPlayer (2.1.5):
+    - Masonry
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -43,6 +45,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.12)
   - QIYU_iOS_SDK
   - SDWebImage
+  - ZFPlayer
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -57,7 +60,8 @@ SPEC CHECKSUMS:
   MJRefresh: 6642e35b3227a5447b9fd5e17c552c90196c9859
   QIYU_iOS_SDK: b8b94211d6b9bd66132dd546f3afd7da30e8e60c
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  ZFPlayer: 8a80bf8eb4638b97fbceaefcd3ca9978e9f17c9d
 
-PODFILE CHECKSUM: f285786e611f429b149a4bd3c76f34206f70e403
+PODFILE CHECKSUM: 2b78c1b7d34dd6ee5f2c3aa0ba5e773965bb3f20
 
 COCOAPODS: 1.2.1

@@ -86,7 +86,7 @@
     
     _mapView = [[MAMapView alloc] init];
     //_mapView.showsUserLocation = YES;
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    //_mapView.userTrackingMode = MAUserTrackingModeFollow;
     _mapView.delegate = self;
     
     self.locationManager = [[AMapLocationManager alloc] init];
