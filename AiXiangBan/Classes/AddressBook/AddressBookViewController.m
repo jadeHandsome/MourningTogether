@@ -23,6 +23,9 @@
 @property (nonatomic, strong) UIScrollView *qinQScr;
 @property (nonatomic, strong) NSString *searchStr;
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) UIView *oldView;
+@property (nonatomic, strong) UIView *jianhuView;
+@property (nonatomic, strong) UIView *qinqiView;
 @end
 
 @implementation AddressBookViewController
@@ -35,8 +38,82 @@
 - (void)setSearchStr:(NSString *)searchStr {
     _searchStr = searchStr;
     
+    [self layOutSubs:searchStr];
     
     
+}
+- (void)layOutSubs:(NSString *)search {
+    [self reSet];
+    if (search.length == 0) {
+        return;
+    }
+    if (self.type == 1) {
+        NSArray *array = [self.dataArray[0] copy];
+        for (NSDictionary *dic in array) {
+            if (![dic[@"elderName"] containsString:search] && ![dic[@"mobile"] containsString:search]) {
+                NSInteger index = [array indexOfObject:dic] + 1000;
+                AddressView *add = [self.oldView viewWithTag:index];
+                [add mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@0);
+                }];
+                add.hidden = YES;
+            }
+        }
+    } else if (self.type == 2) {
+        NSArray *array = [self.dataArray[1] copy];
+        for (NSDictionary *dic in array) {
+            if (![dic[@"otherName"] containsString:search] && ![dic[@"mobile"] containsString:search]) {
+                NSInteger index = [array indexOfObject:dic] + 1000;
+                AddressView *add = [self.jianhuView viewWithTag:index];
+                [add mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@0);
+                }];
+                add.hidden = YES;
+            }
+        }
+    } else {
+        NSArray *array = [self.dataArray[2] copy];
+        for (NSDictionary *dic in array) {
+            if (![dic[@"otherName"] containsString:search] && ![dic[@"mobile"] containsString:search]) {
+                NSInteger index = [array indexOfObject:dic] + 1000;
+                AddressView *add = [self.qinqiView viewWithTag:index];
+                [add mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.height.equalTo(@0);
+                }];
+                add.hidden = YES;
+            }
+        }
+    }
+    
+}
+- (void)reSet {
+    for (UIView *sub in self.oldView.subviews) {
+        if ([sub isKindOfClass:[AddressView class]]) {
+            AddressView *add = (AddressView *)sub;
+            [add mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@60);
+            }];
+            add.hidden = NO;
+        }
+    }
+    for (UIView *sub in self.qinqiView.subviews) {
+        if ([sub isKindOfClass:[AddressView class]]) {
+            AddressView *add = (AddressView *)sub;
+            [add mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@60);
+            }];
+            add.hidden = NO;
+        }
+    }
+    for (UIView *sub in self.jianhuView.subviews) {
+        if ([sub isKindOfClass:[AddressView class]]) {
+            AddressView *add = (AddressView *)sub;
+            [add mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@60);
+            }];
+            add.hidden = NO;
+        }
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,7 +162,7 @@
     [self.navigationController pushViewController:add animated:YES];
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
+    self.searchStr = searchBar.text;
 }
 - (void)setUpPage {
     UIView *titleView = [[UIView alloc]init];
@@ -161,6 +238,7 @@
 
 }
 - (void)titleClick:(UIButton *)sender {
+    [self reSet];
     for (UIView *sub in self.titleView.subviews) {
         if ([sub isKindOfClass:[UIButton class]]) {
             UIButton *btn = (UIButton *)sub;
@@ -174,6 +252,7 @@
             make.left.equalTo(_titleView.mas_left).with.offset((SCREEN_WIDTH - 2)*0.3333 * (sender.tag - 100));
         }];
         self.bottomScro.contentOffset = CGPointMake(SCREEN_WIDTH * (sender.tag - 100), 0);
+        self.type = sender.tag - 99;
     } completion:^(BOOL finished) {
         [sender setSelected:YES];
     }];
@@ -207,6 +286,7 @@
     UIView *temp = self.bottomScro;
     for (int i = 0; i < 3; i ++) {
         UIView *subView = [[UIView alloc]init];
+        
         subView.backgroundColor = [UIColor clearColor];
         [self.bottomScro addSubview:subView];
         [subView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -246,6 +326,13 @@
         }
         
         UIView *secondView = [[UIView alloc]init];
+        if (i == 0) {
+            self.oldView = secondView;
+        } else if (i == 1) {
+            self.jianhuView = secondView;
+        } else {
+            self.qinqiView = secondView;
+        }
         secondView.backgroundColor = [UIColor whiteColor];
         [subS addSubview:secondView];
         LRViewBorderRadius(secondView, 5, 0, [UIColor clearColor]);
@@ -271,6 +358,7 @@
                 }
             }
             [secondView addSubview:address];
+            address.tag = j + 1000;
             [address mas_makeConstraints:^(MASConstraintMaker *make) {
                 if (j == 0) {
                     make.top.equalTo(bottomTemp.mas_top);
@@ -281,6 +369,9 @@
                 make.right.equalTo(secondView.mas_right);
                 make.height.equalTo(@60);
             }];
+            address.ecBlick = ^(NSDictionary *dic) {
+                [self eccept:dic];
+            };
             [address setUpWithDic:self.dataArray[i][j] withClickHandle:^(id responseObject) {
                 NSLog(@"%@",responseObject);
                 AddAddressViewController *add = [[AddAddressViewController alloc]init];
@@ -306,6 +397,20 @@
         temp = subView;
     }
     
+}
+//接受添加
+- (void)eccept:(NSDictionary *)dic {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/contacts/other/accept.do" params:@{@"otherId":dic[@"otherId"]} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        olderNum = 0;
+        jianhuNum = 0;
+        qinqiNum = 0;
+        [self getOld];
+        [self getJianhu];
+        [self getQinqi];
+    }];
 }
 #pragma -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

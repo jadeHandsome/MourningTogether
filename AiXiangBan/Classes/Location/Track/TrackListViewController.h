@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface TrackListViewController : BaseViewController
-
+@property (nonatomic, assign) NSInteger currentDay;
 @end

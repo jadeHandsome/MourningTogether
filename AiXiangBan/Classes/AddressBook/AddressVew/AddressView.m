@@ -103,23 +103,49 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
     [self addGestureRecognizer:tap];
     [tap addTarget:self action:@selector(click)];
-    
-    UILabel *statuLabel = [[UILabel alloc]init];
-    [self addSubview:statuLabel];
-    [statuLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right).with.offset(-10);
-        make.centerY.equalTo(self.mas_centerY);
-    }];
-    statuLabel.textColor = ColorRgbValue(0x1cb9cf);
-    statuLabel.text = @"未验证";
-    if (dic[@"valid"]) {
-        if ([dic[@"valid"] integerValue]) {
-            statuLabel.hidden = NO;
+    if (!self.isAdd) {
+        UILabel *statuLabel = [[UILabel alloc]init];
+        [self addSubview:statuLabel];
+        [statuLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.mas_right).with.offset(-10);
+            make.centerY.equalTo(self.mas_centerY);
+        }];
+        statuLabel.textColor = ColorRgbValue(0x1cb9cf);
+        statuLabel.text = @"未验证";
+        if (dic[@"valid"]) {
+            //if ([dic[@"valid"] integerValue] == 0) {
+            
+            if ([dic[@"status"] hasPrefix:@"0"]) {
+                statuLabel.text = [dic[@"status"] substringFromIndex:2];
+            } else if ([dic[@"status"] hasPrefix:@"1"]) {
+                UIButton *btn = [[UIButton alloc]init];
+                [self addSubview:btn];
+                [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.width.equalTo(@50);
+                    make.height.equalTo(@30);
+                    make.right.equalTo(self.mas_right).with.offset(-10);
+                    make.centerY.equalTo(self.mas_centerY);
+                }];
+                [btn addTarget:self action:@selector(gotoSure:) forControlEvents:UIControlEventTouchUpInside];
+                btn.backgroundColor = ColorRgbValue(0x1cb9cf);
+                [btn setTitle:[dic[@"status"] substringFromIndex:2] forState:UIControlStateNormal];
+                [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                LRViewBorderRadius(btn, 5, 0, [UIColor clearColor]);
+            } else {
+                statuLabel.text = @"";
+            }
+            
         } else {
             statuLabel.hidden = YES;
         }
-    } else {
-        statuLabel.hidden = YES;
+    }
+    
+    
+}
+- (void)gotoSure:(UIButton *)sender {
+    //确认
+    if (self.ecBlick) {
+        self.ecBlick(self.myData);
     }
     
 }

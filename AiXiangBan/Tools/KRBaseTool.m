@@ -803,7 +803,7 @@ singleton_implementation(KRBaseTool)
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     // 毫秒值转化为秒
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]];
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeString doubleValue]/1000];
     NSString* dateString = [formatter stringFromDate:date];
     return dateString;
 }

@@ -187,6 +187,8 @@
 		1AB5251D1F97250C003FC5E3 /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB5251B1F97250C003FC5E3 /* TrackTableViewCell.xib */; };
 		1AB525201F972B05003FC5E3 /* TrackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5251F1F972B05003FC5E3 /* TrackListViewController.m */; };
 		1ABB66FC1F93B370004A217A /* AddRobotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB66FB1F93B370004A217A /* AddRobotViewController.m */; };
+		1AD538581F98EE79008F7D11 /* AlarmDetailViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD538571F98EE79008F7D11 /* AlarmDetailViews.m */; };
+		1AD5385A1F98EE81008F7D11 /* AlarmDetailViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD538591F98EE81008F7D11 /* AlarmDetailViews.xib */; };
 		1AE01F861F89F37B00A6AE55 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */; };
 		1AE01F891F89F40700A6AE55 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE01F881F89F40700A6AE55 /* AddAddressView.m */; };
 		B309B889E57DCB587645C70A /* libPods-AiXiangBan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D4EBD14FCAE7A7695BA7FD /* libPods-AiXiangBan.a */; };
@@ -632,6 +634,9 @@
 		1AB5251F1F972B05003FC5E3 /* TrackListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrackListViewController.m; sourceTree = "<group>"; };
 		1ABB66FA1F93B370004A217A /* AddRobotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRobotViewController.h; sourceTree = "<group>"; };
 		1ABB66FB1F93B370004A217A /* AddRobotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRobotViewController.m; sourceTree = "<group>"; };
+		1AD538561F98EE79008F7D11 /* AlarmDetailViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmDetailViews.h; sourceTree = "<group>"; };
+		1AD538571F98EE79008F7D11 /* AlarmDetailViews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlarmDetailViews.m; sourceTree = "<group>"; };
+		1AD538591F98EE81008F7D11 /* AlarmDetailViews.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmDetailViews.xib; sourceTree = "<group>"; };
 		1AE01F841F89F37B00A6AE55 /* AddAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
 		1AE01F851F89F37B00A6AE55 /* AddAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
 		1AE01F871F89F40700A6AE55 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
@@ -1290,6 +1295,9 @@
 				1A1283971F98403300200A3D /* AlarmBtnView.h */,
 				1A1283981F98403300200A3D /* AlarmBtnView.m */,
 				1A12839A1F98403C00200A3D /* AlarmBtnView.xib */,
+				1AD538561F98EE79008F7D11 /* AlarmDetailViews.h */,
+				1AD538571F98EE79008F7D11 /* AlarmDetailViews.m */,
+				1AD538591F98EE81008F7D11 /* AlarmDetailViews.xib */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -1659,6 +1667,7 @@
 				1AA2E0D01F90855100AA185F /* CustomSliderView.xib in Resources */,
 				11E09F881F890156004A2BCC /* RechargeRecordCell.xib in Resources */,
 				11E09F651F88D175004A2BCC /* AskHelpViewController.xib in Resources */,
+				1AD5385A1F98EE81008F7D11 /* AlarmDetailViews.xib in Resources */,
 				1A4E9C811F8E1C44007D6832 /* DeleteDeviceViewController.xib in Resources */,
 				11C82BBC1F93C58C0097A938 /* AllDeviceCell.xib in Resources */,
 				11599C471F87DE6D0005D9ED /* pullView.xib in Resources */,
@@ -1811,6 +1820,7 @@
 				11C874F51F96560500D43B17 /* VideoViewController.m in Sources */,
 				1A1283961F983D6200200A3D /* AlarmDetailViewController.m in Sources */,
 				1A9A850E1F88B8030003B9E1 /* TYTabButtonPagerController.m in Sources */,
+				1AD538581F98EE79008F7D11 /* AlarmDetailViews.m in Sources */,
 				1A4E9C7E1F8E1B2B007D6832 /* LookCell.m in Sources */,
 				1A4E9C791F8E1B1B007D6832 /* EZQRView.m in Sources */,
 				1A4E9C7D1F8E1B29007D6832 /* HIKLoadViewItem.m in Sources */,
@@ -2018,7 +2028,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -2066,7 +2076,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = 96SAHL399V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",

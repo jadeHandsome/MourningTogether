@@ -59,7 +59,10 @@
         pointAnnotation.image = [self returnSmallImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].imageUrl]]] andSize:CGSizeMake(50, 50)];
         [self.mapView removeOverlay:circle];
         [self.mapView removeAnnotation:pointAnnotation];
-        
+        TRAnnotation *anno = [[TRAnnotation alloc]init];
+        anno.image = [UIImage imageNamed:@"loc"];
+        anno.coordinate = location;
+        [self.mapView addAnnotation:anno];
         [self.mapView addAnnotation:pointAnnotation];
         [self.mapView addOverlay:circle];
         [self.mapView setCenterCoordinate:location animated:YES];
@@ -82,22 +85,15 @@
 - (void)setUPMap {
     
     _mapView = [[MAMapView alloc] init];
-    _mapView.showsUserLocation = YES;
+    //_mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
-    
-    
-
-//    self.mapView.showsUserLocation = YES;
-//    _mapView.logoCenter = CGPointMake(0, 0);
-//    [_mapView setUserTrackingMode:MAUserTrackingModeNone animated:YES];
-    ///把地图添加至view
-    //_mapView.mapType = MAMapTypeSatellite;
     _mapView.delegate = self;
     
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate = self;
+    
     [self.locationManager startUpdatingLocation];
-    [self.mapView setZoomLevel:12 animated:YES];
+    [self.mapView setZoomLevel:14 animated:YES];
     [self.view addSubview:_mapView];
     [_mapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);

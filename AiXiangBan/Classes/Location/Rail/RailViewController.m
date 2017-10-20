@@ -24,6 +24,7 @@
 @property (nonatomic, strong) MACircle *circle;
 @property (nonatomic, strong) CLGeocoder *geoC;
 @property (nonatomic, strong) TRAnnotation *anno;
+@property (nonatomic, strong) TRAnnotation *anno1;
 @end
 
 @implementation RailViewController
@@ -98,6 +99,10 @@
         self.anno  = [[TRAnnotation alloc] init];
         self.anno.coordinate = CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]);
         self.anno.image = [self returnSmallImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].imageUrl]]] andSize:CGSizeMake(50, 50)];
+        self.anno1 = [[TRAnnotation alloc]init];
+        self.anno1.image = [UIImage imageNamed:@"loc"];
+        self.anno1.coordinate = CLLocationCoordinate2DMake( [showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
+        [self.mapView addAnnotation:self.anno1];
         [self.mapView addAnnotation:self.anno];
         [self.mapView addOverlay:self.circle];
         [self.mapView setCenterCoordinate:self.railCenter animated:YES];
@@ -110,13 +115,39 @@
             
             if(error == nil)
             {
-                NSLog(@"%f----%f", pl.location.coordinate.latitude, pl.location.coordinate.longitude);
-                //self.currentname = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
-                NSLog(@"%@", pl.name);
-                self.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pl.locality,pl.subLocality,pl.name];
-                //            self.addressTV.text = pl.name;
-                //            self.latitudeTF.text = @(pl.location.coordinate.latitude).stringValue;
-                //            self.longitudeTF.text = @(pl.location.coordinate.longitude).stringValue;
+                NSString *administrativeArea = @"";
+                
+                if (pl.administrativeArea) {
+                    administrativeArea = pl.administrativeArea;
+                }
+                NSString *locality = @"";
+                
+                if (pl.locality) {
+                    locality = pl.locality;
+                }
+                
+                NSString *subLocality = @"";
+                
+                if (pl.subLocality) {
+                    subLocality = pl.subLocality;
+                }
+                NSString *subThoroughfare = @"";
+                
+                if (pl.subThoroughfare) {
+                    subThoroughfare = pl.subThoroughfare;
+                }
+                NSString *thoroughfare = @"";
+                
+                if (pl.thoroughfare) {
+                    thoroughfare = pl.thoroughfare;
+                }
+                NSString *name = @"";
+                
+                if (pl.name) {
+                    name = pl.name;
+                }
+                
+                self.locationLabel.text = [NSString stringWithFormat:@"%@%@%@%@%@%@",administrativeArea,locality,subLocality,subThoroughfare,thoroughfare,name];
             }
         }];
         
@@ -259,9 +290,9 @@
     }];
     
     _mapView = [[MAMapView alloc] init];
-    _mapView.showsUserLocation = YES;
+    //_mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
-    [self.mapView setZoomLevel:12 animated:YES];
+    [self.mapView setZoomLevel:14 animated:YES];
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     
@@ -277,17 +308,17 @@
     
 }
 - (void)longPress:(UITapGestureRecognizer *)tap {
-    [_mapView removeAnnotation:self.anno];
+    [_mapView removeAnnotation:self.anno1];
     //坐标转换
     CGPoint touchPoint = [tap locationInView:_mapView];
     CLLocationCoordinate2D touchMapCoordinate =
     [_mapView convertPoint:touchPoint toCoordinateFromView:_mapView];
     self.railCenter = touchMapCoordinate;
-    self.anno.coordinate = touchMapCoordinate;
+    self.anno1.coordinate = touchMapCoordinate;
     
     //_pointAnnotation.title = @"设置名字";
     
-    [_mapView addAnnotation:self.anno];
+    [_mapView addAnnotation:self.anno1];
     CLLocation *locations = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
     
     [self.geoC reverseGeocodeLocation:locations completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
@@ -296,12 +327,39 @@
         if(error == nil)
         {
             NSLog(@"%f----%f", pl.location.coordinate.latitude, pl.location.coordinate.longitude);
-            //self.currentname = [NSString stringWithFormat:@"%@ %@",pl.locality,pl.subLocality];
-            NSLog(@"%@", pl.name);
-            self.locationLabel.text = [NSString stringWithFormat:@"%@ %@ %@",pl.locality,pl.subLocality,pl.name];
-            //            self.addressTV.text = pl.name;
-            //            self.latitudeTF.text = @(pl.location.coordinate.latitude).stringValue;
-            //            self.longitudeTF.text = @(pl.location.coordinate.longitude).stringValue;
+            NSString *administrativeArea = @"";
+            
+            if (pl.administrativeArea) {
+                administrativeArea = pl.administrativeArea;
+            }
+            NSString *locality = @"";
+          
+            if (pl.locality) {
+                locality = pl.locality;
+            }
+            
+            NSString *subLocality = @"";
+            
+            if (pl.subLocality) {
+                subLocality = pl.subLocality;
+            }
+            NSString *subThoroughfare = @"";
+            
+            if (pl.subThoroughfare) {
+                subThoroughfare = pl.subThoroughfare;
+            }
+            NSString *thoroughfare = @"";
+            
+            if (pl.thoroughfare) {
+                thoroughfare = pl.thoroughfare;
+            }
+            NSString *name = @"";
+            
+            if (pl.name) {
+                name = pl.name;
+            }
+            
+            self.locationLabel.text = [NSString stringWithFormat:@"%@%@%@%@%@%@",administrativeArea,locality,subLocality,subThoroughfare,thoroughfare,name];
         }
     }];
     //[self setLocationWithLatitude:touchMapCoordinate.latitude AndLongitude:touchMapCoordinate.longitude];
@@ -351,14 +409,6 @@
     }
     return nil;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

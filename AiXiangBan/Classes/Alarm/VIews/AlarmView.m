@@ -15,6 +15,7 @@
 - (void)setUpWith:(NSDictionary *)dic {
     self.myData = [dic copy];
     UIImageView *headImageView = [[UIImageView alloc]init];
+    
     [self addSubview:headImageView];
     [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).with.offset(10);
@@ -23,6 +24,7 @@
         make.width.equalTo(@40);
     }];
     [headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"elderHeadUrl"]] placeholderImage:_zhanweiImageData];
+    LRViewBorderRadius(headImageView, 20, 0, [UIColor clearColor]);
     UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.text = dic[@"name"];
     [self addSubview:titleLabel];
@@ -83,18 +85,18 @@
             break;
         case 2:
         {
-            statu = @"处理中";
+            statu = @"自动扩散通知";
         }
             break;
             
         case 3:
         {
-            statu = @"扩散通知";
+            statu = @"处理中";
         }
             break;
         case 4:
         {
-            statu = @"解除";
+            statu = @"扩散通知";
         }
             break;
         case 5:

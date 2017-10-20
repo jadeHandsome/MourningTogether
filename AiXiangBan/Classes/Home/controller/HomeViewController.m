@@ -289,9 +289,9 @@
 - (IBAction)goToLocation:(UITapGestureRecognizer *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
         
-        NoWatchViewController *nows = [[NoWatchViewController alloc]init];
-        [self.navigationController pushViewController:nows animated:YES];
-        [MBProgressHUD showError:@"请先绑定设备" toView:nows.view];
+//        NoWatchViewController *nows = [[NoWatchViewController alloc]init];
+//        [self.navigationController pushViewController:nows animated:YES];
+        [MBProgressHUD showError:@"暂未绑定设备" toView:self.view];
     } else {
         LocationViewController *location = [LocationViewController new];
         [self.navigationController pushViewController:location animated:YES];

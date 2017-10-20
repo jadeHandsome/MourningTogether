@@ -90,6 +90,7 @@
         make.left.equalTo(self.view.mas_left).with.offset(10);
         make.top.equalTo(self.view.mas_top).with.offset(20);
         make.width.equalTo(@100);
+        make.height.equalTo(@30);
     }];
     [popBtn setImage:[UIImage imageNamed:@"云医时代1-22"] forState:UIControlStateNormal];
     [popBtn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
@@ -353,8 +354,8 @@
                 if ([str containsString:@"1000"]) {
                     //推流成功
                     NSLog(@"推流成功");
-                    [self.mediaPlayer prepareToPlay:[NSURL URLWithString:[LIVE_URL stringByAppendingString:_robotId]]];
-                    [self.mediaPlayer play];
+                    [self performSelector:@selector(openMedil) withObject:nil afterDelay:2];
+                    
                 } else if ([str containsString:@"2000"]) {
                     //断流成功
                     
@@ -373,6 +374,10 @@
     
     
    
+}
+- (void)openMedil {
+    [self.mediaPlayer prepareToPlay:[NSURL URLWithString:[LIVE_URL stringByAppendingString:_robotId]]];
+    [self.mediaPlayer play];
 }
 //开始直播
 - (void)beginLive {
@@ -425,23 +430,23 @@
 }
 //向前走
 - (void)goAhead {
-    NSString *params = [self setPostProtocolWithCmid:@"00000009" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"00000009" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:4];
    
 }
 //向后走
 - (void)goBack {
-    NSString *params = [self setPostProtocolWithCmid:@"0000000B" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"0000000B" andSn:nil andParams:@"&speed=0"];
    [self sendMessageWith:params andtag:5];
 }
 //向左走
 - (void)goLeft {
-    NSString *params = [self setPostProtocolWithCmid:@"0000000D" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"0000000D" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:6];
 }
 //向右走
 - (void)goRight {
-    NSString *params = [self setPostProtocolWithCmid:@"0000000F" andSn:nil andParams:nil];
+    NSString *params = [self setPostProtocolWithCmid:@"0000000F" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:7];
 }
 //旋转角度
@@ -451,7 +456,7 @@
 }
 //头左
 - (void)headMoveLeft {
-    NSString *params = [self setPostProtocolWithCmid:@"00000005" andSn:nil andParams:@"&speed=0"];
+    NSString *params = [self setPostProtocolWithCmid:@"00000001" andSn:nil andParams:@"&speed=0"];
     [self sendMessageWith:params andtag:9];
 }
 //头右
