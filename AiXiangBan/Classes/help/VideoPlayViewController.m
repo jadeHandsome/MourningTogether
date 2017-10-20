@@ -69,13 +69,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [[IQKeyboardManager sharedManager] setEnable:NO];
-//    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     [[IQKeyboardManager sharedManager] setEnable:YES];
-//    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
 }
 
 - (void)setUp{
