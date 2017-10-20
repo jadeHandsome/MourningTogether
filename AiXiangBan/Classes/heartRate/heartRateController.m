@@ -80,31 +80,33 @@
 }
 
 - (void)requestData{
-    NSString *beginTime = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
-    NSString *endTime = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:[NSDate date]];
-    NSDictionary *params = @{@"deviceId":[KRUserInfo sharedKRUserInfo].deviceSn,@"beginTime":beginTime,@"endTime":endTime,@"offset":@(self.nowCount),@"size":@(7)};
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/device/getHeartList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
-        if ([showdata[@"heartList"] count]) {
-            self.yMax = [showdata[@"maxHeart"] integerValue];
-            self.yMin = [showdata[@"minHeart"] integerValue];
-            [self.data addObjectsFromArray:showdata[@"heartList"]];
-            self.nowCount += 30;
-//            [self requestData];
-            if (self.bottomView.hidden) {
-                self.bottomView.hidden = NO;
-                self.averNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"aveHeart"] integerValue]];
-                self.minNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"minHeart"] integerValue]];
-                self.maxNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"maxHeart"] integerValue]];
-                self.minTime.text = [NSString stringWithFormat:@"(%@)",[showdata[@"minHeartDate"] substringWithRange:NSMakeRange(10, 6)]];
-                self.maxTime.text = [NSString stringWithFormat:@"(%@)",[showdata[@"maxHeartDate"] substringWithRange:NSMakeRange(10, 6)]];
-                self.timeLabel.text = [showdata[@"maxHeartDate"] substringToIndex:10];
+    if ([KRUserInfo sharedKRUserInfo].deviceSn) {
+        NSString *beginTime = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
+        NSString *endTime = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:[NSDate date]];
+        NSDictionary *params = @{@"deviceId":[KRUserInfo sharedKRUserInfo].deviceSn,@"beginTime":beginTime,@"endTime":endTime,@"offset":@(self.nowCount),@"size":@(7)};
+        [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/device/getHeartList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+            if ([showdata[@"heartList"] count]) {
+                self.yMax = [showdata[@"maxHeart"] integerValue];
+                self.yMin = [showdata[@"minHeart"] integerValue];
+                [self.data addObjectsFromArray:showdata[@"heartList"]];
+                self.nowCount += 30;
+                //            [self requestData];
+                if (self.bottomView.hidden) {
+                    self.bottomView.hidden = NO;
+                    self.averNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"aveHeart"] integerValue]];
+                    self.minNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"minHeart"] integerValue]];
+                    self.maxNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"maxHeart"] integerValue]];
+                    self.minTime.text = [NSString stringWithFormat:@"(%@)",[showdata[@"minHeartDate"] substringWithRange:NSMakeRange(10, 6)]];
+                    self.maxTime.text = [NSString stringWithFormat:@"(%@)",[showdata[@"maxHeartDate"] substringWithRange:NSMakeRange(10, 6)]];
+                    self.timeLabel.text = [showdata[@"maxHeartDate"] substringToIndex:10];
+                }
+                [self math];
             }
-            [self math];
-        }
-        else{
-            
-        }
-    }];
+            else{
+                
+            }
+        }];
+    }
 }
 
 - (void)math{
