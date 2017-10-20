@@ -94,7 +94,7 @@
     [super viewDidLoad];
     self.title = @"";
     [self adjustFrame];
-    [self configCollectionView];
+    
     
     LRViewBorderRadius(self.myHeadImage, 12.5, 0, [UIColor clearColor]);
     // Do any additional setup after loading the view from its nib.
@@ -121,7 +121,10 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+
+
 - (void)viewDidAppear:(BOOL)animated{
+    [self configCollectionView];
     [super viewDidAppear:YES];
     
 }
