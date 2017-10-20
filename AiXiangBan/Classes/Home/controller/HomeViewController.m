@@ -27,7 +27,7 @@
 
 #import "NoWatchViewController.h"
 
-#import "HeartRateViewController.h"
+#import "heartRateController.h"
 
 #import "AlarmViewController.h"
 
@@ -321,7 +321,7 @@
     self.alarmView.hidden = YES;
 }
 - (IBAction)rateAction:(UIButton *)sender {
-    HeartRateViewController *rate = [HeartRateViewController new];
+    heartRateController *rate = [heartRateController new];
     [self.navigationController pushViewController:rate animated:YES];
 }
 - (IBAction)sendMessage:(UIButton *)sender {

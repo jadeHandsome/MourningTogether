@@ -19,7 +19,6 @@
 		1176E9241F96603000CAD826 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1176E9221F96603000CAD826 /* VideoTableViewCell.xib */; };
 		1176E93F1F96648500CAD826 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1176E93D1F96648500CAD826 /* VideoPlayViewController.m */; };
 		1176E9401F96648500CAD826 /* VideoPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1176E93E1F96648500CAD826 /* VideoPlayViewController.xib */; };
-		117949F21F961DB70017BA99 /* HeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117949F11F961DB70017BA99 /* HeartRateViewController.m */; };
 		118035371F8F043F0067CCA6 /* BillDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118035351F8F043F0067CCA6 /* BillDetailViewController.m */; };
 		118035381F8F043F0067CCA6 /* BillDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118035361F8F043F0067CCA6 /* BillDetailViewController.xib */; };
 		1188E9761F904B2300E4EB27 /* CallCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1188E9701F904B2200E4EB27 /* CallCardCell.m */; };
@@ -53,6 +52,8 @@
 		11AF42011F87154600903A85 /* HYTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AF42001F87143400903A85 /* HYTimerButton.m */; };
 		11B2532C1F8668D100994575 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B2532A1F8668D100994575 /* LoginViewController.m */; };
 		11B2532D1F8668D100994575 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B2532B1F8668D100994575 /* LoginViewController.xib */; };
+		11BCB2DD1F9996A300323632 /* heartRateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BCB2DB1F9996A300323632 /* heartRateController.m */; };
+		11BCB2DE1F9996A300323632 /* heartRateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BCB2DC1F9996A300323632 /* heartRateController.xib */; };
 		11C82BB71F93C2790097A938 /* AllLookDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C82BB61F93C2790097A938 /* AllLookDeviceViewController.m */; };
 		11C82BBB1F93C58C0097A938 /* AllDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C82BB91F93C58C0097A938 /* AllDeviceCell.m */; };
 		11C82BBC1F93C58C0097A938 /* AllDeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C82BBA1F93C58C0097A938 /* AllDeviceCell.xib */; };
@@ -245,8 +246,6 @@
 		1176E93C1F96648500CAD826 /* VideoPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VideoPlayViewController.h; path = AiXiangBan/Classes/help/VideoPlayViewController.h; sourceTree = SOURCE_ROOT; };
 		1176E93D1F96648500CAD826 /* VideoPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VideoPlayViewController.m; path = AiXiangBan/Classes/help/VideoPlayViewController.m; sourceTree = SOURCE_ROOT; };
 		1176E93E1F96648500CAD826 /* VideoPlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VideoPlayViewController.xib; path = AiXiangBan/Classes/help/VideoPlayViewController.xib; sourceTree = SOURCE_ROOT; };
-		117949F01F961DB70017BA99 /* HeartRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateViewController.h; sourceTree = "<group>"; };
-		117949F11F961DB70017BA99 /* HeartRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateViewController.m; sourceTree = "<group>"; };
 		118035341F8F043F0067CCA6 /* BillDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillDetailViewController.h; sourceTree = "<group>"; };
 		118035351F8F043F0067CCA6 /* BillDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillDetailViewController.m; sourceTree = "<group>"; };
 		118035361F8F043F0067CCA6 /* BillDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillDetailViewController.xib; sourceTree = "<group>"; };
@@ -294,6 +293,9 @@
 		11B253291F8668D100994575 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		11B2532A1F8668D100994575 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		11B2532B1F8668D100994575 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		11BCB2DA1F9996A300323632 /* heartRateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heartRateController.h; sourceTree = "<group>"; };
+		11BCB2DB1F9996A300323632 /* heartRateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = heartRateController.m; sourceTree = "<group>"; };
+		11BCB2DC1F9996A300323632 /* heartRateController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = heartRateController.xib; sourceTree = "<group>"; };
 		11C82BB51F93C2790097A938 /* AllLookDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllLookDeviceViewController.h; sourceTree = "<group>"; };
 		11C82BB61F93C2790097A938 /* AllLookDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllLookDeviceViewController.m; sourceTree = "<group>"; };
 		11C82BB81F93C58C0097A938 /* AllDeviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllDeviceCell.h; sourceTree = "<group>"; };
@@ -735,8 +737,9 @@
 			isa = PBXGroup;
 			children = (
 				1105C16B1F989E0400A46333 /* views */,
-				117949F01F961DB70017BA99 /* HeartRateViewController.h */,
-				117949F11F961DB70017BA99 /* HeartRateViewController.m */,
+				11BCB2DA1F9996A300323632 /* heartRateController.h */,
+				11BCB2DB1F9996A300323632 /* heartRateController.m */,
+				11BCB2DC1F9996A300323632 /* heartRateController.xib */,
 			);
 			path = heartRate;
 			sourceTree = "<group>";
@@ -1658,6 +1661,7 @@
 				1A4E9C841F8E1C4D007D6832 /* SetDeviceNameViewController.xib in Resources */,
 				1A4E9C7F1F8E1C3C007D6832 /* AddByQRCodeViewController.xib in Resources */,
 				1AB5251D1F97250C003FC5E3 /* TrackTableViewCell.xib in Resources */,
+				11BCB2DE1F9996A300323632 /* heartRateController.xib in Resources */,
 				11E09F901F8904BD004A2BCC /* BillCell.xib in Resources */,
 				1188E9781F904B2C00E4EB27 /* CallCardCell.xib in Resources */,
 				11C9D3F31F85159D005B3577 /* Assets.xcassets in Resources */,
@@ -1827,13 +1831,13 @@
 				1A24A91E1F9338880069E3B8 /* ControllView.m in Sources */,
 				1A9A84DF1F878F2C0003B9E1 /* UITableView+KREmptyData.m in Sources */,
 				1AA2E0C61F90533700AA185F /* KRCustomView.m in Sources */,
+				11BCB2DD1F9996A300323632 /* heartRateController.m in Sources */,
 				1A9A850C1F88B5CC0003B9E1 /* AddressBookViewController.m in Sources */,
 				1176E93F1F96648500CAD826 /* VideoPlayViewController.m in Sources */,
 				1A12838F1F98314F00200A3D /* AlarmViewController.m in Sources */,
 				1A9A84E81F87E6020003B9E1 /* MineInfoView.m in Sources */,
 				11E09F8F1F8904BD004A2BCC /* BillCell.m in Sources */,
 				1A9A850D1F88B8000003B9E1 /* TYPagerController.m in Sources */,
-				117949F21F961DB70017BA99 /* HeartRateViewController.m in Sources */,
 				1A9A84F41F8879630003B9E1 /* ReparePwsViewController.m in Sources */,
 				11C9D46A1F853139005B3577 /* BaseNaviViewController.m in Sources */,
 				11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */,
@@ -2028,7 +2032,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -2076,7 +2080,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",

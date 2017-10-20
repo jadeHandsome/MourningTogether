@@ -6,9 +6,9 @@
 //  Copyright © 2017年 周春仕. All rights reserved.
 //
 
-#import "HeartRateViewController.h"
+#import "heartRateController.h"
 #import "lineView.h"
-@interface HeartRateViewController ()
+@interface heartRateController ()
 @property (nonatomic, assign) NSInteger nowCount;
 @property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) NSMutableArray *xArr;
@@ -16,9 +16,18 @@
 @property (nonatomic, strong) NSMutableArray *pointArr;
 @property (nonatomic, assign) NSInteger yMax;
 @property (nonatomic, assign) NSInteger yMin;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UILabel *averNum;
+@property (weak, nonatomic) IBOutlet UILabel *minNum;
+@property (weak, nonatomic) IBOutlet UILabel *maxNum;
+@property (weak, nonatomic) IBOutlet UILabel *minTime;
+@property (weak, nonatomic) IBOutlet UILabel *maxTime;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @end
 
-@implementation HeartRateViewController
+@implementation heartRateController
 - (NSMutableArray *)data{
     if (!_data) {
         _data = [NSMutableArray array];
@@ -55,7 +64,10 @@
     self.navigationItem.title = @"心率";
     self.nowCount = 0;
     [self requestData];
-
+    self.topConstraint.constant = navHight;
+    self.scrollView.contentSize = CGSizeMake(SIZEWIDTH * 2, SIZEHEIGHT * 0.5);
+    self.bottomView.hidden = YES;
+    self.scrollView.hidden = YES;
     // Do any additional setup after loading the view.
 }
 
@@ -70,6 +82,15 @@
             [self.data addObjectsFromArray:showdata[@"heartList"]];
             self.nowCount += 30;
             [self requestData];
+            if (self.bottomView.hidden) {
+                self.bottomView.hidden = NO;
+                self.averNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"aveHeart"] integerValue]];
+                self.minNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"minHeart"] integerValue]];
+                self.maxNum.text = [NSString stringWithFormat:@"%ld",[showdata[@"maxHeart"] integerValue]];
+                self.minTime.text = [showdata[@"minHeartDate"] substringWithRange:NSMakeRange(10, 6)];
+                self.maxTime.text = [showdata[@"maxHeartDate"] substringWithRange:NSMakeRange(10, 6)];
+                self.timeLabel.text = [showdata[@"maxHeartDate"] substringToIndex:10];
+            }
         }
         else{
             [self math];
@@ -96,23 +117,24 @@
     self.yArr = @[@"0",@"20",@"40",@"60",@"80",@"100",@"120",@"140",@"160",@"180",@"200"].mutableCopy;
     
     for (NSDictionary *dic in self.data) {
-            }
+    }
     
-    [self setUpUI];
+    [self addLineView];
     
     
 }
 
-- (void)setUpUI{
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, navHight, SIZEWIDTH, 500)];
-    scrollView.contentSize = CGSizeMake(SIZEWIDTH * 2, 500);
-    [self.view addSubview:scrollView];
-    lineView *view = [[lineView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH * 2, 500)];
-    view.xArr = self.xArr;
-    view.yArr = self.yArr;
-    view.backgroundColor = [UIColor whiteColor];
-    [scrollView addSubview:view];
-//    [view setNeedsDisplay];
+- (void)addLineView{
+    self.scrollView.hidden = NO;
+    lineView *line = [[lineView alloc] initWithFrame:CGRectMake(0, 0, SIZEWIDTH * 2, SIZEHEIGHT * 0.5)];
+    line.xArr = self.xArr;
+    line.yArr = self.yArr;
+    line.backgroundColor = [UIColor whiteColor];
+    [self.scrollView addSubview:line];
+    
+    
+    
+    
 }
 
 
@@ -122,13 +144,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
+

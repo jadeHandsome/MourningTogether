@@ -24,9 +24,10 @@
     /////////////////////////////////////////////////////////////////
     // 公共数据
     float fdistance_left_frame = 30.0;                    // 左侧X轴距离边框的宽度，用于绘制文本
+    float fdistance_top_frame = 15.0;                  // 上侧Y轴距离边框的宽度
     float fdistance_bottom_frame = 15.0;                  // 左侧Y轴距离边框的宽度
     float fdistance_right_frame = 10.0;                   // 左侧X轴距离边框的宽度
-    float fdraw_line_height = rect.size.height - fdistance_bottom_frame;  // 绘制坐标的高度
+    float fdraw_line_height = rect.size.height - fdistance_bottom_frame - fdistance_top_frame;  // 绘制坐标的高度
     float fdraw_line_width = rect.size.width - fdistance_left_frame
     - fdistance_right_frame;  // 绘制坐标的宽度
     
@@ -39,7 +40,7 @@
     
     // 开始画X轴
     float left_bottom_x = rect.origin.x + fdistance_left_frame;
-    float left_bottom_y = rect.origin.y + fdraw_line_height;
+    float left_bottom_y = rect.origin.y + fdraw_line_height + fdistance_top_frame;
     CGPoint point_origin = CGPointMake(left_bottom_x, left_bottom_y);              // 坐标轴原点
     
     // 定义一个开始路径
@@ -51,7 +52,7 @@
     {
         x_unit_scale = fdraw_line_width/(f_x_axis_scale_number-1);               // 一级等分大刻度
         x_unit_distance_scale = x * x_unit_scale;                            // 相对原点的偏移点
-        [x_startPath addLineToPoint:CGPointMake(left_bottom_x, left_bottom_y - x_unit_distance_scale)];
+        [x_startPath addLineToPoint:CGPointMake(left_bottom_x + x_unit_distance_scale, left_bottom_y)];
         
         // “—”Y轴下部绘制文本
         float x_text_left_certer = left_bottom_x;
@@ -69,13 +70,10 @@
         NSString * x_strtext = self.xArr[x];             // 绘制X轴刻度值
         [x_strtext drawInRect:x_axis_rect withFont:font];
         
+        
+        
         if (0 == x)
-        {// 为“0”时，不或那个绘制刻度，直接在底部绘制横线“Y”轴
-            float y_width = fdraw_line_width;
-//            CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);//线条颜色
-//            CGContextMoveToPoint(context, left_bottom_x, left_bottom_y - x_unit_distance_scale);
-//            CGContextAddLineToPoint(context, left_bottom_x + y_width, left_bottom_y - x_unit_distance_scale);
-//            CGContextStrokePath(context);
+        {
             
             // 开始画Y轴
             UIBezierPath * y_startPath = [UIBezierPath bezierPath];
@@ -88,7 +86,7 @@
                 
                 y_unit_scale = fdraw_line_height/(f_y_axis_scale_number-1);                    // 一级等分大刻度
                 y_unit_distance_scale = y * y_unit_scale;                                  // 相对原点的偏移点
-                [y_startPath addLineToPoint:CGPointMake(left_bottom_x, left_bottom_y - x_unit_distance_scale)];
+                [y_startPath addLineToPoint:CGPointMake(left_bottom_x, left_bottom_y - y_unit_distance_scale)];
                 
                 // “|”X轴左侧绘制文本
                 float text_height_certer = left_bottom_y;
@@ -110,12 +108,12 @@
                 if (y == 0){
                     
                 } else {
-                    // “—”Y轴上部绘制刻度短线
                     float fscale_width = 5.0;
-//                    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);      // 线条颜色
-//                    CGContextMoveToPoint(context, left_bottom_x + y_unit_distance_scale, left_bottom_y );
-//                    CGContextAddLineToPoint(context, left_bottom_x + y_unit_distance_scale, left_bottom_y - fscale_width);
-//                    CGContextStrokePath(context);
+                    // |X轴绘制右侧刻度短线
+                    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);// 线条颜色
+                    CGContextMoveToPoint(context, left_bottom_x, left_bottom_y - y_unit_distance_scale);
+                    CGContextAddLineToPoint(context, left_bottom_x + fscale_width, left_bottom_y - y_unit_distance_scale);
+                    CGContextStrokePath(context);
                 }
                 
             }
@@ -123,25 +121,12 @@
             
         } else
         {
-            // |X轴绘制右侧刻度短线
             float fscale_width = 5.0;
-            CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);// 线条颜色
-            CGContextMoveToPoint(context, left_bottom_x, left_bottom_y - x_unit_distance_scale);
-            CGContextAddLineToPoint(context, left_bottom_x + fscale_width, left_bottom_y - x_unit_distance_scale);
+            CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);      // 线条颜色
+            CGContextMoveToPoint(context, left_bottom_x + x_unit_distance_scale, left_bottom_y );
+            CGContextAddLineToPoint(context, left_bottom_x + x_unit_distance_scale, left_bottom_y - fscale_width);
             CGContextStrokePath(context);
         }
-        //        // 绘制二级小刻度值
-        //        for (int xx = 0; xx < 5; xx++)
-        //        {
-        //            float fsmall_scale_width = 3.0;
-        //            CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);// 线条颜色
-        //            CGContextSetLineWidth(context, 1.0);                    // 线宽度
-        //            float fsmall_scale_height = x_unit_distance_scale/10.0; // 每一小刻度 的高度不变
-        //            CGContextMoveToPoint(context, point_origin.x, point_origin.y - fsmall_scale_height);
-        //            CGContextAddLineToPoint(context, point_origin.x + fsmall_scale_width, point_origin.y - fsmall_scale_height);
-        //            CGContextStrokePath(context);
-        //        }
-        
     }
     [x_startPath stroke];   // Draws line 根据坐标点连线
     
@@ -163,7 +148,7 @@
     {
         x_unit_distance_scale = x * (x_unit_scale);        // 一级等分大刻度
         CGContextMoveToPoint(context, point_origin.x + x_unit_distance_scale, point_origin.y - 5);
-        CGContextAddLineToPoint(context, point_origin.x + x_unit_distance_scale, point_origin.y - fdraw_line_height + fdistance_bottom_frame + 3);
+        CGContextAddLineToPoint(context, point_origin.x + x_unit_distance_scale, point_origin.y - fdraw_line_height + fdistance_bottom_frame + 3 - fdistance_top_frame);
     }
     CGContextStrokePath(context);
     
