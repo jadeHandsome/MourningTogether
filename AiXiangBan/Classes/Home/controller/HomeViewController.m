@@ -345,7 +345,13 @@
     self.hartRateBtn.hidden = !self.hartRateBtn.hidden;
     self.locationBtn.hidden = !self.locationBtn.hidden;
     if (!self.hartRateBtn.hidden) {
-        self.hartRateBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
+        self.hartRateBtn.hidden = YES;
+        for (NSDictionary *dic in self.curretOlder[@"deviceList"]) {
+            if ([dic[@"deviceType"] integerValue] == 1) {
+                self.hartRateBtn.hidden = NO;
+            }
+        }
+        //self.hartRateBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
     }
     //if (!self.locationBtn.hidden) {
     
