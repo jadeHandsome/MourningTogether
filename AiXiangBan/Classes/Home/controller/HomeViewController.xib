@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +44,7 @@
                             <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                             <subviews>
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-14" translatesAutoresizingMaskIntoConstraints="NO" id="vzD-Mw-TAx">
-                                    <rect key="frame" x="15" y="9.6666666666666661" width="25" height="25"/>
+                                    <rect key="frame" x="15" y="9.6666666666666679" width="25" height="25.000000000000004"/>
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="Jxc-Po-Nz0"/>
@@ -102,11 +102,11 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTd-d2-99u">
-                            <rect key="frame" x="0.0" y="64" width="414" height="34.666666666666671"/>
+                            <rect key="frame" x="0.0" y="64" width="414" height="34.666666666666657"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="警报:XXXXXXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mij-DK-iyU">
-                                    <rect key="frame" x="15" y="7" width="162" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="15" y="8.6666666666666714" width="144.33333333333334" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -143,14 +143,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-14" translatesAutoresizingMaskIntoConstraints="NO" id="2Ga-xa-kPj">
-                            <rect key="frame" x="149" y="138.66666666666663" width="116" height="116.33333333333334"/>
+                            <rect key="frame" x="149" y="138.66666666666666" width="116" height="116.33333333333334"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="Fh7-Mg-Iz5" appends="YES" id="XWe-g7-E8U"/>
                             </connections>
                         </imageView>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRc-AO-3i7">
-                            <rect key="frame" x="186.66666666666666" y="270" width="41.666666666666686" height="41"/>
+                            <rect key="frame" x="186.66666666666666" y="270" width="41.666666666666657" height="41"/>
                             <state key="normal" image="孝相伴-201"/>
                             <connections>
                                 <action selector="sendMessage:" destination="-1" eventType="touchUpInside" id="5ba-RO-jNP"/>
@@ -164,7 +164,7 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cW2-O0-5Qi">
-                            <rect key="frame" x="107.66666666666669" y="244" width="41.333333333333314" height="41"/>
+                            <rect key="frame" x="107.66666666666667" y="244" width="41.333333333333329" height="41"/>
                             <state key="normal" image="孝相伴-19"/>
                             <connections>
                                 <action selector="rateAction:" destination="-1" eventType="touchUpInside" id="SAp-7u-wrG"/>
@@ -210,13 +210,13 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-Lq-lB0">
-                    <rect key="frame" x="0.0" y="524.66666666666652" width="414" height="211.33333333333337"/>
+                    <rect key="frame" x="0.0" y="524.66666666666663" width="414" height="211.33333333333337"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cik-Av-vt3">
                             <rect key="frame" x="0.0" y="0.0" width="138" height="106"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZ3-aP-sZD">
-                                    <rect key="frame" x="1" y="23.333333333333371" width="136" height="59.333333333333371"/>
+                                    <rect key="frame" x="1" y="23.333333333333375" width="136" height="59.333333333333343"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72r-lK-4xE">
                                             <rect key="frame" x="57" y="46" width="23" height="13"/>
@@ -225,7 +225,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-8" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-IQ-jk1">
-                                            <rect key="frame" x="47.999999999999993" y="0.0" width="41.333333333333321" height="41.333333333333371"/>
+                                            <rect key="frame" x="48" y="0.0" width="41.333333333333343" height="41.333333333333336"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +253,7 @@
                             <rect key="frame" x="138" y="0.0" width="138" height="106"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tv-gV-eNJ">
-                                    <rect key="frame" x="1" y="23.333333333333371" width="136" height="59.333333333333371"/>
+                                    <rect key="frame" x="1" y="23.333333333333375" width="136" height="59.333333333333343"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYf-41-plY">
                                             <rect key="frame" x="56.666666666666657" y="46" width="23" height="13"/>
@@ -262,7 +262,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-9" translatesAutoresizingMaskIntoConstraints="NO" id="Nk8-p3-Tx2">
-                                            <rect key="frame" x="47.333333333333343" y="0.0" width="41.333333333333314" height="41.333333333333371"/>
+                                            <rect key="frame" x="47.333333333333343" y="0.0" width="41.333333333333343" height="41.333333333333336"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,7 +290,7 @@
                             <rect key="frame" x="276" y="0.0" width="138" height="106"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-vx-rvh">
-                                    <rect key="frame" x="1" y="23.333333333333371" width="136.66666666666669" height="59.333333333333371"/>
+                                    <rect key="frame" x="1" y="23.333333333333375" width="136.66666666666666" height="59.333333333333343"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帮帮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO0-6h-Rnr">
                                             <rect key="frame" x="56.666666666666686" y="46" width="23" height="13"/>
@@ -327,7 +327,7 @@
                             <rect key="frame" x="0.0" y="106" width="138" height="106"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-C6-ECE">
-                                    <rect key="frame" x="1" y="23.333333333333371" width="136" height="59.666666666666629"/>
+                                    <rect key="frame" x="1" y="23.333333333333368" width="136" height="59.666666666666657"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ1-VN-tY5">
                                             <rect key="frame" x="57" y="47" width="23" height="13"/>
@@ -336,7 +336,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-11" translatesAutoresizingMaskIntoConstraints="NO" id="FtG-qF-pt4">
-                                            <rect key="frame" x="48" y="0.0" width="41" height="41.333333333333371"/>
+                                            <rect key="frame" x="48" y="0.0" width="41" height="41.333333333333336"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -360,10 +360,10 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbW-DL-d6e">
-                            <rect key="frame" x="138" y="106" width="138.66666666666669" height="105.33333333333337"/>
+                            <rect key="frame" x="138" y="106" width="138.66666666666663" height="105.33333333333331"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jba-RQ-Qa7">
-                                    <rect key="frame" x="1" y="23.333333333333371" width="137.33333333333331" height="59"/>
+                                    <rect key="frame" x="1" y="23.333333333333371" width="137.33333333333334" height="59"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="求助" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmK-nz-NLk">
                                             <rect key="frame" x="57.333333333333343" y="45.666666666666629" width="23" height="13"/>
@@ -372,7 +372,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-12" translatesAutoresizingMaskIntoConstraints="NO" id="WIX-d0-ByK">
-                                            <rect key="frame" x="48" y="0.0" width="41.333333333333343" height="41.333333333333371"/>
+                                            <rect key="frame" x="48" y="0.0" width="41.333333333333343" height="41.333333333333336"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -399,7 +399,7 @@
                             <rect key="frame" x="276.66666666666669" y="106" width="138" height="106"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpI-yp-05B">
-                                    <rect key="frame" x="1" y="24" width="136.66666666666663" height="59"/>
+                                    <rect key="frame" x="1" y="24" width="136.66666666666666" height="59"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机器人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-D5-XIb">
                                             <rect key="frame" x="51.666666666666629" y="45" width="34" height="14"/>
@@ -408,7 +408,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="孝相伴-13" translatesAutoresizingMaskIntoConstraints="NO" id="n3x-WY-WJ5">
-                                            <rect key="frame" x="47.666666666666629" y="0.0" width="41" height="41.333333333333371"/>
+                                            <rect key="frame" x="47.666666666666629" y="0.0" width="41" height="41.333333333333336"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -432,21 +432,21 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zox-Zh-vqd">
-                            <rect key="frame" x="0.0" y="105.66666666666674" width="414" height="0.66666666666662877"/>
+                            <rect key="frame" x="0.0" y="105.66666666666674" width="414" height="0.6666666666666714"/>
                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="D6h-Js-zjV"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-cl-xfF">
-                            <rect key="frame" x="137.66666666666666" y="0.0" width="0.66666666666668561" height="211.33333333333337"/>
+                            <rect key="frame" x="137.66666666666666" y="0.0" width="0.66666666666665719" height="211.33333333333334"/>
                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="0.5" id="tdF-6B-hOo"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUR-43-Tpr">
-                            <rect key="frame" x="275.66666666666669" y="0.0" width="0.66666666666662877" height="211.33333333333337"/>
+                            <rect key="frame" x="275.66666666666669" y="0.0" width="0.66666666666668561" height="211.33333333333334"/>
                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="0.5" id="nmT-uS-Z7M"/>

@@ -28,9 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    self.navigationItem.title = @"紧急报警";
+    //self.navigationItem.title = @"紧急报警";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
-    [self setUp];
+    
     [self loadData];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -85,12 +85,17 @@
         [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_centerView.mas_bottom).with.offset(f);
         }];
+        
     }];
 }
 - (void)pop {
     
 }
+- (void)viewDidLayoutSubviews {
+    self.mainScroll.contentOffset = CGPointMake(-0, 0);
+}
 - (void)viewWillAppear:(BOOL)animated {
+    [self setUp];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
@@ -266,8 +271,14 @@
     }];
 }
 - (void)goCall {
-    AskHelpViewController *ask = [[AskHelpViewController alloc]init];
-    [self.navigationController pushViewController:ask animated:YES];
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/dealEmergency.do" params:@{@"emergencyId":self.alarmId,@"deal":@(3)} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+        if (showdata == nil) {
+            return ;
+        }
+        AskHelpViewController *ask = [[AskHelpViewController alloc]init];
+        [self.navigationController pushViewController:ask animated:YES];
+    }];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

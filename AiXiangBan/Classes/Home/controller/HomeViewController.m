@@ -50,7 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIView *collectionContainer;
 @property (nonatomic, strong) NSDictionary *curretOlder;
 @property (weak, nonatomic) IBOutlet UIImageView *myHeadImage;
-
+@property (nonatomic, strong) NSDictionary *alramList;
 @end
 
 @implementation HomeViewController
@@ -73,7 +73,17 @@
         //self.alarmDetail.text = @"";
         self.alarmView.hidden = YES;
     } else {
-        self.alarmDetail.text = [NSString stringWithFormat:@"警报：XX条老人使用添加手表报警"];
+        self.alarmView.hidden = NO;
+        NSInteger count = 0;
+        for (NSDictionary *dic in self.alramList[@"emergencyList"]) {
+            if ([dic[@"name"] isEqualToString:self.curretOlder[@"elderName"]]) {
+                if ([dic[@"status"] integerValue] == 1 || [dic[@"status"] integerValue] == 2 || [dic[@"status"] integerValue] == 4) {
+                    count ++;
+                }
+            }
+            
+        }
+        self.alarmDetail.text = [NSString stringWithFormat:@"警报：%ld条老人使用添加手表报警",count];
         
     }
     [KRUserInfo sharedKRUserInfo].elderId = curretOlder[@"elderId"];
@@ -102,11 +112,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (void)getAlarm {
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(0),@"size":@30} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(0),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
         BOOL has = false;
+        _alramList = [showdata copy];
         for (NSDictionary *dic in showdata[@"emergencyList"]) {
             if ([dic[@"status"] integerValue] == 1 || [dic[@"status"] integerValue] == 2 || [dic[@"status"] integerValue] == 4) {
                 has = YES;
@@ -337,7 +348,14 @@
         self.hartRateBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
     }
     //if (!self.locationBtn.hidden) {
-        NSString *image = [self.curretOlder[@"devPhone"] length] > 0 ? @"孝相伴-21" :@"孝相伴-40";
+    
+        NSString *image = @"孝相伴-40";
+    for (NSDictionary *dic in self.curretOlder[@"deviceList"]) {
+        if ([dic[@"deviceType"] integerValue] == 1) {
+            image = @"孝相伴-21";
+        }
+    }
+    
     //}
         [self.locationBtn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
        // self.locationBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
