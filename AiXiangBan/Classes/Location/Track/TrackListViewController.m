@@ -54,7 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     UIButton *sender = [self.titleView viewWithTag:self.currentDay];
     NSDate *lastDay = [NSDate dateWithTimeInterval:-24*60*60 * (self.currentDay - 100) sinceDate:[NSDate date]];//前一天
-    //NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 sinceDate:date];//后一天
+    NSDate *nextDay = [NSDate dateWithTimeInterval:-24*60*60 * (self.currentDay - 101) sinceDate:[NSDate date]];//后一天
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
     dateFormater.dateFormat = @"yyyy/MM/dd EEEE";
     NSString *dateStr = [dateFormater stringFromDate:lastDay];
@@ -73,7 +73,7 @@
         [sender setSelected:YES];
         [self.allPoint removeAllObjects];
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
-        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:lastDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:nextDay];
         [weakSelf loadD];
     }];
 }
