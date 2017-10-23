@@ -51,7 +51,8 @@
         param[@"deviceName"] = @"手表";
         param[@"deviceType"] = @"1";
         param[@"mobile"] = self.phoneNumTextFeild.text;
-        
+        param[@"validateCode"] = @"";
+        param[@"devicePassword"] = @"";
         param[@"elderId"] = [KRUserInfo sharedKRUserInfo].elderId;
         __weak typeof(self) weakSelf = self;
         [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/device/addDevice.do" params:param withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {

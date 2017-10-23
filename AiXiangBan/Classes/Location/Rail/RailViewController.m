@@ -101,11 +101,11 @@
         self.anno.image = [self returnSmallImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[KRUserInfo sharedKRUserInfo].imageUrl]]] andSize:CGSizeMake(50, 50)];
         self.anno1 = [[TRAnnotation alloc]init];
         self.anno1.image = [UIImage imageNamed:@"loc"];
-        self.anno1.coordinate = CLLocationCoordinate2DMake( [showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
+        self.anno1.coordinate = CLLocationCoordinate2DMake([showdata[@"fenceLatitude"] doubleValue],[showdata[@"fenceLongitude"] doubleValue]);
         [self.mapView addAnnotation:self.anno1];
         [self.mapView addAnnotation:self.anno];
         [self.mapView addOverlay:self.circle];
-        [self.mapView setCenterCoordinate:self.railCenter animated:YES];
+        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([showdata[@"latitude"] doubleValue], [showdata[@"longitude"] doubleValue]) animated:YES];
         
         
         CLLocation *locations = [[CLLocation alloc] initWithLatitude:self.railCenter.latitude longitude:self.railCenter.longitude];
