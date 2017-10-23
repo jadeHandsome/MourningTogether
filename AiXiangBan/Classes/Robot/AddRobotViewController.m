@@ -10,9 +10,11 @@
 #import "RobotView.h"
 #import "SocketTool.h"
 #import "AddbyViewController.h"
+#import <ifaddrs.h>
+#import <arpa/inet.h>
 @interface AddRobotViewController ()<TcpManagerDelegate>
 @property (nonatomic, strong) UIScrollView *mainScroll;
-@property (nonatomic, strong) NSArray *allRobot;//附近的所有机器人
+@property (nonatomic, strong) NSMutableArray *allRobot;//附近的所有机器人
 @property (nonatomic, strong) SocketTool *sockManager;
 @end
 
@@ -23,8 +25,14 @@
     }
     return _sockManager;
 }
+- (NSMutableArray *)allRobot {
+    if (!_allRobot) {
+        _allRobot = [NSMutableArray array];
+    }
+    return _allRobot;
+}
 - (void)viewWillAppear:(BOOL)animated {
-    [_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
+    //[_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,6 +58,9 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)setUP {
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
     if (self.allRobot.count == 0) {
         UILabel *nullLabel = [[UILabel alloc]init];
         [self.view addSubview:nullLabel];
@@ -83,6 +94,10 @@
         [infoView setUpWithDic:self.allRobot[i] withClickHandle:^(id responseObject) {
             NSLog(@"%@",responseObject);
             //附近的搜索过后添加
+            AddbyViewController *addBy = [[AddbyViewController alloc]init];
+            addBy.deviceType = 3;
+            addBy.deviceSerialNo = responseObject[@"deviceId"];
+            [self.navigationController pushViewController:addBy animated:YES];
         }];
         [centerView addSubview:infoView];
         [infoView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,17 +131,85 @@
     
 }
 - (void)searchClick {
-    NSString *longConnect = @"groupcode=xxs&version=01&type=01&cmdid=01000001&transationid=00000001&sn=SM123456789123456789&reserved=0000&length=0100";
-    NSData   *data  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];
     
-    [self.sockManager.asyncsocket writeData:data withTimeout:3 tag:1];
-    
-    [self.sockManager.asyncsocket readDataWithTimeout:30 tag:2];
+    [self searchRobot];
+}
+- (void)searchRobot {
+    NSLog(@"%@",[self getIpAddresses]);
+    if (![[self getIpAddresses] isEqualToString:@"error"]) {
+        NSString *str = [self getIpAddresses];
+        NSArray *array = [str componentsSeparatedByString:@"."];
+        for (int i = 0; i < 10; i ++) {
+            for (int j = 1 ;j < 256;j ++) {
+                NSMutableString *mut = [[NSMutableString alloc]init];
+                for (int k = 0; k < array.count; k ++) {
+                    [mut appendString:array[k]];
+                    if (k < array.count - 1) {
+                        [mut appendString:@"."];
+                    }
+                }
+                NSString *host = [NSString stringWithFormat:@"%@.%d",mut,j];
+                [self.sockManager.asyncsocket connectToHost:host onPort:9346 error:nil];
+            }
+        }
+    }
+}
+//获取ip地址
+- (NSString *)getIpAddresses{
+    NSString *address = @"error";
+    struct ifaddrs *interfaces = NULL;
+    struct ifaddrs *temp_addr = NULL;
+    int success = 0;
+    // retrieve the current interfaces - returns 0 on success
+    success = getifaddrs(&interfaces);
+    if (success == 0)
+    {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while(temp_addr != NULL)
+        {
+            if(temp_addr->ifa_addr->sa_family == AF_INET)
+            {
+                // Check if interface is en0 which is the wifi connection on the iPhone
+                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"])
+                {
+                    // Get NSString from C String
+                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
+                }
+            }
+            temp_addr = temp_addr->ifa_next;
+        }
+    }
+    // Free memory
+    freeifaddrs(interfaces);
+    return address;
 }
 #pragma -- TcpManagerDelegate
 //获取到数据
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-    NSLog(@"获取完成");
+    if (tag == 2) {
+        NSLog(@"获取完成");
+        NSString *recevied = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",recevied);
+        NSArray *array = [recevied componentsSeparatedByString:@"&"];
+        NSMutableDictionary *mutdic = [NSMutableDictionary dictionary];
+        for (NSString *str in array) {
+            
+            if ([str containsString:@"Robotid"]) {
+                NSArray *idArray = [str componentsSeparatedByString:@"="];
+                mutdic[@"deviceId"] = idArray[1];
+            }
+            if ([str containsString:@"Robotname"]) {
+                NSArray *nameArray = [str componentsSeparatedByString:@"="];
+                mutdic[@"name"] = nameArray[1];
+            }
+        }
+        if (mutdic.count > 0) {
+            [self.allRobot addObject:mutdic];
+            [self setUP];
+        }
+    }
+    
 }
 //写入数据
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
@@ -135,11 +218,19 @@
 //链接成功
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
     NSLog(@"链接成功了");
+    [self sendSearch];
 }
 //断开链接
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     NSLog(@"断开链接了");
 }
-
+- (void)sendSearch {
+    NSString *longConnect = @"cmdid=03000001\n";
+    NSData   *data  = [longConnect dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [self.sockManager.asyncsocket writeData:data withTimeout:3 tag:1];
+    
+    [self.sockManager.asyncsocket readDataWithTimeout:30 tag:2];
+}
 @end
