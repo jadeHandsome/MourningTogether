@@ -28,12 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
-    //self.navigationItem.title = @"紧急报警";
+    self.navigationItem.title = @"紧急报警";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
     
     [self loadData];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%@",[NSValue valueWithCGPoint:scrollView.contentOffset]);
     if (scrollView.contentOffset.y > 20) {
         [UIView animateWithDuration:0.5 animations:^{
             [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
@@ -92,7 +93,7 @@
     
 }
 - (void)viewDidLayoutSubviews {
-    self.mainScroll.contentOffset = CGPointMake(-0, 0);
+   
 }
 - (void)viewWillAppear:(BOOL)animated {
     [self setUp];
@@ -104,11 +105,22 @@
     [self.navigationController.navigationBar setShadowImage:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.mainScroll.contentOffset = CGPointMake(0, -navHight);
+}
 - (void)setUp {
     for (UIView *sub in self.view.subviews) {
         [sub removeFromSuperview];
     }
     self.mainScroll = [[UIScrollView alloc]init];
+//    if (@available(iOS 11.0, *)) {
+//        _mainScroll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    } else {
+//        // Fallback on earlier versions
+//    }
+    //self.automaticallyAdjustsScrollViewInsets = YES;
+    self.mainScroll.translatesAutoresizingMaskIntoConstraints = NO;
     self.mainScroll.delegate = self;
     [self.view addSubview:self.mainScroll];
     [self.mainScroll mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -207,6 +219,7 @@
                 break;
             case 103:
             {
+                //[weakSelf alarmFinish:4];
                 [weakSelf goCall];
             }
                 break;
@@ -267,11 +280,14 @@
         if (showdata == nil) {
             return ;
         }
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        if (type != 4) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
     }];
 }
 - (void)goCall {
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/dealEmergency.do" params:@{@"emergencyId":self.alarmId,@"deal":@(3)} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/dealEmergency.do" params:@{@"emergencyId":self.alarmId,@"deal":@(4)} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
@@ -304,14 +320,6 @@
     }
     return nil;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

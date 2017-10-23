@@ -338,10 +338,10 @@
                     [self.mediaPlayer play];
                 } else if ([str containsString:@"0000"]) {
                     //正常
-                    
                     self.directionView.hidden = NO;
                     self.railView.hidden = NO;
-                    [self performSelector:@selector(openMedil) withObject:nil afterDelay:2];
+                    [self beginLive];
+                    //[self performSelector:@selector(openMedil) withObject:nil afterDelay:2];
                     
                 }
             }

@@ -45,7 +45,7 @@
     [self setUpMap];
     NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 sinceDate:[NSDate date]];//后一天
     self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
-    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:nextDay];
+    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd235959" withDate:[NSDate date]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-78"] style:UIBarButtonItemStyleDone target:self action:@selector(showTab)];
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self loadData];
@@ -224,7 +224,7 @@
         [self.allPoint removeAllObjects];
         count = 0;
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
-        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:nextDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd235959" withDate:lastDay];
         [self.mapView removeAnnotations:self.mapView.annotations];
         [weakSelf loadData];
     }];
@@ -261,9 +261,10 @@
     return nil;
 }
 - (UIImage *)addNumImages:(UIImage *)oldImageView andText:(NSString *)text{
-    UIGraphicsBeginImageContext(CGSizeMake(25, 30));
-    [oldImageView drawInRect:CGRectMake(0, 0, 25, 30)];
-    CGRect rect = CGRectMake(0, 0, 25, 30);
+    //UIGraphicsBeginImageContext(CGSizeMake(25, 30));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(30, 30), NO, [UIScreen mainScreen].scale);
+    [oldImageView drawInRect:CGRectMake(0, 0, 30, 30)];
+    CGRect rect = CGRectMake(0, 0, 30, 30);
     
     UILabel *textLabel = [[UILabel alloc] init];
     textLabel.font = [UIFont systemFontOfSize:13];
@@ -274,7 +275,7 @@
     CGSize maximumLabelSize = CGSizeMake(100, 9999);//labelsize的最大值
     CGSize expectSize = [textLabel sizeThatFits:maximumLabelSize];
     //关键语句
-    rect.origin.x = 12.5 - (expectSize.width * 0.5);
+    rect.origin.x = 15 - (expectSize.width * 0.5);
     rect.origin.y = 15 - (expectSize.height * 0.5) - 3;
     [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
