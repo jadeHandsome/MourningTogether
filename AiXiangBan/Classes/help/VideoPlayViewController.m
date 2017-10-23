@@ -42,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"养生视频";
     [self setUp];
     self.nowCount = 0;
     [self.indicator startAnimating];

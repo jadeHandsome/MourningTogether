@@ -26,9 +26,9 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>需要您同意才能播放视频</string>
 	<key>NSCameraUsageDescription</key>
 	<string>需要获取您的相机权限</string>
 	<key>NSContactsUsageDescription</key>
