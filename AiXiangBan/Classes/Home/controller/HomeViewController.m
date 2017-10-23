@@ -158,7 +158,10 @@
 - (void)viewDidAppear:(BOOL)animated{
     //
     [super viewDidAppear:YES];
-    [self configCollectionView];
+    if (!self.collectionView) {
+        [self configCollectionView];
+    }
+    
     
 }
 

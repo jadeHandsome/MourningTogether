@@ -45,7 +45,7 @@
     [self setUpMap];
     NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 sinceDate:[NSDate date]];//后一天
     self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:[NSDate date]];
-    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:nextDay];
+    self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd235959" withDate:[NSDate date]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"云医时代-78"] style:UIBarButtonItemStyleDone target:self action:@selector(showTab)];
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self loadData];
@@ -224,7 +224,7 @@
         [self.allPoint removeAllObjects];
         count = 0;
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
-        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:nextDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd235959" withDate:lastDay];
         [self.mapView removeAnnotations:self.mapView.annotations];
         [weakSelf loadData];
     }];

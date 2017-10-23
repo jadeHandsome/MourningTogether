@@ -73,7 +73,7 @@
         [sender setSelected:YES];
         [self.allPoint removeAllObjects];
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
-        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:nextDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd235959" withDate:lastDay];
         [weakSelf loadD];
     }];
 }
@@ -198,7 +198,7 @@
     }
     NSDate * date = [NSDate date];//当前时间
     NSDate *lastDay = [NSDate dateWithTimeInterval:-24*60*60 * (sender.tag - 100) sinceDate:date];//前一天
-    //NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 sinceDate:date];//后一天
+    NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 * (sender.tag - 101) sinceDate:date];//后一天
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
     dateFormater.dateFormat = @"yyyy/MM/dd EEEE";
     NSString *dateStr = [dateFormater stringFromDate:lastDay];
@@ -216,7 +216,7 @@
         [sender setSelected:YES];
         [self.allPoint removeAllObjects];
         self.param[@"beginTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd000000" withDate:lastDay];
-        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMddHHmmss" withDate:lastDay];
+        self.param[@"endTime"] = [KRBaseTool timeStringFromFormat:@"yyyyMMdd235959" withDate:lastDay];
         [weakSelf loadD];
     }];
     
