@@ -97,7 +97,7 @@
     self.title = @"";
     [self adjustFrame];
     [self getAlarm];
-    [self configCollectionView];
+    
     LRViewBorderRadius(self.myHeadImage, 12.5, 0, [UIColor clearColor]);
     // Do any additional setup after loading the view from its nib.
 }
@@ -146,6 +146,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     //
     [super viewDidAppear:YES];
+    [self configCollectionView];
     
 }
 
