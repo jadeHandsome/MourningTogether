@@ -23,6 +23,11 @@
     
     NSString *status = @"";
     switch ([dic[@"status"] integerValue]) {
+        case 0:
+        {
+            status = @"没有老人";
+        }
+            break;
         case 1:
         {
             status = @"未处理";
@@ -30,22 +35,28 @@
             break;
         case 2:
         {
-            status = @"处理中";
+            status = @"自动扩散通知";
         }
             break;
+            
         case 3:
         {
-            status = @"扩散通知";
+            status = @"处理中";
         }
             break;
         case 4:
         {
-            status = @"解除";
+            status = @"扩散通知";
         }
             break;
         case 5:
         {
             status = @"拨打电话";
+        }
+            break;
+        case 6:
+        {
+            status = @"解除";
         }
             break;
             

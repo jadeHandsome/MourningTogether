@@ -64,7 +64,6 @@
 		11C9D3F91F85159D005B3577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D3F81F85159D005B3577 /* main.m */; };
 		11C9D4031F85159D005B3577 /* AiXiangBanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4021F85159D005B3577 /* AiXiangBanTests.m */; };
 		11C9D40E1F85159D005B3577 /* AiXiangBanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D40D1F85159D005B3577 /* AiXiangBanUITests.m */; };
-		11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4211F851E24005B3577 /* NetWorkManager.m */; };
 		11C9D4341F8525CA005B3577 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D4331F8525CA005B3577 /* BaseViewController.m */; };
 		11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C9D44D1F852E1F005B3577 /* HomeViewController.m */; };
 		11C9D4501F852E1F005B3577 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C9D44E1F852E1F005B3577 /* HomeViewController.xib */; };
@@ -320,8 +319,6 @@
 		11C9D4091F85159D005B3577 /* AiXiangBanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiXiangBanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C9D40D1F85159D005B3577 /* AiXiangBanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AiXiangBanUITests.m; sourceTree = "<group>"; };
 		11C9D40F1F85159D005B3577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11C9D4201F851E24005B3577 /* NetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
-		11C9D4211F851E24005B3577 /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
 		11C9D4231F851F5A005B3577 /* AXB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AXB.pch; sourceTree = "<group>"; };
 		11C9D4241F85232D005B3577 /* Url.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Url.h; sourceTree = "<group>"; };
 		11C9D4321F8525CA005B3577 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -893,15 +890,15 @@
 		11C9D41E1F851D98005B3577 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A84D41F878F0F0003B9E1 /* 分类 */,
+				1A9A84FF1F88AD920003B9E1 /* 公用Views */,
+				1A9A85001F88B58A0003B9E1 /* TYPagerController */,
 				1A24A92C1F93ACDA0069E3B8 /* YHArcSlider.h */,
 				1A24A92D1F93ACDA0069E3B8 /* YHArcSlider.m */,
 				1A24A9281F939F090069E3B8 /* YHMath.h */,
 				1A24A9291F939F090069E3B8 /* YHMath.m */,
 				1A676A181F8BAF30001BD32A /* ImageCenterButton.h */,
 				1A676A191F8BAF30001BD32A /* ImageCenterButton.m */,
-				1A9A85001F88B58A0003B9E1 /* TYPagerController */,
-				1A9A84FF1F88AD920003B9E1 /* 公用Views */,
-				1A9A84D41F878F0F0003B9E1 /* 分类 */,
 				1A9A84CF1F878E4F0003B9E1 /* KRMainNetTool.h */,
 				1A9A84CD1F878E4F0003B9E1 /* KRMainNetTool.m */,
 				1A9A84CE1F878E4F0003B9E1 /* KRUserInfo.h */,
@@ -910,22 +907,12 @@
 				1A9A84CB1F878E390003B9E1 /* KRBaseTool.h */,
 				1A9A84C91F878E380003B9E1 /* KRBaseTool.m */,
 				1A9A84CA1F878E380003B9E1 /* LRMacroDefinitionHeader.h */,
-				11C9D41F1F851DE7005B3577 /* NetWorkManager */,
 				1A0B54211F91FAC3009A1B12 /* SocketTool.h */,
 				1A0B54221F91FAC3009A1B12 /* SocketTool.m */,
 				1A12839D1F98541500200A3D /* NSString+LocaString.h */,
 				1A12839E1F98541500200A3D /* NSString+LocaString.m */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		11C9D41F1F851DE7005B3577 /* NetWorkManager */ = {
-			isa = PBXGroup;
-			children = (
-				11C9D4201F851E24005B3577 /* NetWorkManager.h */,
-				11C9D4211F851E24005B3577 /* NetWorkManager.m */,
-			);
-			path = NetWorkManager;
 			sourceTree = "<group>";
 		};
 		11C9D4251F8523AA005B3577 /* BaseViewController */ = {
@@ -1846,7 +1833,6 @@
 				11E09F691F88D1B5004A2BCC /* MyViewController.m in Sources */,
 				1A9A84E41F87D8EA0003B9E1 /* MineViewController.m in Sources */,
 				1ABB66FC1F93B370004A217A /* AddRobotViewController.m in Sources */,
-				11C9D4221F851E24005B3577 /* NetWorkManager.m in Sources */,
 				1A676A141F8BA733001BD32A /* AddTendView.m in Sources */,
 				11C874F51F96560500D43B17 /* VideoViewController.m in Sources */,
 				1A1283961F983D6200200A3D /* AlarmDetailViewController.m in Sources */,

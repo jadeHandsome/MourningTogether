@@ -97,6 +97,7 @@
         [alarm setUpWith:self.allAlarm[i]];
         temp = alarm;
     }
+    self.mainScroll.contentOffset = CGPointMake(0,-navHight);
     
 }
 

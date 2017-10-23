@@ -88,6 +88,7 @@
     }
     [KRUserInfo sharedKRUserInfo].elderId = curretOlder[@"elderId"];
     if (curretOlder[@"deviceList"]) {
+        [KRUserInfo sharedKRUserInfo].deviceId = nil;
         for (NSDictionary *dic in curretOlder[@"deviceList"]) {
             if ([dic[@"deviceType"] integerValue] == 1) {
                 [KRUserInfo sharedKRUserInfo].deviceId = dic[@"deviceSn"];
