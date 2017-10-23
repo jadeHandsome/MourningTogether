@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSDictionary *myData;
 @property (nonatomic, strong) UIView *centerView;
 @property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UILabel *nameLabel;
 @end
 
 @implementation AlarmDetailViewController
@@ -29,13 +30,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
     self.navigationItem.title = @"紧急报警";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
     
-    [self loadData];
+    
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSLog(@"%@",[NSValue valueWithCGPoint:scrollView.contentOffset]);
-    if (scrollView.contentOffset.y > 20) {
+    if (scrollView.contentOffset.y > -40) {
         [UIView animateWithDuration:0.5 animations:^{
             [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
             [self.navigationController.navigationBar setShadowImage:nil];
@@ -78,6 +80,7 @@
             }];
             temp = detail;
         }
+        self.nameLabel.text = self.myData[@"name"];
         CGFloat f = [self.myData[@"list"] count] * 80;
         if (f == 0) {
             f = 160;
@@ -97,6 +100,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [self setUp];
+    [self loadData];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
@@ -150,6 +154,7 @@
         make.height.equalTo(@400);
     }];
     LRViewBorderRadius(centerView, 5, 0, [UIColor clearColor]);
+    
     NSArray *array = @[[UIImage imageNamed:@"图层1"],[UIImage imageNamed:@"图层2"],[UIImage imageNamed:@"图层3"]];
     UIImageView *headImage = [[UIImageView alloc]init];
     headImage.contentMode = UIViewContentModeCenter;
@@ -176,6 +181,16 @@
         make.width.equalTo(@90);
     }];
     LRViewBorderRadius(headImageView, 45, 0, [UIColor clearColor]);
+    UILabel *nameLabel = [[UILabel alloc]init];
+    _nameLabel = nameLabel;
+    nameLabel.textColor = [UIColor blackColor];
+    [centerView addSubview:nameLabel];
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(centerView.mas_top).with.offset(205);
+        make.left.equalTo(centerView.mas_left);
+        make.right.equalTo(centerView.mas_right);
+    }];
+    nameLabel.textAlignment = NSTextAlignmentCenter;
     UIView *line = [[UIView alloc]init];
     [centerView addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {

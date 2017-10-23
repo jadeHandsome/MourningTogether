@@ -29,6 +29,9 @@
     [super viewDidLoad];
     self.navigationItem.title = @"警报";
     self.view.backgroundColor = LRRGBAColor(242, 242, 242, 1);
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
     [self loadD];
 }
 - (void)loadData {

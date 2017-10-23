@@ -82,7 +82,7 @@
     }];
 }
 - (BOOL)check {
-    if (self.devieceSnTextField.text.length != 10) {
+    if (self.devieceSnTextField.text.length != 11) {
         [MBProgressHUD showError:@"请输入正确序列号" toView:self.view];
         return NO;
     }

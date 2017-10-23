@@ -39,7 +39,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"轨迹";
+    self.navigationItem.title = @"足迹";
     count = 0;
     [self setUp];
     [self setUpMap];
