@@ -32,7 +32,7 @@
     [self loadD];
 }
 - (void)loadData {
-    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(count),@"size":@30} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
+    [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"mgr/emergency/getEmergencyList.do" params:@{@"offset":@(count),@"size":@10} withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata == nil) {
             return ;
         }
@@ -54,8 +54,8 @@
         [sub removeFromSuperview];
     }
     self.mainScroll = [[UIScrollView alloc]init];
-    [KRBaseTool tableViewAddRefreshFooter:self.mainScroll withTarget:self refreshingAction:@selector(loadD)];
-    [KRBaseTool tableViewAddRefreshHeader:self.mainScroll withTarget:self refreshingAction:@selector(loadMore)];
+    //[KRBaseTool tableViewAddRefreshFooter:self.mainScroll withTarget:self refreshingAction:@selector(loadD)];
+    //[KRBaseTool tableViewAddRefreshHeader:self.mainScroll withTarget:self refreshingAction:@selector(loadMore)];
     [self.view addSubview:self.mainScroll];
     [self.mainScroll mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).with.offset(navHight);

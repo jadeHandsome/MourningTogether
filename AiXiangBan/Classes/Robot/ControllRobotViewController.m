@@ -57,6 +57,9 @@
     [self closeLive];
 }
 
+- (void)dealloc {
+    NSLog(@"界面销毁");
+}
 - (void)setProgressViewData {
     self.progressView = [[UIView alloc]init];
     self.progressView.backgroundColor = [UIColor grayColor];
@@ -123,41 +126,42 @@
     self.controllView = cont;
     self.directionView = cont;
     [self.view addSubview:cont];
+    __weak typeof(self) weakSelf = self;
     cont.block = ^(NSInteger tag) {
         switch (tag) {
             case 1:
             {
                 //向前
                 NSLog(@"向前");
-                [self goAhead];
+                [weakSelf goAhead];
             }
                 break;
             case 2:
             {
                 //向后
                 NSLog(@"向后");
-                [self goBack];
+                [weakSelf goBack];
             }
                 break;
             case 3:
             {
                 //向左
                 NSLog(@"向左");
-                [self goLeft];
+                [weakSelf goLeft];
             }
                 break;
             case 4:
             {
                 //向右
                 NSLog(@"向右");
-                [self goRight];
+                [weakSelf goRight];
             }
                 break;
             case 5:
             {
                 //暂停
                 NSLog(@"暂停");
-                [self stopMove];
+                [weakSelf stopMove];
             }
                 break;
                 
@@ -179,13 +183,13 @@
     rail.block = ^(CGFloat f) {
       //改变角度
         if (f < 0) {
-            [self headMoveLeft];
+            [weakSelf headMoveLeft];
         } else {
-            [self headMoveRight];
+            [weakSelf headMoveRight];
         }
     };
     [rail mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.right.equalTo(weakSelf.view.mas_right).with.offset(-10);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
         make.width.equalTo(@195);
         make.height.equalTo(@137.5);
@@ -261,6 +265,12 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [self.mediaPlayer stop];
+    [self.mediaPlayer destroy];
+    for (UIView *sub in self.view.subviews) {
+        [sub removeFromSuperview];
+    }
+    
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -331,7 +341,8 @@
                     
                     self.directionView.hidden = NO;
                     self.railView.hidden = NO;
-                    [self beginLive];
+                    [self performSelector:@selector(openMedil) withObject:nil afterDelay:2];
+                    
                 }
             }
         }
@@ -411,7 +422,9 @@
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err {
     NSLog(@"断开链接了");
+    
     [self.socket connectToHost:@"47.92.87.19" onPort:9346 error:nil];
+    [self logIn];
 }
 //登录
 - (void)logIn {
