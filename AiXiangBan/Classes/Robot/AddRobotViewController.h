@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface AddRobotViewController : BaseViewController
-
+@property (nonatomic, strong) NSArray *oldRobot;
 @end

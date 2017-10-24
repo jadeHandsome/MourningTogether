@@ -57,7 +57,13 @@
 }
 
 - (void)requestData{
-    NSDictionary *params = @{@"elderId":SharedUserInfo.elderId};
+    NSDictionary *params = nil;
+    if (self.elderId) {
+        params = @{@"elderId":self.elderId};
+    } else {
+        params = @{@"elderId":SharedUserInfo.elderId};
+    }
+    //NSDictionary *params = @{@"elderId":SharedUserInfo.elderId};
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/emergency/getEmergencyContactList.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if ([showdata[@"contactList"] count]) {
             for (NSDictionary *dic in showdata[@"contactList"]) {

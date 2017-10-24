@@ -16,12 +16,13 @@
 @property (nonatomic, strong) UIScrollView *mainScroll;
 @property (nonatomic, strong) NSMutableArray *allRobot;//附近的所有机器人
 @property (nonatomic, strong) SocketTool *sockManager;
+@property (nonatomic, strong) GCDAsyncSocket *socket;
 @end
 
 @implementation AddRobotViewController
 - (SocketTool *)sockManager {
     if (!_sockManager) {
-        
+        _sockManager = [SocketTool Share];
     }
     return _sockManager;
 }
@@ -36,15 +37,19 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.socket = [[GCDAsyncSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    if (![self.socket connectToHost:@"192.168.6.80" onPort:9346 error:nil]) {
+        NSLog(@"连接失败");
+    }
     _sockManager = [SocketTool Share];
     self.navigationItem.title = @"添加机器人";
     _sockManager.delegate = self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"手动添加" style:UIBarButtonItemStyleDone target:self action:@selector(add)];
-    if (![_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil]) {
-        
-        NSLog(@"fail to connect");
-        
-    }
+//    if (![_sockManager.asyncsocket connectToHost:@"47.92.87.19" onPort:9346 error:nil]) {
+//        
+//        NSLog(@"fail to connect");
+//        
+//    }
     [self setUP];
 }
 - (void)add {
@@ -94,6 +99,16 @@
         [infoView setUpWithDic:self.allRobot[i] withClickHandle:^(id responseObject) {
             NSLog(@"%@",responseObject);
             //附近的搜索过后添加
+            BOOL has = false;
+            for (NSDictionary *robot in weakSelf.oldRobot) {
+                if ([robot[@"deviceSerialNo"] isEqualToString:responseObject[@"deviceId"]]) {
+                    has = YES;
+                }
+            }
+            if (has) {
+                [MBProgressHUD showError:@"已绑定" toView:self.view.window];
+                return ;
+            }
             AddbyViewController *addBy = [[AddbyViewController alloc]init];
             addBy.deviceType = 3;
             addBy.deviceSerialNo = responseObject[@"deviceId"];
@@ -136,23 +151,31 @@
 }
 - (void)searchRobot {
     NSLog(@"%@",[self getIpAddresses]);
-    if (![[self getIpAddresses] isEqualToString:@"error"]) {
-        NSString *str = [self getIpAddresses];
-        NSArray *array = [str componentsSeparatedByString:@"."];
-        for (int i = 0; i < 10; i ++) {
-            for (int j = 1 ;j < 256;j ++) {
-                NSMutableString *mut = [[NSMutableString alloc]init];
-                for (int k = 0; k < array.count; k ++) {
-                    [mut appendString:array[k]];
-                    if (k < array.count - 1) {
-                        [mut appendString:@"."];
-                    }
-                }
-                NSString *host = [NSString stringWithFormat:@"%@.%d",mut,j];
-                [self.sockManager.asyncsocket connectToHost:host onPort:9346 error:nil];
-            }
-        }
-    }
+//    if (![self.socket connectToHost:@"192.168.6.80" onPort:9346 error:nil]) {
+//        NSLog(@"连接失败");
+//    }
+    [self.socket connectToHost:@"192.168.6.80" onPort:9346 error:nil];
+    [self sendSearch];
+    
+//    if (![[self getIpAddresses] isEqualToString:@"error"]) {
+//        NSString *str = [self getIpAddresses];
+//        NSArray *array = [str componentsSeparatedByString:@"."];
+//        for (int i = 0; i < 10; i ++) {
+//            for (int j = 1 ;j < 256;j ++) {
+//                NSMutableString *mut = [[NSMutableString alloc]init];
+//                for (int k = 0; k < array.count-1; k ++) {
+//                    [mut appendString:array[k]];
+//                    if (k < array.count - 2) {
+//                        [mut appendString:@"."];
+//                    }
+//                }
+//                NSString *host = [NSString stringWithFormat:@"%@.%d",mut,j];
+//                if (![self.socket connectToHost:host onPort:9346 error:nil]) {
+//                    NSLog(@"连接失败");
+//                }
+//            }
+//        }
+//    }
 }
 //获取ip地址
 - (NSString *)getIpAddresses{
@@ -204,6 +227,8 @@
                 mutdic[@"name"] = nameArray[1];
             }
         }
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"找到设备了" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
         if (mutdic.count > 0) {
             [self.allRobot addObject:mutdic];
             [self setUP];

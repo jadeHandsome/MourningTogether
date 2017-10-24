@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface AskHelpViewController : BaseViewController
-
+@property (nonatomic, strong) NSString *elderId;
 @end

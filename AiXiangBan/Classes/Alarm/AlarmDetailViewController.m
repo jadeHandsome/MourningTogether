@@ -307,6 +307,7 @@
             return ;
         }
         AskHelpViewController *ask = [[AskHelpViewController alloc]init];
+        ask.elderId = self.myData[@"elderId"];
         [self.navigationController pushViewController:ask animated:YES];
     }];
     
