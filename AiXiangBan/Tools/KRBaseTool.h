@@ -102,4 +102,8 @@ typedef void (^responseObjectBlock)(id responseObject);
 + (void)setDevice;
 + (NSString *)timeWithTimeIntervalString:(NSString *)timeString;
 + (NSString *)timeWithTimeIntervalString:(NSString *)timeString andFormate:(NSString *)format;
+//返回索引的block
+typedef void (^touchIndex)(int index);
+#pragma mark——————————————弹出提示框
++ (void)showAlert:(NSString *)alterTitle  with_Controller:(UIViewController *)controller with_titleArr:(NSArray *)titieArray withShowType:(UIAlertControllerStyle)preferredStyle  with_Block:(touchIndex)touchBlock;
 @end

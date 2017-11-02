@@ -140,7 +140,7 @@
         self.linkmanArr = [showdata[@"elderList"] mutableCopy];
         if (!self.curretOlder && [showdata[@"elderList"] count] > 0) {
             self.curretOlder = showdata[@"elderList"][0];
-        } 
+        }
         [self.collectionView reloadData];
         
     }];
@@ -172,7 +172,7 @@
     [flowLayout setItemSize:CGSizeMake(  SIZEWIDTH   / 4 ,  self.collectionContainer.height)];//设置cell的尺寸
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];//设置其布局方向
-
+    
     self.collectionView  = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.collectionContainer.frame.size.height) collectionViewLayout:flowLayout];
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"HomeCollectionViewCell"];
     self.collectionView.showsVerticalScrollIndicator = NO;
@@ -187,7 +187,7 @@
     if(IS_IPHONE_X){
         self.naviTop.constant = 44.0f;
     }
-    [self.headImage.layer addCircleBoardWithRadius:SIZEHEIGHT * 0.158 / 2  boardColor:[UIColor whiteColor] boardWidth:5];    
+    [self.headImage.layer addCircleBoardWithRadius:SIZEHEIGHT * 0.158 / 2  boardColor:[UIColor whiteColor] boardWidth:5];
 }
 
 #pragma mark ------------- UICollectionView -------------------
@@ -281,6 +281,10 @@
 }
 
 - (IBAction)goToLook:(UITapGestureRecognizer *)sender {
+    if (!_curretOlder) {
+        [self showHUDWithText:@"请选择老人"];
+        return;
+    }
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/mgr/device/ys/getAccessToken.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
             NSString *accessToken = showdata[@"accessToken"];
@@ -293,6 +297,10 @@
     
 }
 - (IBAction)goToCall:(UITapGestureRecognizer *)sender {
+    if (!_curretOlder) {
+        [self showHUDWithText:@"请选择老人"];
+        return;
+    }
     CallPushView *view = [[NSBundle mainBundle] loadNibNamed:@"CallPushView" owner:self options:nil].firstObject;
     view.headImage.image = self.headImage.image;
     view.nameLabel.text = self.curretOlder[@"elderName"];
@@ -322,14 +330,22 @@
     [window addSubview:view];
 }
 - (IBAction)goToHelp:(UITapGestureRecognizer *)sender {
+    if (!_curretOlder) {
+        [self showHUDWithText:@"请选择老人"];
+        return;
+    }
     HelpViewController *helpVC = [HelpViewController new];
     [self.navigationController pushViewController:helpVC animated:YES];
 }
 - (IBAction)goToLocation:(UITapGestureRecognizer *)sender {
+    if (!_curretOlder) {
+        [self showHUDWithText:@"请选择老人"];
+        return;
+    }
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
         [self showNoWatch];
-//        NoWatchViewController *nows = [[NoWatchViewController alloc]init];
-//        [self.navigationController pushViewController:nows animated:YES];
+        //        NoWatchViewController *nows = [[NoWatchViewController alloc]init];
+        //        [self.navigationController pushViewController:nows animated:YES];
         //[MBProgressHUD showError:@"暂未绑定设备" toView:self.view];
     } else {
         LocationViewController *location = [LocationViewController new];
@@ -338,10 +354,18 @@
     }
 }
 - (IBAction)goToAskHelp:(UITapGestureRecognizer *)sender {
+    if (!_curretOlder) {
+        [self showHUDWithText:@"请选择老人"];
+        return;
+    }
     AskHelpViewController *AskVC = [[AskHelpViewController alloc]init];
     [self.navigationController pushViewController:AskVC animated:YES];
 }
 - (IBAction)goToRobot:(UITapGestureRecognizer *)sender {
+    if (!_curretOlder) {
+        [self showHUDWithText:@"请选择老人"];
+        return;
+    }
     RobotViewController *robot = [RobotViewController new];
     [self.navigationController pushViewController:robot animated:YES];
 }
@@ -360,7 +384,7 @@
     }
     //if (!self.locationBtn.hidden) {
     
-        NSString *image = @"孝相伴-40";
+    NSString *image = @"孝相伴-40";
     for (NSDictionary *dic in self.curretOlder[@"deviceList"]) {
         if ([dic[@"deviceType"] integerValue] == 1) {
             image = @"孝相伴-21";
@@ -368,8 +392,8 @@
     }
     
     //}
-        [self.locationBtn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-       // self.locationBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
+    [self.locationBtn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    // self.locationBtn.hidden = [self.curretOlder[@"devPhone"] isEqualToString:@""] ? YES :NO;
     //}
 }
 - (IBAction)closeAlarm:(UIButton *)sender {
@@ -430,9 +454,9 @@
 - (IBAction)goLocation:(UIButton *)sender {
     if (!([KRUserInfo sharedKRUserInfo].deviceId.length > 0)) {
         [self showNoWatch];
-//        NoWatchViewController *no = [[NoWatchViewController alloc]init];
-//        [self.navigationController pushViewController:no animated:YES];
-//        [MBProgressHUD showError:@"请先绑定设备" toView:no.view];
+        //        NoWatchViewController *no = [[NoWatchViewController alloc]init];
+        //        [self.navigationController pushViewController:no animated:YES];
+        //        [MBProgressHUD showError:@"请先绑定设备" toView:no.view];
     } else {
         LocationViewController *location = [LocationViewController new];
         [self.navigationController pushViewController:location animated:YES];
@@ -449,7 +473,7 @@
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
-   
+    
     [alert addAction:action1];
     [alert addAction:action2];
     
@@ -468,13 +492,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
+

@@ -807,4 +807,40 @@ singleton_implementation(KRBaseTool)
     NSString* dateString = [formatter stringFromDate:date];
     return dateString;
 }
++ (void)showAlert:(NSString *)alterTitle  with_Controller:(UIViewController *)controller with_titleArr:(NSArray *)titieArray withShowType:(UIAlertControllerStyle)preferredStyle  with_Block:(touchIndex)touchBlock{
+    // 1.弹框提醒
+    // 初始化对话框
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:alterTitle preferredStyle:preferredStyle];
+    
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:cancelAction];
+    
+    //遍历添加提示框文字
+    for (int x=0; x<titieArray.count; x++) {
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:titieArray[x] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            //记录tag 点击调用的时候 返回给block
+            
+            
+            if(touchBlock!=nil)
+            {
+                touchBlock(x);
+            }
+            
+            
+        }];
+        
+        [alert addAction:action];
+        
+        
+        
+    }
+    
+    // 弹出对话框
+    [controller presentViewController:alert animated:true completion:nil];
+    
+}
 @end
