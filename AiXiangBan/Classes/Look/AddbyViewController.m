@@ -8,6 +8,7 @@
 
 #import "AddbyViewController.h"
 #import "CheakPhoneViewController.h"
+#import "AddResultViewController.h"
 @interface AddbyViewController ()
 @property (nonatomic, strong) UITextField *texifield;
 @end
@@ -47,10 +48,13 @@
     }];
     textField.text = self.deviceSerialNo;
     self.texifield = textField;
+    if (self.deviceType == 1) {
+        textField.userInteractionEnabled = NO;
+    }
     
     UIButton *button = [[UIButton alloc] init];
     button.backgroundColor = ThemeColor;
-    [button setTitle:@"提交" forState:UIControlStateNormal];
+    [button setTitle:@"下一步" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     LRViewBorderRadius(button, 10, 0, ThemeColor);
     [button addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,25 +70,42 @@
 
 - (void)submit:(UIButton *)sender{
     if (self.texifield.text) {
-        //萤石
         if (self.deviceType == 2) {
-            if(self.deviceVerifyCode != nil)
-            {
-                [self showLoadingHUDWithText:@"添加中,请稍后..."];
-                [EZOPENSDK addDevice:self.texifield.text
-                          verifyCode:self.deviceVerifyCode
-                          completion:^(NSError *error) {
-                              [self hideHUD];
-                              [self handleTheError:error];
-                          }];
-            }
-            else
-            {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入设备验证码" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-                alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
-                alertView.tag = 0xaa;
-                [alertView show];
-            }
+            [self showLoadingHUDWithText:nil];
+            [EZOPENSDK probeDeviceInfo:self.texifield.text completion:^(EZProbeDeviceInfo *deviceInfo, NSError *error) {
+                if (deviceInfo)
+                {
+                    [self hideHUD];
+                    AddResultViewController *resultVC = [[AddResultViewController alloc] init];
+                    resultVC.deviceSerialNo = self.texifield.text;
+                    resultVC.deviceVerifyCode = self.deviceVerifyCode;
+                    [self.navigationController pushViewController:resultVC animated:YES];
+                }
+                else if (error.code == EZ_HTTPS_DEVICE_ADDED_MYSELF)
+                {
+                    [self showHUDWithText:@"您已添加过此设备"];
+                }
+                else if (error.code == EZ_HTTPS_DEVICE_ONLINE_IS_ADDED ||
+                         error.code == EZ_HTTPS_DEVICE_OFFLINE_IS_ADDED)
+                {
+                    [self showHUDWithText:@"此设备已被别人添加"];
+                }
+                else if (error.code == EZ_HTTPS_DEVICE_OFFLINE_NOT_ADDED ||
+                         error.code == EZ_HTTPS_DEVICE_NOT_EXISTS)
+                {
+                    [self hideHUD];
+                    //配置wifi
+                    AddResultViewController *resultVC = [[AddResultViewController alloc] init];
+                    resultVC.deviceSerialNo = self.deviceSerialNo;
+                    resultVC.deviceVerifyCode = self.deviceVerifyCode;
+                    resultVC.needConfigWifi = YES;
+                    [self.navigationController pushViewController:resultVC animated:YES];
+                }
+                else
+                {
+                    [self showHUDWithText:@"网络异常,请重试"];
+                }
+            }];
         }
         else{
             [self addAction];
@@ -93,32 +114,10 @@
     else{
         [self showHUDWithText:@"设备号不能为空"];
     }
+
 }
 
-- (void)handleTheError:(NSError *)error
-{
-    if (!error)
-    {
-        [self addAction];
-    }
-    if (error.code == 120010) {
-        UIAlertView *retryAlertView = [[UIAlertView alloc] initWithTitle:@"验证码错误" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重试", nil];
-        retryAlertView.tag = 0xbb;
-        [retryAlertView show];
-    }
-    else if (error.code == 120017 || error.code == 120029)
-    {
-        [self showHUDWithText:@"设备已被自己添加"];
-    }
-    else if (error.code == 120022 || error.code == 120024)
-    {
-        [self showHUDWithText:@"设备已被别人添加"];
-    }
-    else if (error.code != 0)
-    {
-        [self showHUDWithText:[NSString stringWithFormat:@"添加失败%ld",error.code]];
-    }
-}
+
 
 - (void)addAction{
     NSMutableDictionary *params = @{@"deviceSerialNo":self.texifield.text,@"deviceName":self.texifield.text,@"deviceType":@(self.deviceType),@"devicePassword":@"",@"mobile":[KRUserInfo sharedKRUserInfo].mobile,@"elderId":[KRUserInfo sharedKRUserInfo].elderId,@"validateCode":@""}.mutableCopy;
@@ -136,30 +135,7 @@
     }];
 }
 
-#pragma mark - UIAlertViewDelgate Methods
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == 0xaa && buttonIndex == 1)
-    {
-        self.deviceVerifyCode = [alertView textFieldAtIndex:0].text;
-        
-        [self showLoadingHUDWithText:@"添加中,请稍后..."];
-        [EZOPENSDK addDevice:self.texifield.text
-                  verifyCode:self.deviceVerifyCode
-                  completion:^(NSError *error) {
-                      [self hideHUD];
-                      [self handleTheError:error];
-                  }];
-    }
-    else if (alertView.tag == 0xbb && buttonIndex == 1)
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请输入设备验证码" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        alertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        alertView.tag = 0xaa;
-        [alertView show];
-    }
-}
 
 
 

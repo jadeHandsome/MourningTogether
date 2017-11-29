@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,27 +19,27 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kev-OW-ezy">
-                    <rect key="frame" x="0.0" y="134" width="320" height="434"/>
+                    <rect key="frame" x="0.0" y="134" width="375" height="533"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="云医时代1-99" translatesAutoresizingMaskIntoConstraints="NO" id="xwv-Ux-XkE">
-                            <rect key="frame" x="85" y="0.0" width="150" height="150"/>
+                            <rect key="frame" x="112.5" y="0.0" width="150" height="150"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="5JK-pn-GnV"/>
                                 <constraint firstAttribute="height" constant="150" id="R6e-ru-wkX"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击添加看看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuq-Km-pVd">
-                            <rect key="frame" x="111" y="175" width="98" height="20"/>
+                            <rect key="frame" x="138.5" y="175" width="98" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2E-6F-KXg">
-                            <rect key="frame" x="10" y="220" width="300" height="45"/>
+                            <rect key="frame" x="10" y="220" width="355" height="45"/>
                             <color key="backgroundColor" red="0.10980392160000001" green="0.72549019609999998" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="D2T-nV-ihd"/>
@@ -52,6 +52,15 @@
                                 <action selector="addAction:" destination="-1" eventType="touchUpInside" id="e58-Do-JC8"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-aZ-Znt">
+                            <rect key="frame" x="10" y="285" width="355" height="62.5"/>
+                            <string key="text">1.确保手机WIFi已打开
+2.请将设备插上电源后等待大约30秒，直到设备启动完成，听到提示音之后等待120秒再进行设备配置
+3.设备和手机与无线路由器的距离尽量在两米范围以内</string>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                            <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -59,9 +68,12 @@
                         <constraint firstItem="xwv-Ux-XkE" firstAttribute="centerX" secondItem="kev-OW-ezy" secondAttribute="centerX" id="Ht4-z6-9mp"/>
                         <constraint firstAttribute="trailing" secondItem="E2E-6F-KXg" secondAttribute="trailing" constant="10" id="Mgd-dj-gZz"/>
                         <constraint firstItem="E2E-6F-KXg" firstAttribute="leading" secondItem="kev-OW-ezy" secondAttribute="leading" constant="10" id="Sc6-GN-xgZ"/>
+                        <constraint firstItem="HYi-aZ-Znt" firstAttribute="leading" secondItem="kev-OW-ezy" secondAttribute="leading" constant="10" id="TkM-Vj-WZj"/>
                         <constraint firstItem="xwv-Ux-XkE" firstAttribute="top" secondItem="kev-OW-ezy" secondAttribute="top" id="Ywj-w1-4kD"/>
                         <constraint firstItem="E2E-6F-KXg" firstAttribute="top" secondItem="zuq-Km-pVd" secondAttribute="bottom" constant="25" id="bsT-cm-aR8"/>
+                        <constraint firstAttribute="trailing" secondItem="HYi-aZ-Znt" secondAttribute="trailing" constant="10" id="gxq-7Q-Ogq"/>
                         <constraint firstItem="zuq-Km-pVd" firstAttribute="top" secondItem="xwv-Ux-XkE" secondAttribute="bottom" constant="25" id="h3e-HB-cXe"/>
+                        <constraint firstItem="HYi-aZ-Znt" firstAttribute="top" secondItem="E2E-6F-KXg" secondAttribute="bottom" constant="20" id="yty-c6-n0a"/>
                     </constraints>
                 </view>
             </subviews>

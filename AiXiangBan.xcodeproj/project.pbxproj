@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1105C16E1F989EE600A46333 /* lineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1105C16D1F989EE600A46333 /* lineView.m */; };
+		111DA94B1FCC331F00429BF2 /* AddResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA9491FCC331F00429BF2 /* AddResultViewController.m */; };
+		111DA94F1FCC3ADB00429BF2 /* WifiTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA94E1FCC3ADB00429BF2 /* WifiTipsViewController.m */; };
+		111DA9691FCCF80E00429BF2 /* RestartDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA9681FCCF80E00429BF2 /* RestartDeviceViewController.m */; };
+		111DA96C1FCCFAF800429BF2 /* WifiInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA96B1FCCFAF800429BF2 /* WifiInfoViewController.m */; };
+		111DA97D1FCDA5B500429BF2 /* WifiConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA97C1FCDA5B500429BF2 /* WifiConfigViewController.m */; };
 		11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */; };
 		11599C401F87D09B0005D9ED /* CallPushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3F1F87D09B0005D9ED /* CallPushView.m */; };
 		11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C411F87D0C10005D9ED /* CallPushView.xib */; };
@@ -232,6 +237,16 @@
 /* Begin PBXFileReference section */
 		1105C16C1F989EE600A46333 /* lineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lineView.h; sourceTree = "<group>"; };
 		1105C16D1F989EE600A46333 /* lineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lineView.m; sourceTree = "<group>"; };
+		111DA9481FCC331F00429BF2 /* AddResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddResultViewController.h; sourceTree = "<group>"; };
+		111DA9491FCC331F00429BF2 /* AddResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddResultViewController.m; sourceTree = "<group>"; };
+		111DA94D1FCC3ADB00429BF2 /* WifiTipsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WifiTipsViewController.h; sourceTree = "<group>"; };
+		111DA94E1FCC3ADB00429BF2 /* WifiTipsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiTipsViewController.m; sourceTree = "<group>"; };
+		111DA9671FCCF80E00429BF2 /* RestartDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestartDeviceViewController.h; sourceTree = "<group>"; };
+		111DA9681FCCF80E00429BF2 /* RestartDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestartDeviceViewController.m; sourceTree = "<group>"; };
+		111DA96A1FCCFAF800429BF2 /* WifiInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WifiInfoViewController.h; sourceTree = "<group>"; };
+		111DA96B1FCCFAF800429BF2 /* WifiInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiInfoViewController.m; sourceTree = "<group>"; };
+		111DA97B1FCDA5B500429BF2 /* WifiConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WifiConfigViewController.h; sourceTree = "<group>"; };
+		111DA97C1FCDA5B500429BF2 /* WifiConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiConfigViewController.m; sourceTree = "<group>"; };
 		11599C391F87CC790005D9ED /* UIView+BorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
 		11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BorderLine.m"; sourceTree = "<group>"; };
 		11599C3E1F87D09B0005D9ED /* CallPushView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallPushView.h; sourceTree = "<group>"; };
@@ -1346,6 +1361,16 @@
 				1A4E9C521F8E1AFE007D6832 /* AddByQRCodeViewController.xib */,
 				1A4E9C531F8E1AFE007D6832 /* AddbyViewController.h */,
 				1A4E9C541F8E1AFE007D6832 /* AddbyViewController.m */,
+				111DA9481FCC331F00429BF2 /* AddResultViewController.h */,
+				111DA9491FCC331F00429BF2 /* AddResultViewController.m */,
+				111DA94D1FCC3ADB00429BF2 /* WifiTipsViewController.h */,
+				111DA94E1FCC3ADB00429BF2 /* WifiTipsViewController.m */,
+				111DA96A1FCCFAF800429BF2 /* WifiInfoViewController.h */,
+				111DA96B1FCCFAF800429BF2 /* WifiInfoViewController.m */,
+				111DA97B1FCDA5B500429BF2 /* WifiConfigViewController.h */,
+				111DA97C1FCDA5B500429BF2 /* WifiConfigViewController.m */,
+				111DA9671FCCF80E00429BF2 /* RestartDeviceViewController.h */,
+				111DA9681FCCF80E00429BF2 /* RestartDeviceViewController.m */,
 				1A4E9C551F8E1AFE007D6832 /* CheakPhoneViewController.h */,
 				1A4E9C561F8E1AFE007D6832 /* CheakPhoneViewController.m */,
 				1A4E9C571F8E1AFE007D6832 /* CheakPhoneViewController.xib */,
@@ -1789,9 +1814,11 @@
 				11A0A0F81F8B24DF009AADC6 /* XLJNewFetureController.m in Sources */,
 				11E09F621F88D03E004A2BCC /* AskHelpCell.m in Sources */,
 				1A79195B1F8F3F29003917A2 /* TRAnnotation.m in Sources */,
+				111DA96C1FCCFAF800429BF2 /* WifiInfoViewController.m in Sources */,
 				1A0B54261F91FBC5009A1B12 /* ControllRobotViewController.m in Sources */,
 				1A4E9C761F8E1B11007D6832 /* LiveLookViewController.m in Sources */,
 				1AB525201F972B05003FC5E3 /* TrackListViewController.m in Sources */,
+				111DA94B1FCC331F00429BF2 /* AddResultViewController.m in Sources */,
 				11E09F611F88D033004A2BCC /* HelpViewController.m in Sources */,
 				1A79194C1F8F1716003917A2 /* LocationViewController.m in Sources */,
 				1A4E9C7A1F8E1B1E007D6832 /* HIKLoadPercentView.m in Sources */,
@@ -1815,6 +1842,7 @@
 				1A1283991F98403300200A3D /* AlarmBtnView.m in Sources */,
 				1105C16E1F989EE600A46333 /* lineView.m in Sources */,
 				1A7919571F8F3B92003917A2 /* WatchXixunViewController.m in Sources */,
+				111DA94F1FCC3ADB00429BF2 /* WifiTipsViewController.m in Sources */,
 				1A9A84D21F878E5A0003B9E1 /* KRUserInfo.m in Sources */,
 				1A676A1D1F8BB115001BD32A /* AddTendViewController.m in Sources */,
 				1A4E9C781F8E1B17007D6832 /* SetDeviceNameViewController.m in Sources */,
@@ -1871,6 +1899,7 @@
 				1A676A0D1F8B1DBE001BD32A /* TendViewController.m in Sources */,
 				1A9A85101F88B8090003B9E1 /* TYTabTitleViewCell.m in Sources */,
 				1A24E6811F95AE7A00D61952 /* ChooseDeviceView.m in Sources */,
+				111DA97D1FCDA5B500429BF2 /* WifiConfigViewController.m in Sources */,
 				1A676A171F8BA86F001BD32A /* TendOldView.m in Sources */,
 				1AA2E0C71F90533700AA185F /* KRCustomAnnotationView.m in Sources */,
 				11C9D44F1F852E1F005B3577 /* HomeViewController.m in Sources */,
@@ -1899,6 +1928,7 @@
 				1A4E9C271F8DA79A007D6832 /* HealthyTypeView.m in Sources */,
 				1A24E6841F95DF6B00D61952 /* NoWatchViewController.m in Sources */,
 				1AA2E0CB1F907ECF00AA185F /* RailViewController.m in Sources */,
+				111DA9691FCCF80E00429BF2 /* RestartDeviceViewController.m in Sources */,
 				1A676A1A1F8BAF30001BD32A /* ImageCenterButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2046,7 +2076,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -2094,7 +2124,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 96SAHL399V;
+				DEVELOPMENT_TEAM = XZN34NH8JQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
