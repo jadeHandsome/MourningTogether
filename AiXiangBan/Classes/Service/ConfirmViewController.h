@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *realPriceLabel;
-
+@property (nonatomic, strong) NSString *productId;
+@property (nonatomic, strong) NSString *payMoney;
+@property (nonatomic, strong) NSString *money;
 @end

@@ -16,14 +16,24 @@
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, assign) NSInteger ChooseNum;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *productIds;
+@property (nonatomic, strong) NSString *productId;
+@property (nonatomic, strong) NSString *payMoney;
 @end
 
 @implementation RechargeViewController
 
+- (NSArray *)productIds{
+    if (!_productIds) {
+        _productIds = @[@"040",@"073",@"148"];
+    }
+    return _productIds;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"充值";
-    self.data = @[@{@"price":@"10",@"bottomPrice":@"10"},@{@"price":@"20",@"bottomPrice":@"20"},@{@"price":@"30",@"bottomPrice":@"30"},@{@"price":@"50",@"bottomPrice":@"50"},@{@"price":@"100",@"bottomPrice":@"100"},@{@"price":@"200",@"bottomPrice":@"200"},@{@"price":@"300",@"bottomPrice":@"300"}];
+    self.data = @[@{@"price":@"25",@"bottomPrice":@"40"},@{@"price":@"50",@"bottomPrice":@"73"},@{@"price":@"100",@"bottomPrice":@"148"}];
     self.ChooseNum = self.data.count;
     [self setUp];
     
@@ -80,44 +90,44 @@
         make.right.equalTo(self.view);
         make.height.equalTo(@(height));
     }];
-    
-    UIView *inputContainer = [[UIView alloc] init];
-    inputContainer.backgroundColor = ColorRgbValue(0xf2f2f2);
-    LRViewBorderRadius(inputContainer, 7.5, 0, ColorRgbValue(0xf2f2f2));
-    [self.view addSubview:inputContainer];
-    [inputContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(collectionView.mas_bottom).with.offset(15);
-        make.left.equalTo(self.view).with.offset(10);
-        make.right.equalTo(self.view).with.offset(-10);
-        make.height.equalTo(@(45));
-    }];
-    
-    UILabel *qitaLabel = [[UILabel alloc] init];
-    qitaLabel.font = [UIFont systemFontOfSize:16];
-    qitaLabel.textColor = ColorRgbValue(0x989898);
-    qitaLabel.text = @"其它金额：";
-    [inputContainer addSubview:qitaLabel];
-    [qitaLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(inputContainer).with.offset(10);
-        make.centerY.equalTo(inputContainer.mas_centerY);
-        make.width.equalTo(@90);
-    }];
-    
-    UITextField *textField = [[UITextField alloc] init];
-    textField.textColor = ColorRgbValue(0x989898);
-    textField.font = [UIFont systemFontOfSize:16];
-    textField.placeholder = @"请输入10~500的整数";
-    textField.keyboardType = UIKeyboardTypeNumberPad;
-    textField.textAlignment = NSTextAlignmentLeft;
-    [textField addTarget:self action:@selector(textfieldChange:) forControlEvents:UIControlEventEditingChanged];
-    [inputContainer addSubview:textField];
-    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(qitaLabel.mas_right).with.offset(10);
-        make.top.equalTo(inputContainer);
-        make.right.equalTo(inputContainer);
-        make.bottom.equalTo(inputContainer);
-    }];
-    self.textField = textField;
+//
+//    UIView *inputContainer = [[UIView alloc] init];
+//    inputContainer.backgroundColor = ColorRgbValue(0xf2f2f2);
+//    LRViewBorderRadius(inputContainer, 7.5, 0, ColorRgbValue(0xf2f2f2));
+//    [self.view addSubview:inputContainer];
+//    [inputContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(collectionView.mas_bottom).with.offset(15);
+//        make.left.equalTo(self.view).with.offset(10);
+//        make.right.equalTo(self.view).with.offset(-10);
+//        make.height.equalTo(@(45));
+//    }];
+//
+//    UILabel *qitaLabel = [[UILabel alloc] init];
+//    qitaLabel.font = [UIFont systemFontOfSize:16];
+//    qitaLabel.textColor = ColorRgbValue(0x989898);
+//    qitaLabel.text = @"其它金额：";
+//    [inputContainer addSubview:qitaLabel];
+//    [qitaLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(inputContainer).with.offset(10);
+//        make.centerY.equalTo(inputContainer.mas_centerY);
+//        make.width.equalTo(@90);
+//    }];
+//
+//    UITextField *textField = [[UITextField alloc] init];
+//    textField.textColor = ColorRgbValue(0x989898);
+//    textField.font = [UIFont systemFontOfSize:16];
+//    textField.placeholder = @"请输入10~500的整数";
+//    textField.keyboardType = UIKeyboardTypeNumberPad;
+//    textField.textAlignment = NSTextAlignmentLeft;
+//    [textField addTarget:self action:@selector(textfieldChange:) forControlEvents:UIControlEventEditingChanged];
+//    [inputContainer addSubview:textField];
+//    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(qitaLabel.mas_right).with.offset(10);
+//        make.top.equalTo(inputContainer);
+//        make.right.equalTo(inputContainer);
+//        make.bottom.equalTo(inputContainer);
+//    }];
+//    self.textField = textField;
     
     UILabel *price = [[UILabel alloc] init];
     price.font = [UIFont systemFontOfSize:18];
@@ -125,7 +135,7 @@
     price.text = @"实际付款：";
     [self.view addSubview:price];
     [price mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(inputContainer.mas_bottom).with.offset(15);
+        make.top.equalTo(collectionView.mas_bottom).with.offset(15);
         make.left.equalTo(self.view).with.offset(10);
     }];
     self.priceLabel = price;
@@ -172,6 +182,8 @@
     
     self.ChooseNum = indexPath.item;
     self.priceLabel.text = [NSString stringWithFormat:@"实际付款：%@元",self.data[indexPath.item][@"bottomPrice"]];
+    self.productId = self.productIds[indexPath.item];
+    self.payMoney = self.data[indexPath.item][@"bottomPrice"];
     [self.collectionView reloadData];
 }
 
@@ -182,8 +194,15 @@
 }
 //充值
 - (void)recharge{
-    ConfirmViewController *confirm = [ConfirmViewController new];
-    [self.navigationController pushViewController:confirm animated:YES];
+    if (self.productId == nil) {
+        [self showHUDWithText:@"请选择充值金额"];
+    }
+    else{
+        ConfirmViewController *confirm = [ConfirmViewController new];
+        confirm.productId = self.productId;
+        confirm.payMoney = self.payMoney;
+        [self.navigationController pushViewController:confirm animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

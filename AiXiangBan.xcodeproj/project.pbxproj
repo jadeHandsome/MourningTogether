@@ -13,6 +13,7 @@
 		111DA9691FCCF80E00429BF2 /* RestartDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA9681FCCF80E00429BF2 /* RestartDeviceViewController.m */; };
 		111DA96C1FCCFAF800429BF2 /* WifiInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA96B1FCCFAF800429BF2 /* WifiInfoViewController.m */; };
 		111DA97D1FCDA5B500429BF2 /* WifiConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 111DA97C1FCDA5B500429BF2 /* WifiConfigViewController.m */; };
+		113F06811FFB2C74009C5C73 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113F06801FFB2C74009C5C73 /* StoreKit.framework */; };
 		11599C3B1F87CC790005D9ED /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */; };
 		11599C401F87D09B0005D9ED /* CallPushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11599C3F1F87D09B0005D9ED /* CallPushView.m */; };
 		11599C421F87D0C10005D9ED /* CallPushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11599C411F87D0C10005D9ED /* CallPushView.xib */; };
@@ -247,6 +248,7 @@
 		111DA96B1FCCFAF800429BF2 /* WifiInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiInfoViewController.m; sourceTree = "<group>"; };
 		111DA97B1FCDA5B500429BF2 /* WifiConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WifiConfigViewController.h; sourceTree = "<group>"; };
 		111DA97C1FCDA5B500429BF2 /* WifiConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiConfigViewController.m; sourceTree = "<group>"; };
+		113F06801FFB2C74009C5C73 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		11599C391F87CC790005D9ED /* UIView+BorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
 		11599C3A1F87CC790005D9ED /* UIView+BorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BorderLine.m"; sourceTree = "<group>"; };
 		11599C3E1F87D09B0005D9ED /* CallPushView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallPushView.h; sourceTree = "<group>"; };
@@ -692,6 +694,7 @@
 				11D401BA1F8E12670096F67B /* libiconv.2.4.0.tbd in Frameworks */,
 				1A7919431F8F097B003917A2 /* AMapFoundationKit.framework in Frameworks */,
 				11D401B81F8E123E0096F67B /* libssl.a in Frameworks */,
+				113F06811FFB2C74009C5C73 /* StoreKit.framework in Frameworks */,
 				11A0A0931F8A17C4009AADC6 /* libxml2.tbd in Frameworks */,
 				11A0A0911F8A17BD009AADC6 /* libsqlite3.0.tbd in Frameworks */,
 				11A0A08D1F8A17AB009AADC6 /* libz.tbd in Frameworks */,
@@ -1556,6 +1559,7 @@
 		DFC82970BC5F0D5944C90933 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				113F06801FFB2C74009C5C73 /* StoreKit.framework */,
 				1A7919481F8F09D4003917A2 /* MAMapKit.framework */,
 				1A7919461F8F09AE003917A2 /* AMapSearchKit.framework */,
 				1A7919441F8F0998003917A2 /* AMapLocationKit.framework */,
@@ -1655,6 +1659,11 @@
 					11C9D3E51F85159D005B3577 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					11C9D3FD1F85159D005B3577 = {
 						CreatedOnToolsVersion = 9.0;
@@ -2075,8 +2084,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = WMNEQXJF94;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -2113,6 +2123,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.huasky.doctoryuns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2123,8 +2134,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XZN34NH8JQ;
+				DEVELOPMENT_TEAM = WMNEQXJF94;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Pods/AMapFoundation-NO-IDFA",
@@ -2161,6 +2173,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.huasky.doctoryuns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
