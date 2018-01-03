@@ -28,10 +28,12 @@
     self.navigationItem.title = @"孝心币";
     self.view.backgroundColor = COLOR(242, 242, 242, 1);
     [self setUp];
-    [self requestData];
+    
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [self requestData];
+}
 - (void)requestData{
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/base/getAccountTradeInfo.do" params:nil withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (!showdata) {

@@ -25,7 +25,7 @@
     self.phoneLabel.text = [KRUserInfo sharedKRUserInfo].mobile;
     self.priceLabel.text = [NSString stringWithFormat:@"%@元",self.payMoney];
     self.realPriceLabel.text = [NSString stringWithFormat:@"%@元",self.payMoney];
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+//    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -33,6 +33,7 @@
 
 - (IBAction)confirm:(UIButton *)sender {
     [self showLoadingHUDWithText:@"充值中..."];
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     if ([SKPaymentQueue canMakePayments]) {
         [self requestProductData:self.productId];
     }
@@ -99,7 +100,9 @@
 - (void)completeTransaction:(SKPaymentTransaction *)transcation{
     NSLog(@"%@",transcation.payment.productIdentifier);
     NSString *result = [[NSString alloc] initWithData:transcation.transactionReceipt encoding:NSUTF8StringEncoding];
-    NSDictionary *params = @{@"memberId":SharedUserInfo.memberId,@"memberName":SharedUserInfo.memberName,@"totalFee":self.money,@"receipt":result,@"chooseEnv":@(YES)};
+    NSDictionary *params = @{@"memberId":SharedUserInfo.memberId,@"memberName":SharedUserInfo.memberName,@"totalFee":self.payMoney,@"receipt":result,@"chooseEnv":@(YES)};
+//        NSDictionary *params = @{@"memberId":@"fe432c3d8db3455e9f3b72c971204b49",@"totalFee":self.payMoney,@"receipt":result,@"chooseEnv":@(NO)};
+
     [[KRMainNetTool sharedKRMainNetTool] sendRequstWith:@"/trade/iap/setIapCertificate.do" params:params withModel:nil waitView:self.view complateHandle:^(id showdata, NSString *error) {
         if (showdata) {
             if ([showdata[@"success"] boolValue]) {

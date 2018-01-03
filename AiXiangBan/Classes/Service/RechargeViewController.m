@@ -169,7 +169,7 @@
 {
     
     RechargeCell *cell = (RechargeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"RechargeCell" forIndexPath:indexPath];
-    cell.numberLabel.text = [NSString stringWithFormat:@"%@元",self.data[indexPath.item][@"price"]];
+    cell.numberLabel.text = [NSString stringWithFormat:@"%@孝心币",self.data[indexPath.item][@"price"]];
     cell.detailLabel.text = [NSString stringWithFormat:@"售价：%@元",self.data[indexPath.item][@"bottomPrice"]];
     cell.isChoose = indexPath.item == self.ChooseNum ? YES : NO;
     return cell;
